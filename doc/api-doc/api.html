@@ -1,0 +1,2823 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" dir="ltr" lang="zh"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>dqw:shopnc:mobile_api_sp2</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="date" content="2014-09-02T14:23:18+0800">
+<meta name="keywords" content="dqw,shopnc,mobile_api_sp2">
+<link rel="stylesheet" media="screen" type="text/css" href="api_files/css.css">
+<link rel="stylesheet" media="all" type="text/css" href="api_files/css_003.css">
+<link rel="stylesheet" media="print" type="text/css" href="api_files/css_002.css">
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+var NS='dqw:shopnc';var SIG=' --- //[[admin@dqw.me|dqw]] 2014/09/02 14:23//';var JSINFO = {"id":"dqw:shopnc:mobile_api_sp2","namespace":"dqw:shopnc"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="api_files/js.php"></script>
+<script type="text/javascript" charset="utf-8" src="api_files/admmenu.js"></script>
+<script type="text/javascript" charset="utf-8" src="api_files/indexmenu.js"></script>
+<script type="text/javascript" charset="utf-8"><!--//--><![CDATA[//><!--
+var indexmenu_ID='dqw:shopnc:mobile_api_sp2'
+//--><!]]></script>
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="toc">
+<div style="cursor: pointer;" class="tocheader toctoggle" id="toc__header"><span class="toc_close" id="toc__toggle"><span>−</span></span>目录</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#%E6%89%8B%E6%9C%BA%E6%8E%A5%E5%8F%A3" class="toc">手机接口</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="#%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6" class="toc">开发进度</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%B8%80%E6%9C%9F" class="toc">一期</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%BA%8C%E6%9C%9F" class="toc">二期</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%BA%A6%E5%AE%9A" class="toc">数据格式约定</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC" class="toc">返回值</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#%E5%95%86%E5%9F%8Eapi" class="toc">商城API</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#%E9%A6%96%E9%A1%B5" class="toc">首页</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%B8%93%E9%A2%98" class="toc">专题</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB" class="toc">商品分类</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8" class="toc">商品列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%95%86%E5%93%81%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF" class="toc">商品详细信息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%95%86%E5%93%81%E4%BB%8B%E7%BB%8D%E4%BF%A1%E6%81%AF" class="toc">商品介绍信息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E7%99%BB%E5%BD%95" class="toc">登录</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%B3%A8%E5%86%8C" class="toc">注册</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%B3%A8%E9%94%80" class="toc">注销</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%88%91%E7%9A%84%E5%95%86%E5%9F%8E" class="toc">我的商城</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%94%B6%E8%97%8F%E5%88%97%E8%A1%A8" class="toc">收藏列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%94%B6%E8%97%8F%E6%B7%BB%E5%8A%A0" class="toc">收藏添加</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%94%B6%E8%97%8F%E5%88%A0%E9%99%A4" class="toc">收藏删除</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%9C%B0%E5%9D%80%E5%88%97%E8%A1%A8" class="toc">地址列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%9C%B0%E5%9D%80%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF" class="toc">地址详细信息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%9C%B0%E5%9D%80%E5%88%A0%E9%99%A4" class="toc">地址删除</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%9C%B0%E5%9D%80%E6%B7%BB%E5%8A%A0" class="toc">地址添加</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%9C%B0%E5%9D%80%E7%BC%96%E8%BE%91" class="toc">地址编辑</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%9C%B0%E5%8C%BA%E5%88%97%E8%A1%A8" class="toc">地区列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%AE%A2%E5%8D%95%E5%88%97%E8%A1%A8" class="toc">订单列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%AE%A2%E5%8D%95%E5%8F%96%E6%B6%88_%E6%9C%AA%E4%BB%98%E6%AC%BE" class="toc">订单取消(未付款)</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%AE%A2%E5%8D%95%E7%A1%AE%E8%AE%A4%E6%94%B6%E8%B4%A7" class="toc">订单确认收货</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%AE%A2%E5%8D%95%E7%89%A9%E6%B5%81%E4%BF%A1%E6%81%AF" class="toc">订单物流信息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%88%97%E8%A1%A8" class="toc">购物车列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%B7%BB%E5%8A%A0" class="toc">购物车添加</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%88%A0%E9%99%A4" class="toc">购物车删除</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%B4%AD%E7%89%A9%E8%BD%A6%E4%BF%AE%E6%94%B9%E6%95%B0%E9%87%8F" class="toc">购物车修改数量</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%8F%91%E7%A5%A8%E5%88%97%E8%A1%A8" class="toc">发票列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%8F%91%E7%A5%A8%E6%B7%BB%E5%8A%A0" class="toc">发票添加</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%8F%91%E7%A5%A8%E5%88%A0%E9%99%A4" class="toc">发票删除</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%8F%91%E7%A5%A8%E5%86%85%E5%AE%B9%E5%88%97%E8%A1%A8" class="toc">发票内容列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%B4%AD%E4%B9%B0%E7%AC%AC%E4%B8%80%E6%AD%A5" class="toc">购买第一步</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%9B%B4%E6%8D%A2%E6%94%B6%E8%B4%A7%E5%9C%B0%E5%9D%80" class="toc">更换收货地址</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E9%AA%8C%E8%AF%81%E6%94%AF%E4%BB%98%E5%AF%86%E7%A0%81" class="toc">验证支付密码</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%B4%AD%E4%B9%B0%E7%AC%AC%E4%BA%8C%E6%AD%A5" class="toc">购买第二步</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E5%8F%AF%E7%94%A8%E6%94%AF%E4%BB%98%E6%96%B9%E5%BC%8F%E5%88%97%E8%A1%A8" class="toc">可用支付方式列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%94%AF%E4%BB%98" class="toc">支付</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#android%E7%89%88%E6%9C%AC%E6%A3%80%E6%9F%A5" class="toc">Android版本检查</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%B9%B0%E5%AE%B6%E4%BB%A3%E9%87%91%E5%88%B8%E5%88%97%E8%A1%A8" class="toc">买家代金券列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%84%8F%E8%A7%81%E5%8F%8D%E9%A6%88" class="toc">意见反馈</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%B4%AD%E4%B9%B0" class="toc">虚拟购买</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%B4%AD%E4%B9%B0%E7%AC%AC%E4%B8%80%E6%AD%A5" class="toc">虚拟购买第一步</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%B4%AD%E4%B9%B0%E7%AC%AC%E4%BA%8C%E6%AD%A5" class="toc">虚拟购买第二步</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%B4%AD%E4%B9%B0%E7%AC%AC%E4%B8%89%E6%AD%A5" class="toc">虚拟购买第三步</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%AE%A2%E5%8D%95%E5%88%97%E8%A1%A8" class="toc">虚拟订单列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%AE%A2%E5%8D%95%E5%8F%AF%E7%94%A8%E7%A0%81%E5%88%97%E8%A1%A8" class="toc">虚拟订单可用码列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%AE%A2%E5%8D%95%E5%8F%96%E6%B6%88" class="toc">虚拟订单取消</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E8%99%9A%E6%8B%9F%E8%AE%A2%E5%8D%95%E6%94%AF%E4%BB%98" class="toc">虚拟订单支付</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#im_api" class="toc">IM API</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#node_%E4%BC%9A%E5%91%98%E7%9A%84%E5%9C%A8%E7%BA%BF%E7%8A%B6%E6%80%81" class="toc">node 会员的在线状态</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#node_%E6%9B%B4%E6%96%B0%E4%BC%9A%E5%91%98%E7%8A%B6%E6%80%81" class="toc">node  更新会员状态</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#node_%E5%8F%91%E6%B6%88%E6%81%AF" class="toc">node  发消息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#node_%E5%88%A0%E9%99%A4%E6%B6%88%E6%81%AF" class="toc">node  删除消息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%BC%9A%E5%91%98%E8%81%8A%E5%A4%A9--%E6%9C%80%E8%BF%91%E8%81%94%E7%B3%BB%E4%BA%BA%E5%88%97%E8%A1%A8" class="toc">会员聊天--最近联系人列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%BC%9A%E5%91%98%E8%81%8A%E5%A4%A9--%E4%BC%9A%E5%91%98%E4%BF%A1%E6%81%AF" class="toc">会员聊天--会员信息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%BC%9A%E5%91%98%E8%81%8A%E5%A4%A9--%E5%8F%91%E6%B6%88%E6%81%AF" class="toc">会员聊天--发消息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%BC%9A%E5%91%98%E8%81%8A%E5%A4%A9--%E5%95%86%E5%93%81%E4%BF%A1%E6%81%AF" class="toc">会员聊天--商品信息</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E4%BC%9A%E5%91%98%E8%81%8A%E5%A4%A9--%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E6%9F%A5%E8%AF%A2" class="toc">会员聊天--聊天记录查询</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%88%91%E7%9A%84%E5%A5%BD%E5%8F%8B--%E6%9F%A5%E8%AF%A2%E4%BC%9A%E5%91%98" class="toc">我的好友--查询会员</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%88%91%E7%9A%84%E5%A5%BD%E5%8F%8B--%E5%A5%BD%E5%8F%8B%E5%88%97%E8%A1%A8" class="toc">我的好友--好友列表</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%88%91%E7%9A%84%E5%A5%BD%E5%8F%8B--%E6%B7%BB%E5%8A%A0%E5%A5%BD%E5%8F%8B" class="toc">我的好友--添加好友</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#%E6%88%91%E7%9A%84%E5%A5%BD%E5%8F%8B--%E5%88%A0%E9%99%A4%E5%A5%BD%E5%8F%8B" class="toc">我的好友--删除好友</a></span></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="手机接口" id="手机接口">手机接口</a></h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "手机接口" [1-28] -->
+<h2 class="sectionedit2"><a name="开发进度" id="开发进度">开发进度</a></h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "开发进度" [29-54] -->
+<h3 class="sectionedit3"><a name="一期" id="一期">一期</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 首页接口(广告 首页内容) </div>
+</li>
+<li class="level1"><div class="li"> 商品分类</div>
+</li>
+<li class="level1"><div class="li"> 商品列表</div>
+</li>
+<li class="level1"><div class="li"> 商品详情页</div>
+</li>
+<li class="level1"><div class="li"> 登录 </div>
+</li>
+<li class="level1"><div class="li"> 注销</div>
+</li>
+<li class="level1"><div class="li"> 收藏列表 、添加、删除</div>
+</li>
+<li class="level1"><div class="li"> 地址列表</div>
+</li>
+<li class="level1"><div class="li"> 订单列表</div>
+</li>
+<li class="level1"><div class="li"> 我的帐号信息(用户名 头像  积分 预存款)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "一期" [55-318] -->
+<h3 class="sectionedit4"><a name="二期" id="二期">二期</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 购物车添加、删除、列表</div>
+</li>
+<li class="level1"><div class="li"> 地区列表</div>
+</li>
+<li class="level1"><div class="li"> 收货地址添加、编辑、删除、列表</div>
+</li>
+<li class="level1"><div class="li"> 发票信息添加、删除、列表</div>
+</li>
+<li class="level1"><div class="li"> 立即购买</div>
+</li>
+<li class="level1"><div class="li"> 购物车购买</div>
+</li>
+<li class="level1"><div class="li"> 促销(满即送 代金券)</div>
+</li>
+<li class="level1"><div class="li"> 支付</div>
+</li>
+<li class="level1"><div class="li"> 评价</div>
+</li>
+<li class="level1"><div class="li"> 订单管理(取消订单 确认收货 查看物流)</div>
+</li>
+<li class="level1"><div class="li"> 订单详细</div>
+</li>
+<li class="level1"><div class="li"> 我的代金券</div>
+</li>
+<li class="level1"><div class="li"> 意见反馈</div>
+</li>
+<li class="level1"><div class="li"> 版本更新</div>
+</li>
+<li class="level1"><div class="li"> 在线帮助</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "二期" [319-719] -->
+<h2 class="sectionedit5"><a name="数据格式约定" id="数据格式约定">数据格式约定</a></h2>
+<div class="level2">
+
+<p>
+返回数据为json格式，code为200表示数据正常，datas为返回的数据
+</p>
+<pre class="code">{code: 200, datas: {}}</pre>
+
+</div>
+<!-- EDIT5 SECTION "数据格式约定" [720-859] -->
+<h3 class="sectionedit6"><a name="返回值" id="返回值">返回值</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="获取数据" id="获取数据">获取数据</a></h4>
+<div class="level4">
+<pre class="code">//有内容直接返回数组，无内容返回空数组[]
+//hasmore为是否有下一页
+{"code":200,"hasmore":true,"datas":{"goods_list":[]}}</pre>
+
+</div>
+
+<h4><a name="操作成功" id="操作成功">操作成功</a></h4>
+<div class="level4">
+<pre class="code">//操作成返回"1"
+{"code":200,"datas":{"1"}}</pre>
+
+</div>
+
+<h4><a name="错误" id="错误">错误</a></h4>
+<div class="level4">
+<pre class="code">//出现错误返回error，error内为错误信息
+{"code":200,"datas":{"error":"参数错误"}}
+//登录失败，login:0
+{"code":200,"login":"0","datas":{"error":"\u8bf7\u767b\u9646"}}</pre>
+
+</div>
+<!-- EDIT6 SECTION "返回值" [860-1335] -->
+<h2 class="sectionedit7"><a name="商城api" id="商城api">商城API</a></h2>
+<div class="level2">
+<pre class="code">说明：v1版本API对应商城2014v1版本。</pre>
+
+</div>
+<!-- EDIT7 SECTION "商城API" [1336-1407] -->
+<h3 class="sectionedit8"><a name="首页" id="首页">首页</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="首页数据接口_get" id="首页数据接口_get">首页数据接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=index</pre>
+
+</div>
+
+<h4><a name="请求参数" id="请求参数">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> type json/html <em>json格式或者html页面</em></div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据" id="返回数据">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> adv_list</div>
+</li>
+<li class="level1"><div class="li"> home1</div>
+</li>
+<li class="level1"><div class="li"> home2</div>
+</li>
+<li class="level1"><div class="li"> home3</div>
+</li>
+<li class="level1"><div class="li"> home4</div>
+</li>
+<li class="level1"><div class="li"> goods</div>
+</li>
+</ul>
+
+</div>
+
+<h5><a name="返回数据说明" id="返回数据说明">返回数据说明</a></h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> image 图片地址</div>
+</li>
+<li class="level1"><div class="li"> type 操作类型</div>
+<ul>
+<li class="level2"><div class="li"> keyword 搜索关键字</div>
+</li>
+<li class="level2"><div class="li"> special 专题编号</div>
+</li>
+<li class="level2"><div class="li"> goods 商品编号</div>
+</li>
+<li class="level2"><div class="li"> url 地址</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> data 与操作类型对应的数据内容</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "首页" [1408-1853] -->
+<h3 class="sectionedit9"><a name="专题" id="专题">专题</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="专题接口_get" id="专题接口_get">专题接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=index&amp;op=special</pre>
+
+</div>
+
+<h4><a name="请求参数1" id="请求参数1">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> special_id 专题编号</div>
+</li>
+<li class="level1"><div class="li"> type json/html <em>json格式或者html页面</em></div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据1" id="返回数据1">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> adv_list</div>
+</li>
+<li class="level1"><div class="li"> home1</div>
+</li>
+<li class="level1"><div class="li"> home2</div>
+</li>
+<li class="level1"><div class="li"> home3</div>
+</li>
+<li class="level1"><div class="li"> home4</div>
+</li>
+<li class="level1"><div class="li"> goods</div>
+</li>
+</ul>
+
+</div>
+
+<h5><a name="返回数据说明1" id="返回数据说明1">返回数据说明</a></h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> image 图片地址</div>
+</li>
+<li class="level1"><div class="li"> type 操作类型</div>
+<ul>
+<li class="level2"><div class="li"> keywork 搜索关键字</div>
+</li>
+<li class="level2"><div class="li"> special 专题编号</div>
+</li>
+<li class="level2"><div class="li"> goods 商品编号</div>
+</li>
+<li class="level2"><div class="li"> url 地址</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> data 与操作类型对应的数据内容</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "专题" [1854-2331] -->
+<h3 class="sectionedit10"><a name="商品分类" id="商品分类">商品分类</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="一级分类接口_get" id="一级分类接口_get">一级分类接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=goods_class</pre>
+
+</div>
+
+<h4><a name="指定分类接口_get" id="指定分类接口_get">指定分类接口(get)</a></h4>
+<div class="level4">
+
+<p>
+有下级分类返回分类列表，无分类返回'0'
+</p>
+<pre class="code">  index.php?act=goods_class&amp;gc_id=2</pre>
+
+</div>
+<!-- EDIT10 SECTION "商品分类" [2332-2544] -->
+<h3 class="sectionedit11"><a name="商品列表" id="商品列表">商品列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="商品列表接口_get" id="商品列表接口_get">商品列表接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=goods&amp;op=goods_list</pre>
+
+</div>
+
+<h4><a name="请求参数2" id="请求参数2">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 排序方式 1-销量 2-浏览量 3-价格 空-按最新发布排序</div>
+</li>
+<li class="level1"><div class="li"> order 排序方式 1-升序 2-降序</div>
+</li>
+<li class="level1"><div class="li"> page 每页数量</div>
+</li>
+<li class="level1"><div class="li"> curpage 当前页码</div>
+</li>
+<li class="level1"><div class="li"> gc_id 分类编号</div>
+</li>
+<li class="level1"><div class="li"> keyword 搜索关键字</div>
+</li>
+<li class="level1"><div class="li"> gc_id和keyword二选一不能同时出现</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据2" id="返回数据2">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_id  商品编号</div>
+</li>
+<li class="level1"><div class="li"> goods_name  商品名称</div>
+</li>
+<li class="level1"><div class="li"> goods_price 商品价格 </div>
+</li>
+<li class="level1"><div class="li"> goods_marketprice 商品市场价</div>
+</li>
+<li class="level1"><div class="li"> goods_salenum 销量 </div>
+</li>
+<li class="level1"><div class="li"> evaluation_good_star 评价星级</div>
+</li>
+<li class="level1"><div class="li"> evaluation_count 评价数</div>
+</li>
+<li class="level1"><div class="li"> group_flag 是否抢购</div>
+</li>
+<li class="level1"><div class="li"> xianshi_flag 是否限时折扣</div>
+</li>
+<li class="level1"><div class="li"> goods_image 图片名称</div>
+</li>
+<li class="level1"><div class="li"> goods_image_url 图片地址</div>
+</li>
+<li class="level1"><div class="li"> is_fcode 是否为F码商品 1-是 0-否</div>
+</li>
+<li class="level1"><div class="li"> is_appoint 是否是预约商品 1-是 0-否</div>
+</li>
+<li class="level1"><div class="li"> is_presell 是否是预售商品 1-是 0-否</div>
+</li>
+<li class="level1"><div class="li"> have_gift 是否拥有赠品 1-是 0-否</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "商品列表" [2545-3479] -->
+<h3 class="sectionedit12"><a name="商品详细信息" id="商品详细信息">商品详细信息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="商品详细信息接口_get" id="商品详细信息接口_get">商品详细信息接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=goods&amp;op=goods_detail</pre>
+
+</div>
+
+<h4><a name="请求参数3" id="请求参数3">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据3" id="返回数据3">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_info 商品信息 </div>
+<ul>
+<li class="level2"><div class="li"> goods_name 商品名称</div>
+</li>
+<li class="level2"><div class="li"> goods_jingle 商品说明</div>
+</li>
+<li class="level2"><div class="li"> <acronym title="specification">spec</acronym>_name 规格名称</div>
+</li>
+<li class="level2"><div class="li"> <acronym title="specification">spec</acronym>_value 规格名</div>
+</li>
+<li class="level2"><div class="li"> goods_price 商品价格</div>
+</li>
+<li class="level2"><div class="li"> goods_marketprice 商品市场价</div>
+</li>
+<li class="level2"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level2"><div class="li"> goods_click 商品点击数</div>
+</li>
+<li class="level2"><div class="li"> goods_commentnum 商品评论数</div>
+</li>
+<li class="level2"><div class="li"> goods_salenum 商品销量</div>
+</li>
+<li class="level2"><div class="li"> goods_<acronym title="specification">spec</acronym> 商品规格</div>
+</li>
+<li class="level2"><div class="li"> goods_storage 商品库存</div>
+</li>
+<li class="level2"><div class="li"> evaluation_good_star 评价等级</div>
+</li>
+<li class="level2"><div class="li"> evaluation_count 评价数</div>
+</li>
+<li class="level2"><div class="li"> promotion_type 促销类型 groupbuy-抢购 xianshi-限时折扣</div>
+</li>
+<li class="level2"><div class="li"> promotion_price 促销价格</div>
+</li>
+<li class="level2"><div class="li"> upper_limit 最多购买数</div>
+</li>
+<li class="level2"><div class="li"> is_virtual 是否为虚拟商品 1-是 0-否</div>
+</li>
+<li class="level2"><div class="li"> virtual_indate 虚拟商品有效期</div>
+</li>
+<li class="level2"><div class="li"> virtual_limit 虚拟商品购买上限</div>
+</li>
+<li class="level2"><div class="li"> is_fcode 是否为F码商品 1-是 0-否</div>
+</li>
+<li class="level2"><div class="li"> is_appoint 是否是预约商品 1-是 0-否</div>
+</li>
+<li class="level2"><div class="li"> is_presell 是否是预售商品 1-是 0-否</div>
+</li>
+<li class="level2"><div class="li"> have_gift 是否拥有赠品 1-是 0-否</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <acronym title="specification">spec</acronym>_list 规格列表</div>
+</li>
+<li class="level1"><div class="li"> gift_array 赠品数组</div>
+</li>
+<li class="level1"><div class="li"> <acronym title="specification">spec</acronym>_image 规格图片 </div>
+</li>
+<li class="level1"><div class="li"> goods_image 商品图片</div>
+</li>
+<li class="level1"><div class="li"> goods_commend_list 推荐商品列表</div>
+</li>
+<li class="level1"><div class="li"> mansong_info 满即送信息</div>
+<ul>
+<li class="level2"><div class="li"> mansong_name 活动名称</div>
+</li>
+<li class="level2"><div class="li"> start_time 开始时间</div>
+</li>
+<li class="level2"><div class="li"> end_time 结束时间</div>
+</li>
+<li class="level2"><div class="li"> price 活动金额</div>
+</li>
+<li class="level2"><div class="li"> discount 减现金</div>
+</li>
+<li class="level2"><div class="li"> mansong_goods_name 赠送商品名称</div>
+</li>
+<li class="level2"><div class="li"> goods_id 赠送商品编号</div>
+</li>
+<li class="level2"><div class="li"> goods_image_url 赠送商品图片地址</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "商品详细信息" [3480-5073] -->
+<h3 class="sectionedit13"><a name="商品介绍信息" id="商品介绍信息">商品介绍信息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_get" id="调用接口_get">调用接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=goods&amp;op=goods_body</pre>
+
+</div>
+
+<h4><a name="请求参数4" id="请求参数4">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据4" id="返回数据4">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> html</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "商品介绍信息" [5074-5247] -->
+<h3 class="sectionedit14"><a name="登录" id="登录">登录</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="登录接口_post" id="登录接口_post">登录接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=login</pre>
+
+</div>
+
+<h4><a name="请求参数5" id="请求参数5">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> username 用户名</div>
+</li>
+<li class="level1"><div class="li"> password 密码 </div>
+</li>
+<li class="level1"><div class="li"> client 客户端类型(android wap ios wechat)</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据5" id="返回数据5">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> username 用户名</div>
+</li>
+<li class="level1"><div class="li"> key 登录令牌</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT14 SECTION "登录" [5248-5501] -->
+<h3 class="sectionedit15"><a name="注册" id="注册">注册</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="注册接口_post" id="注册接口_post">注册接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=login&amp;op=register</pre>
+
+</div>
+
+<h4><a name="请求参数6" id="请求参数6">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> username 用户名</div>
+</li>
+<li class="level1"><div class="li"> password 密码 </div>
+</li>
+<li class="level1"><div class="li"> password_confirm 密码确认</div>
+</li>
+<li class="level1"><div class="li"> email 邮箱</div>
+</li>
+<li class="level1"><div class="li"> client 客户端类型(android wap ios wechat)</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据6" id="返回数据6">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> username 用户名</div>
+</li>
+<li class="level1"><div class="li"> key 登录令牌</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT15 SECTION "注册" [5502-5815] -->
+<h3 class="sectionedit16"><a name="注销" id="注销">注销</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="注销接口_post" id="注销接口_post">注销接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=logout</pre>
+
+</div>
+
+<h4><a name="请求参数7" id="请求参数7">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> username 用户名</div>
+</li>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> client 客户端类型(android wap ios wechat)</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据7" id="返回数据7">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT16 SECTION "注销" [5816-6041] -->
+<h3 class="sectionedit17"><a name="我的商城" id="我的商城">我的商城</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post" id="调用接口_post">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_index</pre>
+
+</div>
+
+<h4><a name="请求参数8" id="请求参数8">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据8" id="返回数据8">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> username 用户名</div>
+</li>
+<li class="level1"><div class="li"> avator 用户头像</div>
+</li>
+<li class="level1"><div class="li"> point 积分</div>
+</li>
+<li class="level1"><div class="li"> predepoit 预存款</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT17 SECTION "我的商城" [6042-6283] -->
+<h3 class="sectionedit18"><a name="收藏列表" id="收藏列表">收藏列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post1" id="调用接口_post1">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_favorites&amp;op=favorites_list</pre>
+
+</div>
+
+<h4><a name="请求参数9" id="请求参数9">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据9" id="返回数据9">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_name 商品名称</div>
+</li>
+<li class="level1"><div class="li"> goods_image_url 商品图片地址</div>
+</li>
+<li class="level1"><div class="li"> goods_price 商品价格</div>
+</li>
+<li class="level1"><div class="li"> fav_id 收藏编号</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT18 SECTION "收藏列表" [6284-6580] -->
+<h3 class="sectionedit19"><a name="收藏添加" id="收藏添加">收藏添加</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post2" id="调用接口_post2">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_favorites&amp;op=favorites_add</pre>
+
+</div>
+
+<h4><a name="请求参数10" id="请求参数10">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据10" id="返回数据10">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT19 SECTION "收藏添加" [6581-6790] -->
+<h3 class="sectionedit20"><a name="收藏删除" id="收藏删除">收藏删除</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post3" id="调用接口_post3">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_favorites&amp;op=favorites_del</pre>
+
+</div>
+
+<h4><a name="请求参数11" id="请求参数11">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> fav_id 收藏编号</div>
+</li>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据11" id="返回数据11">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT20 SECTION "收藏删除" [6791-6998] -->
+<h3 class="sectionedit21"><a name="地址列表" id="地址列表">地址列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post4" id="调用接口_post4">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_address&amp;op=address_list</pre>
+
+</div>
+
+<h4><a name="请求参数12" id="请求参数12">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据12" id="返回数据12">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> address_list</div>
+<ul>
+<li class="level2"><div class="li"> city_id 城市编号</div>
+</li>
+<li class="level2"><div class="li"> area_id 地区编号</div>
+</li>
+<li class="level2"><div class="li"> area_info 地址</div>
+</li>
+<li class="level2"><div class="li"> address 详细地址</div>
+</li>
+<li class="level2"><div class="li"> tel_phone 固定电话机</div>
+</li>
+<li class="level2"><div class="li"> mob_phone 手机</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT21 SECTION "地址列表" [6999-7343] -->
+<h3 class="sectionedit22"><a name="地址详细信息" id="地址详细信息">地址详细信息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post5" id="调用接口_post5">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_address&amp;op=address_info</pre>
+
+</div>
+
+<h4><a name="请求参数13" id="请求参数13">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> address_id 地址编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据13" id="返回数据13">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> area_info 地址</div>
+</li>
+<li class="level1"><div class="li"> address 详细地址</div>
+</li>
+<li class="level1"><div class="li"> tel_phone 固定电话机</div>
+</li>
+<li class="level1"><div class="li"> mob_phone 手机</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT22 SECTION "地址详细信息" [7344-7643] -->
+<h3 class="sectionedit23"><a name="地址删除" id="地址删除">地址删除</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post6" id="调用接口_post6">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_address&amp;op=address_del</pre>
+
+</div>
+
+<h4><a name="请求参数14" id="请求参数14">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> address_id 地址编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据14" id="返回数据14">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT23 SECTION "地址删除" [7644-7847] -->
+<h3 class="sectionedit24"><a name="地址添加" id="地址添加">地址添加</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post7" id="调用接口_post7">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_address&amp;op=address_add</pre>
+
+</div>
+
+<h4><a name="请求参数15" id="请求参数15">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> true_name 姓名</div>
+</li>
+<li class="level1"><div class="li"> city_id 城市编号(地址联动的第二级)</div>
+</li>
+<li class="level1"><div class="li"> area_id 地区编号(地址联动的第三级)</div>
+</li>
+<li class="level1"><div class="li"> area_info 地区信息，例：天津 天津市 红桥区</div>
+</li>
+<li class="level1"><div class="li"> address 地址信息，例：水游城8层</div>
+</li>
+<li class="level1"><div class="li"> tel_phone 电话号码</div>
+</li>
+<li class="level1"><div class="li"> mob_phone 手机</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据15" id="返回数据15">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> address_id</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT24 SECTION "地址添加" [7848-8310] -->
+<h3 class="sectionedit25"><a name="地址编辑" id="地址编辑">地址编辑</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post8" id="调用接口_post8">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_address&amp;op=address_edit</pre>
+
+</div>
+
+<h4><a name="请求参数16" id="请求参数16">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> address_id 地址编号</div>
+</li>
+<li class="level1"><div class="li"> true_name 姓名</div>
+</li>
+<li class="level1"><div class="li"> area_id 地区编号</div>
+</li>
+<li class="level1"><div class="li"> city_id 城市编号</div>
+</li>
+<li class="level1"><div class="li"> area_info 地区信息，例：天津 天津市 红桥区</div>
+</li>
+<li class="level1"><div class="li"> address 地址信息，例：水游城8层</div>
+</li>
+<li class="level1"><div class="li"> tel_phone 电话号码</div>
+</li>
+<li class="level1"><div class="li"> mob_phone 手机</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据16" id="返回数据16">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT25 SECTION "地址编辑" [8311-8742] -->
+<h3 class="sectionedit26"><a name="地区列表" id="地区列表">地区列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post9" id="调用接口_post9">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_address&amp;op=area_list</pre>
+
+</div>
+
+<h4><a name="请求参数17" id="请求参数17">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> area_id 地区编号(为空时默认返回一级分类)</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据17" id="返回数据17">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> area_id 地区编号</div>
+</li>
+<li class="level1"><div class="li"> area_name 地区名称</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT26 SECTION "地区列表" [8743-9024] -->
+<h3 class="sectionedit27"><a name="订单列表" id="订单列表">订单列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post10" id="调用接口_post10">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_order&amp;op=order_list</pre>
+
+</div>
+
+<h4><a name="请求参数18" id="请求参数18">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据18" id="返回数据18">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> order_group_list </div>
+<ul>
+<li class="level2"><div class="li"> order_list 订单列表</div>
+<ul>
+<li class="level3"><div class="li"> order_id 订单id</div>
+</li>
+<li class="level3"><div class="li"> order_sn 订单sn</div>
+</li>
+<li class="level3"><div class="li"> store_name 店铺名称</div>
+</li>
+<li class="level3"><div class="li"> goods_amount 商品总价</div>
+</li>
+<li class="level3"><div class="li"> order_amount 订单总价</div>
+</li>
+<li class="level3"><div class="li"> pd_amount 预存款支付总价</div>
+</li>
+<li class="level3"><div class="li"> shipping_fee 运费</div>
+</li>
+<li class="level3"><div class="li"> state_desc 状态文字</div>
+</li>
+<li class="level3"><div class="li"> payment_name 支付方式文字</div>
+</li>
+<li class="level3"><div class="li"> if_cancel 是否显示取消按钮 true/false</div>
+</li>
+<li class="level3"><div class="li"> if_receive 是否显示确认收货按钮 true/false</div>
+</li>
+<li class="level3"><div class="li"> if_lock 是否显示锁定中状态 true/false</div>
+</li>
+<li class="level3"><div class="li"> if_deliver 是否显示查看物流按钮 true/false</div>
+</li>
+<li class="level3"><div class="li"> extend_order_goods 订单商品列表</div>
+<ul>
+<li class="level4"><div class="li"> goods_name 商品名称</div>
+</li>
+<li class="level4"><div class="li"> goods_price 商品价格</div>
+</li>
+<li class="level4"><div class="li"> goods_num 商品购买数量</div>
+</li>
+<li class="level4"><div class="li"> goods_image_url 商品图片地址</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> pay_amount 支付总额，该字段存在且大于0时显示支付按钮</div>
+</li>
+<li class="level2"><div class="li"> add_time 订单提交时间</div>
+</li>
+<li class="level2"><div class="li"> pay_sn 支付编号</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="订单状态" id="订单状态">订单状态</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 0-已取消</div>
+</li>
+<li class="level1"><div class="li"> 10-未支付</div>
+</li>
+<li class="level1"><div class="li"> 20-已支付</div>
+</li>
+<li class="level1"><div class="li"> 30-已发货</div>
+</li>
+<li class="level1"><div class="li"> 40-交易成功</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT27 SECTION "订单列表" [9025-10215] -->
+<h3 class="sectionedit28"><a name="订单取消_未付款" id="订单取消_未付款">订单取消(未付款)</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post11" id="调用接口_post11">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_order&amp;op=order_cancel</pre>
+
+</div>
+
+<h4><a name="请求参数19" id="请求参数19">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> order_id 订单编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据19" id="返回数据19">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT28 SECTION "订单取消(未付款)" [10216-10429] -->
+<h3 class="sectionedit29"><a name="订单确认收货" id="订单确认收货">订单确认收货</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post12" id="调用接口_post12">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_order&amp;op=order_receive</pre>
+
+</div>
+
+<h4><a name="请求参数20" id="请求参数20">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> order_id 订单编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据20" id="返回数据20">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT29 SECTION "订单确认收货" [10430-10640] -->
+<h3 class="sectionedit30"><a name="订单物流信息" id="订单物流信息">订单物流信息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post13" id="调用接口_post13">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_order&amp;op=search_deliver</pre>
+
+</div>
+
+<h4><a name="请求参数21" id="请求参数21">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> order_id 订单编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据21" id="返回数据21">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> express_name 物流公司名称</div>
+</li>
+<li class="level1"><div class="li"> shipping_code 物流编号</div>
+</li>
+<li class="level1"><div class="li"> deliver_info 物流信息</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT30 SECTION "订单物流信息" [10641-10940] -->
+<h3 class="sectionedit31"><a name="购物车列表" id="购物车列表">购物车列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post14" id="调用接口_post14">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_cart&amp;op=cart_list</pre>
+
+</div>
+
+<h4><a name="请求参数22" id="请求参数22">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据22" id="返回数据22">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> cart_list</div>
+<ul>
+<li class="level2"><div class="li"> cart_id 购物车编号</div>
+</li>
+<li class="level2"><div class="li"> buyer_id 买家member_id </div>
+</li>
+<li class="level2"><div class="li"> store_id 店铺编号 </div>
+</li>
+<li class="level2"><div class="li"> store_name 店铺名称</div>
+</li>
+<li class="level2"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level2"><div class="li"> goods_name 商品名称</div>
+</li>
+<li class="level2"><div class="li"> goods_price 商品价格</div>
+</li>
+<li class="level2"><div class="li"> goods_num 购买数量</div>
+</li>
+<li class="level2"><div class="li"> goods_image_url 图片地址</div>
+</li>
+<li class="level2"><div class="li"> goods_sum 商品总价</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> sum 购物车总价</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT31 SECTION "购物车列表" [10941-11450] -->
+<h3 class="sectionedit32"><a name="购物车添加" id="购物车添加">购物车添加</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post15" id="调用接口_post15">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_cart&amp;op=cart_add</pre>
+
+</div>
+
+<h4><a name="请求参数23" id="请求参数23">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level1"><div class="li"> quantity 购买数量</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据23" id="返回数据23">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT32 SECTION "购物车添加" [11451-11679] -->
+<h3 class="sectionedit33"><a name="购物车删除" id="购物车删除">购物车删除</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post16" id="调用接口_post16">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_cart&amp;op=cart_del</pre>
+
+</div>
+
+<h4><a name="请求参数24" id="请求参数24">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> cart_id 购物车编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据24" id="返回数据24">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT33 SECTION "购物车删除" [11680-11888] -->
+<h3 class="sectionedit34"><a name="购物车修改数量" id="购物车修改数量">购物车修改数量</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post17" id="调用接口_post17">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_cart&amp;op=cart_edit_quantity</pre>
+
+</div>
+
+<h4><a name="请求参数25" id="请求参数25">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> cart_id 购物车编号</div>
+</li>
+<li class="level1"><div class="li"> quantity 新的购买数量</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据25" id="返回数据25">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> quantity 购买数量</div>
+</li>
+<li class="level1"><div class="li"> goods_price 商品价格</div>
+</li>
+<li class="level1"><div class="li"> total_price 商品总价</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT34 SECTION "购物车修改数量" [11889-12214] -->
+<h3 class="sectionedit35"><a name="发票列表" id="发票列表">发票列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post18" id="调用接口_post18">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_invoice&amp;op=invoice_list</pre>
+
+</div>
+
+<h4><a name="请求参数26" id="请求参数26">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据26" id="返回数据26">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> invoice_list</div>
+<ul>
+<li class="level2"><div class="li"> inv_id 发票编号</div>
+</li>
+<li class="level2"><div class="li"> inv_title 发票抬头</div>
+</li>
+<li class="level2"><div class="li"> inv_content 发票内容</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT35 SECTION "发票列表" [12215-12486] -->
+<h3 class="sectionedit36"><a name="发票添加" id="发票添加">发票添加</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post19" id="调用接口_post19">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_invoice&amp;op=invoice_add</pre>
+
+</div>
+
+<h4><a name="请求参数27" id="请求参数27">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> inv_title_select 发票类型，可选值：person(个人) company(单位)</div>
+</li>
+<li class="level1"><div class="li"> inv_title 发票抬头(inv_title_select为company时需要提交)</div>
+</li>
+<li class="level1"><div class="li"> inv_content 发票内容，可通过invoice_content_list接口获取可选值列表</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据27" id="返回数据27">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> inv_id 发票编号 </div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT36 SECTION "发票添加" [12487-12916] -->
+<h3 class="sectionedit37"><a name="发票删除" id="发票删除">发票删除</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post20" id="调用接口_post20">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_invoice&amp;op=invoice_del</pre>
+
+</div>
+
+<h4><a name="请求参数28" id="请求参数28">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> inv_id 发票编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据28" id="返回数据28">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT37 SECTION "发票删除" [12917-13116] -->
+<h3 class="sectionedit38"><a name="发票内容列表" id="发票内容列表">发票内容列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post21" id="调用接口_post21">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_invoice&amp;op=invoice_content_list</pre>
+
+</div>
+
+<h4><a name="请求参数29" id="请求参数29">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据29" id="返回数据29">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> invoice_content_list</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT38 SECTION "发票内容列表" [13117-13325] -->
+<h3 class="sectionedit39"><a name="购买第一步" id="购买第一步">购买第一步</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post22" id="调用接口_post22">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_buy&amp;op=buy_step1</pre>
+
+</div>
+
+<h4><a name="请求参数30" id="请求参数30">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌    </div>
+</li>
+<li class="level1"><div class="li"> cart_id  购买参数</div>
+</li>
+<li class="level1"><div class="li"> ifcart 购物车购买标志 1</div>
+</li>
+</ul>
+
+</div>
+
+<h5><a name="cart_id说明" id="cart_id说明">cart_id说明</a></h5>
+<div class="level5">
+<pre class="code">立即购买： 第一个数字为商品编号，第二个数字为购买数量，用竖线分割。例：232|1  
+购物车购买：第一个数字为购物车编号，第二个数字为购买数量，用竖线分割。多组用半角逗号分割，例：232|1,110|2 232商品购买1个，110商品购买2个</pre>
+
+</div>
+
+<h4><a name="返回数据30" id="返回数据30">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ifcart 购物车购买标志 1</div>
+</li>
+<li class="level1"><div class="li"> store_cart_list 购物车列表 店铺编号为下标的数组</div>
+<ul>
+<li class="level2"><div class="li"> goods_list 商品列表</div>
+<ul>
+<li class="level3"><div class="li"> goods_num 购买数量</div>
+</li>
+<li class="level3"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level3"><div class="li"> goods_commonid 商品通用编号</div>
+</li>
+<li class="level3"><div class="li"> store_id 店铺编号</div>
+</li>
+<li class="level3"><div class="li"> goods_name 商品名称</div>
+</li>
+<li class="level3"><div class="li"> goods_price 商品价格</div>
+</li>
+<li class="level3"><div class="li"> goods_image_url 商品图片</div>
+</li>
+<li class="level3"><div class="li"> transport_id 运费模板编号</div>
+</li>
+<li class="level3"><div class="li"> goods_freight 运费</div>
+</li>
+<li class="level3"><div class="li"> goods_storage 库存</div>
+</li>
+<li class="level3"><div class="li"> state 商品是否有效 true</div>
+</li>
+<li class="level3"><div class="li"> storage_state </div>
+</li>
+<li class="level3"><div class="li"> cart_id 购物车编号</div>
+</li>
+<li class="level3"><div class="li"> bl_id 组合销售编号</div>
+</li>
+<li class="level3"><div class="li"> promotions_id</div>
+</li>
+<li class="level3"><div class="li"> ifxianshi</div>
+</li>
+<li class="level3"><div class="li"> premiums 赠品标志 true</div>
+</li>
+<li class="level3"><div class="li"> goods_total 总价</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> store_goods_total 店铺商品总价 店铺编号为下标的数组</div>
+</li>
+<li class="level2"><div class="li"> store_mansong_rule_list 满送规则列表 店铺编号为下标的数组</div>
+</li>
+<li class="level2"><div class="li"> store_vouche_list  店铺代金券列表 数组下标是voucher_t_id</div>
+</li>
+<li class="level2"><div class="li"> freight 0-免运费 1-需要计算运费</div>
+</li>
+<li class="level2"><div class="li"> freight_message 免运费时的说明</div>
+</li>
+<li class="level2"><div class="li"> store_name 店铺名称</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> freight_hash 运费hash，选择地区时作为参数提交</div>
+</li>
+<li class="level1"><div class="li"> address_info 收货地址信息</div>
+</li>
+<li class="level1"><div class="li"> ifshow_offpay 支持货到付款时为true</div>
+</li>
+<li class="level1"><div class="li"> vat_hash 发票信息hash</div>
+</li>
+<li class="level1"><div class="li"> inv_info 发票信息</div>
+</li>
+<li class="level1"><div class="li"> available_predeposit 可用预存款</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT39 SECTION "购买第一步" [13326-15177] -->
+<h3 class="sectionedit40"><a name="更换收货地址" id="更换收货地址">更换收货地址</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post23" id="调用接口_post23">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_buy&amp;op=change_address</pre>
+
+</div>
+
+<h4><a name="请求参数31" id="请求参数31">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> freight_hash 运费hash，第一步返回结果里有直接提交</div>
+</li>
+<li class="level1"><div class="li"> city_id 城市编号</div>
+</li>
+<li class="level1"><div class="li"> area_id 地区编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据31" id="返回数据31">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> content 运费列表，以店铺编号为下标数组，值为运费</div>
+</li>
+<li class="level1"><div class="li"> allow_offpay 是否允许货到付款 1-允许 0-不允许</div>
+</li>
+<li class="level1"><div class="li"> offpay_hash 货到付款hash</div>
+</li>
+<li class="level1"><div class="li"> offpay_hash_batch 店铺是否支持货到付款hash</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT40 SECTION "更换收货地址" [15178-15696] -->
+<h3 class="sectionedit41"><a name="验证支付密码" id="验证支付密码">验证支付密码</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post24" id="调用接口_post24">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_buy&amp;op=check_password</pre>
+
+</div>
+
+<h4><a name="请求参数32" id="请求参数32">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> password 用户支付密码</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据32" id="返回数据32">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT41 SECTION "验证支付密码" [15697-15908] -->
+<h3 class="sectionedit42"><a name="购买第二步" id="购买第二步">购买第二步</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post25" id="调用接口_post25">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_buy&amp;op=buy_step2</pre>
+
+</div>
+
+<h4><a name="请求参数33" id="请求参数33">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> ifcart 购物车购买标志 1 </div>
+</li>
+<li class="level1"><div class="li"> cart_id 购买参数</div>
+</li>
+<li class="level1"><div class="li"> address_id 收货地址编号</div>
+</li>
+<li class="level1"><div class="li"> vat_hash 发票信息hash，第一步接口提供</div>
+</li>
+<li class="level1"><div class="li"> offpay_hash 是否支持货到付款hash，通过更换收货地址接口获得</div>
+</li>
+<li class="level1"><div class="li"> offpay_hash_batch 店铺是否支持货到付款hash</div>
+</li>
+<li class="level1"><div class="li"> pay_name 付款方式，可选值 online(线上付款) offline(货到付款)</div>
+</li>
+<li class="level1"><div class="li"> invoice_id 发票信息编号</div>
+</li>
+<li class="level1"><div class="li"> voucher 代金券，内容以竖线分割 voucher_t_id|store_id|voucher_price，多个店铺用逗号分割，例：10|2|10,1|3|10</div>
+</li>
+<li class="level1"><div class="li"> pd_pay 是否使用预存款支付 1-使用 0-不使用</div>
+</li>
+<li class="level1"><div class="li"> password 用户支付密码，启动预存款支付时需要提交</div>
+</li>
+<li class="level1"><div class="li"> fcode F码购买时需提交</div>
+</li>
+</ul>
+
+</div>
+
+<h5><a name="cart_id说明1" id="cart_id说明1">cart_id说明</a></h5>
+<div class="level5">
+<pre class="code">立即购买： 第一个数字为商品编号，第二个数字为购买数量，用竖线分割。例：232|1  
+购物车购买：第一个数字为购物车编号，第二个数字为购买数量，用竖线分割。多组用半角逗号分割，例：232|1,110|2 232商品购买1个，110商品购买2个</pre>
+
+</div>
+
+<h4><a name="返回数据33" id="返回数据33">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> pay_sn 支付编号</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT42 SECTION "购买第二步" [15909-17135] -->
+<h3 class="sectionedit43"><a name="可用支付方式列表" id="可用支付方式列表">可用支付方式列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post26" id="调用接口_post26">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_payment&amp;op=payment_list</pre>
+
+</div>
+
+<h4><a name="请求参数34" id="请求参数34">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登陆令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据34" id="返回数据34">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> payment_list 可用支付方式列表(wxpay-微信支付 alipay-支付宝移动支付)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT43 SECTION "可用支付方式列表" [17136-17404] -->
+<h3 class="sectionedit44"><a name="支付" id="支付">支付</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_get1" id="调用接口_get1">调用接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_payment&amp;op=pay</pre>
+
+</div>
+
+<h4><a name="请求参数35" id="请求参数35">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> pay_sn 支付编号</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT44 SECTION "支付" [17405-17560] -->
+<h3 class="sectionedit45"><a name="android版本检查" id="android版本检查">Android版本检查</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_get2" id="调用接口_get2">调用接口(get)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=index&amp;op=apk_version</pre>
+
+</div>
+
+<h4><a name="请求参数36" id="请求参数36">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 无</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据35" id="返回数据35">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> version 当前版本号，版本号未设置时返回空字符串</div>
+</li>
+<li class="level1"><div class="li"> url apk下载地址</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT45 SECTION "Android版本检查" [17561-17797] -->
+<h3 class="sectionedit46"><a name="买家代金券列表" id="买家代金券列表">买家代金券列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post27" id="调用接口_post27">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_voucher&amp;op=voucher_list</pre>
+
+</div>
+
+<h4><a name="请求参数37" id="请求参数37">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> voucher_state 代金券状态(1-未使用 2-已使用 3-已过期)</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据36" id="返回数据36">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> voucher_list 代金券列表</div>
+<ul>
+<li class="level2"><div class="li"> voucher_id 代金券编号</div>
+</li>
+<li class="level2"><div class="li"> voucher_code 代金券编码</div>
+</li>
+<li class="level2"><div class="li"> voucher_title 代金券标题</div>
+</li>
+<li class="level2"><div class="li"> voucher_desc 代金券描述</div>
+</li>
+<li class="level2"><div class="li"> voucher_start_date 代金券开始时间</div>
+</li>
+<li class="level2"><div class="li"> voucher_end_date 代金券过期时间</div>
+</li>
+<li class="level2"><div class="li"> voucher_price 代金券面额</div>
+</li>
+<li class="level2"><div class="li"> voucher_limit 代金券使用限额</div>
+</li>
+<li class="level2"><div class="li"> voucher_state 代金券状态编号</div>
+</li>
+<li class="level2"><div class="li"> voucher_order_id 使用代金券的订单编号</div>
+</li>
+<li class="level2"><div class="li"> voucher_store_id 店铺编号</div>
+</li>
+<li class="level2"><div class="li"> store_name 店铺名称</div>
+</li>
+<li class="level2"><div class="li"> store_id 店铺编号</div>
+</li>
+<li class="level2"><div class="li"> store_domain 店铺域名</div>
+</li>
+<li class="level2"><div class="li"> voucher_t_customimg 代金券图片</div>
+</li>
+<li class="level2"><div class="li"> voucher_state_text 代金券状态文字</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT46 SECTION "买家代金券列表" [17798-18696] -->
+<h3 class="sectionedit47"><a name="意见反馈" id="意见反馈">意见反馈</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post28" id="调用接口_post28">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_feedback&amp;op=feedback_add</pre>
+
+</div>
+
+<h4><a name="请求参数38" id="请求参数38">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> feedback 反馈内容</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据37" id="返回数据37">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT47 SECTION "意见反馈" [18697-18898] -->
+<h2 class="sectionedit48"><a name="虚拟购买" id="虚拟购买">虚拟购买</a></h2>
+<div class="level2">
+
+</div>
+<!-- EDIT48 SECTION "虚拟购买" [18899-18923] -->
+<h3 class="sectionedit49"><a name="虚拟购买第一步" id="虚拟购买第一步">虚拟购买第一步</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post29" id="调用接口_post29">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_vr_buy&amp;op=buy_step1</pre>
+
+</div>
+
+<h4><a name="请求参数39" id="请求参数39">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> cart_id 商品编号</div>
+</li>
+<li class="level1"><div class="li"> quantity 购买数量</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据38" id="返回数据38">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_info 商品信息</div>
+</li>
+<li class="level1"><div class="li"> store_info 店铺信息</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT49 SECTION "虚拟购买第一步" [18924-19201] -->
+<h3 class="sectionedit50"><a name="虚拟购买第二步" id="虚拟购买第二步">虚拟购买第二步</a></h3>
+<div class="level3">
+<pre class="code">设置接收手机号</pre>
+
+</div>
+
+<h4><a name="调用接口_post30" id="调用接口_post30">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_vr_buy&amp;op=buy_step2</pre>
+
+</div>
+
+<h4><a name="请求参数40" id="请求参数40">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level1"><div class="li"> quantity 购买数量</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据39" id="返回数据39">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods_info 商品信息</div>
+</li>
+<li class="level1"><div class="li"> store_info 店铺信息</div>
+</li>
+<li class="level1"><div class="li"> $member_info 会员信息</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT50 SECTION "虚拟购买第二步" [19202-19533] -->
+<h3 class="sectionedit51"><a name="虚拟购买第三步" id="虚拟购买第三步">虚拟购买第三步</a></h3>
+<div class="level3">
+<pre class="code">生成订单</pre>
+
+</div>
+
+<h4><a name="调用接口_post31" id="调用接口_post31">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_vr_buy&amp;op=buy_step3</pre>
+
+</div>
+
+<h4><a name="请求参数41" id="请求参数41">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level1"><div class="li"> quantity 购买数量</div>
+</li>
+<li class="level1"><div class="li"> buyer_phone 接收手机</div>
+</li>
+<li class="level1"><div class="li"> pd_pay 是否使用预存款 1-是 0-否</div>
+</li>
+<li class="level1"><div class="li"> password 支付密码(可以提前使用”验证支付密码”接口进行验证)</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据40" id="返回数据40">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> order_id 订单编号</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT51 SECTION "虚拟购买第三步" [19534-19954] -->
+<h3 class="sectionedit52"><a name="虚拟订单列表" id="虚拟订单列表">虚拟订单列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post32" id="调用接口_post32">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_vr_order&amp;op=order_list</pre>
+
+</div>
+
+<h4><a name="请求参数42" id="请求参数42">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key当前登录令牌</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据41" id="返回数据41">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> order_list 订单列表</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT52 SECTION "虚拟订单列表" [19955-20153] -->
+<h3 class="sectionedit53"><a name="虚拟订单可用码列表" id="虚拟订单可用码列表">虚拟订单可用码列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post33" id="调用接口_post33">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_vr_order&amp;op=indate_code_list</pre>
+
+</div>
+
+<h4><a name="请求参数43" id="请求参数43">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> order_id 订单编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据42" id="返回数据42">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> code_list 支付码列表</div>
+<ul>
+<li class="level2"><div class="li"> vr_code 支付码</div>
+</li>
+<li class="level2"><div class="li"> vr_indate 使用期限 </div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT53 SECTION "虚拟订单可用码列表" [20154-20448] -->
+<h3 class="sectionedit54"><a name="虚拟订单取消" id="虚拟订单取消">虚拟订单取消</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post34" id="调用接口_post34">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_vr_order&amp;op=order_cancel</pre>
+
+</div>
+
+<h4><a name="请求参数44" id="请求参数44">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> order_id 订单编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据43" id="返回数据43">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT54 SECTION "虚拟订单取消" [20449-20654] -->
+<h3 class="sectionedit55"><a name="虚拟订单支付" id="虚拟订单支付">虚拟订单支付</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_get3" id="调用接口_get3">调用接口(get)</a></h4>
+<div class="level4">
+<pre class="code">  index.php?act=member_payment&amp;op=vr_pay</pre>
+
+</div>
+
+<h4><a name="请求参数45" id="请求参数45">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> pay_sn 支付编号(虚拟订单order_sn)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT55 SECTION "虚拟订单支付" [20655-20847] -->
+<h2 class="sectionedit56"><a name="im_api" id="im_api">IM API</a></h2>
+<div class="level2">
+
+</div>
+<!-- EDIT56 SECTION "IM API" [20848-20866] -->
+<h3 class="sectionedit57"><a name="node_会员的在线状态" id="node_会员的在线状态">node 会员的在线状态</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口" id="调用接口">调用接口</a></h4>
+<div class="level4">
+<pre class="code">emit('get_state', u_list);</pre>
+
+</div>
+
+<h4><a name="请求参数46" id="请求参数46">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> u_list 会员列表</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据44" id="返回数据44">返回数据</a></h4>
+<div class="level4">
+<pre class="code">emit('get_state', list);</pre>
+<ul>
+<li class="level1"><div class="li"> list['u_state'] 状态列表</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号， 在线时是1，不在线是0</div>
+</li>
+<li class="level1"><div class="li"> list['user'] 会员列表</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> u_name 会员名</div>
+</li>
+<li class="level1"><div class="li"> avatar 会员头像</div>
+</li>
+<li class="level1"><div class="li"> s_id 店铺编号</div>
+</li>
+<li class="level1"><div class="li"> s_name 店铺名</div>
+</li>
+<li class="level1"><div class="li"> online 在线时是1，不在线是0</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT57 SECTION "node 会员的在线状态" [20867-21339] -->
+<h3 class="sectionedit58"><a name="node_更新会员状态" id="node_更新会员状态">node  更新会员状态</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口1" id="调用接口1">调用接口</a></h4>
+<div class="level4">
+<pre class="code">emit('update_user', user);</pre>
+
+</div>
+
+<h4><a name="请求参数47" id="请求参数47">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> user 会员信息</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> u_name 会员名</div>
+</li>
+<li class="level1"><div class="li"> avatar 会员头像</div>
+</li>
+<li class="level1"><div class="li"> s_id 店铺编号</div>
+</li>
+<li class="level1"><div class="li"> s_name 店铺名</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据45" id="返回数据45">返回数据</a></h4>
+<div class="level4">
+<pre class="code">emit('get_msg', msg_list);</pre>
+<ul>
+<li class="level1"><div class="li"> msg_list 消息列表</div>
+</li>
+<li class="level1"><div class="li"> m_id 消息编号</div>
+</li>
+<li class="level1"><div class="li"> f_id 发消息会员编号</div>
+</li>
+<li class="level1"><div class="li"> f_name 发消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_id 接收消息编号</div>
+</li>
+<li class="level1"><div class="li"> t_name 接收消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_msg 消息</div>
+</li>
+<li class="level1"><div class="li"> add_time 发消息时间</div>
+</li>
+<li class="level1"><div class="li"> user 发消息人的会员信息，可能为空</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT58 SECTION "node  更新会员状态" [21340-21897] -->
+<h3 class="sectionedit59"><a name="node_发消息" id="node_发消息">node  发消息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口2" id="调用接口2">调用接口</a></h4>
+<div class="level4">
+<pre class="code">emit('send_msg', t_msg);</pre>
+
+</div>
+
+<h4><a name="请求参数48" id="请求参数48">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> msg 消息</div>
+</li>
+<li class="level1"><div class="li"> f_id 发消息会员编号</div>
+</li>
+<li class="level1"><div class="li"> f_name 发消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_id 接收消息编号</div>
+</li>
+<li class="level1"><div class="li"> t_name 接收消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_msg 消息</div>
+</li>
+<li class="level1"><div class="li"> m_id 消息编号</div>
+</li>
+<li class="level1"><div class="li"> add_time 发消息时间</div>
+</li>
+<li class="level1"><div class="li"> goods_id 是含商品地址时为商品编号，不是时为0</div>
+</li>
+<li class="level1"><div class="li"> goods_info 是含商品地址时为商品信息，不是时为空数组</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据46" id="返回数据46">返回数据</a></h4>
+<div class="level4">
+<pre class="code">emit('get_msg', msg_list);</pre>
+<ul>
+<li class="level1"><div class="li"> msg_list 消息列表</div>
+</li>
+<li class="level1"><div class="li"> m_id 消息编号</div>
+</li>
+<li class="level1"><div class="li"> f_id 发消息会员编号</div>
+</li>
+<li class="level1"><div class="li"> f_name 发消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_id 接收消息编号</div>
+</li>
+<li class="level1"><div class="li"> t_name 接收消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_msg 消息</div>
+</li>
+<li class="level1"><div class="li"> add_time 发消息时间</div>
+</li>
+<li class="level1"><div class="li"> user 发消息人的会员信息，可能为空</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT59 SECTION "node  发消息" [21898-22659] -->
+<h3 class="sectionedit60"><a name="node_删除消息" id="node_删除消息">node  删除消息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口3" id="调用接口3">调用接口</a></h4>
+<div class="level4">
+<pre class="code">socket.emit('del_msg', {'max_id':max_id,'f_id':u_id});</pre>
+
+</div>
+
+<h4><a name="请求参数49" id="请求参数49">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> max_id 已读的最大消息编号</div>
+</li>
+<li class="level1"><div class="li"> f_id 消息发送人的会员编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据47" id="返回数据47">返回数据</a></h4>
+<div class="level4">
+<pre class="code">emit('del_msg', msg);</pre>
+<ul>
+<li class="level1"><div class="li"> msg 消息</div>
+</li>
+<li class="level1"><div class="li"> max_id 已读的最大消息编号</div>
+</li>
+<li class="level1"><div class="li"> f_id 消息发送人的会员编号</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT60 SECTION "node  删除消息" [22660-23007] -->
+<h3 class="sectionedit61"><a name="会员聊天--最近联系人列表" id="会员聊天--最近联系人列表">会员聊天--最近联系人列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post35" id="调用接口_post35">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_chat&amp;op=get_user_list</pre>
+
+</div>
+
+<h4><a name="请求参数50" id="请求参数50">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> n 查询会员数量，可为空，默认为50个</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据48" id="返回数据48">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> node_info node信息</div>
+</li>
+<li class="level1"><div class="li"> node_chat 是否开启聊天功能，开是为true</div>
+</li>
+<li class="level1"><div class="li"> node_site_url node服务器网址</div>
+</li>
+<li class="level1"><div class="li"> member_info 登录会员信息</div>
+</li>
+<li class="level1"><div class="li"> member_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> member_name 会员名</div>
+</li>
+<li class="level1"><div class="li"> member_avatar 会员头像</div>
+</li>
+<li class="level1"><div class="li"> store_name 店铺名</div>
+</li>
+<li class="level1"><div class="li"> grade_id 店铺等级</div>
+</li>
+<li class="level1"><div class="li"> store_id 店铺编号</div>
+</li>
+<li class="level1"><div class="li"> seller_name 店铺登录名</div>
+</li>
+<li class="level1"><div class="li"> list 会员列表</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> u_name 会员名</div>
+</li>
+<li class="level1"><div class="li"> avatar 会员头像</div>
+</li>
+<li class="level1"><div class="li"> friend 是好友时为1，不是时无此字段</div>
+</li>
+<li class="level1"><div class="li"> recent 是最近联系人为1，不是时无此字段</div>
+</li>
+<li class="level1"><div class="li"> time 是最近联系人是会话时间，不是时无此字段</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT61 SECTION "会员聊天--最近联系人列表" [23008-23861] -->
+<h3 class="sectionedit62"><a name="会员聊天--会员信息" id="会员聊天--会员信息">会员聊天--会员信息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post36" id="调用接口_post36">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_chat&amp;op=get_info</pre>
+
+</div>
+
+<h4><a name="请求参数51" id="请求参数51">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> t 查询类型('member_id','member_name','store_id','member')</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据49" id="返回数据49">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> member_info 会员</div>
+</li>
+<li class="level1"><div class="li"> member_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> member_name 会员名</div>
+</li>
+<li class="level1"><div class="li"> member_avatar 会员头像</div>
+</li>
+<li class="level1"><div class="li"> store_name 店铺名</div>
+</li>
+<li class="level1"><div class="li"> grade_id 店铺等级</div>
+</li>
+<li class="level1"><div class="li"> store_id 店铺编号</div>
+</li>
+<li class="level1"><div class="li"> seller_name 店铺登录名</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT62 SECTION "会员聊天--会员信息" [23862-24339] -->
+<h3 class="sectionedit63"><a name="会员聊天--发消息" id="会员聊天--发消息">会员聊天--发消息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post37" id="调用接口_post37">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_chat&amp;op=send_msg</pre>
+
+</div>
+
+<h4><a name="请求参数52" id="请求参数52">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> t_id 接收消息会员编号</div>
+</li>
+<li class="level1"><div class="li"> t_name 接收消息会员帐号</div>
+</li>
+<li class="level1"><div class="li"> t_msg 消息</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据50" id="返回数据50">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> msg 消息</div>
+</li>
+<li class="level1"><div class="li"> f_id 发消息会员编号</div>
+</li>
+<li class="level1"><div class="li"> f_name 发消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_id 接收消息编号</div>
+</li>
+<li class="level1"><div class="li"> t_name 接收消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_msg 消息</div>
+</li>
+<li class="level1"><div class="li"> m_id 消息编号</div>
+</li>
+<li class="level1"><div class="li"> f_ip 发消息IP</div>
+</li>
+<li class="level1"><div class="li"> r_state 消息状态，已读是1，未读是2</div>
+</li>
+<li class="level1"><div class="li"> add_time 发消息时间</div>
+</li>
+<li class="level1"><div class="li"> goods_id 是含商品地址时为商品编号，不是时为0</div>
+</li>
+<li class="level1"><div class="li"> goods_info 是含商品地址时为商品信息，不是时为空数组</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT63 SECTION "会员聊天--发消息" [24340-25015] -->
+<h3 class="sectionedit64"><a name="会员聊天--商品信息" id="会员聊天--商品信息">会员聊天--商品信息</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post38" id="调用接口_post38">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_chat&amp;op=get_goods_info</pre>
+
+</div>
+
+<h4><a name="请求参数53" id="请求参数53">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据51" id="返回数据51">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> goods 商品</div>
+</li>
+<li class="level1"><div class="li"> goods_id 商品编号</div>
+</li>
+<li class="level1"><div class="li"> store_id 店铺编号</div>
+</li>
+<li class="level1"><div class="li"> goods_commonid 商品公共编号</div>
+</li>
+<li class="level1"><div class="li"> goods_name 商品名</div>
+</li>
+<li class="level1"><div class="li"> goods_image 商品主图</div>
+</li>
+<li class="level1"><div class="li"> goods_price 商品价格</div>
+</li>
+<li class="level1"><div class="li"> goods_marketprice 市场价</div>
+</li>
+<li class="level1"><div class="li"> goods_promotion_price 商品促销价格</div>
+</li>
+<li class="level1"><div class="li"> url 商品网址</div>
+</li>
+<li class="level1"><div class="li"> pic 商品主图网址</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT64 SECTION "会员聊天--商品信息" [25016-25536] -->
+<h3 class="sectionedit65"><a name="会员聊天--聊天记录查询" id="会员聊天--聊天记录查询">会员聊天--聊天记录查询</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post39" id="调用接口_post39">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_chat&amp;op=get_chat_log</pre>
+
+</div>
+
+<h4><a name="请求参数54" id="请求参数54">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> t_id 接收消息会员编号</div>
+</li>
+<li class="level1"><div class="li"> t 查询天数('7','15','30')</div>
+</li>
+<li class="level1"><div class="li"> page 每页显示数量，可为空，默认为5个</div>
+</li>
+<li class="level1"><div class="li"> curpage 当前页码</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据52" id="返回数据52">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> list 消息列表</div>
+</li>
+<li class="level1"><div class="li"> m_id 消息编号</div>
+</li>
+<li class="level1"><div class="li"> f_id 发消息会员编号</div>
+</li>
+<li class="level1"><div class="li"> f_name 发消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_id 接收消息编号</div>
+</li>
+<li class="level1"><div class="li"> t_name 接收消息会员名</div>
+</li>
+<li class="level1"><div class="li"> t_msg 消息</div>
+</li>
+<li class="level1"><div class="li"> f_ip 发消息IP</div>
+</li>
+<li class="level1"><div class="li"> time 发消息时间，格式化后的值，”Y-m-d H:i:s”</div>
+</li>
+<li class="level1"><div class="li"> add_time 发消息时间，时间戳形式</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT65 SECTION "会员聊天--聊天记录查询" [25537-26182] -->
+<h3 class="sectionedit66"><a name="我的好友--查询会员" id="我的好友--查询会员">我的好友--查询会员</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post40" id="调用接口_post40">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_snsfriend&amp;op=member_list</pre>
+
+</div>
+
+<h4><a name="请求参数55" id="请求参数55">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> m_name 会员名</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据53" id="返回数据53">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> member_list 会员列表</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> u_name 会员名</div>
+</li>
+<li class="level1"><div class="li"> truename 真实姓名</div>
+</li>
+<li class="level1"><div class="li"> avatar 会员头像</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT66 SECTION "我的好友--查询会员" [26183-26507] -->
+<h3 class="sectionedit67"><a name="我的好友--好友列表" id="我的好友--好友列表">我的好友--好友列表</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post41" id="调用接口_post41">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_snsfriend&amp;op=friend_list</pre>
+
+</div>
+
+<h4><a name="请求参数56" id="请求参数56">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> page 每页显示数量，可为空，默认为5个</div>
+</li>
+<li class="level1"><div class="li"> curpage 当前页码</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据54" id="返回数据54">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> friend_list 好友列表，结构与“最近联系人列表”接口一样，这个是可分页的</div>
+</li>
+<li class="level1"><div class="li"> u_id 会员编号</div>
+</li>
+<li class="level1"><div class="li"> u_name 会员名</div>
+</li>
+<li class="level1"><div class="li"> avatar 会员头像</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT67 SECTION "我的好友--好友列表" [26508-26941] -->
+<h3 class="sectionedit68"><a name="我的好友--添加好友" id="我的好友--添加好友">我的好友--添加好友</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post42" id="调用接口_post42">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_snsfriend&amp;op=friend_add</pre>
+
+</div>
+
+<h4><a name="请求参数57" id="请求参数57">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> m_id 会员编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据55" id="返回数据55">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT68 SECTION "我的好友--添加好友" [26942-27152] -->
+<h3 class="sectionedit69"><a name="我的好友--删除好友" id="我的好友--删除好友">我的好友--删除好友</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="调用接口_post43" id="调用接口_post43">调用接口(post)</a></h4>
+<div class="level4">
+<pre class="code">index.php?act=member_snsfriend&amp;op=friend_del</pre>
+
+</div>
+
+<h4><a name="请求参数58" id="请求参数58">请求参数</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> key 当前登录令牌</div>
+</li>
+<li class="level1"><div class="li"> m_id 会员编号</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="返回数据56" id="返回数据56">返回数据</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> '1'</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT69 SECTION "我的好友--删除好友" [27153-] --></div>
+
+
+<div aria-labelledby="ui-dialog-title-media__popup_content" role="dialog" tabindex="-1" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable" style="display: none; z-index: 1000; outline: 0px none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-dialog-title-media__popup_content" class="ui-dialog-title">链接设置</span><a role="button" class="ui-dialog-titlebar-close ui-corner-all" href="#"><span class="ui-icon ui-icon-closethick">close</span></a></div><div class="ui-dialog-content ui-widget-content" id="media__popup_content"><p id="media__link"><label>链接目标</label><button title="到详细页面的链接" id="media__linkbtn1" class="button"><img src="api_files/media_link_lnk.png"></button><button title="到原始文件的直接链接" id="media__linkbtn2" class="button"><img src="api_files/media_link_direct.png"></button><button title="没有链接" id="media__linkbtn3" class="button"><img src="api_files/media_link_nolnk.png"></button><button title="仅显示链接。" id="media__linkbtn4" class="button"><img src="api_files/media_link_displaylnk.png"></button></p><p id="media__align"><label>对齐</label><button title="不使用对齐。" id="media__alignbtn1" class="button"><img src="api_files/media_align_noalign.png"></button><button title="左对齐图片。" id="media__alignbtn2" class="button"><img src="api_files/media_align_left.png"></button><button title="居中对齐图片。" id="media__alignbtn3" class="button"><img src="api_files/media_align_center.png"></button><button title="右对齐图片。" id="media__alignbtn4" class="button"><img src="api_files/media_align_right.png"></button></p><p id="media__size"><label>图片大小</label><button title="小尺寸" id="media__sizebtn1" class="button"><img src="api_files/media_size_small.png"></button><button title="中等尺寸" id="media__sizebtn2" class="button"><img src="api_files/media_size_medium.png"></button><button title="大尺寸" id="media__sizebtn3" class="button"><img src="api_files/media_size_large.png"></button><button title="原始版本" id="media__sizebtn4" class="button"><img src="api_files/media_size_original.png"></button></p><p><input value="插入" class="button" id="media__sendbtn" type="button"></p></div></div></body></html>
