@@ -1,0 +1,27 @@
+/**
+ * 定义买家中心样式
+ * @abc
+ * www.abc.com
+ * Apr-01-2012
+ **/
+body { background: #E9DED7 url(skin06/body_bg.png) no-repeat scroll center 80px;}
+
+a { color: #6F533C;}
+a:hover { color: #AB8463; text-decoration: none;}
+
+.user-info .user-data { color: #122A94; text-shadow: 1px 1px 1px rgba(255,255,255,0.5);}
+.user-info .user-data dd span a { color: #FFF; text-decoration: none; text-shadow: none; background-color:#AB8463; padding: 0 4px; border-radius: 2px;}
+.user-info .user-stat dl { color: #3D343E; text-shadow: 1px 1px 1px rgba(255,255,255,0.5); border-left: dashed 1px #A8A8A8;}
+
+.sns-nav { filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#BFDCC6A7', endColorstr='#BFDCC6A7'); background:rgba(220,198,167,0.75);}
+.sns-nav ul li a { border-color: #C9B192;}
+.sns-nav ul li a:hover { background-color: #C9B192; }
+.sns-nav ul li a.current, .sns-nav ul li a:hover.current { color: #AB8463;}
+.sns-nav ul li a.current i { background: url(skin06/nav.png) no-repeat scroll;}
+
+.sns-main { background-image: url(skin06/layout_bg.png);}
+
+.tabmenu ul li.active, .group-info:hover { border-color: #C9B192 !important;}
+.tabmenu ul li.active i { border-color: #C9B192 transparent transparent;}
+
+.group-info:hover { background-color: #FFF7F7 !important;}

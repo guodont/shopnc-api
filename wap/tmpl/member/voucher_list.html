@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>我的代金券</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+<header id="header"></header>
+<ul class="voucher-tab">
+  <li> <a data-state="1" href="?voucher_state=1">未使用</a> </li>
+  <li> <a data-state="2" href="?voucher_state=2">已使用</a> </li>
+  <li> <a data-state="3" href="?voucher_state=3">已过期</a> </li>
+</ul>
+<div class="voucher-list-wp" id="voucher-list"></div>
+<script type="text/html" id="voucher-list-tmpl">
+<div class="voucher-list">
+<% if (voucher_list && voucher_list.length > 0) { %>
+
+<% for (var k in voucher_list) { var v = voucher_list[k]; %>
+	<div class="voucher-item">
+		<div class="voucher-img-wrapper">
+			<img alt="" src="<%= v.voucher_t_customimg %>" />
+		</div>
+		<dl class="voucher-info"><dt class="voucher-title"><%= v.voucher_title %></dt>
+		<dd>
+			<span class="voucher-money">￥<%= v.voucher_price %></span>
+		<% if (v.voucher_limit) { %>
+			（购物满<%= v.voucher_limit %>元可用）
+		<% } %>
+		</dd>
+		<dd>店铺：<%= v.store_name %></dd>
+		<dd>有效期至：<%= tsToDateString(v.voucher_end_date) %></dd>
+		</dl>
+	</div>
+<% } %>
+
+    <div class="pagination mt10">
+        <a href="javascript:void(0);" class="pre-page<% if (curpage <= 1 ) { %> disabled<% } %>">上一页</a>
+        <a href="javascript:void(0);" has_more="<% if (hasmore){ %>true<% } else { %>false<% } %>" class="next-page<% if (!hasmore) { %> disabled<% } %>">下一页</a>
+    </div>
+<% } else { %>
+    <div class="no-record">
+        暂无记录
+    </div>
+<% } %>
+</div>
+</script>
+<div id="footer"></div>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../../js/tmpl/voucher_list.js"></script>
+</body>
+</html>

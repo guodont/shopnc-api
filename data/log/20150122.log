@@ -1,0 +1,735 @@
+[2015-01-22 19:56:48] /admin/index.php?act=dashboard&op=statistics ( act=dashboard&op=statistics ) 
+ERR: Db Error: Table '33hao.33hao_vr_refund' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao_vr_refund` WHERE ( admin_state = '1' ) LIMIT 1  
+[2015-01-22 19:56:48] /admin/index.php?act=dashboard&op=statistics ( act=dashboard&op=statistics ) 
+ERR: Db Error: Table '33hao.33hao_vr_order_bill' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao_vr_order_bill` WHERE ( ob_state = '2' ) LIMIT 1  
+[2015-01-22 19:56:48] /admin/index.php?act=dashboard&op=statistics ( act=dashboard&op=statistics ) 
+ERR: Db Error: Table '33hao.33hao_vr_order_bill' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao_vr_order_bill` WHERE ( ob_state = '3' ) LIMIT 1  
+[2015-01-22 19:56:54] /admin/index.php?act=cache&op=clear ( act=cache&op=clear ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-01-22 19:57:02] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-01-22 19:57:10] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreactivity' doesn't exist
+SHOW CREATE TABLE TABLEPREactivity
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreactivity_detail' doesn't exist
+SHOW CREATE TABLE TABLEPREactivity_detail
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreaddress' doesn't exist
+SHOW CREATE TABLE TABLEPREaddress
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreadmin' doesn't exist
+SHOW CREATE TABLE TABLEPREadmin
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreadmin_log' doesn't exist
+SHOW CREATE TABLE TABLEPREadmin_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreadv' doesn't exist
+SHOW CREATE TABLE TABLEPREadv
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreadv_click' doesn't exist
+SHOW CREATE TABLE TABLEPREadv_click
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreadv_position' doesn't exist
+SHOW CREATE TABLE TABLEPREadv_position
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprealbum_class' doesn't exist
+SHOW CREATE TABLE TABLEPREalbum_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprealbum_pic' doesn't exist
+SHOW CREATE TABLE TABLEPREalbum_pic
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprearea' doesn't exist
+SHOW CREATE TABLE TABLEPREarea
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprearrival_notice' doesn't exist
+SHOW CREATE TABLE TABLEPREarrival_notice
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprearticle' doesn't exist
+SHOW CREATE TABLE TABLEPREarticle
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprearticle_class' doesn't exist
+SHOW CREATE TABLE TABLEPREarticle_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreattribute' doesn't exist
+SHOW CREATE TABLE TABLEPREattribute
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreattribute_value' doesn't exist
+SHOW CREATE TABLE TABLEPREattribute_value
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprebrand' doesn't exist
+SHOW CREATE TABLE TABLEPREbrand
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecart' doesn't exist
+SHOW CREATE TABLE TABLEPREcart
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprechat_log' doesn't exist
+SHOW CREATE TABLE TABLEPREchat_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprechat_msg' doesn't exist
+SHOW CREATE TABLE TABLEPREchat_msg
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_affix' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_affix
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_class' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_explog' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_explog
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_expmember' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_expmember
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_exptheme' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_exptheme
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_fs' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_fs
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_inform' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_inform
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_like' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_like
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_mapply' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_mapply
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_member' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_member
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_ml' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_ml
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_mldefault' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_mldefault
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_mlref' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_mlref
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_recycle' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_recycle
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_thclass' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_thclass
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_theme' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_theme
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_thg' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_thg
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_thpoll' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_thpoll
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_thpolloption' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_thpolloption
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_thpollvoter' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_thpollvoter
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecircle_threply' doesn't exist
+SHOW CREATE TABLE TABLEPREcircle_threply
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_article' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_article
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_article_attitude' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_article_attitude
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_article_class' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_article_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_comment' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_comment
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_comment_up' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_comment_up
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_index_module' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_index_module
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_module' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_module
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_module_assembly' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_module_assembly
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_module_frame' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_module_frame
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_navigation' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_navigation
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_picture' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_picture
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_picture_class' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_picture_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_picture_image' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_picture_image
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_special' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_special
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_tag' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_tag
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecms_tag_relation' doesn't exist
+SHOW CREATE TABLE TABLEPREcms_tag_relation
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecomplain' doesn't exist
+SHOW CREATE TABLE TABLEPREcomplain
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecomplain_subject' doesn't exist
+SHOW CREATE TABLE TABLEPREcomplain_subject
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecomplain_talk' doesn't exist
+SHOW CREATE TABLE TABLEPREcomplain_talk
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreconsult' doesn't exist
+SHOW CREATE TABLE TABLEPREconsult
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreconsult_type' doesn't exist
+SHOW CREATE TABLE TABLEPREconsult_type
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprecron' doesn't exist
+SHOW CREATE TABLE TABLEPREcron
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepredaddress' doesn't exist
+SHOW CREATE TABLE TABLEPREdaddress
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepredelivery_order' doesn't exist
+SHOW CREATE TABLE TABLEPREdelivery_order
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepredelivery_point' doesn't exist
+SHOW CREATE TABLE TABLEPREdelivery_point
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepredocument' doesn't exist
+SHOW CREATE TABLE TABLEPREdocument
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreevaluate_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREevaluate_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreevaluate_store' doesn't exist
+SHOW CREATE TABLE TABLEPREevaluate_store
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreexppoints_log' doesn't exist
+SHOW CREATE TABLE TABLEPREexppoints_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreexpress' doesn't exist
+SHOW CREATE TABLE TABLEPREexpress
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprefavorites' doesn't exist
+SHOW CREATE TABLE TABLEPREfavorites
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflea' doesn't exist
+SHOW CREATE TABLE TABLEPREflea
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflea_area' doesn't exist
+SHOW CREATE TABLE TABLEPREflea_area
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflea_class' doesn't exist
+SHOW CREATE TABLE TABLEPREflea_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflea_class_index' doesn't exist
+SHOW CREATE TABLE TABLEPREflea_class_index
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflea_consult' doesn't exist
+SHOW CREATE TABLE TABLEPREflea_consult
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflea_favorites' doesn't exist
+SHOW CREATE TABLE TABLEPREflea_favorites
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflea_upload' doesn't exist
+SHOW CREATE TABLE TABLEPREflea_upload
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflowstat' doesn't exist
+SHOW CREATE TABLE TABLEPREflowstat
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflowstat_1' doesn't exist
+SHOW CREATE TABLE TABLEPREflowstat_1
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreflowstat_2' doesn't exist
+SHOW CREATE TABLE TABLEPREflowstat_2
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregadmin' doesn't exist
+SHOW CREATE TABLE TABLEPREgadmin
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_attr_index' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_attr_index
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_browse' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_browse
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_class' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_class_staple' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_class_staple
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_class_tag' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_class_tag
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_combo' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_combo
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_common' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_common
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_fcode' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_fcode
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_gift' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_gift
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregoods_images' doesn't exist
+SHOW CREATE TABLE TABLEPREgoods_images
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregroupbuy' doesn't exist
+SHOW CREATE TABLE TABLEPREgroupbuy
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregroupbuy_class' doesn't exist
+SHOW CREATE TABLE TABLEPREgroupbuy_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregroupbuy_price_range' doesn't exist
+SHOW CREATE TABLE TABLEPREgroupbuy_price_range
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepregroupbuy_quota' doesn't exist
+SHOW CREATE TABLE TABLEPREgroupbuy_quota
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprehelp' doesn't exist
+SHOW CREATE TABLE TABLEPREhelp
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprehelp_type' doesn't exist
+SHOW CREATE TABLE TABLEPREhelp_type
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreinform' doesn't exist
+SHOW CREATE TABLE TABLEPREinform
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreinform_subject' doesn't exist
+SHOW CREATE TABLE TABLEPREinform_subject
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreinform_subject_type' doesn't exist
+SHOW CREATE TABLE TABLEPREinform_subject_type
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreinvoice' doesn't exist
+SHOW CREATE TABLE TABLEPREinvoice
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprelink' doesn't exist
+SHOW CREATE TABLE TABLEPRElink
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprelive_area' doesn't exist
+SHOW CREATE TABLE TABLEPRElive_area
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprelive_class' doesn't exist
+SHOW CREATE TABLE TABLEPRElive_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprelive_groupbuy' doesn't exist
+SHOW CREATE TABLE TABLEPRElive_groupbuy
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprelive_order' doesn't exist
+SHOW CREATE TABLE TABLEPRElive_order
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprelive_order_pwd' doesn't exist
+SHOW CREATE TABLE TABLEPRElive_order_pwd
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprelock' doesn't exist
+SHOW CREATE TABLE TABLEPRElock
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremail_cron' doesn't exist
+SHOW CREATE TABLE TABLEPREmail_cron
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremail_msg_temlates' doesn't exist
+SHOW CREATE TABLE TABLEPREmail_msg_temlates
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremall_consult' doesn't exist
+SHOW CREATE TABLE TABLEPREmall_consult
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremall_consult_type' doesn't exist
+SHOW CREATE TABLE TABLEPREmall_consult_type
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremb_category' doesn't exist
+SHOW CREATE TABLE TABLEPREmb_category
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremb_feedback' doesn't exist
+SHOW CREATE TABLE TABLEPREmb_feedback
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremb_payment' doesn't exist
+SHOW CREATE TABLE TABLEPREmb_payment
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremb_special' doesn't exist
+SHOW CREATE TABLE TABLEPREmb_special
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremb_special_item' doesn't exist
+SHOW CREATE TABLE TABLEPREmb_special_item
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremb_user_token' doesn't exist
+SHOW CREATE TABLE TABLEPREmb_user_token
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremember' doesn't exist
+SHOW CREATE TABLE TABLEPREmember
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremember_common' doesn't exist
+SHOW CREATE TABLE TABLEPREmember_common
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremember_msg_setting' doesn't exist
+SHOW CREATE TABLE TABLEPREmember_msg_setting
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremember_msg_tpl' doesn't exist
+SHOW CREATE TABLE TABLEPREmember_msg_tpl
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremessage' doesn't exist
+SHOW CREATE TABLE TABLEPREmessage
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_adv' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_adv
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_comment' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_comment
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_goods_class' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_goods_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_goods_relation' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_goods_relation
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_like' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_like
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_member_info' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_member_info
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_personal' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_personal
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_personal_class' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_personal_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepremicro_store' doesn't exist
+SHOW CREATE TABLE TABLEPREmicro_store
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprenavigation' doesn't exist
+SHOW CREATE TABLE TABLEPREnavigation
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreoffpay_area' doesn't exist
+SHOW CREATE TABLE TABLEPREoffpay_area
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreorder' doesn't exist
+SHOW CREATE TABLE TABLEPREorder
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreorder_bill' doesn't exist
+SHOW CREATE TABLE TABLEPREorder_bill
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreorder_common' doesn't exist
+SHOW CREATE TABLE TABLEPREorder_common
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreorder_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREorder_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreorder_log' doesn't exist
+SHOW CREATE TABLE TABLEPREorder_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreorder_pay' doesn't exist
+SHOW CREATE TABLE TABLEPREorder_pay
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreorder_statis' doesn't exist
+SHOW CREATE TABLE TABLEPREorder_statis
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_booth_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREp_booth_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_booth_quota' doesn't exist
+SHOW CREATE TABLE TABLEPREp_booth_quota
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_bundling' doesn't exist
+SHOW CREATE TABLE TABLEPREp_bundling
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_bundling_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREp_bundling_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_bundling_quota' doesn't exist
+SHOW CREATE TABLE TABLEPREp_bundling_quota
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_mansong' doesn't exist
+SHOW CREATE TABLE TABLEPREp_mansong
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_mansong_quota' doesn't exist
+SHOW CREATE TABLE TABLEPREp_mansong_quota
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_mansong_rule' doesn't exist
+SHOW CREATE TABLE TABLEPREp_mansong_rule
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_xianshi' doesn't exist
+SHOW CREATE TABLE TABLEPREp_xianshi
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_xianshi_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREp_xianshi_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprep_xianshi_quota' doesn't exist
+SHOW CREATE TABLE TABLEPREp_xianshi_quota
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepayment' doesn't exist
+SHOW CREATE TABLE TABLEPREpayment
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepd_cash' doesn't exist
+SHOW CREATE TABLE TABLEPREpd_cash
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepd_log' doesn't exist
+SHOW CREATE TABLE TABLEPREpd_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepd_recharge' doesn't exist
+SHOW CREATE TABLE TABLEPREpd_recharge
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepoints_cart' doesn't exist
+SHOW CREATE TABLE TABLEPREpoints_cart
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepoints_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREpoints_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepoints_log' doesn't exist
+SHOW CREATE TABLE TABLEPREpoints_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepoints_order' doesn't exist
+SHOW CREATE TABLE TABLEPREpoints_order
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepoints_orderaddress' doesn't exist
+SHOW CREATE TABLE TABLEPREpoints_orderaddress
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprepoints_ordergoods' doesn't exist
+SHOW CREATE TABLE TABLEPREpoints_ordergoods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprercb_log' doesn't exist
+SHOW CREATE TABLE TABLEPRErcb_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprerec_position' doesn't exist
+SHOW CREATE TABLE TABLEPRErec_position
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprerechargecard' doesn't exist
+SHOW CREATE TABLE TABLEPRErechargecard
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprerefund_reason' doesn't exist
+SHOW CREATE TABLE TABLEPRErefund_reason
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprerefund_return' doesn't exist
+SHOW CREATE TABLE TABLEPRErefund_return
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreseller' doesn't exist
+SHOW CREATE TABLE TABLEPREseller
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreseller_group' doesn't exist
+SHOW CREATE TABLE TABLEPREseller_group
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreseller_log' doesn't exist
+SHOW CREATE TABLE TABLEPREseller_log
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreseo' doesn't exist
+SHOW CREATE TABLE TABLEPREseo
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresetting' doesn't exist
+SHOW CREATE TABLE TABLEPREsetting
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_albumclass' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_albumclass
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_albumpic' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_albumpic
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_binding' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_binding
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_comment' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_comment
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_friend' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_friend
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_goods' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_goods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_membertag' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_membertag
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_mtagmember' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_mtagmember
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_setting' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_setting
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_sharegoods' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_sharegoods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_sharestore' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_sharestore
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_tracelog' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_tracelog
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepresns_visitor' doesn't exist
+SHOW CREATE TABLE TABLEPREsns_visitor
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprespec' doesn't exist
+SHOW CREATE TABLE TABLEPREspec
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprespec_value' doesn't exist
+SHOW CREATE TABLE TABLEPREspec_value
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestat_member' doesn't exist
+SHOW CREATE TABLE TABLEPREstat_member
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestat_order' doesn't exist
+SHOW CREATE TABLE TABLEPREstat_order
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestat_ordergoods' doesn't exist
+SHOW CREATE TABLE TABLEPREstat_ordergoods
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore' doesn't exist
+SHOW CREATE TABLE TABLEPREstore
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_bind_class' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_bind_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_class' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_cost' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_cost
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_decoration' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_decoration
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_decoration_album' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_decoration_album
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_decoration_block' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_decoration_block
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_extend' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_extend
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_goods_class' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_goods_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_grade' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_grade
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_joinin' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_joinin
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_msg' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_msg
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_msg_read' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_msg_read
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_msg_setting' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_msg_setting
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_msg_tpl' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_msg_tpl
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_navigation' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_navigation
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_plate' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_plate
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_reopen' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_reopen
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_sns_comment' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_sns_comment
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_sns_setting' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_sns_setting
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_sns_tracelog' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_sns_tracelog
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_watermark' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_watermark
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprestore_waybill' doesn't exist
+SHOW CREATE TABLE TABLEPREstore_waybill
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepretransport' doesn't exist
+SHOW CREATE TABLE TABLEPREtransport
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepretransport_extend' doesn't exist
+SHOW CREATE TABLE TABLEPREtransport_extend
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepretype' doesn't exist
+SHOW CREATE TABLE TABLEPREtype
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepretype_brand' doesn't exist
+SHOW CREATE TABLE TABLEPREtype_brand
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepretype_spec' doesn't exist
+SHOW CREATE TABLE TABLEPREtype_spec
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreupload' doesn't exist
+SHOW CREATE TABLE TABLEPREupload
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevoucher' doesn't exist
+SHOW CREATE TABLE TABLEPREvoucher
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevoucher_price' doesn't exist
+SHOW CREATE TABLE TABLEPREvoucher_price
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevoucher_quota' doesn't exist
+SHOW CREATE TABLE TABLEPREvoucher_quota
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevoucher_template' doesn't exist
+SHOW CREATE TABLE TABLEPREvoucher_template
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevr_groupbuy_area' doesn't exist
+SHOW CREATE TABLE TABLEPREvr_groupbuy_area
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevr_groupbuy_class' doesn't exist
+SHOW CREATE TABLE TABLEPREvr_groupbuy_class
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevr_order' doesn't exist
+SHOW CREATE TABLE TABLEPREvr_order
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevr_order_bill' doesn't exist
+SHOW CREATE TABLE TABLEPREvr_order_bill
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevr_order_code' doesn't exist
+SHOW CREATE TABLE TABLEPREvr_order_code
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevr_order_statis' doesn't exist
+SHOW CREATE TABLE TABLEPREvr_order_statis
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprevr_refund' doesn't exist
+SHOW CREATE TABLE TABLEPREvr_refund
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tableprewaybill' doesn't exist
+SHOW CREATE TABLE TABLEPREwaybill
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreweb' doesn't exist
+SHOW CREATE TABLE TABLEPREweb
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreweb_code' doesn't exist
+SHOW CREATE TABLE TABLEPREweb_code
+[2015-01-22 23:41:06] /admin/index.php?act=db&op=db&step=1 ( act=db&op=db ) 
+ERR: Db Error: Table '33hao.tablepreweb_special' doesn't exist
+SHOW CREATE TABLE TABLEPREweb_special

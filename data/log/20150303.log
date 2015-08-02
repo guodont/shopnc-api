@@ -1,0 +1,6 @@
+[2015-03-03 10:04:25] /shop/index.php?act=login&op=usersave ( act=login&op=usersave ) 
+ERR: Db Error: Unknown column 'inviter_id' in 'field list'
+INSERT  INTO `33hao_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo,inviter_id) VALUES (NULL,'test','e10adc3949ba59abbe56e057f20f883e','32132@qq.com','1425348264','1425348264','1425348264','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'0')
+[2015-03-03 10:05:37] /shop/index.php?act=login&op=usersave ( act=login&op=usersave ) 
+ERR: Db Error: Unknown column 'inviter_id' in 'field list'
+INSERT  INTO `33hao_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo,inviter_id) VALUES (NULL,'test','e10adc3949ba59abbe56e057f20f883e','13231@qq.com','1425348336','1425348336','1425348336','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1')

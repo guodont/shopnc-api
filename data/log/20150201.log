@@ -1,0 +1,24 @@
+[2015-02-01 00:46:03] /data/crontab/index.php ( act=index&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()
+[2015-02-01 00:53:21] /data/crontab/index.php ( act=index&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()
+[2015-02-01 00:53:36] /data/crontab/index.php?act=mail ( act=mail&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()
+[2015-02-01 00:53:36] /data/crontab/index.php?act=mail ( act=mail&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()
+[2015-02-01 01:04:25] /data/crontab/index.php?act=mail ( act=mail&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()
+[2015-02-01 01:04:44] /data/crontab/index.php?act=mail ( act=mail&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()
+[2015-02-01 01:08:29] /data/crontab/index.php?act=mail ( act=mail&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()
+[2015-02-01 01:11:40] /data/crontab/index.php?act=mail ( act=mail&op=index ) 
+ERR: Db Error: Duplicate entry '0' for key 'PRIMARY'
+INSERT  INTO `33hao_order_statis` () VALUES ()

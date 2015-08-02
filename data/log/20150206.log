@@ -1,0 +1,18 @@
+[2015-02-06 09:04:47] /shop/index.php?act=search&cate_id=794&op=index ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-06 09:04:47] /shop/index.php?act=search&cate_id=794&op=index ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-06 09:04:50] /shop/index.php?act=search&cate_id=763&curpage=1&op=index ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-06 09:04:50] /shop/index.php?act=search&cate_id=763&curpage=1&op=index ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods_images' doesn't exist
+SELECT * FROM `33hao_goods_images` WHERE ( goods_commonid IN ('100410','100409','100359','100408','100407','100406','100405','100404','100403','100402','100360','100401','100400','100399','100398','100397','100396') ) ORDER BY is_default desc,goods_image_sort asc LIMIT 1000  
+[2015-02-06 09:04:50] /shop/index.php?act=search&op=index&cate_id=787&key=0&order=0&area_id=6 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-06 09:04:50] /shop/index.php?act=search&cate_id=763&curpage=1&op=index ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT store_id,member_id,store_domain FROM `33hao_store` WHERE ( store_id IN ('3') ) LIMIT 1000  

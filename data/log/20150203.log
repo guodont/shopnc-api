@@ -1,0 +1,404 @@
+[2015-02-03 21:12:09] /shop/index.php?act=goods&op=index&goods_id=770 ( act=goods&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT * FROM `33hao_goods` WHERE ( goods_id = '770' ) LIMIT 1  
+[2015-02-03 21:12:10] /shop/index.php?act=search&op=get_booth_goods&cate_id=5905 ( act=search&op=get_booth_goods ) 
+ERR: Db Error: Table '33hao.33hao_p_booth_goods' doesn't exist
+SELECT goods_id FROM `33hao_p_booth_goods` WHERE ( gc_id IN ('5905','5906','5922','5932','5943','5955','5970','5907','5908','5909','5911','5912','5914','5915','5916','5917','5918','5920','6959','6961','5923','5924','5925','5926','5927','5928','5929','5930','5931','6962','6963','6964','6965','6966','5933','5934','5935','5936','5937','7919','5944','5945','5946','5947','5948','5949','5950','5951','5952','5953','5954','6967','6968','6969','6970','6971','5956','5957','5958','5959','5960','5961','5962','5971','5972','5973','5974','5975','6982','6983','6985') ) ORDER BY rand() LIMIT 4  
+[2015-02-03 21:12:10] /shop/index.php?act=search&op=get_guesslike ( act=search&op=get_guesslike ) 
+ERR: Db Error: Table '33hao.33hao_p_booth_goods' doesn't exist
+SELECT * FROM `33hao_p_booth_goods` WHERE ( gc_id IN('') ) AND ( booth_state = '1' ) ORDER BY rand() LIMIT 20  
+[2015-02-03 21:12:10] /shop/index.php?act=search&op=get_guesslike ( act=search&op=get_guesslike ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT * FROM `33hao_goods` WHERE ( goods_id IN('') ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) ORDER BY goods_id desc LIMIT 1000  
+[2015-02-03 21:12:14] /shop/index.php?act=show_store&op=index&store_id=3 ( act=show_store&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '3' ) LIMIT 1  
+[2015-02-03 21:12:15] /shop/index.php?act=goods&op=comments&goods_id=597&type=all ( act=goods&op=comments ) 
+ERR: Db Error: Table '33hao.33hao_evaluate_goods' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao_evaluate_goods` WHERE ( geval_goodsid = '597' ) LIMIT 1  
+[2015-02-03 21:12:15] /shop/index.php?act=goods&op=comments&goods_id=597&type=all ( act=goods&op=comments ) 
+ERR: Db Error: Table '33hao.33hao_evaluate_goods' doesn't exist
+SELECT * FROM `33hao_evaluate_goods` WHERE ( geval_goodsid = '597' ) ORDER BY geval_id desc LIMIT 0,10  
+[2015-02-03 21:12:16] /shop/index.php?act=search&op=index&cate_id=5905 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_1 = '5905' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:12:16] /shop/index.php?act=search&op=index&cate_id=5905 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_1 = '5905' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:12:23] /shop/index.php?act=search&op=get_booth_goods&cate_id=5905 ( act=search&op=get_booth_goods ) 
+ERR: Db Error: Table '33hao.33hao_p_booth_goods' doesn't exist
+SELECT goods_id FROM `33hao_p_booth_goods` WHERE ( gc_id IN ('5905','5906','5922','5932','5943','5955','5970','5907','5908','5909','5911','5912','5914','5915','5916','5917','5918','5920','6959','6961','5923','5924','5925','5926','5927','5928','5929','5930','5931','6962','6963','6964','6965','6966','5933','5934','5935','5936','5937','7919','5944','5945','5946','5947','5948','5949','5950','5951','5952','5953','5954','6967','6968','6969','6970','6971','5956','5957','5958','5959','5960','5961','5962','5971','5972','5973','5974','5975','6982','6983','6985') ) ORDER BY rand() LIMIT 4  
+[2015-02-03 21:12:23] /shop/index.php?act=search&op=get_guesslike ( act=search&op=get_guesslike ) 
+ERR: Db Error: Table '33hao.33hao_p_booth_goods' doesn't exist
+SELECT * FROM `33hao_p_booth_goods` WHERE ( gc_id IN('') ) AND ( booth_state = '1' ) ORDER BY rand() LIMIT 20  
+[2015-02-03 21:12:23] /shop/index.php?act=search&op=get_guesslike ( act=search&op=get_guesslike ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT * FROM `33hao_goods` WHERE ( goods_id IN('') ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) ORDER BY goods_id desc LIMIT 1000  
+[2015-02-03 21:12:29] /shop/index.php?act=goods&op=index&goods_id=339 ( act=goods&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT * FROM `33hao_goods` WHERE ( goods_id = '339' ) LIMIT 1  
+[2015-02-03 21:13:15] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-03 21:13:18] /admin/index.php?act=cache&op=clear ( act=cache&op=clear ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-03 21:13:22] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT * FROM `33hao_type_brand` WHERE ( type_id IN ('52','43','0','49','53','51') ) LIMIT 10000  
+[2015-02-03 21:13:22] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-03 21:13:27] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-03 21:15:52] /admin/index.php?act=db&op=db_import&dir_name=20150203_1&step=5 ( act=db&op=db_import ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''
+  <ul id="fullScreenSlides" class="full-screen-slides">
+                    ' at line 1
+INSERT INTO `33hao_web` (`web_id`,`web_name`,`style_name`,`web_page`,`update_time`,`web_sort`,`web_show`,`web_html`) VALUES('101','首页头部焦点图片','orange','index_pic','1422948547','100','1','
+  <ul id="fullScreenSlides" class="full-screen-slides">
+                                        <li style="background:  url(''http://v3.33hao.com/data/upload/shop/editor/web-101-101-1.jpg?463'') no-repeat center top">
+            <a href="" target="_blank" title="">&nbsp;</a></li>
+                                        <li style="background:  url(''http://v3.33hao.com/data/upload/shop/editor/web-101-101-2.jpg?614'') no-repeat center top">
+            <a href="" target="_blank" title="">&nbsp;</a></li>
+                                        <li style="background:  url(''http://v3.33hao.com/data/upload/shop/editor/web-101-101-3.jpg?383'') no-repeat center top">
+            <a href="" target="_blank" title="">&nbsp;</a></li>
+  </ul>
+  <div class="jfocus-trigeminy">
+    <ul>
+                              <li>
+                                        <a href="" target="_blank" title="佳节大献礼-茶满中秋">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-1-1.jpg?842" alt="佳节大献礼-茶满中秋"></a>
+                          <a href="" target="_blank" title="孩子喜欢-遥控悍马">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-1-2.jpg?143" alt="孩子喜欢-遥控悍马"></a>
+                          <a href="" target="_blank" title="天气凉了-情侣家居服">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-1-3.jpg?114" alt="天气凉了-情侣家居服"></a>
+                                      </li>
+                    <li>
+                                        <a href="" target="_blank" title="越中国越时尚-水晶中国风">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-2-1.jpg?824" alt="越中国越时尚-水晶中国风"></a>
+                          <a href="" target="_blank" title="领先全球首创-CoolTec冰爽剃须">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-2-2.jpg?851" alt="领先全球首创-CoolTec冰爽剃须"></a>
+                          <a href="" target="_blank" title="健康中的专家-欧姆龙血压计">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-2-3.jpg?734" alt="健康中的专家-欧姆龙血压计"></a>
+                                      </li>
+                    <li>
+                                        <a href="" target="_blank" title="TOPTO秋季格调-衬衫促销季">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-3-1.jpg?191" alt="TOPTO秋季格调-衬衫促销季"></a>
+                          <a href="" target="_blank" title="骆驼早秋新品尝试-热销款推荐">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-3-2.jpg?628" alt="骆驼早秋新品尝试-热销款推荐"></a>
+                          <a href="" target="_blank" title="识得女人香-冰希利娇真我系列">
+                <img src="http://v3.33hao.com/data/upload/shop/editor/web-101-102-3-3.jpg?851" alt="识得女人香-冰希利娇真我系列"></a>
+                                      </li>
+                        </ul>
+  </div>
+<script type="text/javascript">
+	update_screen_focus();
+
+[2015-02-03 21:23:32] /shop/index.php?act=search&op=index&cate_id=7742 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7742' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:32] /shop/index.php?act=search&op=index&cate_id=7747 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:32] /shop/index.php?act=search&op=index&cate_id=7747 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:32] /shop/index.php?act=search&op=index&cate_id=7747 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:32] /shop/index.php?act=search&op=index&cate_id=7747 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7747' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:33] /shop/index.php?act=search&op=index&cate_id=7751 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:33] /shop/index.php?act=search&op=index&cate_id=7751 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:33] /shop/index.php?act=search&op=index&cate_id=7751 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:33] /shop/index.php?act=search&op=index&cate_id=7751 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7751' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:35] /shop/index.php?act=search&op=index&cate_id=7754 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:35] /shop/index.php?act=search&op=index&cate_id=7754 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:35] /shop/index.php?act=search&op=index&cate_id=7754 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:35] /shop/index.php?act=search&op=index&cate_id=7754 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7754' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7758 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7758 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7758 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7758 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7758' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7762 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7762 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7762 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:42] /shop/index.php?act=search&op=index&cate_id=7762 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7762' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:43] /shop/index.php?act=search&op=index&cate_id=7764 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:43] /shop/index.php?act=search&op=index&cate_id=7764 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:43] /shop/index.php?act=search&op=index&cate_id=7764 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:43] /shop/index.php?act=search&op=index&cate_id=7764 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7764' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:45] /shop/index.php?act=search&op=index&cate_id=7766 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:45] /shop/index.php?act=search&op=index&cate_id=7766 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:45] /shop/index.php?act=search&op=index&cate_id=7766 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:45] /shop/index.php?act=search&op=index&cate_id=7766 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7766' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7769 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7769 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7769 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7769 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7769' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7771 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7771 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7771 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:46] /shop/index.php?act=search&op=index&cate_id=7771 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7771' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:47] /shop/index.php?act=search&op=index&cate_id=7773 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:23:47] /shop/index.php?act=search&op=index&cate_id=7773 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:47] /shop/index.php?act=search&op=index&cate_id=7773 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:47] /shop/index.php?act=search&op=index&cate_id=7773 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7773' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:48] /shop/index.php?act=search&op=index&cate_id=6376 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_1 = '6376' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:50] /shop/index.php?act=search&op=index&cate_id=7910 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '0' ) LIMIT 1000  
+[2015-02-03 21:23:50] /shop/index.php?act=search&op=index&cate_id=7910 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '0' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:50] /shop/index.php?act=search&op=index&cate_id=7910 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '0' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:50] /shop/index.php?act=search&op=index&cate_id=7910 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7910' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:56] /shop/index.php?act=search&op=index&cate_id=7792 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '43' ) LIMIT 1000  
+[2015-02-03 21:23:56] /shop/index.php?act=search&op=index&cate_id=7792 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '43' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:56] /shop/index.php?act=search&op=index&cate_id=7792 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '43' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:56] /shop/index.php?act=search&op=index&cate_id=7792 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7792' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7796 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '43' ) LIMIT 1000  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7796 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '43' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7796 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '43' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7796 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7796' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7795 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '43' ) LIMIT 1000  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7795 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '43' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7795 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '43' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:57] /shop/index.php?act=search&op=index&cate_id=7795 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7795' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:58] /shop/index.php?act=search&op=index&cate_id=7797 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '43' ) LIMIT 1000  
+[2015-02-03 21:23:58] /shop/index.php?act=search&op=index&cate_id=7797 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '43' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:23:58] /shop/index.php?act=search&op=index&cate_id=7797 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '43' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:23:58] /shop/index.php?act=search&op=index&cate_id=7797 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7797' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:23:59] /shop/index.php?act=search&op=index&cate_id=7788 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_2 = '7788' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:04] /shop/index.php?act=search&op=index&cate_id=7862 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:04] /shop/index.php?act=search&op=index&cate_id=7862 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:04] /shop/index.php?act=search&op=index&cate_id=7862 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:04] /shop/index.php?act=search&op=index&cate_id=7862 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7862' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:05] /shop/index.php?act=search&op=index&cate_id=7861 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:05] /shop/index.php?act=search&op=index&cate_id=7861 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:05] /shop/index.php?act=search&op=index&cate_id=7861 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:05] /shop/index.php?act=search&op=index&cate_id=7861 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7861' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7863 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7863 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7863 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7863 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7863' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7864 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7864 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7864 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:06] /shop/index.php?act=search&op=index&cate_id=7864 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7864' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:08] /shop/index.php?act=search&op=index&cate_id=7865 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:08] /shop/index.php?act=search&op=index&cate_id=7865 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:08] /shop/index.php?act=search&op=index&cate_id=7865 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:08] /shop/index.php?act=search&op=index&cate_id=7865 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7865' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:09] /shop/index.php?act=search&op=index&cate_id=7866 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:09] /shop/index.php?act=search&op=index&cate_id=7866 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:09] /shop/index.php?act=search&op=index&cate_id=7866 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:09] /shop/index.php?act=search&op=index&cate_id=7866 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7866' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:10] /shop/index.php?act=search&op=index&cate_id=7867 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:10] /shop/index.php?act=search&op=index&cate_id=7867 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:10] /shop/index.php?act=search&op=index&cate_id=7867 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:10] /shop/index.php?act=search&op=index&cate_id=7867 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7867' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:11] /shop/index.php?act=search&op=index&cate_id=7868 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:11] /shop/index.php?act=search&op=index&cate_id=7868 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-03 21:24:11] /shop/index.php?act=search&op=index&cate_id=7868 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-03 21:24:11] /shop/index.php?act=search&op=index&cate_id=7868 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7868' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:12] /shop/index.php?act=search&op=index&cate_id=7869 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:12] /shop/index.php?act=search&op=index&cate_id=7869 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7869' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:13] /shop/index.php?act=search&op=index&cate_id=7870 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:13] /shop/index.php?act=search&op=index&cate_id=7870 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7870' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-03 21:24:14] /shop/index.php?act=search&op=index&cate_id=7906 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-03 21:24:17] /shop/index.php?act=search&op=index&cate_id=7798 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '43' ) LIMIT 1000  
+[2015-02-03 21:24:18] /shop/index.php?act=search&op=index&cate_id=7800 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '43' ) LIMIT 1000  

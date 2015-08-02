@@ -1,0 +1,25 @@
+# 将 RewriteEngine 模式打开
+RewriteEngine On
+
+# 如果商城程序存放于/33hao下，需将下行更改为 RewriteBase /33hao
+RewriteBase /
+
+# apache ,iis 伪静态规则
+RewriteRule ^goods-([0-9]+)(-?)([0-9]*).html$ index.php?act=goods&goods_id=$1
+RewriteRule ^groupbuy-([0-9]+)-([0-9]+).html$ index.php?act=show_groupbuy&op=groupbuy_detail&group_id=$1&id=$2
+RewriteRule ^article-([0-9]+).html$ index.php?act=article&article_id=$1
+RewriteRule ^store-([0-9]+).html$ index.php?act=show_store&store_id=$1
+RewriteRule ^activity-([0-9]+)-([0-9]*).html$ index.php?act=activity&activity_id=$1&nav_id=$2
+RewriteRule ^store_nav-([0-9]+)-([0-9]+).html$ index.php?act=show_store&store_id=$1&article=$2
+RewriteRule ^document-([a-zA-Z_]+).html$ index.php?act=document&code=$1
+RewriteRule ^coupon_info-([0-9]+)-([0-9]+).html$ index.php?act=coupon_store&op=detail&coupon_id=$1&id=$2
+
+#nginx 伪静态规则
+#rewrite ^/goods-([0-9]+)(-?)([0-9]*).html$ /index.php?act=goods&goods_id=$1&id=$2 last;
+#rewrite ^/groupbuy-([0-9]+)-([0-9]+).html$ /index.php?act=show_groupbuy&op=groupbuy_detail&group_id=$1&id=$2 last;
+#rewrite ^/article-([0-9]+).html$ /index.php?act=article&article_id=$1 last;
+#rewrite ^/store-([0-9]+).html$ /index.php?act=show_store&store_id=$1 last;
+#rewrite ^/activity-([0-9]+)-([0-9]*).html$ /index.php?act=activity&activity_id=$1&nav_id=$2 last;
+#rewrite ^/store_nav-([0-9]+)-([0-9]+).html$ /index.php?act=show_store&store_id=$1&article=$2 last;
+#rewrite ^/document-([a-zA-Z_]+).html$ /index.php?act=document&code=$1 last;
+#rewrite ^/coupon_info-([0-9]+)-([0-9]+).html$ /index.php?act=coupon_store&op=detail&coupon_id=$1&id=$2 last;

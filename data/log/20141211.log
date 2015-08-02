@@ -1,0 +1,30 @@
+[2014-12-11 23:04:08] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_web_special` LIMIT 1  
+[2014-12-11 23:04:08] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT * FROM `33hao`.`33hao_web_special` ORDER BY special_id desc LIMIT 0,10  
+[2014-12-11 23:05:11] /admin/index.php?act=web_special&op=web_special_save ( act=web_special&op=web_special_save ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+INSERT  INTO `33hao`.`33hao_web_special` (special_title,special_image,special_image_all,special_margin_top,special_content,special_background_color,special_repeat,special_modify_time,special_publish_id,special_state) VALUES ('电影专区','04716543113754474.jpg','','0','123','#000000','no-repeat','1418310311','1','1')
+[2014-12-11 23:05:12] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_web_special` LIMIT 1  
+[2014-12-11 23:05:12] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT * FROM `33hao`.`33hao_web_special` ORDER BY special_id desc LIMIT 0,10  
+[2014-12-11 23:08:37] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_web_special` LIMIT 1  
+[2014-12-11 23:08:37] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT * FROM `33hao`.`33hao_web_special` ORDER BY special_id desc LIMIT 0,10  
+[2014-12-11 23:08:58] /admin/index.php?act=web_special&op=web_special_save ( act=web_special&op=web_special_save ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+INSERT  INTO `33hao`.`33hao_web_special` (special_title,special_image,special_image_all,special_margin_top,special_content,special_background_color,special_repeat,special_modify_time,special_publish_id,special_state) VALUES ('电影专区','04716545382963865.jpg','','0','123','#000000','no-repeat','1418310538','1','2')
+[2014-12-11 23:08:59] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_web_special` LIMIT 1  
+[2014-12-11 23:08:59] /admin/index.php?act=web_special&op=web_special_list ( act=web_special&op=web_special_list ) 
+ERR: Db Error: Table '33hao.33hao_web_special' doesn't exist
+SELECT * FROM `33hao`.`33hao_web_special` ORDER BY special_id desc LIMIT 0,10  

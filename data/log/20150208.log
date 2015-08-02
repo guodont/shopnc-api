@@ -1,0 +1,1848 @@
+[2015-02-08 20:20:56] /shop/index.php?act=search&op=index&cate_id=784&area_id=25&type=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:20:56] /shop/index.php?act=search&op=index&cate_id=784&area_id=25&type=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:20:56] /shop/index.php?act=search&op=index&cate_id=784&area_id=25&type=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:20:56] /shop/index.php?act=search&op=index&cate_id=784&area_id=25&type=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '25' ) AND ( is_own_shop = '1' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:20:57] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:21:02] /shop/index.php?act=search&op=index&cate_id=707&area_id=17 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:21:02] /shop/index.php?act=search&op=index&cate_id=707&area_id=17 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:21:02] /shop/index.php?act=search&op=index&cate_id=707&area_id=17 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:21:02] /shop/index.php?act=search&op=index&cate_id=707&area_id=17 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '17' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=905&area_id=31&key=3&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=905&area_id=31&key=3&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=905&area_id=31&key=3&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=905&area_id=31&key=3&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '31' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=1026&area_id=28&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=1026&area_id=28&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=1026&area_id=28&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:21:16] /shop/index.php?act=search&op=index&cate_id=1026&area_id=28&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '28' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:21:19] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_groupbuy' doesn't exist
+SELECT * FROM `33hao_groupbuy` WHERE ( state = '20' ) AND ( start_time < '1423398079' ) AND ( end_time > '1423398079' ) ORDER BY recommended desc LIMIT 4  
+[2015-02-08 20:21:19] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_link' doesn't exist
+SELECT * FROM `33hao_link` as `link`   order by link_id
+[2015-02-08 20:21:19] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_p_xianshi_goods' doesn't exist
+SELECT * FROM `33hao_p_xianshi_goods` WHERE ( state = '1' ) AND ( start_time < '1423398079' ) AND ( end_time > '1423398079' ) ORDER BY xianshi_recommend desc LIMIT 4  
+[2015-02-08 20:21:19] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-08 20:21:21] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:21:22] /mobile/index.php?act=goods&op=goods_detail&goods_id=787 ( act=goods&op=goods_detail ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT * FROM `33hao_goods` WHERE ( goods_id = '787' ) LIMIT 1  
+[2015-02-08 20:21:25] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_groupbuy' doesn't exist
+SELECT * FROM `33hao_groupbuy` WHERE ( state = '20' ) AND ( start_time < '1423398085' ) AND ( end_time > '1423398085' ) ORDER BY recommended desc LIMIT 4  
+[2015-02-08 20:21:25] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_link' doesn't exist
+SELECT * FROM `33hao_link` as `link`   order by link_id
+[2015-02-08 20:21:25] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_p_xianshi_goods' doesn't exist
+SELECT * FROM `33hao_p_xianshi_goods` WHERE ( state = '1' ) AND ( start_time < '1423398085' ) AND ( end_time > '1423398085' ) ORDER BY xianshi_recommend desc LIMIT 4  
+[2015-02-08 20:21:25] / ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-08 20:21:29] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:21:34] /shop/index.php?act=search&op=index&cate_id=805&area_id=26&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:21:34] /shop/index.php?act=search&op=index&cate_id=805&area_id=26&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:21:34] /shop/index.php?act=search&op=index&cate_id=805&area_id=26&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:21:34] /shop/index.php?act=search&op=index&cate_id=805&area_id=26&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '26' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:21:39] /mobile/index.php?act=goods_class&callback=jQuery1720016107979929074645_1423398186002&_=1423398186237 ( act=goods_class&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_category' doesn't exist
+SELECT * FROM `33hao_mb_category` as `mb_category`   order by gc_id
+[2015-02-08 20:21:45] /shop/integral.html ( act=pointshop&op=index ) 
+ERR: Db Error: Table '33hao.33hao_voucher_template' doesn't exist
+SELECT * FROM `33hao_voucher_template` WHERE ( voucher_t_recommend = '1' ) AND ( voucher_t_state = '1' ) AND ( voucher_t_end_date > '1423398105' ) ORDER BY voucher_t_id desc LIMIT 1000  
+[2015-02-08 20:21:45] /shop/integral.html ( act=pointshop&op=index ) 
+ERR: Db Error: Table '33hao.33hao_points_goods' doesn't exist
+SELECT * FROM `33hao_points_goods` WHERE ( pgoods_show = '1' ) AND ( pgoods_state = '0' ) AND ( pgoods_commend = '1' ) ORDER BY pgoods_sort asc,pgoods_id desc LIMIT 10  
+[2015-02-08 20:21:47] /shop/index.php?act=search&op=index&cate_id=992&area_id=35&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:21:47] /shop/index.php?act=search&op=index&cate_id=992&area_id=35&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:21:47] /shop/index.php?act=search&op=index&cate_id=992&area_id=35&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:21:47] /shop/index.php?act=search&op=index&cate_id=992&area_id=35&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '35' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:21:50] /shop/integral.html ( act=pointshop&op=index ) 
+ERR: Db Error: Table '33hao.33hao_voucher_template' doesn't exist
+SELECT * FROM `33hao_voucher_template` WHERE ( voucher_t_recommend = '1' ) AND ( voucher_t_state = '1' ) AND ( voucher_t_end_date > '1423398110' ) ORDER BY voucher_t_id desc LIMIT 1000  
+[2015-02-08 20:21:50] /shop/integral.html ( act=pointshop&op=index ) 
+ERR: Db Error: Table '33hao.33hao_points_goods' doesn't exist
+SELECT * FROM `33hao_points_goods` WHERE ( pgoods_show = '1' ) AND ( pgoods_state = '0' ) AND ( pgoods_commend = '1' ) ORDER BY pgoods_sort asc,pgoods_id desc LIMIT 10  
+[2015-02-08 20:21:52] /shop/index.php?act=search&op=index&cate_id=805&area_id=34&type=0&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:21:52] /shop/index.php?act=search&op=index&cate_id=805&area_id=34&type=0&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:21:52] /shop/index.php?act=search&op=index&cate_id=805&area_id=34&type=0&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:21:52] /shop/index.php?act=search&op=index&cate_id=805&area_id=34&type=0&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '34' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:21:54] /shop/brand.html ( act=brand&op=index ) 
+ERR: Db Error: Table '33hao.33hao_brand' doesn't exist
+SELECT * FROM `33hao_brand` WHERE ( brand_apply = '1' ) ORDER BY brand_sort asc LIMIT 1000  
+[2015-02-08 20:21:55] /mobile/index.php?act=login ( act=login&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_name = 'admin' ) AND ( member_passwd = 'e10adc3949ba59abbe56e057f20f883e' ) LIMIT 1  
+[2015-02-08 20:22:03] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_groupbuy' doesn't exist
+SELECT * FROM `33hao_groupbuy` WHERE ( state = '20' ) AND ( start_time < '1423398123' ) AND ( end_time > '1423398123' ) ORDER BY recommended desc LIMIT 4  
+[2015-02-08 20:22:03] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_link' doesn't exist
+SELECT * FROM `33hao_link` as `link`   order by link_id
+[2015-02-08 20:22:03] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_p_xianshi_goods' doesn't exist
+SELECT * FROM `33hao_p_xianshi_goods` WHERE ( state = '1' ) AND ( start_time < '1423398123' ) AND ( end_time > '1423398123' ) ORDER BY xianshi_recommend desc LIMIT 4  
+[2015-02-08 20:22:03] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-08 20:22:05] /mobile/index.php?act=login ( act=login&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_name = 'admin' ) AND ( member_passwd = 'e10adc3949ba59abbe56e057f20f883e' ) LIMIT 1  
+[2015-02-08 20:22:34] /shop/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_name = 'admin' ) AND ( member_passwd = 'e10adc3949ba59abbe56e057f20f883e' ) LIMIT 1  
+[2015-02-08 20:22:35] /shop/index.php?act=search&op=index&cate_id=997&area_id=19&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:22:35] /shop/index.php?act=search&op=index&cate_id=997&area_id=19&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:22:35] /shop/index.php?act=search&op=index&cate_id=997&area_id=19&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:22:35] /shop/index.php?act=search&op=index&cate_id=997&area_id=19&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '19' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:22:36] /mobile/index.php?act=goods_class&callback=jQuery1720855715608689934_1423398242388&_=1423398242458 ( act=goods_class&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_category' doesn't exist
+SELECT * FROM `33hao_mb_category` as `mb_category`   order by gc_id
+[2015-02-08 20:22:42] /mobile/index.php?act=goods_class&callback=jQuery17206574585486669093_1423398249248&_=1423398249353 ( act=goods_class&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_category' doesn't exist
+SELECT * FROM `33hao_mb_category` as `mb_category`   order by gc_id
+[2015-02-08 20:22:47] /shop/index.php?act=search&op=index&cate_id=7454 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = '52' ) LIMIT 1000  
+[2015-02-08 20:22:47] /shop/index.php?act=search&op=index&cate_id=7454 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = '52' ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:22:47] /shop/index.php?act=search&op=index&cate_id=7454 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = '52' ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:22:47] /shop/index.php?act=search&op=index&cate_id=7454 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( gc_id_3 = '7454' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:22:57] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:23:05] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:23:06] /shop/index.php?act=search&op=index&cate_id=89&area_id=16&order=2&key=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:23:06] /shop/index.php?act=search&op=index&cate_id=89&area_id=16&order=2&key=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:23:06] /shop/index.php?act=search&op=index&cate_id=89&area_id=16&order=2&key=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:23:06] /shop/index.php?act=search&op=index&cate_id=89&area_id=16&order=2&key=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '16' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:23:30] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:23:38] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:23:40] /shop/brand.html ( act=brand&op=index ) 
+ERR: Db Error: Table '33hao.33hao_brand' doesn't exist
+SELECT * FROM `33hao_brand` WHERE ( brand_apply = '1' ) ORDER BY brand_sort asc LIMIT 1000  
+[2015-02-08 20:23:42] /mobile/index.php?act=goods_class&callback=jQuery17202633976335427564_1423398312831&_=1423398312914 ( act=goods_class&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_category' doesn't exist
+SELECT * FROM `33hao_mb_category` as `mb_category`   order by gc_id
+[2015-02-08 20:23:44] /shop/index.php?act=search&op=index&cate_id=1317&key=0&order=0&area_id=10 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:23:44] /shop/index.php?act=search&op=index&cate_id=1317&key=0&order=0&area_id=10 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:23:44] /shop/index.php?act=search&op=index&cate_id=1317&key=0&order=0&area_id=10 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:23:44] /shop/index.php?act=search&op=index&cate_id=1317&key=0&order=0&area_id=10 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '10' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:23:45] /mobile/index.php?act=member_cart&op=cart_list ( act=member_cart&op=cart_list ) 
+ERR: Db Error: Table '33hao.33hao_mb_user_token' doesn't exist
+SELECT * FROM `33hao_mb_user_token` WHERE ( token = 'ec73d66ebb64ee65c901fe5d8a774e7c' ) LIMIT 1  
+[2015-02-08 20:23:46] /admin/index.php?act=login&op=login ( act=login&op=login ) 
+ERR: Db Error: Table '33hao.33hao_admin' doesn't exist
+SELECT * FROM `33hao_admin` as `admin`  WHERE  admin_name = 'admin_seller' and admin_password = 'e10adc3949ba59abbe56e057f20f883e'
+[2015-02-08 20:23:47] /shop/index.php?act=search&op=index&cate_id=1284&area_id=11 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:23:47] /shop/index.php?act=search&op=index&cate_id=1284&area_id=11 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:23:47] /shop/index.php?act=search&op=index&cate_id=1284&area_id=11 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:23:47] /shop/index.php?act=search&op=index&cate_id=1284&area_id=11 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '11' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:23:53] /mobile/index.php?act=member_index ( act=member_index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_user_token' doesn't exist
+SELECT * FROM `33hao_mb_user_token` WHERE ( token = 'ec73d66ebb64ee65c901fe5d8a774e7c' ) LIMIT 1  
+[2015-02-08 20:23:53] /shop/brand.html ( act=brand&op=index ) 
+ERR: Db Error: Table '33hao.33hao_brand' doesn't exist
+SELECT * FROM `33hao_brand` WHERE ( brand_apply = '1' ) ORDER BY brand_sort asc LIMIT 1000  
+[2015-02-08 20:23:57] /shop/index.php?act=search&op=index&cate_id=212&area_id=30&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:23:57] /shop/index.php?act=search&op=index&cate_id=212&area_id=30&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:23:57] /shop/index.php?act=search&op=index&cate_id=212&area_id=30&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:23:57] /shop/index.php?act=search&op=index&cate_id=212&area_id=30&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '30' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:23:59] /shop/index.php?act=search&op=index&cate_id=848&area_id=22&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:23:59] /shop/index.php?act=search&op=index&cate_id=848&area_id=22&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:23:59] /shop/index.php?act=search&op=index&cate_id=848&area_id=22&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:23:59] /shop/index.php?act=search&op=index&cate_id=848&area_id=22&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '22' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:23:59] /mobile/index.php?act=login ( act=login&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_name = 'admin' ) AND ( member_passwd = '7fef6171469e80d32c0559f88b377245' ) LIMIT 1  
+[2015-02-08 20:24:03] /shop/index.php?act=search&op=index&cate_id=966&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:24:03] /shop/index.php?act=search&op=index&cate_id=966&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:24:03] /shop/index.php?act=search&op=index&cate_id=966&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:24:03] /shop/index.php?act=search&op=index&cate_id=966&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:24:04] /shop/index.php?act=search&op=index&cate_id=1006&area_id=16 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:24:04] /shop/index.php?act=search&op=index&cate_id=1006&area_id=16 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:24:04] /shop/index.php?act=search&op=index&cate_id=1006&area_id=16 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:24:04] /shop/index.php?act=search&op=index&cate_id=1006&area_id=16 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '16' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:24:07] /shop/index.php?act=search&op=index&cate_id=829&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:24:07] /shop/index.php?act=search&op=index&cate_id=829&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:24:07] /shop/index.php?act=search&op=index&cate_id=829&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:24:07] /shop/index.php?act=search&op=index&cate_id=829&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:24:11] /shop/index.php?act=search&op=index&cate_id=1180&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:24:11] /shop/index.php?act=search&op=index&cate_id=1180&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:24:11] /shop/index.php?act=search&op=index&cate_id=1180&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:24:11] /shop/index.php?act=search&op=index&cate_id=1180&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '20' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:24:13] /shop/index.php?act=search&op=index&cate_id=169&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:24:13] /shop/index.php?act=search&op=index&cate_id=169&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:24:13] /shop/index.php?act=search&op=index&cate_id=169&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:24:13] /shop/index.php?act=search&op=index&cate_id=169&area_id=20 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '20' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:24:18] /shop/index.php?act=brand&op=list&brand=280 ( act=brand&op=list ) 
+ERR: Db Error: Table '33hao.33hao_brand' doesn't exist
+SELECT * FROM `33hao_brand` WHERE ( brand_id = '280' ) LIMIT 1  
+[2015-02-08 20:25:21] /shop/index.php?act=search&op=index&cate_id=805&area_id=14&key=1&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:25:21] /shop/index.php?act=search&op=index&cate_id=805&area_id=14&key=1&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:25:21] /shop/index.php?act=search&op=index&cate_id=805&area_id=14&key=1&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:25:21] /shop/index.php?act=search&op=index&cate_id=805&area_id=14&key=1&order=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '14' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:25:41] /shop/index.php?act=search&op=index&cate_id=313&area_id=12&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:25:41] /shop/index.php?act=search&op=index&cate_id=313&area_id=12&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:25:41] /shop/index.php?act=search&op=index&cate_id=313&area_id=12&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:25:41] /shop/index.php?act=search&op=index&cate_id=313&area_id=12&type=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '12' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=store_transport&op=index ( act=store_transport&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=store_transport&op=index ( act=store_transport&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:45] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=store_transport&op=index ( act=store_transport&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=store_transport&op=index ( act=store_transport&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:46] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:49] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:25:53] /shop/index.php?act=search&op=index&cate_id=1253&area_id=13 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:25:53] /shop/index.php?act=search&op=index&cate_id=1253&area_id=13 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:25:53] /shop/index.php?act=search&op=index&cate_id=1253&area_id=13 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:25:53] /shop/index.php?act=search&op=index&cate_id=1253&area_id=13 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '13' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:26:05] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_message' doesn't exist
+SELECT  count(message_id) as countnum  FROM `33hao_message` as `message`  WHERE  message.message_state != '2' and message.message_open = '0' and (message.to_member_id ='all' or (message.message_ismore=0 and message.to_member_id='1') or (message.message_ismore=1 and message.to_member_id like '%,1,%')) and message.del_member_id not like '%,1,%'  and message.read_member_id not like '%,1,%'
+[2015-02-08 20:26:05] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:26:05] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_groupbuy' doesn't exist
+SELECT * FROM `33hao_groupbuy` WHERE ( state = '20' ) AND ( start_time < '1423398365' ) AND ( end_time > '1423398365' ) ORDER BY recommended desc LIMIT 4  
+[2015-02-08 20:26:05] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_link' doesn't exist
+SELECT * FROM `33hao_link` as `link`   order by link_id
+[2015-02-08 20:26:05] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_p_xianshi_goods' doesn't exist
+SELECT * FROM `33hao_p_xianshi_goods` WHERE ( state = '1' ) AND ( start_time < '1423398365' ) AND ( end_time > '1423398365' ) ORDER BY xianshi_recommend desc LIMIT 4  
+[2015-02-08 20:26:05] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-08 20:26:08] /chat/index.php?act=web_chat&op=get_user_list&n=99&f_id=1&callback=jQuery182011001894576475024_1423888047865&_=1423888049713 ( act=web_chat&op=get_user_list ) 
+ERR: Db Error: Table '33hao.33hao_sns_friend' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao_sns_friend` WHERE ( friend_frommid = '1' ) LIMIT 1  
+[2015-02-08 20:26:08] /chat/index.php?act=web_chat&op=get_user_list&n=99&f_id=1&callback=jQuery182011001894576475024_1423888047865&_=1423888049713 ( act=web_chat&op=get_user_list ) 
+ERR: Db Error: Table '33hao.33hao_sns_friend' doesn't exist
+SELECT * FROM `33hao_sns_friend` WHERE ( friend_frommid = '1' ) ORDER BY friend_addtime desc LIMIT 0,99  
+[2015-02-08 20:26:08] /chat/index.php?act=web_chat&op=get_user_list&n=99&f_id=1&callback=jQuery182011001894576475024_1423888047865&_=1423888049713 ( act=web_chat&op=get_user_list ) 
+ERR: Db Error: Table '33hao.33hao_chat_msg' doesn't exist
+SELECT count(DISTINCT t_id) as count FROM `33hao_chat_msg` WHERE ( f_id = '1' ) AND ( add_time >= '1420732800' ) LIMIT 1  
+[2015-02-08 20:26:08] /chat/index.php?act=web_chat&op=get_user_list&n=99&f_id=1&callback=jQuery182011001894576475024_1423888047865&_=1423888049713 ( act=web_chat&op=get_user_list ) 
+ERR: Db Error: Table '33hao.33hao_chat_msg' doesn't exist
+SELECT count(DISTINCT f_id) as count FROM `33hao_chat_msg` WHERE ( t_id = '1' ) AND ( add_time >= '1420732800' ) LIMIT 1  
+[2015-02-08 20:26:18] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:26:21] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:26:25] /mobile/index.php?act=index ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_special_item' doesn't exist
+SELECT * FROM `33hao_mb_special_item` WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2015-02-08 20:26:33] /mobile/index.php?act=goods_class&callback=jQuery17206315971191506833_1423398403276&_=1423398403295 ( act=goods_class&op=index ) 
+ERR: Db Error: Table '33hao.33hao_mb_category' doesn't exist
+SELECT * FROM `33hao_mb_category` as `mb_category`   order by gc_id
+[2015-02-08 20:26:39] /shop/index.php?act=search&op=index&cate_id=861&type=2&area_id=19 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:26:39] /shop/index.php?act=search&op=index&cate_id=861&type=2&area_id=19 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:26:39] /shop/index.php?act=search&op=index&cate_id=861&type=2&area_id=19 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:26:39] /shop/index.php?act=search&op=index&cate_id=861&type=2&area_id=19 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '19' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=675&area_id=34 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=675&area_id=34 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=675&area_id=34 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=675&area_id=34 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '34' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=398&area_id=5 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=398&area_id=5 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=398&area_id=5 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:26:44] /shop/index.php?act=search&op=index&cate_id=398&area_id=5 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '5' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:26:48] /shop/index.php?act=search&op=index&cate_id=970&key=2&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:26:48] /shop/index.php?act=search&op=index&cate_id=970&key=2&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:26:48] /shop/index.php?act=search&op=index&cate_id=970&key=2&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:26:48] /shop/index.php?act=search&op=index&cate_id=970&key=2&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:26:49] /shop/index.php?act=search&op=index&cate_id=975&area_id=9&type=1&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:26:49] /shop/index.php?act=search&op=index&cate_id=975&area_id=9&type=1&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:26:49] /shop/index.php?act=search&op=index&cate_id=975&area_id=9&type=1&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:26:49] /shop/index.php?act=search&op=index&cate_id=975&area_id=9&type=1&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '9' ) AND ( is_own_shop = '1' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:26:56] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:26:56] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:26:56] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:26:56] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '33' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:26:57] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_groupbuy' doesn't exist
+SELECT * FROM `33hao_groupbuy` WHERE ( state = '20' ) AND ( start_time < '1423398417' ) AND ( end_time > '1423398417' ) ORDER BY recommended desc LIMIT 4  
+[2015-02-08 20:26:57] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_link' doesn't exist
+SELECT * FROM `33hao_link` as `link`   order by link_id
+[2015-02-08 20:26:57] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_p_xianshi_goods' doesn't exist
+SELECT * FROM `33hao_p_xianshi_goods` WHERE ( state = '1' ) AND ( start_time < '1423398417' ) AND ( end_time > '1423398417' ) ORDER BY xianshi_recommend desc LIMIT 4  
+[2015-02-08 20:26:57] /shop/ ( act=index&op=index ) 
+ERR: Db Error: Table '33hao.33hao_web' doesn't exist
+SELECT * FROM `33hao_web` WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2015-02-08 20:27:04] /shop/index.php?act=search&op=index&cate_id=851&area_id=3&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:27:04] /shop/index.php?act=search&op=index&cate_id=851&area_id=3&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:27:04] /shop/index.php?act=search&op=index&cate_id=851&area_id=3&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:27:04] /shop/index.php?act=search&op=index&cate_id=851&area_id=3&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '3' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:27:09] /shop/index.php?act=search&op=index&cate_id=1253&area_id=32&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:27:09] /shop/index.php?act=search&op=index&cate_id=1253&area_id=32&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:27:09] /shop/index.php?act=search&op=index&cate_id=1253&area_id=32&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:27:09] /shop/index.php?act=search&op=index&cate_id=1253&area_id=32&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '32' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:27:19] /shop/index.php?act=search&op=index&cate_id=1002&area_id=2&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:27:19] /shop/index.php?act=search&op=index&cate_id=1002&area_id=2&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:27:19] /shop/index.php?act=search&op=index&cate_id=1002&area_id=2&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:27:19] /shop/index.php?act=search&op=index&cate_id=1002&area_id=2&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '2' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=store_promotion_xianshi&op=xianshi_list ( act=store_promotion_xianshi&op=xianshi_list ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=store_promotion_xianshi&op=xianshi_list ( act=store_promotion_xianshi&op=xianshi_list ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:29] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:30] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=store_promotion_xianshi&op=xianshi_list ( act=store_promotion_xianshi&op=xianshi_list ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=store_promotion_xianshi&op=xianshi_list ( act=store_promotion_xianshi&op=xianshi_list ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:31] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=store_promotion_xianshi&op=xianshi_list ( act=store_promotion_xianshi&op=xianshi_list ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=store_promotion_xianshi&op=xianshi_list ( act=store_promotion_xianshi&op=xianshi_list ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:32] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:33] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:34] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:35] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:36] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:37] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:38] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:39] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:40] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:41] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:42] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:43] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=store_promotion_mansong&op=mansong_list ( act=store_promotion_mansong&op=mansong_list ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:44] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:45] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:46] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:47] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:48] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:49] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:50] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:51] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:52] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:53] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=search&op=index&cate_id=811&area_id=3&order=0&key=0&gift=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:27:54] /shop/index.php?act=search&op=index&cate_id=811&area_id=3&order=0&key=0&gift=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:27:54] /shop/index.php?act=search&op=index&cate_id=811&area_id=3&order=0&key=0&gift=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:27:54] /shop/index.php?act=search&op=index&cate_id=811&area_id=3&order=0&key=0&gift=1 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '3' ) AND ( have_gift = '1' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:54] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:55] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:56] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:57] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:58] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:27:59] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:00] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:01] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_login&op=show_login ( act=seller_login&op=show_login ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_member' doesn't exist
+SELECT * FROM `33hao_member` WHERE ( member_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:02] /shop/index.php?act=seller_center ( act=seller_center&op=index ) 
+ERR: Db Error: Table '33hao.33hao_store' doesn't exist
+SELECT * FROM `33hao_store` WHERE ( store_id = '1' ) LIMIT 1  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=371&area_id=23&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=371&area_id=23&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=371&area_id=23&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=371&area_id=23&type=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '23' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&type=0&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&type=0&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&type=0&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:28:12] /shop/index.php?act=search&op=index&cate_id=842&area_id=33&type=0&order=0&key=0 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '33' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=1043&area_id=12 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=1043&area_id=12 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=1043&area_id=12 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=1043&area_id=12 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '12' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=940&area_id=34&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=940&area_id=34&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute' doesn't exist
+SELECT attr_id,attr_name FROM `33hao_attribute` WHERE ( type_id = NULL ) AND ( attr_show = '1' ) ORDER BY attr_sort asc LIMIT 1000  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=940&area_id=34&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_attribute_value' doesn't exist
+SELECT attr_value_id,attr_value_name,attr_id FROM `33hao_attribute_value` WHERE ( type_id = NULL ) ORDER BY attr_value_sort asc,attr_value_id asc LIMIT 1000  
+[2015-02-08 20:28:14] /shop/index.php?act=search&op=index&cate_id=940&area_id=34&key=3&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( areaid_1 = '34' ) AND ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:28:22] /shop/index.php?act=search&op=index&cate_id=239&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_type_brand' doesn't exist
+SELECT brand_id FROM `33hao_type_brand` WHERE ( type_id = NULL ) LIMIT 1000  
+[2015-02-08 20:28:22] /shop/index.php?act=search&op=index&cate_id=239&key=1&order=2 ( act=search&op=index ) 
+ERR: Db Error: Table '33hao.33hao_goods' doesn't exist
+SELECT count(distinct CONCAT(goods_commonid,',',color_id)) AS nc_count FROM `33hao_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) LIMIT 1  
+[2015-02-08 20:29:51] /admin/index.php?act=mb_special&op=special_list ( act=mb_special&op=special_list ) 
+ERR: Db Error: Table '33hao.33hao_mb_special' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao_mb_special` LIMIT 1  
+[2015-02-08 20:29:51] /admin/index.php?act=mb_special&op=special_list ( act=mb_special&op=special_list ) 
+ERR: Db Error: Table '33hao.33hao_mb_special' doesn't exist
+SELECT * FROM `33hao_mb_special` ORDER BY special_id desc LIMIT 0,10  

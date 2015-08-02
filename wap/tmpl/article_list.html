@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文章列表</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/child.css">
+</head>
+<body>
+	<header id="header"></header>
+	<div id="article-content">
+	</div>
+	<div id="footer"></div>
+</body>
+<script type="text/html" id="article-list">
+	<div class="article_type"><%=article_type_name%></div>
+	<% if(article_list.length >0){%>
+	<ul class="article-list">
+		<% for (var i = 0;i<article_list.length;i++){%>
+			<li class="article-list-item">
+				<a href="<%=WapSiteUrl%>/tmpl/article_show.html?article_id=<%=article_list[i].article_id%>"><%=article_list[i].article_title%>
+				</a>
+			</li>
+        <%}%>
+	</ul>
+    <%}else{%>
+    	<div class="no-record m10">
+                    	暂无记录
+        </div>
+    <%}%>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/tmpl/article_list.js"></script>
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+</html>

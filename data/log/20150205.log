@@ -1,0 +1,168 @@
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_seller` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''d41d8cd98f00b204e9800998ecf8427e','','1423068282','1423068282','1423068282','12' at line 1
+INSERT  INTO `33hao_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,,'d41d8cd98f00b204e9800998ecf8427e','','1423068282','1423068282','1423068282','120.86.140.211','120.86.140.211',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1',,,,'0','1','1423068282','','','','','','')' at line 1
+INSERT  INTO `33hao_store` (store_name,grade_id,member_id,member_name,seller_name,bind_all_gc,store_state,store_time,store_company_name,store_address,store_zip,store_qq,store_ww,store_phone) VALUES (,'1',,,,'0','1','1423068282','','','','','','')
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',,'0','1')' at line 1
+INSERT  INTO `33hao_seller` (seller_name,member_id,store_id,seller_group_id,is_admin) VALUES (,,,'0','1')
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','',''' at line 1
+INSERT  INTO `33hao_store_joinin` (member_id,member_name,company_name,company_address,company_address_detail,company_phone,company_employee_count,company_registered_capital,contacts_name,contacts_phone,contacts_email,business_licence_number,business_licence_address,business_licence_start,business_licence_end,business_sphere,organization_code,general_taxpayer,bank_account_name,bank_account_number,bank_name,bank_code,bank_address,is_settlement_account,settlement_bank_account_name,settlement_bank_account_number,settlement_bank_name,settlement_bank_code,settlement_bank_address,tax_registration_certificate,taxpayer_id,seller_name,store_name,joinin_state,joinin_year) VALUES (,,'','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','','','','','','',,,'40','')
+[2015-02-05 00:44:42] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: Column count doesn't match value count at row 1
+INSERT  INTO `33hao_store_extend` (store_id) VALUES ()
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_seller` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''d41d8cd98f00b204e9800998ecf8427e','','1423068436','1423068436','1423068436','12' at line 1
+INSERT  INTO `33hao_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,,'d41d8cd98f00b204e9800998ecf8427e','','1423068436','1423068436','1423068436','120.86.140.211','120.86.140.211',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1',,,,'0','1','1423068436','','','','','','')' at line 1
+INSERT  INTO `33hao_store` (store_name,grade_id,member_id,member_name,seller_name,bind_all_gc,store_state,store_time,store_company_name,store_address,store_zip,store_qq,store_ww,store_phone) VALUES (,'1',,,,'0','1','1423068436','','','','','','')
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',,'0','1')' at line 1
+INSERT  INTO `33hao_seller` (seller_name,member_id,store_id,seller_group_id,is_admin) VALUES (,,,'0','1')
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','',''' at line 1
+INSERT  INTO `33hao_store_joinin` (member_id,member_name,company_name,company_address,company_address_detail,company_phone,company_employee_count,company_registered_capital,contacts_name,contacts_phone,contacts_email,business_licence_number,business_licence_address,business_licence_start,business_licence_end,business_sphere,organization_code,general_taxpayer,bank_account_name,bank_account_number,bank_name,bank_code,bank_address,is_settlement_account,settlement_bank_account_name,settlement_bank_account_number,settlement_bank_name,settlement_bank_code,settlement_bank_address,tax_registration_certificate,taxpayer_id,seller_name,store_name,joinin_state,joinin_year) VALUES (,,'','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','','','','','','',,,'40','')
+[2015-02-05 00:47:16] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: Column count doesn't match value count at row 1
+INSERT  INTO `33hao_store_extend` (store_id) VALUES ()
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_seller` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''d41d8cd98f00b204e9800998ecf8427e','','1423068448','1423068448','1423068448','12' at line 1
+INSERT  INTO `33hao_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,,'d41d8cd98f00b204e9800998ecf8427e','','1423068448','1423068448','1423068448','120.86.140.211','120.86.140.211',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1',,,,'0','1','1423068448','','','','','','')' at line 1
+INSERT  INTO `33hao_store` (store_name,grade_id,member_id,member_name,seller_name,bind_all_gc,store_state,store_time,store_company_name,store_address,store_zip,store_qq,store_ww,store_phone) VALUES (,'1',,,,'0','1','1423068448','','','','','','')
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',,'0','1')' at line 1
+INSERT  INTO `33hao_seller` (seller_name,member_id,store_id,seller_group_id,is_admin) VALUES (,,,'0','1')
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','',''' at line 1
+INSERT  INTO `33hao_store_joinin` (member_id,member_name,company_name,company_address,company_address_detail,company_phone,company_employee_count,company_registered_capital,contacts_name,contacts_phone,contacts_email,business_licence_number,business_licence_address,business_licence_start,business_licence_end,business_sphere,organization_code,general_taxpayer,bank_account_name,bank_account_number,bank_name,bank_code,bank_address,is_settlement_account,settlement_bank_account_name,settlement_bank_account_number,settlement_bank_name,settlement_bank_code,settlement_bank_address,tax_registration_certificate,taxpayer_id,seller_name,store_name,joinin_state,joinin_year) VALUES (,,'','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','','','','','','',,,'40','')
+[2015-02-05 00:47:28] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: Column count doesn't match value count at row 1
+INSERT  INTO `33hao_store_extend` (store_id) VALUES ()
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_store` WHERE ( store_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_member` WHERE ( member_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT COUNT(*) AS nc_count FROM `33hao_store_joinin` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+SELECT * FROM `33hao_seller` WHERE ( seller_name =  ) LIMIT 1  
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''d41d8cd98f00b204e9800998ecf8427e','','1423069334','1423069334','1423069334','12' at line 1
+INSERT  INTO `33hao_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,,'d41d8cd98f00b204e9800998ecf8427e','','1423069334','1423069334','1423069334','120.86.140.211','120.86.140.211',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1',,,,'0','1','1423069334','','','','','','')' at line 1
+INSERT  INTO `33hao_store` (store_name,grade_id,member_id,member_name,seller_name,bind_all_gc,store_state,store_time,store_company_name,store_address,store_zip,store_qq,store_ww,store_phone) VALUES (,'1',,,,'0','1','1423069334','','','','','','')
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',,'0','1')' at line 1
+INSERT  INTO `33hao_seller` (seller_name,member_id,store_id,seller_group_id,is_admin) VALUES (,,,'0','1')
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','',''' at line 1
+INSERT  INTO `33hao_store_joinin` (member_id,member_name,company_name,company_address,company_address_detail,company_phone,company_employee_count,company_registered_capital,contacts_name,contacts_phone,contacts_email,business_licence_number,business_licence_address,business_licence_start,business_licence_end,business_sphere,organization_code,general_taxpayer,bank_account_name,bank_account_number,bank_name,bank_code,bank_address,is_settlement_account,settlement_bank_account_name,settlement_bank_account_number,settlement_bank_name,settlement_bank_code,settlement_bank_address,tax_registration_certificate,taxpayer_id,seller_name,store_name,joinin_state,joinin_year) VALUES (,,'','','','','',NULL,'','','','','','','','','',NULL,'','','','','','1','','','','','','','',,,'40','')
+[2015-02-05 01:02:14] /admin/index.php?act=store&op=store_import_csv ( act=store&op=store_import_csv ) 
+ERR: Db Error: Column count doesn't match value count at row 1
+INSERT  INTO `33hao_store_extend` (store_id) VALUES ()

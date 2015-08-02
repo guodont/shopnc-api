@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>虚拟订单列表</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+<header id="header"></header>
+<div class="order-list-wp" id="order-list"></div>
+<script type="text/html" id="order-list-tmpl">
+<div class="order-list">
+    <% if (order_list && order_list.length > 0) { %>
+    <% for (var i = 0; i < order_list.length; i++) { var order = order_list[i]; %>
+    <ul>
+        <li class="<% if (order.if_pay) { %>gray-order-skin<% } else { %>green-order-skin<% } %>">
+            <div class="order-ltlt">
+                <p>
+                    下单时间：
+                    <%= $getLocalTime(order.add_time) %>
+                </p>
+            </div>
+
+            <div class="order-lcnt">
+                <div class="order-lcnt-shop">
+                    <p>店铺名称：<%=order.store_name%></p>
+                    <p>订单编号：<%=order.order_sn%></p>
+                </div>
+                <div class="order-shop-pd">
+                    <a class="order-ldetail clearfix" href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=<%=order.goods_id%>">
+                        <span class="order-pdpic">
+                            <img src="<%=order.goods_image_url%>"/>
+                        </span>
+                        <div class="order-pdinfor">
+                            <p><%=order.goods_name%></p>
+                            <p>
+                                单价：<span class="clr-d94">￥<%=order.goods_price%></span>
+                            </p>
+                             <p>
+                                商品数目：<%=order.goods_num%>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="order-shop-total">
+                    <p class="clr-c07">合计：￥<%=order.order_amount%> </p>
+                    <p class="mt5">
+                        <span class="<% if (order.order_state == '0') { %>ot-cancel<% } else { %>ot-nofinish<% } %>">
+                            <%= order.order_state_text %>
+                        </span>
+                    </p>
+                    <p class="mt5" id="order-operations">
+                    <% if (order.if_cancel) { %>
+                        <a href="javascript:void(0)" order_id="<%=order.order_id%>" class="cancel-order">取消订单</a>
+                    <% } %>
+                    </p>
+                </div>
+            </div>
+			<% if (order.order_state == '20') { %>
+			<a href="vr_order_indate_code_list.html?order_id=<%=order.order_id %>" class="l-btn-login">查看兑换码</a>
+			<% } %>
+
+        <% if (order.if_pay) { %>
+            <a href="<%=ApiUrl %>/index.php?act=member_payment&op=vr_pay&key=<%=key %>&pay_sn=<%=order.order_sn %>" class="l-btn-login">订单支付（￥<%= p2f(order.order_amount) %>）</a>
+        <% } %>
+        </li>
+    </ul>
+<% } %>
+    <div class="pagination mt10">
+        <a href="javascript:void(0);" class="pre-page <%if(curpage <=1 ){%>disabled<%}%>">上一页</a>
+        <a href="javascript:void(0);" has_more="<%if (hasmore){%>true<%}else{%>false<%}%>"  class="next-page <%if (!hasmore){%>disabled<%}%>">下一页</a>
+    </div>
+<% } else { %>
+    <div class="no-record">
+        暂无记录
+    </div>
+<% } %>
+</div>
+</script>
+<div id="footer"></div>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../../js/tmpl/vr_order_list.js"></script>
+</body>
+</html>

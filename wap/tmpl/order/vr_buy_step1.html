@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写核对购物信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/child.css">
+</head>
+<body>
+<header id="header"></header>
+<div class="buy_step1">
+    <div class="buys1-cnt" id="container-buyer_phone">
+       <h3 class="clearfix">请正确输入接收手机号码，以确保及时获得“电子兑换码”</h3>
+       <ul class="buys-ycnt">
+            <li class="clearfix buys-yc-type">
+                <p class="clearfix">
+                    <input type="text" class="mr5 h22" name="buyer_phone" id="buyer_phone" placeholder="请输入手机号码" />
+                </p>
+                <p class="buyer_phone_error_tip" style="display:none;color:red;"></p>
+            </li>
+       </ul>
+    </div>
+
+    <div class="buys1-cnt">
+        <h3 class="clearfix">商品清单</h3>
+        <ul class="buys-ytable mt10" id="goodslist_before">
+            <li id="deposit">
+                <div class="pre-deposit-wp hide">
+                    <p class="clearfix hide" id="wrapper-usercbpay">
+                        <label>
+                            <input type="checkbox" class="mr5" id="usercbpay" />使用充值卡支付
+                        </label>
+                        (充值卡余额为<span class="pre-doposit-money clr-d94">￥<span id="available_rc_balance"></span></span>)
+                    </p>
+                    <p class="clearfix hide" id="wrapper-usepdpy">
+                        <label>
+                            <input type="checkbox" class="mr5" id="usepdpy" />使用预存款支付
+                        </label>
+                        (可用金额为<span class="pre-doposit-money clr-d94">￥<span id="available_predeposit"></span></span>)
+                    </p>
+
+                    <div id="pd" class="hide">
+                        <p class="clearfix">
+                            支付密码：<input type="password" class="mr5 h22" name="loginpassword" id="loginpassword" />
+                        </p>
+                        <p class="password_error_tip" style="display:none;color:red;"></p>
+                        <p>
+                            <span class="btn-s btn-yello-s" id="pguse">使用</span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="bd-t-cc">
+                <div class="buys-order-total">
+                    订单总金额：￥<span id="total_price"></span>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="post-order" id="buy_step2">提交订单</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="footer"></div>
+
+<input type="hidden" name="passwd_verify" value="0">
+<input type="hidden" name="total_price">
+<input type="hidden" name="available_rc_balance">
+<input type="hidden" name="available_predeposit">
+
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../../js/tmpl/vr_buy_step1.js"></script>
+</body>
+</html>

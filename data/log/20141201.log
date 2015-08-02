@@ -1,0 +1,12 @@
+[2014-12-01 10:34:40] /admin/index.php?act=dashboard&op=statistics ( act=dashboard&op=statistics ) 
+ERR: Db Error: Table '33hao.33hao_vr_refund' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_vr_refund` WHERE ( admin_state = '1' ) LIMIT 1  
+[2014-12-01 10:34:40] /admin/index.php?act=dashboard&op=statistics ( act=dashboard&op=statistics ) 
+ERR: Db Error: Table '33hao.33hao_vr_order_bill' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_vr_order_bill` WHERE ( ob_state = '2' ) LIMIT 1  
+[2014-12-01 10:34:40] /admin/index.php?act=dashboard&op=statistics ( act=dashboard&op=statistics ) 
+ERR: Db Error: Table '33hao.33hao_vr_order_bill' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_vr_order_bill` WHERE ( ob_state = '3' ) LIMIT 1  
+[2014-12-01 10:34:40] /admin/index.php?act=dashboard&op=statistics ( act=dashboard&op=statistics ) 
+ERR: Db Error: Table '33hao.33hao_delivery_point' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `33hao`.`33hao_delivery_point` WHERE ( dlyp_state = '10' ) LIMIT 1  

@@ -1,0 +1,72 @@
+[2014-12-07 22:02:35] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:02:42] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:02:45] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:03:14] /shop/index.php?act=show_store&op=ajax_flowstat_record&store_id=1&goods_id=52&act_param=goods&op_param=index ( act=show_store&op=ajax_flowstat_record ) 
+ERR: Db Error: Unknown column 'stattime' in 'where clause'
+SELECT * FROM `b2b2c6`.`shopnc_flowstat_1` WHERE ( stattime = '1417881600' ) AND ( store_id = '1' ) AND ( type = 'sum' ) LIMIT 1  
+[2014-12-07 22:03:14] /shop/index.php?act=show_store&op=ajax_flowstat_record&store_id=1&goods_id=52&act_param=goods&op_param=index ( act=show_store&op=ajax_flowstat_record ) 
+ERR: Db Error: Unknown column 'stattime' in 'where clause'
+SELECT * FROM `b2b2c6`.`shopnc_flowstat_1` WHERE ( stattime = '1417881600' ) AND ( goods_id = '52' ) AND ( type = 'goods' ) LIMIT 1  
+[2014-12-07 22:03:14] /shop/index.php?act=show_store&op=ajax_flowstat_record&store_id=1&goods_id=52&act_param=goods&op_param=index ( act=show_store&op=ajax_flowstat_record ) 
+ERR: Db Error: Unknown column 'stattime' in 'field list'
+INSERT INTO `b2b2c6`.`shopnc_flowstat_1` (stattime,clicknum,store_id,type,goods_id) VALUES ('1417881600','1','1','sum','0'),('1417881600','1','1','goods','52')
+[2014-12-07 22:03:15] /shop/index.php?act=goods&op=consulting&goods_id=52&store_id=1 ( act=goods&op=consulting ) 
+ERR: Db Error: Table 'b2b2c6.shopnc_consult_type' doesn't exist
+SELECT * FROM `b2b2c6`.`shopnc_consult_type` ORDER BY ct_sort asc,ct_id desc LIMIT 30  
+[2014-12-07 22:03:46] /shop/index.php?act=show_store&op=ajax_flowstat_record&store_id=1&goods_id=52&act_param=goods&op_param=index ( act=show_store&op=ajax_flowstat_record ) 
+ERR: Db Error: Unknown column 'stattime' in 'where clause'
+SELECT * FROM `b2b2c6`.`shopnc_flowstat_1` WHERE ( stattime = '1417881600' ) AND ( store_id = '1' ) AND ( type = 'sum' ) LIMIT 1  
+[2014-12-07 22:03:46] /shop/index.php?act=show_store&op=ajax_flowstat_record&store_id=1&goods_id=52&act_param=goods&op_param=index ( act=show_store&op=ajax_flowstat_record ) 
+ERR: Db Error: Unknown column 'stattime' in 'where clause'
+SELECT * FROM `b2b2c6`.`shopnc_flowstat_1` WHERE ( stattime = '1417881600' ) AND ( goods_id = '52' ) AND ( type = 'goods' ) LIMIT 1  
+[2014-12-07 22:03:46] /shop/index.php?act=show_store&op=ajax_flowstat_record&store_id=1&goods_id=52&act_param=goods&op_param=index ( act=show_store&op=ajax_flowstat_record ) 
+ERR: Db Error: Unknown column 'stattime' in 'field list'
+INSERT INTO `b2b2c6`.`shopnc_flowstat_1` (stattime,clicknum,store_id,type,goods_id) VALUES ('1417881600','1','1','sum','0'),('1417881600','1','1','goods','52')
+[2014-12-07 22:06:02] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:06:02] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT goods_id, goods_name, goods_promotion_price, goods_promotion_type, goods_marketprice, goods_image, store_id, gc_id, gc_id_1, gc_id_2, gc_id_3 FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_id IN ('52') ) LIMIT 0,24  
+[2014-12-07 22:06:05] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:06:05] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT goods_id, goods_name, goods_promotion_price, goods_promotion_type, goods_marketprice, goods_image, store_id, gc_id, gc_id_1, gc_id_2, gc_id_3 FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_id IN ('52') ) LIMIT 0,24  
+[2014-12-07 22:06:06] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:06:06] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT goods_id, goods_name, goods_promotion_price, goods_promotion_type, goods_marketprice, goods_image, store_id, gc_id, gc_id_1, gc_id_2, gc_id_3 FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_id IN ('52') ) LIMIT 0,24  
+[2014-12-07 22:06:07] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:06:07] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT goods_id, goods_name, goods_promotion_price, goods_promotion_type, goods_marketprice, goods_image, store_id, gc_id, gc_id_1, gc_id_2, gc_id_3 FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_id IN ('52') ) LIMIT 0,24  
+[2014-12-07 22:06:07] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:06:07] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT goods_id, goods_name, goods_promotion_price, goods_promotion_type, goods_marketprice, goods_image, store_id, gc_id, gc_id_1, gc_id_2, gc_id_3 FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_id IN ('52') ) LIMIT 0,24  
+[2014-12-07 22:06:08] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT CONCAT(goods_commonid,',',color_id) as nc_distinct ,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_state = '1' ) AND ( goods_verify = '1' ) GROUP BY nc_distinct ORDER BY is_own_shop desc,goods_id desc LIMIT 0,24  
+[2014-12-07 22:06:08] /shop/index.php?act=search&op=index ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods_promotion_price' in 'field list'
+SELECT goods_id, goods_name, goods_promotion_price, goods_promotion_type, goods_marketprice, goods_image, store_id, gc_id, gc_id_1, gc_id_2, gc_id_3 FROM `b2b2c6`.`shopnc_goods` WHERE ( goods_id IN ('52') ) LIMIT 0,24  
+[2014-12-07 22:07:25] /admin/index.php?act=goods_class&op=goods_class_edit&gc_id=1 ( act=goods_class&op=goods_class_edit ) 
+ERR: Db Error: Unknown column 'commis_rate' in 'field list'
+UPDATE `b2b2c6`.`shopnc_goods_class` SET gc_name='服饰鞋帽',type_id='35',type_name='服饰鞋帽/女装/雪纺衫',commis_rate='1',gc_sort='255',gc_virtual='0' WHERE ( gc_id = '1' )
+[2014-12-07 22:07:53] /admin/index.php?act=goods_class&op=goods_class_edit&gc_id=1 ( act=goods_class&op=goods_class_edit ) 
+ERR: Db Error: Unknown column 'commis_rate' in 'field list'
+UPDATE `b2b2c6`.`shopnc_goods_class` SET gc_name='服饰鞋帽',type_id='35',type_name='服饰鞋帽/女装/雪纺衫',commis_rate='10',gc_sort='255',gc_virtual='0' WHERE ( gc_id = '1' )

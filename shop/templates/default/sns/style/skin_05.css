@@ -1,0 +1,23 @@
+/**
+ * 定义买家中心样式
+ * @abc
+ * www.abc.com
+ * Apr-01-2012
+ **/
+body { background: #393A3C url(skin05/body_bg.jpg) no-repeat scroll center 16px;}
+
+.sns-nav { filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#BF393A3C', endColorstr='#BF393A3C');background:rgba(57,58,60,0.75);}
+
+.user-info .user-stat dl { border-left: dashed 1px #DAA649;}
+
+.sns-nav ul li a { color: #F7F7F7; border-color: #333; box-shadow: inset 1px 0 0 rgba(255,255,255,0.25);}
+.sns-nav ul li a:hover { color: #000; background-color: #D88D0D;}
+.sns-nav ul li a.current, .sns-nav ul li a:hover.current { color: #3A3B3D;}
+.sns-nav ul li a.current i { background: url(skin05/nav.png) no-repeat scroll;}
+
+.sns-main { background-image: url(skin05/layout_bg.png);}
+
+.tabmenu ul li.active, .group-info:hover { border-color: #4D7C45 !important;}
+.tabmenu ul li.active i { border-color: #4D7C45 transparent transparent;}
+
+.group-info:hover { background-color: #FFF7F7 !important;}

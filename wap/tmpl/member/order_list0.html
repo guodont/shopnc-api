@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="order-list-wp">
+        <div class="order-list" id="order_list"></div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script type="text/html" id="sorder_list">
+        <%if(order_list.length>0){%>
+            <ul>
+			<%for(var i=0;i<order_list.length;i++){%>
+                <li order_id="<%=order_list[i].order_id %>">
+                    <p class="order-ltlt">
+                      	订单状态：
+						<%if(order_list[i].order_state == 0){%>
+						<span class="order-type ot-nofinish">已取消</span>
+						<%}else if(order_list[i].order_state == 10){%>
+						<span class="order-type ot-nofinish">未支付</span>
+						<%}else if(order_list[i].order_state == 20){%>
+						<span class="order-type ot-finish">已支付</span>
+						<%}else if(order_list[i].order_state == 30){%>
+						<span class="order-type ot-finish">已发货</span>
+						<%}else if(order_list[i].order_state == 40){%>
+						<span class="order-type ot-finish">交易成功</span>
+						<%}%>
+                    </p>
+                    <div class="order-lcnt">
+                        <a class="order-ldetail clearfix" href="javascript:void(0);">
+                            <span class="order-pdpic">
+                                <img src="<%=order_list[i].extend_order_goods[0].goods_image_url %>"/>
+                            </span>
+                            <div class="order-pdinfor">
+                                <p>
+                                    	订单编号：<%=order_list[i].order_sn %>
+                                </p>
+                                <p>
+                                    	订单总价：<%=order_list[i].extend_order_goods[0].goods_price %>
+                                </p>
+                                <p>
+                                    	商品数目：<%=order_list[i].extend_order_goods[0].goods_num %>
+                                </p>
+                                <span class="grayrightarrow"></span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+			<%}%>
+            </ul>
+        <%}else{%>
+            <div class="no-record">
+                暂无记录
+            </div>
+        <%}%>
+	</script>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/order_list.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

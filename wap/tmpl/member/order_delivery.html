@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>查看物流</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+<header id="header"></header>
+<div class="order-delivery-wp" id="order-delivery"></div>
+<script type="text/html" id="order-delivery-tmpl">
+<div class="order-delivery-wrapper">
+<% if (err) { %>
+	<div class="no-record m10"><%= err %></div>
+<% } else { %>
+	<div class="order-delivery-express">物流公司: <%= express_name %></div>
+	<div class="order-delivery-shipcode">运单号码: <%= shipping_code %></div>
+	<ul class="order-delivery-infolist">
+	<% for (var i in deliver_info) { %>
+		<li><%= deliver_info[i] %></li>
+	<% } %>
+	</ul>
+<% } %>
+</div>
+</script>
+<footer id="footer"></footer>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../../js/tmpl/order_delivery.js"></script>
+</body>
+</html>

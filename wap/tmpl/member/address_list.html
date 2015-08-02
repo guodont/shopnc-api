@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地址列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="address-list" id="address_list"></div>
+    <div class="footer" id="footer"></div>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/html" id="saddress_list">
+     <%if(address_list.length>0){%>
+		<ul>
+		<%for(var i=0;i<address_list.length;i++){%>
+            <li>
+                <p class="madr-tlt clearfix">
+                    <span class="madrt-name"><%=address_list[i].true_name %></span>
+                    <span class="madrt-phone"><%=address_list[i].mob_phone %></span>
+                    <span class="madrt-type fright"></span>
+                </p>
+                <div class="madr-cnt">
+                    <p><%=address_list[i].area_info %>&nbsp;<%=address_list[i].address %></p>
+                    <p class="madrc-opera">
+						<a href="address_opera_edit.html?address_id=<%=address_list[i].address_id %>">编辑</a>&nbsp;|
+                        <a href="javascript:;" address_id="<%=address_list[i].address_id %>" class="deladdress">删除</a>
+                    </p>
+                </div>
+            </li>
+		<%}%>
+        </ul>
+        <%}else{%>
+            <div class="no-record">
+                暂无记录
+            </div>
+        <%}%>
+		<a class="add_address mt10" href="address_opera.html">添加新地址</a>
+	</script>    
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/address_list.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

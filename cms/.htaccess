@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# mod_fcgid & php-cgi
+RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]
+
+# php5apache2_2.dll
+#RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+</IfModule>
