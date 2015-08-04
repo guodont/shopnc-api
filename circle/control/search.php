@@ -46,10 +46,10 @@ class searchControl extends BaseCircleControl{
 			$where['class_id'] = intval($_GET['class_id']);
 		}
 		$count = $model->table('circle')->where($where)->count();
-		$circle_list = $model->table('circle')->where($where)->page(10,$count)->select();
+		$circle_list = $model->table('circle')->where($where)->page(1  ,$count)->select();
 		Tpl::output('count', $count);
 		Tpl::output('circle_list', $circle_list);
-		Tpl::output('show_page', $model->showpage('2'));
+		Tpl::output('show_page', $model->showpage('3'));
 		Tpl::output('search_sign', 'group');
 
 		$this->circleSEO(L('search_circle'));
