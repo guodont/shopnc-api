@@ -10,7 +10,7 @@
 //use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
-class goodsControl extends mobileHomeControl{
+class goodsControl extends apiHomeControl{
 
 	public function __construct() {
         parent::__construct();
@@ -56,7 +56,6 @@ class goodsControl extends mobileHomeControl{
             $goods_list = $model_goods->getGoodsListByColorDistinct($condition, $fieldstr, $order, $this->page);
         }
         $page_count = $model_goods->gettotalpage();
-
         //处理商品列表(抢购、限时折扣、商品图片)
         $goods_list = $this->_goods_list_extend($goods_list);
 

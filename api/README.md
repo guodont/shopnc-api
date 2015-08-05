@@ -185,7 +185,8 @@
     index.php?act=circle&op=circleThemes
 
 ####请求参数
-
+    + page:     每页数量
+    + curpage:  当前页码
 ####返回数据
 
     + themes 话题数据
@@ -387,3 +388,91 @@
 ####返回数据
 
     + success: 成功消息
+
+###推荐话题
+
+####接口(GET)
+    index.php?act=circle&op=get_theme_list
+
+####请求参数
+
+    + page:     每页数量
+    + curpage:  当前页码
+
+####返回数据
+
+    + theme_list 
+        + theme_id  主题id
+        + theme_name    主题名称
+        + theme_content 主题内容
+        + circle_id 圈子id
+        + circle_name   圈子名称
+        + thclass_id    主题分类id
+        + thclass_name  主题分类名称
+        + member_id 会员id
+        + member_name   会员名称
+        + is_identity   1圈主 2管理 3成员
+        + theme_addtime 主题发表时间    
+        + theme_editname    编辑人名称
+        + theme_edittime    主题编辑时间
+        + theme_likecount   喜欢数量
+        + theme_commentcount    评论数量
+        + theme_browsecount 浏览数量
+        + theme_sharecount  分享数量
+        + is_stick  是否置顶 1是  0否
+        + is_digest 是否加精 1是 0否
+        + lastspeak_id  最后发言人id
+        + lastspeak_name    最后发言人名称
+        + lastspeak_time    最后发言时间
+        + has_goods 商品标记 1是 0否
+        + has_affix 附件标记 1是 0 否
+        + is_closed 屏蔽 1是 0否
+        + is_recommend  是否推荐 1是 0否
+        + is_shut   主题是否关闭 1是 0否
+        + theme_exp 获得经验
+        + theme_readperm    阅读权限
+        + theme_special 特殊话题 0普通 1投票
+      
+###人气话题
+
+####接口(GET)
+    index.php?act=circle&op=get_reply_themelist
+
+####请求参数
+
+    + page:     每页数量
+    + curpage:  当前页码
+
+####返回数据
+
+    + reply_themelist： 
+        + theme_id  主题id
+        + theme_name    主题名称
+        + theme_content 主题内容
+        + circle_id 圈子id
+        + circle_name   圈子名称
+        + thclass_id    主题分类id
+        + thclass_name  主题分类名称
+        + member_id 会员id
+        + member_name   会员名称
+        + is_identity   1圈主 2管理 3成员
+        + theme_addtime 主题发表时间    
+        + theme_editname    编辑人名称
+        + theme_edittime    主题编辑时间
+        + theme_likecount   喜欢数量
+        + theme_commentcount    评论数量
+        + theme_browsecount 浏览数量
+        + theme_sharecount  分享数量
+        + is_stick  是否置顶 1是  0否
+        + is_digest 是否加精 1是 0否
+        + lastspeak_id  最后发言人id
+        + lastspeak_name    最后发言人名称
+        + lastspeak_time    最后发言时间
+        + has_goods 商品标记 1是 0否
+        + has_affix 附件标记 1是 0 否
+        + is_closed 屏蔽 1是 0否
+        + is_recommend  是否推荐 1是 0否
+        + is_shut   主题是否关闭 1是 0否
+        + theme_exp 获得经验
+        + theme_readperm    阅读权限
+        + theme_special 特殊话题 0普通 1投票
