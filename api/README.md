@@ -26,6 +26,51 @@
     //登录失败，login:0
     {"code":200,"login":"0","datas":{"error":"请登录"}}
 
+##个人中心API
+
+###登录
+
+####登录接口(GET)
+    index.php?act=login
+
+####请求参数
+    + username： 用户名
+    + password：密码
+    + client：客户端类型(android wap ios wechat)
+    
+####返回数据
+    + username 用户名
+    + key 登录令牌
+    
+###注册
+
+####注册接口(POST)
+    index.php?act=login&op=register
+
+####请求参数
+    + username： 用户名
+    + password：密码
+    + assword_confirm 密码确认
+    + email 邮箱
+    + client：客户端类型(android wap ios wechat)
+    
+####返回数据
+    + username 用户名
+    + key 登录令牌
+    
+###注销
+
+####注册接口(POST)
+    index.php?act=logout
+
+####请求参数
+    + username： 用户名
+    + key 当前登录令牌
+    + client：客户端类型(android wap ios wechat)
+    
+####返回数据
+    + 1
+
 ##圈子API
 
 ###圈子分类
