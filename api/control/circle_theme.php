@@ -207,7 +207,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
     }
 
     /**
-     * GET 话题详细页
+     * GET 话题回复信息
      */
     public function theme_detailOp(){
 
@@ -345,7 +345,6 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         $this->themeInfo();
 
         if(isset($_POST)){
-            echo 'test1';
             /**
              * 验证
              */
@@ -375,9 +374,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
                         $insert['reply_replyname']	= $reply_info['member_name'];
                     }
                 }
-                echo 'test1';
                 $reply_id = $model->table('circle_threply')->insert($insert);
-                var_dump($reply_id);
                 if($reply_id){
 
                     // 话题被回复数增加 最后发言人发言时间
@@ -416,14 +413,12 @@ class circle_themeControl extends apiBaseCircleThemeControl {
                         $param['itemid']		= $this->t_id;
                         Model('circle_exp')->saveExp($param);
                     }
-                    output_data(array('code'=>201,'success'=>'创建成功'));
+                    output_data(array('code'=>201,'success'=>'回复成功'));
                 } else{
                     output_error('回复失败');
                 }
             }
-            echo 'test1';
         }
-        echo 'test1';
     }
     /**
      * POST 删除回复
