@@ -126,7 +126,6 @@ class circleControl extends apiHomeControl {
             pagecmd('setTotalNum',$m_circle_theme->count());
 
             $pageCount = $m_circle_theme->gettotalpage();
-            var_dump($pageCount);
             $theme_list = $m_circle_theme->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
             $theme_list = array_under_reset($theme_list, 'theme_id');
             output_data(array('themes' => $theme_list), mobile_page($pageCount));
