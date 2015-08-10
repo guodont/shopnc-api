@@ -185,26 +185,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         output_error('request error');
     }
 
-    /**
-     * 上传图片
-     * TODO
-     */
-    public function choose_imageOp(){
-        $model = Model();
-        $where = array();
-        if(intval($_GET['class_id']) > 0){
-            $where['ac_id'] = intval($_GET['class_id']);
-        }
-        $where['member_id'] = $this->member_info['member_id'];
-        $pic_list = $model->table('sns_albumpic')->where($where)->page(6)->select();
-        Tpl::output('show_page', $model->showpage('2'));
-        Tpl::output('pic_list', $pic_list);
 
-        $class_list = $model->table('sns_albumclass')->where(array('member_id'=>$this->member_info['member_id']))->select();
-        Tpl::output('class_list', $class_list);
-
-        Tpl::showpage('theme.choose_image', 'null_layout');
-    }
 
     /**
      * GET 话题回复信息
