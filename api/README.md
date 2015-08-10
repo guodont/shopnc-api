@@ -71,7 +71,67 @@
 ####返回数据
     + 1
 
-###积分信息
+###用户信息
+
+####接口(GET)
+    index.php?act=user_center&op=user_info
+
+####请求参数
+    + uid : 用户id
+####返回数据
+
+    + user_info 用户信息数据
+        + member_id 用户id
+        + member_name 用户名
+        + member_avatar 头像
+        + member_email 邮箱
+        + member_sex 性别
+        + member_birthday 生日
+        + member_mobile 手机
+        + member_cityid 城市id
+        + member_provinceid 省份id
+        + level 等级
+        + level_name 等级名称
+        + member_points 用户积分
+        + member_exppoints 经验值
+        + following_count 关注数
+        + follower_count 粉丝数
+       
+###用户粉丝列表
+
+####接口(GET)
+    index.php?act=user_center&op=followers
+
+####请求参数
+    + uid : 用户id
+    + page:     每页数量
+    + curpage:  当前页码
+    
+####返回数据
+
+    + followers 用户粉丝信息数据
+        + member_id 用户id
+        + member_name 用户名
+        + member_avatar 头像
+        + member_sex 性别
+
+###用户关注人列表
+
+####接口(GET)
+    index.php?act=user_center&op=following
+
+####请求参数
+    + uid : 用户id
+    + page:     每页数量
+    + curpage:  当前页码
+    
+####返回数据
+
+    + followers 用户专注人息数据
+        + member_id 用户id
+        + member_name 用户名
+        + member_avatar 头像
+        + member_sex 性别
 
 ##圈子API
 

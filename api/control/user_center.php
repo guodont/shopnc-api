@@ -13,7 +13,7 @@ class user_centerControl extends apiHomeControl {
     public function __construct() {
         parent::__construct();
 
-        if(!isset($_GET['uid'])){
+        if(!isset($_GET['uid'])||$_GET['uid']<=0){
             output_error("缺少用户id参数");die;
         }
 
@@ -39,7 +39,7 @@ class user_centerControl extends apiHomeControl {
     /**
      * GET 用户信息及等级信息，含用户积分，粉丝数，关注数
      */
-    public function gradeOp() {
+    public function user_infoOp() {
         $member_info = array();
         $member = array();
         //会员详情及会员级别处理
@@ -53,6 +53,7 @@ class user_centerControl extends apiHomeControl {
             $member['member_id'] = $member_info['member_id'];
             $member['member_name'] = $member_info['member_name'];
             $member['member_avatar'] = $member_info['member_avatar'];
+            $member['member_sex'] = $this->m_sex($member_info['member_sex']);
             $member['member_email'] = $member_info['member_email'];
             $member['member_birthday'] = $member_info['member_birthday'];
             $member['member_mobile'] = $member_info['member_mobile'];
@@ -64,12 +65,10 @@ class user_centerControl extends apiHomeControl {
             $member['member_exppoints'] = $member_info['member_exppoints'];
             $member['following_count'] = $following_count;
             $member['follower_count'] = $follower_count;
-            $member_gradeinfo = $model_member->getOneMemberGrade(intval($member_info['member_exppoints']));
-            $member_info = array_merge($member,$member_gradeinfo);
         }else{
             output_error("用户不存在");
         }
-        output_data(array('user_info'=>$member_info));
+        output_data(array('user_info'=>$member));
     }
 
     /**
@@ -159,9 +158,9 @@ class user_centerControl extends apiHomeControl {
     /**
      * GET 用户的话题
      */
-    public function themeOp(){
+    public function user_themesOp(){
         $model = Model();
-        $m_theme = $model->table('circle_theme')->where(array('member_id'=>$this->master_id));
+        $m_theme = $model->table('circle_theme')->where(array('member_id'=>$this->member_id));
         //设置每页数量和总数！！！
         pagecmd('setEachNum',$this->page);
         pagecmd('setTotalNum',$m_theme->count());
