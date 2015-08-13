@@ -108,7 +108,11 @@ class loginControl extends apiHomeControl {
         if(!isset($member_info['error'])) {
             $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);
             if($token) {
-                output_data(array('username' => $member_info['member_name'], 'key' => $token));
+                output_data(array(
+                    'username' => $member_info['member_name'],
+                    'uid' => $member_info['member_id'],
+                    'key' => $token)
+                );
             } else {
                 output_error('注册失败');
             }

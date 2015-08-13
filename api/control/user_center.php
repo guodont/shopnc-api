@@ -22,6 +22,11 @@ class user_centerControl extends apiHomeControl {
 
     }
 
+    /**
+     * 性别处理方法
+     * @param $sextype
+     * @return string
+     */
     private function m_sex($sextype){
         switch ($sextype){
             case 1:
