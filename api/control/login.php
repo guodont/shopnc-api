@@ -47,7 +47,11 @@ class loginControl extends apiHomeControl {
                         setNc2Cookie('key',$token);
                         header("location:".WAP_SITE_URL.'/tmpl/member/member.html?act=member');
                     }else{
-                        output_data(array('username' => $member_info['member_name'], 'key' => $token));
+                        output_data(array(
+                            'username' => $member_info['member_name'],
+                            'uid'=>$member_info['member_id'],
+                            'key' => $token)
+                        );
                     }
             } else {
                 output_error('登录失败');
