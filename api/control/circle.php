@@ -92,6 +92,7 @@ class circleControl extends apiHomeControl {
                 $manager_list[2] = array_under_reset($manager_list[2], 'member_id', 1);
                 wcache($this->c_id,$manager_list,$prefix);
             }
+            $circle_info['circle_masteravatar'] = getMemberAvatarForID($circle_info['circle_masterid']);
             output_data(array('circle_info'=>$circle_info,
                 'creator'=>$manager_list[1][0],
                 'manager_list'=>$manager_list[2]
@@ -128,6 +129,11 @@ class circleControl extends apiHomeControl {
             $pageCount = $m_circle_theme->gettotalpage();
             $theme_list = $m_circle_theme->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
             $theme_list = array_under_reset($theme_list, 'theme_id');
+            if(!empty($theme_list)){
+                foreach ($theme_list as $key=>$val){
+                    $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
+                }
+            }
             output_data(array('themes' => $theme_list), mobile_page($pageCount));
         }else{
             output_error("圈子id错误",array('code'=>403));die;
@@ -139,7 +145,6 @@ class circleControl extends apiHomeControl {
      * GET 推荐话题
      */
     public function get_theme_listOp() {
-
         $model = Model();
         $m_theme = $model->table('circle_theme')->where(array('circle_status'=>1, 'is_closed'=>0))->where(array('has_affix'=>0));
         //设置每页数量和总数！！！
@@ -155,8 +160,10 @@ class circleControl extends apiHomeControl {
 
             foreach ($theme_list as $key=>$val){
                 if(isset($affix_list[$val['theme_id']])) $theme_list[$key]['affix'] = themeImageUrl($affix_list[$val['theme_id']]['affix_filethumb']);
+                $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
             }
         }
+
         output_data(array('theme_list'=>$theme_list),mobile_page($pageCount));
     }
 
@@ -172,6 +179,10 @@ class circleControl extends apiHomeControl {
         pagecmd('setTotalNum',$m_theme->count());
         $pageCount = $m_theme->gettotalpage();
         $reply_themelist = $m_theme->order('theme_commentcount desc')->page($this->page)->select();
+
+        foreach ($reply_themelist as $key=>$val){
+            $reply_themelist[$key]['member_avatar'] = getMemberAvatarForID($reply_themelist[$key]['member_id']);
+        }
 
         output_data(array('reply_themelist'=>$reply_themelist),mobile_page($pageCount));
     }

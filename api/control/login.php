@@ -121,4 +121,16 @@ class loginControl extends apiHomeControl {
         }
 
     }
+
+    /**
+     * 手机号注册
+     */
+    public function phone_registerOp(){
+        $model_member = Model('member');
+        $register_info = array();
+        $register_info['username'] = $_POST['username'];
+        $register_info['password'] = $_POST['password'];
+        $register_info['password_confirm'] = $_POST['password_confirm'];
+        $register_info['mobile'] = $_POST['mobile'];
+    }
 }

@@ -32,6 +32,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         if($data['theme_edittime'] != ''){
             $data['theme_edittime'] = @date('Y-m-d H:i', $data['theme_edittime']);
         }
+        $data['member_avatar'] = getMemberAvatarForID($data['member_id']);
         // 是否赞过话题
         $data['theme_nolike'] = 1;
         if (!empty($this->member_info['member_id'])) {
@@ -230,6 +231,9 @@ class circle_themeControl extends apiBaseCircleThemeControl {
             foreach($reply_info as $val){
                 $replyid_array[]	= $val['reply_id'];
                 $memberid_array[]	= $val['member_id'];
+            }
+            foreach($reply_info as $key=>$val){
+                $reply_info[$key]['member_avatar'] = getMemberAvatarForID($reply_info[$key]['member_id']);
             }
         }
 

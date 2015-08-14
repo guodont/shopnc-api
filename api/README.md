@@ -128,7 +128,7 @@
     
 ####返回数据
 
-    + followers 用户专注人息数据
+    + followers 用户关注人息数据
         + member_id 用户id
         + member_name 用户名
         + member_avatar 头像
@@ -262,6 +262,7 @@
         + thclass_name  主题分类名称
         + member_id 会员id
         + member_name   会员名称
+        + member_avatar 会员头像
         + is_identity   1圈主 2管理 3成员
         + theme_addtime 主题发表时间    
         + theme_editname    编辑人名称
@@ -303,6 +304,7 @@
         + circle_desc   圈子描述
         + circle_masterid   圈主id
         + circle_mastername 圈主名称
+        + circle_masteravatar 圈主头像
         + circle_img    圈子图片
         + class_id  类别id
         + circle_mcount 圈子会员数
@@ -331,7 +333,7 @@
 ###话题详情
 
 ####接口(GET)
-    index.php?act=circle&op=ajax_themeinfo
+    index.php?act=circle_theme&op=ajax_themeinfo
 
 ####请求参数
 
@@ -351,6 +353,7 @@
             + thclass_name  主题分类名称
             + member_id 会员id
             + member_name   会员名称
+            + member_avatar 会员头像
             + is_identity   1圈主 2管理 3成员
             + theme_addtime 主题发表时间    
             + theme_editname    编辑人名称
@@ -376,7 +379,7 @@
 ###话题回复信息
 
 ####接口(GET)
-    index.php?act=circle&op=theme_detail
+    index.php?act=circle_theme&op=theme_detail
 
 ####请求参数
 
@@ -391,6 +394,7 @@
         + circle_id 圈子id
         + member_id 会员id
         + member_name 会员名称
+        + member_avatar 会员头像
         + reply_content 评论内容
         + reply_addtime 发表时间
         + reply_replyid 回复楼层id
@@ -407,7 +411,7 @@
 ###创建话题
 
 ####接口(POST)
-    index.php?act=circle&op=ajax_themeinfo
+    index.php?act=circle_theme&op=ajax_themeinfo
 
 ####请求参数
 
@@ -424,7 +428,7 @@
 ###创建回复
 
 ####接口(POST)
-    index.php?act=circle&op=create_reply
+    index.php?act=circle_theme&op=create_reply
 
 ####请求参数
 
@@ -440,7 +444,7 @@
 ###删除回复
 
 ####接口(POST)
-    index.php?act=circle&op=del_reply
+    index.php?act=circle_theme&op=del_reply
 
 ####请求参数
 
@@ -474,6 +478,7 @@
         + thclass_name  主题分类名称
         + member_id 会员id
         + member_name   会员名称
+        + member_avatar   会员头像
         + is_identity   1圈主 2管理 3成员
         + theme_addtime 主题发表时间    
         + theme_editname    编辑人名称
@@ -518,6 +523,7 @@
         + thclass_name  主题分类名称
         + member_id 会员id
         + member_name   会员名称
+        + member_avatar   会员头像
         + is_identity   1圈主 2管理 3成员
         + theme_addtime 主题发表时间    
         + theme_editname    编辑人名称

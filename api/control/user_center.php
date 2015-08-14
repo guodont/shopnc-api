@@ -57,7 +57,7 @@ class user_centerControl extends apiHomeControl {
         if ($member_info){
             $member['member_id'] = $member_info['member_id'];
             $member['member_name'] = $member_info['member_name'];
-            $member['member_avatar'] = $member_info['member_avatar'];
+            $member['member_avatar'] = getMemberAvatar($member_info['member_avatar']);
             $member['member_sex'] = $this->m_sex($member_info['member_sex']);
             $member['member_email'] = $member_info['member_email'];
             $member['member_birthday'] = $member_info['member_birthday'];
@@ -90,6 +90,7 @@ class user_centerControl extends apiHomeControl {
         $fan_list = $friend_model->listFriend(array('friend_tomid'=>$this->member_id),$field,$page,'fromdetail');
         if (!empty($fan_list)){
             foreach ($fan_list as $k=>$v){
+                $v['member_avatar'] = getMemberAvatar($v['member_avatar']);
                 $v['member_sex'] = $this->m_sex($v['member_sex']);
                 $fan_list[$k] = $v;
             }
@@ -110,6 +111,7 @@ class user_centerControl extends apiHomeControl {
         $follow_list = $friend_model->listFriend(array('friend_frommid'=>$this->member_id),$field,$page,'detail');
         if (!empty($follow_list)){
             foreach ($follow_list as $k=>$v){
+                $v['member_avatar'] = getMemberAvatar($v['member_avatar']);
                 $v['sex_class'] = $this->m_sex($v['member_sex']);
                 $follow_list[$k] = $v;
             }
