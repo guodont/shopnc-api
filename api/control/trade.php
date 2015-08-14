@@ -24,7 +24,7 @@ class tradeControl extends apiHomeControl {
     public function trade_listOp(){
 
         $where = array();
-        $m_trade = Model('trade');
+        $m_trade = Model('utrade');
         $listgoods = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if($listgoods){
@@ -85,7 +85,7 @@ class tradeControl extends apiHomeControl {
         }
         $trade_id = $_GET['tid'];
         $where = array('goods_id'=>$trade_id);
-        $m_trade = Model('trade');
+        $m_trade = Model('utrade');
         $trade_info = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if(!empty($trade_info)){
@@ -106,7 +106,7 @@ class tradeControl extends apiHomeControl {
         //TODO 查找uid是否存在，不存在则输出错误信息
         $member_id = $_GET['uid'];
         $where = array('member_id'=>$member_id);
-        $m_trade = Model('trade');
+        $m_trade = Model('utrade');
         $trade_list = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if(is_array($trade_list) and !empty($trade_list)) {
