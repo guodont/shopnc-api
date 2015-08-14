@@ -546,3 +546,112 @@
         + theme_readperm    阅读权限
         + theme_special 特殊话题 0普通 1投票
         
+##交易API
+
+###所有交易列表
+
+####接口(GET)
+    index.php?act=trade&op=all_trade_list
+
+####请求参数
+    + page:     每页数量
+    + curpage:  当前页码
+    
+####返回数据
+
+    + trade_list 交易数据
+        + goods_id 交易id
+        + goods_name 交易名称
+        + gc_name 分类名称
+        + member_id 发布者id
+        + member_name 发布者名字
+        + goods_image 交易图片
+        + goods_tag 交易标签
+        + goods_price 交易原价交
+        + goods_store_price 易转让价格
+        + goods_click 交易浏览数
+        + flea_collect_num  总收藏次数
+        + goods_add_time 交易添加时间
+        + goods_description 交易描述
+        + commentnum 评论数
+        + salenum 售出数
+        + flea_quality 闲置物品成色，0未选择，9-5九五成新，3是低于五成新
+        + flea_area_name 闲置物品地区名称
+        + member_avatar 发布者头像
+        + time  发布时间 格式为 xx秒/时/小时/月/年前 
+        
+###交易详情
+
+####接口(GET)
+    index.php?act=trade&op=trade_info
+
+####请求参数
+    + page:     每页数量
+    + curpage:  当前页码
+    + tid:      交易id
+    
+####返回数据
+
+    + trade_info 交易详情数据
+        + goods_id 交易id
+        + goods_name 交易名称
+        + gc_id 分类id
+        + gc_name 分类名称
+        + member_id 发布者id
+        + member_name 发布者名字
+        + goods_image 交易图片
+        + goods_tag 交易标签
+        + goods_price 交易原价
+        + goods_store_price 交易转让价格
+        + goods_show 是否上架 1 上架 0 下架
+        + goods_click 交易浏览数
+        + flea_collect_num 总收藏次数
+        + goods_commend 闲置推荐 1 推荐 0 默认
+        + goods_add_time 交易添加时间
+        + goods_keywords 交易关键字
+        + goods_description 交易描述
+        + goods_body    交易详细内容
+        + commentnum 评论数
+        + salenum 售出数
+        + flea_quality 闲置物品成色，0未选择，9-5九五成新，3是低于五成新
+        + flea_pname 闲置商品联系人
+        + flea_pphone 闲置商品联系人电话
+        + flea_area_id 闲置物品地区id
+        + flea_area_name 闲置物品地区名称
+        + member_avatar 发布者头像
+        + time     发布时间 格式为 xx秒/时/小时/月/年前  
+           
+###用户所有交易
+
+####接口(GET)
+    index.php?act=trade&op=user_trade_list
+
+####请求参数
+    + page:     每页数量
+    + curpage:  当前页码
+    + uid:      用户id
+    
+####返回数据
+
+    + trade_list 交易数据
+        + goods_id 交易id
+        + goods_name 交易名称
+        + gc_name 分类名称
+        + member_id 发布者id
+        + member_name 发布者名字
+        + goods_image 交易图片
+        + goods_tag 交易标签
+        + goods_price 交易原价交
+        + goods_store_price 易转让价格
+        + goods_click 交易浏览数
+        + flea_collect_num  总收藏次数
+        + goods_add_time 交易添加时间
+        + goods_description 交易描述
+        + commentnum 评论数
+        + salenum 售出数
+        + flea_quality 闲置物品成色，0未选择，9-5九五成新，3是低于五成新
+        + flea_area_name 闲置物品地区名称
+        + member_avatar 发布者头像
+        + time  发布时间 格式为 xx秒/时/小时/月/年前    
+
+           

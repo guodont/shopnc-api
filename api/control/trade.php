@@ -21,42 +21,19 @@ class tradeControl extends apiHomeControl {
     /**
      * GET 所有交易列表
      */
-    public function trade_listOp(){
+    public function all_trade_listOp(){
 
-        $where = array();
+        $where = array('goods_show'=>1);
+        $fields = "member_id,member_name,goods_id,gc_name,goods_image,goods_tag,
+        flea_quality,commentnum,goods_price,goods_store_price,
+        goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name";
         $m_trade = Model('utrade');
-        $listgoods = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
+        $listgoods = $m_trade->field($fields)->where($where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if($listgoods){
             foreach($listgoods as $replace_key => $replace_val){
 
                 $listgoods[$replace_key]['member_avatar']	= getMemberAvatarForID($listgoods[$replace_key]['member_id']);
-
-                if($replace_val['goods_image']){
-                    $listgoods[$replace_key]['image_url']	= UPLOAD_SITE_URL.DS.ATTACH_MALBUM.'/'.$_SESSION['member_id'].'/'.$replace_val['goods_image'];
-                }else{
-                    $listgoods[$replace_key]['image_url']	= SHOP_TEMPLATES_URL.'/images/member/default_image.png';
-                }
-
-                $exge='/<[^>]*>|\s+/';
-                $listgoods[$replace_key]['explain']	= preg_replace($exge,'',$replace_val['goods_body']);
-                $listgoods[$replace_key]['time']	= $this->time_comb(intval($replace_val['goods_add_time']));
-                //TODO Language无法加载
-                switch($replace_val['flea_quality']){
-                    case 10:
-                        $quality	= Language::get('flea_index_new');
-                        break;
-                    case 9:
-                        $quality	= Language::get('flea_index_almost_new');
-                        break;
-                    case 8:
-                        $quality	= Language::get('flea_index_gently_used');
-                        break;
-                    default;
-                        $quality	= Language::get('flea_index_old');
-                        break;
-                }
-                $listgoods[$replace_key]['quality']	= $quality;
             }
         }else{
             output_error("暂无交易");
@@ -106,8 +83,11 @@ class tradeControl extends apiHomeControl {
         //TODO 查找uid是否存在，不存在则输出错误信息
         $member_id = $_GET['uid'];
         $where = array('member_id'=>$member_id);
+        $fields = "member_id,member_name,goods_id,gc_name,goods_image,goods_tag,
+        flea_quality,commentnum,goods_price,goods_store_price,
+        goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name";
         $m_trade = Model('utrade');
-        $trade_list = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
+        $trade_list = $m_trade->field($fields)->where($where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if(is_array($trade_list) and !empty($trade_list)) {
             foreach ($trade_list as $key => $val) {
