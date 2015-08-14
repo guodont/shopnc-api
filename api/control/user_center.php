@@ -167,12 +167,10 @@ class user_centerControl extends apiHomeControl {
      */
     public function user_themesOp(){
         $model = Model();
-        $m_theme = $model->table('circle_theme')->where(array('member_id'=>$this->member_id));
-        //设置每页数量和总数！！！
-        pagecmd('setEachNum',$this->page);
-        pagecmd('setTotalNum',$m_theme->count());
+        $m_theme = $model->table('circle_theme');
+
+        $theme_list = $m_theme->where(array('member_id'=>$this->member_id))->page($this->page)->order('theme_id desc')->select();
         $pageCount = $m_theme->gettotalpage();
-        $theme_list = $m_theme->page($this->page)->order('theme_id desc')->select();
         if(empty($theme_list)){
             output_error("当前用户没有发布任何话题");die;
         }

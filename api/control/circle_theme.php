@@ -216,15 +216,10 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         if($_GET['only_id'] != ''){
             $where['member_id'] = intval($_GET['only_id']);
         }
-        $m_reply = $model->table('circle_threply')->where($where);
+        $m_reply = $model->table('circle_threply');
 
-        //设置每页数量和总数！！！
-        pagecmd('setEachNum',$this->page);
-        pagecmd('setTotalNum',$m_reply->count());
-
+        $reply_info = $m_reply ->where($where)->page($this->page) ->order('reply_id asc')->select();
         $pageCount = $m_reply->gettotalpage();
-        $reply_info = $m_reply ->page($this->page) ->order('reply_id asc')->select();
-
         $replyid_array = array();
         $memberid_array = array();
         if(!empty($reply_info)){
