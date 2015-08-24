@@ -130,7 +130,6 @@ class circleControl extends apiHomeControl
 
             $theme_list = $m_circle_theme->where($where)->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
             $pageCount = $m_circle_theme->gettotalpage();
-            $theme_list = array_under_reset($theme_list, 'theme_id');
             if (!empty($theme_list)) {
                 foreach ($theme_list as $key => $val) {
                     $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
@@ -154,12 +153,10 @@ class circleControl extends apiHomeControl
         $theme_list = $m_theme->field('*, is_recommend*rand()*10000 + has_affix*rand() as rand')->where(array('circle_status' => 1, 'is_closed' => 0, 'has_affix' => 0))->page($this->page)->order('rand,theme_addtime desc')->select();
         $pageCount = $m_theme->gettotalpage();
         if (!empty($theme_list)) {
-            $theme_list = array_under_reset($theme_list, 'theme_id');
             $themeid_array = array_keys($theme_list);
             // 附件
             $affix_list = $model->table('circle_affix')->where(array('theme_id' => array('in', $themeid_array), 'affix_type' => 1))->group('theme_id')->select();
             if (!empty($affix_list)) $affix_list = array_under_reset($affix_list, 'theme_id');
-
             foreach ($theme_list as $key => $val) {
                 if (isset($affix_list[$val['theme_id']])) $theme_list[$key]['affix'] = themeImageUrl($affix_list[$val['theme_id']]['affix_filethumb']);
                 $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
