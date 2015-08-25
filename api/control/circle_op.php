@@ -21,7 +21,6 @@ class circle_opControl extends apiBaseCircleControl {
      */
     public function create_themeOp(){
         if(isset($_POST)){
-            echo 'hello';
             // Reply function does close,throw error.
             if(!intval(C('circle_istalk'))){
                 output_error(L('circle_theme_cannot_be_published'),array('code'=>501));

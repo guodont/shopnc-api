@@ -212,7 +212,7 @@ class apiBaseCircleThemeControl extends apiMemberControl{
      */
     protected function themeInfo(){
 
-        $this->theme_info = Model()->table('circle_theme')->where(array('circle_id'=>$this->c_id, 'theme_id'=>$this->t_id))->find();
+        $this->theme_info = Model()->table('circle_theme')->where(array('theme_id'=>$this->t_id))->find();
         if(empty($this->theme_info)){
             output_error("话题不存在",array('code'=>404));
         }
