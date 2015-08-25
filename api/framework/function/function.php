@@ -27,7 +27,20 @@ function output_data($datas, $extend_data = array()) {
 
 function output_error($message, $extend_data = array()) {
     $datas = array('error' => $message);
-    output_data($datas, $extend_data);
+    //错误码为403
+    $data['code'] = 403;
+
+    if(!empty($extend_data)) {
+        $data = array_merge($data, $extend_data);
+    }
+
+    $data['datas'] = $datas;
+
+    if(!empty($_GET['callback'])) {
+        echo $_GET['callback'].'('.json_encode($data).')';die;
+    } else {
+        echo json_encode($data);die;
+    }
 }
 
 function mobile_page($page_count) {
