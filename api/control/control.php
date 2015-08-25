@@ -50,14 +50,14 @@ class apiMemberControl extends apiControl{
         }
         $mb_user_token_info = $model_mb_user_token->getMbUserTokenInfoByToken($key);
         if(empty($mb_user_token_info)) {
-            output_error('请登录', array('login' => '0'));
+            output_error('登录失败');
         }
 
         $model_member = Model('member');
         $this->member_info = $model_member->getMemberInfoByID($mb_user_token_info['member_id']);
         $this->member_info['client_type'] = $mb_user_token_info['client_type'];
         if(empty($this->member_info)) {
-            output_error('请登录', array('login' => '0'));
+            output_error('登录失败');
         } else {
             //读取卖家信息
             $seller_info = Model('seller')->getSellerInfo(array('member_id'=>$this->member_info['member_id']));
@@ -88,7 +88,7 @@ class apiBaseCircleControl extends apiMemberControl{
             $this->c_id = intval($_GET['c_id']);
         }
         if($this->c_id <= 0){
-            output_error("圈子id错误",array('code'=>403));
+            output_error("圈子id错误");
         }
 
         $this->checkSuper();
@@ -134,7 +134,7 @@ class apiBaseCircleControl extends apiMemberControl{
             }
 //            Tpl::output('cm_info', $this->cm_info);
         }else{
-            output_error('请登录', array('login' => '0'));
+            output_error('请登录');
         }
     }
 
@@ -203,7 +203,7 @@ class apiBaseCircleThemeControl extends apiMemberControl{
         }
 
         if($this->t_id <= 0){
-            output_error("话题id错误",array('code'=>403));
+            output_error("话题id错误");
         }
 
     }
@@ -214,7 +214,7 @@ class apiBaseCircleThemeControl extends apiMemberControl{
 
         $this->theme_info = Model()->table('circle_theme')->where(array('theme_id'=>$this->t_id))->find();
         if(empty($this->theme_info)){
-            output_error("话题不存在",array('code'=>404));
+            output_error("话题不存在");
         }
     }
     /**
@@ -222,14 +222,14 @@ class apiBaseCircleThemeControl extends apiMemberControl{
      */
     protected function checkReplySelf(){
         if($this->t_id <= 0){
-            output_error(L('wrong_argument'),array('code'=>503));
+            output_error(L('wrong_argument'));
         }
         if($this->r_id <= 0){
-            output_error(L('wrong_argument'),array('code'=>503));
+            output_error(L('wrong_argument'));
         }
         $this->reply_info = Model()->table('circle_threply')->where(array('theme_id'=>$this->t_id, 'reply_id'=>$this->r_id, 'member_id'=>$_SESSION['member_id']))->find();
         if(empty($this->reply_info)){
-            output_error(L('wrong_argument'),array('code'=>503));
+            output_error(L('wrong_argument'));
         }
     }
     /**
@@ -238,11 +238,11 @@ class apiBaseCircleThemeControl extends apiMemberControl{
     protected function checkThemeSelf(){
         $this->t_id = intval($_GET['t_id']);
         if($this->t_id <= 0){
-            output_error(L('wrong_argument'),array('code'=>503));
+            output_error(L('wrong_argument'));
         }
         $this->theme_info = Model()->table('circle_theme')->where(array('theme_id'=>$this->t_id, 'member_id'=>$_SESSION['member_id']))->find();
         if(empty($this->theme_info)){
-            output_error(L('wrong_argument'),array('code'=>503));
+            output_error(L('wrong_argument'));
         }
     }
 

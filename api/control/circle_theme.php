@@ -101,8 +101,8 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         // 验证阅读权限
         $this->readPermissions($this->cm_info);
         if($this->m_readperm < $this->theme_info['theme_readperm']){
-            //没有权限->code 500
-            output_error("没有阅读权限",array('code'=>500));
+            //没有权限
+            output_error("没有阅读权限");
         }
 
         $model = Model();
@@ -224,7 +224,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
 
         // 不是圈子成员不能发帖
         if(!in_array($this->identity, array(1,2,3))){
-            output_error(L('circle_no_join_ban_reply'),array('code'=>501));
+            output_error(L('circle_no_join_ban_reply'));
         }
         // 话题信息
         $this->themeInfo();

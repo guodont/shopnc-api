@@ -83,7 +83,7 @@ class circleControl extends apiHomeControl
         if ($c_id != '' && $c_id > 0) {
             $circle_info = Model()->table('circle')->find($c_id);
             if (empty($circle_info)) {
-                output_error("圈子不存在", array('code' => 404));
+                output_error("圈子不存在");
                 die;
             }
             //圈主和管理员信息
@@ -101,7 +101,7 @@ class circleControl extends apiHomeControl
                 'manager_list' => $manager_list[2]
             ));
         } else {
-            output_error("圈子id错误", array('code' => 403));
+            output_error("圈子id错误");
             die;
         }
     }
@@ -137,7 +137,7 @@ class circleControl extends apiHomeControl
             }
             output_data(array('themes' => $theme_list), mobile_page($pageCount));
         } else {
-            output_error("圈子id错误", array('code' => 403));
+            output_error("圈子id错误");
             die;
         }
     }
