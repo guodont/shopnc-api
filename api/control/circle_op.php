@@ -52,14 +52,15 @@ class circle_opControl extends apiBaseCircleControl {
              * 验证
              */
             $obj_validate = new Validate();
-            $validate_arr[] = array("input"=>$_POST["name"], "require"=>"true","message"=>Language::get('nc_name_not_null'));
-            $validate_arr[] = array("input"=>$_POST["name"], "validator"=>'Length',"min"=>4,"max"=>30,"message"=>Language::get('nc_name_min_max_length'));
-            $validate_arr[] = array("input"=>$_POST["themecontent"], "require"=>"true","message"=>Language::get('nc_content_not_null'));
-            if(intval(C('circle_contentleast')) > 0) $validate_arr[] = array("input"=>$_POST["themecontent"],"validator"=>'Length',"min"=>intval(C('circle_contentleast')),"message"=>Language::get('circle_contentleast'));
-            $obj_validate -> validateparam = $validate_arr;
+            $obj_validate->validateparam = array(
+                array("input"=>$_POST["name"],"require"=>"true","message"=>'话题名称不能为空'),
+                array("input"=>$_POST["name"], "validator"=>'Length',"min"=>4,"max"=>30,"message"=>'名称太短了～'),
+                array("input"=>$_POST["themecontent"],"require"=>"true","message"=>'话题内容不能为空'),
+                array("input"=>$_POST["themecontent"],"validator"=>'Length',"min"=>4,"message"=>'内容太短了～')
+            );
             $error = $obj_validate->validate();
             if ($error != ''){
-                output_error("创建失败",$error);
+                output_error($error);die;
             }
             $insert = array();
             $insert['theme_name']	= circleCenterCensor($_POST['name']);
@@ -113,7 +114,4 @@ class circle_opControl extends apiBaseCircleControl {
         }
         output_error('request error');
     }
-
-
-
 }

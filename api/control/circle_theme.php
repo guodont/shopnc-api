@@ -102,7 +102,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         $this->readPermissions($this->cm_info);
         if($this->m_readperm < $this->theme_info['theme_readperm']){
             //没有权限->code 500
-            output_error(L('circle_Insufficient_permissions'),array('code'=>500));
+            output_error("没有阅读权限",array('code'=>500));
         }
 
         $model = Model();
@@ -235,11 +235,11 @@ class circle_themeControl extends apiBaseCircleThemeControl {
              */
             $obj_validate = new Validate();
             $obj_validate->validateparam = array(
-                array("input"=>$_POST["replycontent"], "require"=>"true", "message"=>L('circle_reply_not_null')),
+                array("input"=>$_POST["replycontent"], "require"=>"true", "message"=>'回复不能为空'),
             );
             $error = $obj_validate->validate();
             if($error != ''){
-                output_error("回复失败",$error);
+                output_error($error);
             }else{
                 $model = Model();
                 $insert = array();
