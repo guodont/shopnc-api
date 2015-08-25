@@ -253,7 +253,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
 
                 // 回复楼层验证
                 if($_POST['answer_id'] != ''){
-                    $reply_info = Model()->table('circle_threply')->where(array('theme_id'=>$this->t_id, 'reply_id'=>intval($_POST['answer_id'])))->find();
+                    $reply_info = Model()->table('circle_threply')->where(array('theme_id'=>$this->t_id, 'reply_id'=>$this->r_id))->find();
                     if(!empty($reply_info)) {
                         $insert['reply_replyid']	= $reply_info['reply_id'];
                         $insert['reply_replyname']	= $reply_info['member_name'];

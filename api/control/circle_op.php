@@ -21,6 +21,7 @@ class circle_opControl extends apiBaseCircleControl {
      */
     public function create_themeOp(){
         if(isset($_POST)){
+            echo 'hello';
             // Reply function does close,throw error.
             if(!intval(C('circle_istalk'))){
                 output_error(L('circle_theme_cannot_be_published'),array('code'=>501));
@@ -30,22 +31,18 @@ class circle_opControl extends apiBaseCircleControl {
                 output_error(L('circle_operation_too_frequent'),array('code'=>501));
             }
             // 圈子信息
-
             $this->circleInfo();
-
             // 会员信息
             $this->memberInfo();
 
-
             // 不是圈子成员不能发帖
             if(!in_array($this->identity, array(1,2,3))){
-                showDialog(L('circle_no_join_ban_release'));
                 output_error(L('circle_no_join_ban_release'),array('code'=>502));
             }
 
             $model = Model();
 
-            // 主题分类
+            // 主题分类 默认为0
             $thclass_id = intval($_POST['thtype']);
             $thclass_name = '';
             if($thclass_id > 0){
@@ -108,9 +105,9 @@ class circle_opControl extends apiBaseCircleControl {
                 $param['type']			= 'release';
                 $param['itemid']		= $themeid;
                 Model('circle_exp')->saveExp($param);
-
-                $theme_url = CIRCLE_SITE_URL.'/index.php?act=theme&op=theme_detail&c_id='.$this->c_id.'&t_id='.$themeid;
-                output_data(array('code'=>201,'success'=>'创建成功','url'=>$theme_url));
+                $data['id'] = $themeid;
+                $data['url'] = $theme_url = CIRCLE_SITE_URL.'/index.php?act=theme&op=theme_detail&c_id='.$this->c_id.'&t_id='.$themeid;
+                output_data(array('ok'=>$data));
             }else{
                 output_error(L('nc_release_op_fail'),array('code'=>500));
             }
