@@ -179,7 +179,7 @@ class apiBaseCircleControl extends apiMemberControl{
  * Class apiBaseCircleThemeControl
  * 圈子话题API父类
  */
-class apiBaseCircleThemeControl extends apiMemberControl{
+class apiBaseCircleThemeControl extends apiBaseCircleControl{
     protected $circle_info = array();	// 圈子详细信息
     protected $t_id = 0;		// 话题id
     protected $theme_info = array();	// 话题详细信息
@@ -246,13 +246,4 @@ class apiBaseCircleThemeControl extends apiMemberControl{
         }
     }
 
-    /**
-     * 圈子信息
-     */
-    protected function circleInfo(){
-        // 圈子信息
-        $this->circle_info = Model()->table('circle')->find($this->c_id);
-        if(empty($this->circle_info))
-            output_error('未获取到圈子信息');
-    }
 }

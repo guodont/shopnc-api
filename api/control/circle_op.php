@@ -109,7 +109,7 @@ class circle_opControl extends apiBaseCircleControl {
                 $data['url'] = $theme_url = CIRCLE_SITE_URL.'/index.php?act=theme&op=theme_detail&c_id='.$this->c_id.'&t_id='.$themeid;
                 output_data(array('ok'=>$data));
             }else{
-                output_error(L('nc_release_op_fail'),array('code'=>500));
+                output_error("创建失败");
             }
         }
         output_error('request error');

@@ -205,7 +205,6 @@ class circle_themeControl extends apiBaseCircleThemeControl {
      */
     public function create_replyOp(){
 
-//        var_dump($this->cm_info);
         // Reply function does close,throw error.
         if(!intval(C('circle_istalk'))){
             output_error(L('circle_has_been_closed_reply'));
@@ -252,7 +251,7 @@ class circle_themeControl extends apiBaseCircleThemeControl {
                 $insert['is_closed']	= 0;
 
                 // 回复楼层验证
-                if($_POST['answer_id'] != ''){
+                if($this->r_id != ''){
                     $reply_info = Model()->table('circle_threply')->where(array('theme_id'=>$this->t_id, 'reply_id'=>$this->r_id))->find();
                     if(!empty($reply_info)) {
                         $insert['reply_replyid']	= $reply_info['reply_id'];
