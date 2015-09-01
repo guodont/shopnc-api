@@ -707,4 +707,163 @@
         + member_avatar 发布者头像
         + time  发布时间 格式为 xx秒/时/小时/月/年前    
 
-           
+##问答api
+
+###所有问答类型
+
+####接口(GET)
+    index.php?act=question&op=allQuestionType
+
+####请求参数
+####返回数据
+    + questionClasses:
+        + thclass_id
+        + thclass_name
+        + thclass_status
+        + is_moderator
+        + thclass_sort
+        + circle_id
+        
+###所有问答话题列表
+
+####接口(GET)
+    index.php?act=question&op=allQuestions
+
+####请求参数
+    + type: 5 问专家 6 问达人
+    + c_id: 圈子id 不传时默认为0 首页不需要传
+    + page:     每页数量
+    + curpage:  当前页码
+    
+####返回数据
+    + questions： 
+        + theme_id  问题id
+        + theme_name    问题名称
+        + theme_content 问题内容
+        + circle_id 圈子id
+        + circle_name   圈子名称
+        + thclass_id    主题分类id
+        + thclass_name  主题分类名称
+        + member_id 会员id
+        + member_name   会员名称
+        + member_avatar   会员头像
+        + is_identity   1圈主 2管理 3成员
+        + theme_addtime 主题发表时间    
+        + theme_editname    编辑人名称
+        + theme_edittime    主题编辑时间
+        + theme_likecount   喜欢数量
+        + theme_commentcount    评论数量
+        + theme_browsecount 浏览数量
+        + theme_sharecount  分享数量
+        + is_stick  是否置顶 1是  0否
+        + is_digest 是否加精 1是 0否
+        + lastspeak_id  最后发言人id
+        + lastspeak_name    最后发言人名称
+        + lastspeak_time    最后发言时间
+        + has_goods 商品标记 1是 0否
+        + has_affix 附件标记 1是 0 否
+        + is_closed 屏蔽 1是 0否
+        + is_recommend  是否推荐 1是 0否
+        + is_shut   主题是否关闭 1是 0否
+        + theme_exp 获得经验
+        + theme_readperm    阅读权限
+        + theme_special 特殊话题 0普通 1投票
+        
+###问题详情
+
+####接口(GET)
+    index.php?act=question&op=question
+
+####请求参数
+    + q_id: 问题（话题）id
+    
+####返回数据
+    + questionInfo： 
+        + theme_id  问题id
+        + theme_name    问题名称
+        + theme_content 问题内容
+        + circle_id 圈子id
+        + circle_name   圈子名称
+        + thclass_id    主题分类id
+        + thclass_name  主题分类名称
+        + member_id 会员id
+        + member_name   会员名称
+        + member_avatar   会员头像
+        + is_identity   1圈主 2管理 3成员
+        + theme_addtime 主题发表时间    
+        + theme_editname    编辑人名称
+        + theme_edittime    主题编辑时间
+        + theme_likecount   喜欢数量
+        + theme_commentcount    评论数量
+        + theme_browsecount 浏览数量
+        + theme_sharecount  分享数量
+        + is_stick  是否置顶 1是  0否
+        + is_digest 是否加精 1是 0否
+        + lastspeak_id  最后发言人id
+        + lastspeak_name    最后发言人名称
+        + lastspeak_time    最后发言时间
+        + has_goods 商品标记 1是 0否
+        + has_affix 附件标记 1是 0 否
+        + is_closed 屏蔽 1是 0否
+        + is_recommend  是否推荐 1是 0否
+        + is_shut   主题是否关闭 1是 0否
+        + theme_exp 获得经验
+        + theme_readperm    阅读权限
+        
+###问题回复信息
+
+####接口(GET)
+    index.php?act=question&op=answers
+
+####请求参数
+
+    + q_id: 问题id
+    + page:     每页数量
+    + curpage:  当前页码
+
+####返回数据
+    + answers 回复数据
+        + reply_id 评论id
+        + circle_id 圈子id
+        + member_id 会员id
+        + member_name 会员名称
+        + member_avatar 会员头像
+        + reply_content 评论内容
+        + reply_addtime 发表时间
+        + reply_replyid 回复楼层id
+        + reply_replyname 回复楼层会员名称
+        + is_closed 屏蔽 1是 0否
+        + reply_exp 获得经验
+    + member_list 参与用户列表
+        + TODO
+
+###创建一个问题
+
+####接口(POST)
+    index.php?act=question_answer&op=createQuestion
+
+####请求参数
+
+    + type:问答类型  5：问达人 6：问专家 
+    + c_id: 圈子id 没有圈子id时传0（首页直接提问传0）
+    + name：标题
+    + content：内容
+    + readperm：权限 默认为0
+####返回数据
+    + ok：
+        + id： 问题id
+###创建一个答案（回复）
+
+####接口(POST)
+    index.php?act=question_answer&op=create_answer
+
+####请求参数
+
+    + c_id: 圈子id 没有圈子id时传0
+    + q_id: 问题id
+    + key:  访问令牌
+    + content： 回复内容
+    + answer_id: 回复楼层id （回复话题时为空）
+    
+####返回数据
+    + success: 回复成功

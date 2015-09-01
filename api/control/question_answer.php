@@ -38,6 +38,21 @@ class question_answerControl extends apiMemberControl
         }
     }
 
+    protected function questionInfo(){
+        $this->question_info = Model()->table('circle_theme')->where(array('theme_id'=>$this->question_id))->find();
+        if(empty($this->question_info)){
+            output_error("问题不存在");die;
+        }
+    }
+
+    /**
+     * 圈子信息
+     */
+    protected function circleInfo(){
+        // 圈子信息
+        $this->circle_info = Model()->table('circle')->find($this->c_id);
+    }
+
     /**
      * POST 创建一个问题
      * type: 5 问达人 6 问专家
@@ -57,7 +72,7 @@ class question_answerControl extends apiMemberControl
 
             $model = Model();
 
-            // 问题分类 默认为0
+            // 问题分类
             $thclass_id = intval($_POST['type']);
             $thclass_name = '';
             if($thclass_id > 0){
@@ -227,18 +242,5 @@ class question_answerControl extends apiMemberControl
         }
     }
 
-    protected function questionInfo(){
-        $this->question_info = Model()->table('circle_theme')->where(array('theme_id'=>$this->question_id))->find();
-        if(empty($this->question_info)){
-            output_error("问题不存在");die;
-        }
-    }
 
-    /**
-     * 圈子信息
-     */
-    protected function circleInfo(){
-        // 圈子信息
-        $this->circle_info = Model()->table('circle')->find($this->c_id);
-    }
 }

@@ -16,6 +16,13 @@ class questionControl extends apiHomeControl
         parent::__construct();
     }
 
+    protected function questionInfo($question_id){
+        $this->question_info = Model()->table('circle_theme')->where(array('theme_id'=>$question_id))->find();
+        if(empty($this->question_info)){
+            output_error("问题不存在");die;
+        }
+    }
+
     /**
      * GET 所有问答类型
      */
@@ -73,8 +80,7 @@ class questionControl extends apiHomeControl
         // 问题信息
         $question_id = intval($_GET['q_id']);
         if($question_id >0 ){
-            $this->question_info($question_id);
-
+            $this->questionInfo($question_id);
             $data = $this->question_info;
             $model = Model();
             // 访问数增加
@@ -96,12 +102,7 @@ class questionControl extends apiHomeControl
 
     }
 
-    protected function questionInfo($question_id){
-        $this->question_info = Model()->table('circle_theme')->where(array('theme_id'=>$question_id))->find();
-        if(empty($this->question_info)){
-            output_error("问题不存在");die;
-        }
-    }
+
 
 
     /**
