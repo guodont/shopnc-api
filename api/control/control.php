@@ -87,9 +87,9 @@ class apiBaseCircleControl extends apiMemberControl{
         }else{
             $this->c_id = intval($_GET['c_id']);
         }
-        if($this->c_id <= 0){
-            output_error("圈子id错误");
-        }
+//        if($this->c_id <= 0){
+//            output_error("圈子id错误");
+//        }
 
         $this->checkSuper();
 
