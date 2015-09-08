@@ -15,13 +15,22 @@ class taskControl extends taskMemberControl{
     /**
      * GET 用户任务列表
      * type 任务类型 1:未完成 3:已完成 4:回收站 默认:所有任务（完成／未完成）
+     * date 创建日期
      */
     public function tasksOp(){
         $condition = array();
+        //判断类型
         if(!empty($_GET['type'])){
             $condition['article_state'] = $_GET['type'];
         }else{
             $condition['article_state'] = array('in',array(self::TASK_STATE_FINISHED, self::TASK_STATE_DRAFT)) ;
+        }
+        //构造日期条件
+        if(!empty($_GET['date'])){
+            $date = intval($_GET['date']);
+            $start = mktime(0,0,0,date("m",$date),date("d",$date),date("Y",$date));
+            $end = mktime(23,59,59,date("m",$date),date("d",$date),date("Y",$date));
+            $condition['article_publish_time'] = array('egt'=>$start,'elt'=>$end);
         }
         $this->get_task_list($condition);
     }
@@ -31,6 +40,26 @@ class taskControl extends taskMemberControl{
      */
     public function createTaskOp(){
         $this->saveTask();
+    }
+
+    /**
+     * GET 查看任务
+     */
+    public function taskOp(){
+        if(!empty($_GET['task_id'])&&$_GET['task_id']>0){
+            $task_id = intval($_GET['task_id']);
+            $condition['article_id'] = $task_id;
+            $model_task = Model('cms_article');
+            $fields = "article_id,article_title,article_content,article_tag,article_state,article_publish_time";
+            $task = $model_task->where($condition)->field($fields)->find();
+            if(!empty($task)){
+                output_data(array('task'=>$task));
+            }else{
+                output_error("操作失败");
+            }
+        }else{
+            output_error("参数错误");
+        }
     }
 
     /**
@@ -64,9 +93,16 @@ class taskControl extends taskMemberControl{
         $condition['article_publisher_id'] = $this->member_info['member_id'];
         $model_task = Model('cms_article');
         $page_count = $model_task->gettotalpage();
-        $task_list = $model_task->getList($condition, $this->page , 'article_id desc');
-        output_data(array('tasks'=>$task_list),mobile_page($page_count));
+        $fields = "article_id,article_title,article_content,article_tag,article_state,article_publish_time";
+        $task_list = $model_task->getList($condition, $this->page , 'article_id desc',$fields);
+        if(empty($task_list)){
+            output_data(array('tasks'=>$task_list),mobile_page($page_count));
+        }else{
+            output_error("没有任务");
+        }
     }
+
+
 
     /**
      * 更改任务状态
