@@ -16,7 +16,7 @@ class apiControl{
     //客户端类型
     protected $client_type_array = array('android', 'wap', 'wechat', 'ios');
     //列表默认分页数
-    protected $page = 5;
+    protected $page = 20;
 
 
 	public function __construct() {
@@ -246,4 +246,18 @@ class apiBaseCircleThemeControl extends apiBaseCircleControl{
         }
     }
 
+}
+
+class taskMemberControl extends apiMemberControl{
+    //任务状态草稿箱
+    const TASK_STATE_DRAFT = 1;
+    //任务状态已完成
+    const TASK_STATE_FINISHED = 3;
+    //任务状态回收站
+    const TASK_STATE_RECYCLE = 4;
+
+    public function __construct(){
+        parent::__construct();
+    }
+    
 }
