@@ -134,6 +134,47 @@
         + member_avatar 头像
         + member_sex 性别
 
+###用户商品收藏列表
+
+####接口(GET)
+    index.php?act=user_center&op=goods_favorites_list
+
+####请求参数
+    + uid : 用户id
+    + page:     每页数量
+    + curpage:  当前页码
+
+####返回数据
+
+    + goods_favorites_list
+        +
+###用户加入的圈子
+
+####接口(GET)
+    index.php?act=user_center&op=user_circles
+
+####请求参数
+    + uid : 用户id
+
+####返回数据
+
+    + circle_list
+        +
+###用户的话题
+
+####接口(GET)
+    index.php?act=user_center&op=user_themes
+
+####请求参数
+    + uid : 用户id
+    + page:     每页数量
+    + curpage:  当前页码
+
+####返回数据
+
+    + themes
+        ＋
+
 ##圈子API
 
 ###圈子分类
