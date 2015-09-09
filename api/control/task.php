@@ -56,10 +56,10 @@ class taskControl extends taskMemberControl{
             if(!empty($task)){
                 output_data(array('task'=>$task));
             }else{
-                output_error("操作失败23");
+                output_error("操作失败");
             }
         }else{
-            output_error("参数错误2222");
+            output_error("参数错误");
         }
     }
 

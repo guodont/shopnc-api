@@ -908,3 +908,151 @@
     
 ####返回数据
     + success: 回复成功
+
+##首页动态api
+
+###获取关注用户的动态
+
+####接口(GET)
+    index.php?act=trend&op=trends
+
+####请求参数
+
+    + key: 秘钥
+    + page:     每页数量
+    + curpage:  当前页码
+
+####返回数据
+    + trends 动态数据
+        + theme_id
+        + theme_name
+        + theme_content
+        + circle_id
+        + circle_name
+        + thclass_id
+        + thclass_name
+        + member_id
+        + member_name
+        + theme_addtime
+        + member_avatar
+
+
+##任务api
+
+###获取用户任务列表
+
+####接口(GET)
+
+    index.php?act=task&op=tasks
+
+####请求参数
+
+    + type 类型：1:未完成 3:已完成 4:回收站 默认:所有任务（完成／未完成）
+    + date 日期（某日任何时刻的时间戳）
+    + key: 秘钥
+    + page:     每页数量
+    + curpage:  当前页码
+
+####返回数据
+
+    + tasks
+        + article_id
+        + article_title 任务名称
+        + article_content 任务详情
+        + article_tag   任务标签
+        + article_state 任务状态 1:未完成 3:已完成 4:回收站
+        + article_publish_time 任务时间
+
+###查看一条任务
+
+####接口(GET)
+
+    index.php?act=task&op=task
+
+####请求参数
+
+    + task_id 任务id
+    + key: 秘钥
+
+####返回数据
+
+    + task
+        + article_id
+        + article_title 任务名称
+        + article_content 任务详情
+        + article_tag   任务标签
+        + article_state 任务状态 1:未完成 3:已完成 4:回收站
+        + article_publish_time 任务时间
+
+###创建一条任务
+
+####接口(POST)
+
+    index.php?act=task&op=createTask
+
+####请求参数
+
+    + key: 秘钥
+    + task_title *
+    + task_content
+    + task_tag
+    + task_publish_time (选填)
+
+
+####返回数据
+
+    + 操作成功／操作失败
+
+
+###编辑一条任务
+
+####接口(POST)
+
+    index.php?act=task&op=updateTask
+
+####请求参数
+
+    + key: 秘钥
+    + task_id: 任务id
+    + task_title *
+    + task_content
+    + task_tag
+    + task_publish_time (选填)
+
+
+####返回数据
+
+    + 操作成功／操作失败
+
+
+
+###完成一条任务
+
+####接口(POST)
+
+    index.php?act=task&op=finishTask
+
+####请求参数
+
+    + key: 秘钥
+    + task_id 任务id　
+
+
+####返回数据
+
+    + 操作成功／操作失败
+
+###删除一条任务
+
+####接口(POST)
+
+    index.php?act=task&op=deleteTask
+
+####请求参数
+
+    + key: 秘钥
+    + task_id 任务id　
+
+####返回数据
+
+    + 操作成功／操作失败
