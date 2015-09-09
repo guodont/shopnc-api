@@ -35,10 +35,14 @@ class trendControl extends apiMemberControl {
      */
     public function trendsOp(){
         $id_array = $this->getFollowingsIds();
+        $ids = array();
+        foreach($id_array as $val){
+            $ids[]= $val['member_id'];
+        }
         $model = Model();
         $m_theme = $model->table('circle_theme');
         //从话题表中查找出关注人的话题，按发布时间排序
-        $theme_list = $m_theme->where(array('member_id'=>array('IN'=>$id_array)))->page($this->page)->order('theme_addtime asc')->select();
+        $theme_list = $m_theme->where(array('member_id'=>array('in',$ids)))->page($this->page)->order('theme_addtime asc')->select();
         $pageCount = $m_theme->gettotalpage();
         if(empty($theme_list)){
             output_error("没有任何动态");die;

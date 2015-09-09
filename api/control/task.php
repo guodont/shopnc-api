@@ -25,6 +25,7 @@ class taskControl extends taskMemberControl{
         }else{
             $condition['article_state'] = array('in',array(self::TASK_STATE_FINISHED, self::TASK_STATE_DRAFT)) ;
         }
+
         //构造日期条件
         if(!empty($_GET['date'])){
             $date = intval($_GET['date']);
@@ -55,10 +56,10 @@ class taskControl extends taskMemberControl{
             if(!empty($task)){
                 output_data(array('task'=>$task));
             }else{
-                output_error("操作失败");
+                output_error("操作失败23");
             }
         }else{
-            output_error("参数错误");
+            output_error("参数错误2222");
         }
     }
 
@@ -94,8 +95,8 @@ class taskControl extends taskMemberControl{
         $model_task = Model('cms_article');
         $page_count = $model_task->gettotalpage();
         $fields = "article_id,article_title,article_content,article_tag,article_state,article_publish_time";
-        $task_list = $model_task->getList($condition, $this->page , 'article_id desc',$fields);
-        if(empty($task_list)){
+        $task_list = $model_task->getList($condition, $this->page , 'article_id desc' ,$fields);
+        if(!empty($task_list)){
             output_data(array('tasks'=>$task_list),mobile_page($page_count));
         }else{
             output_error("没有任务");
