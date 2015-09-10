@@ -35,6 +35,8 @@ class tradeControl extends apiHomeControl
             foreach ($listgoods as $replace_key => $replace_val) {
 
                 $listgoods[$replace_key]['member_avatar'] = getMemberAvatarForID($listgoods[$replace_key]['member_id']);
+                $listgoods[$replace_key]['goods_image'] = $listgoods[$replace_key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $listgoods[$replace_key]['member_id'] . '/' . str_replace('_1024', '_240', $replace_val['goods_image']);
+
             }
         } else {
             output_error("暂无交易");
@@ -60,7 +62,8 @@ class tradeControl extends apiHomeControl
         $pageCount = $m_trade->gettotalpage();
         if (is_array($trade_list) and !empty($trade_list)) {
             foreach ($trade_list as $key => $val) {
-                $trade_list[$key]['goods_image'] = $this->trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $member_id . '/' . str_replace('_1024', '_240', $val['goods_image']);
+                $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
+                $trade_list[$key]['goods_image'] = $this->trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
             }
         } else {
             output_error("没有交易信息");
@@ -83,6 +86,8 @@ class tradeControl extends apiHomeControl
         $where = array('goods_id' => $trade_id);
         $m_trade = Model('utrade');
         $trade_info = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
+        $trade_info['goods_image'] = $trade_info['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_info['member_id'] . '/' . str_replace('_1024', '_240', $trade_info['goods_image']);
+        $trade_info['member_avatar'] = getMemberAvatarForID($trade_info['member_id']);
         $pageCount = $m_trade->gettotalpage();
         if (!empty($trade_info)) {
             output_data(array('trade_info' => $trade_info), mobile_page($pageCount));
@@ -111,6 +116,7 @@ class tradeControl extends apiHomeControl
         $pageCount = $m_trade->gettotalpage();
         if (is_array($trade_list) and !empty($trade_list)) {
             foreach ($trade_list as $key => $val) {
+                $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
                 $trade_list[$key]['goods_image'] = $this->trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $member_id . '/' . str_replace('_1024', '_240', $val['goods_image']);
             }
         } else {
