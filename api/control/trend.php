@@ -43,7 +43,7 @@ class trendControl extends apiMemberControl {
         $m_theme = $model->table('circle_theme');
         //从话题表中查找出关注人的话题，按发布时间排序
         $fields = "theme_id,theme_name,theme_content,circle_id,circle_name,thclass_id,thclass_name,member_id,member_name,theme_addtime";
-        $theme_list = $m_theme->where(array('member_id'=>array('in',$ids)))->field($fields)->page($this->page)->order('theme_addtime asc')->select();
+        $theme_list = $m_theme->where(array('member_id'=>array('in',$ids)))->field($fields)->page($this->page)->order('theme_addtime desc')->select();
         foreach ($theme_list as $key => $val) {
             $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
         }
