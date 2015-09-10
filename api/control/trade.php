@@ -25,7 +25,7 @@ class tradeControl extends apiHomeControl
     {
 
         $where = array('goods_show' => 1);
-        $fields = "member_id,member_name,goods_id,gc_name,goods_image,goods_tag,
+        $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
         flea_quality,commentnum,goods_price,goods_store_price,
         goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name";
         $m_trade = Model('utrade');
@@ -52,7 +52,7 @@ class tradeControl extends apiHomeControl
         }
         $class_id = $_GET['cid'];
         $where = array('gc_id' => $class_id);
-        $fields = "member_id,member_name,goods_id,gc_name,goods_image,goods_tag,
+        $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
         flea_quality,commentnum,goods_price,goods_store_price,
         goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name";
         $m_trade = Model('utrade');
@@ -103,7 +103,7 @@ class tradeControl extends apiHomeControl
         //TODO 查找uid是否存在，不存在则输出错误信息
         $member_id = $_GET['uid'];
         $where = array('member_id' => $member_id);
-        $fields = "member_id,member_name,goods_id,gc_name,goods_image,goods_tag,
+        $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
         flea_quality,commentnum,goods_price,goods_store_price,
         goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name";
         $m_trade = Model('utrade');
