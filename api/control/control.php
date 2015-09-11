@@ -87,9 +87,6 @@ class apiBaseCircleControl extends apiMemberControl{
         }else{
             $this->c_id = intval($_GET['c_id']);
         }
-//        if($this->c_id <= 0){
-//            output_error("圈子id错误");
-//        }
 
         $this->checkSuper();
 
@@ -113,8 +110,6 @@ class apiBaseCircleControl extends apiMemberControl{
     protected function memberInfo(){
         if (!empty($this->member_info)) {
             $this->cm_info = Model()->table('circle_member')->where(array('circle_id' => $this->c_id, 'member_id' => $this->member_info['member_id']))->find();
-//            var_dump($this->cm_info);
-//            var_dump(!empty($this->cm_info));
             if (!empty($this->cm_info)) {
                 switch (intval($this->cm_info['cm_state'])) {
                     case 1:

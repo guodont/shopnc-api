@@ -109,8 +109,9 @@ class taskControl extends taskMemberControl{
      * 更改任务状态
      */
     public function changeTaskStatus($status){
-        $task_id = intval($_GET['task_id']);
-        if(!empty($task_id)){
+
+        if(isset($_POST['task_id'])){
+            $task_id = intval($_POST['task_id']);
             $model_task = Model('cms_article');
             $result = $model_task->modify(array('article_state'=>$status),array('article_id'=>$task_id));
             if($result){
