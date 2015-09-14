@@ -177,6 +177,43 @@
 
 ##圈子API
 
+###创建圈子(POST)
+    index.php?act=circle_manage&op=createCircle
+####请求参数
+    + key
+    + c_name: 圈子名称
+    + c_desc:   圈子描述
+    + c_tag:    圈子标签
+    + c_pursuereason:  申请原因
+    + class_id: 分类id
+####返回数据
+    + ok
+        + "圈子创建申请成功，等待管理员审核"
+    + error
+        + "圈子创建申请失败"
+
+###申请加入圈子(POST)
+    index.php?act=circle_op&op=apply
+####请求参数
+    + key
+    + c_id: 圈子id
+    + apply_content: 申请原因
+    + intro:   个人介绍
+####返回数据
+    + ok
+        + "已提交申请,等待圈主审核" or "加入圈子成功"
+    + error
+        + "您没有权限"
+
+###退出圈子(POST)
+    index.php?act=circle_op&op=quit
+####请求参数
+    + key
+    + c_id: 圈子id
+####返回数据
+    + ok
+        + "成功退出圈子"
+
 ###圈子分类
 
 ####接口(GET)
@@ -452,7 +489,7 @@
 ###创建话题
 
 ####接口(POST)
-    index.php?act=circle_theme&op=ajax_themeinfo
+    index.php?act=circle_op&op=create_theme
 
 ####请求参数
 
