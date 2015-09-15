@@ -103,7 +103,6 @@ class circle_themeControl extends apiBaseCircleThemeControl {
      */
     public function theme_detailOp(){
 
-
         $model = Model();
         $m_theme = $model->table('circle_theme');
         $theme = $m_theme->where(array("theme_id"=>$this->t_id))->select();

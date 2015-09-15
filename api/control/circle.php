@@ -142,6 +142,40 @@ class circleControl extends apiHomeControl
         }
     }
 
+    /**
+     * GET 圈子置顶帖
+     */
+    public function circleStickThemesOp()
+    {
+        $c_id = $_GET['circle_id'];
+        if ($c_id != '' && $c_id > 0) {
+            $model = Model();
+            // 话题列表
+            $where = array();
+            $where['circle_id'] = $c_id;
+            $thc_id = intval($_GET['thc_id']);
+            if ($thc_id > 0) {
+                $where['thclass_id'] = $thc_id;
+            }
+            if (intval($_GET['cream']) == 1) {
+                $where['is_digest'] = 1;
+            }
+            $where['is_stick'] = 1; //置顶帖
+            $m_circle_theme = $model->table('circle_theme');
+            $theme_list = $m_circle_theme->where($where)->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
+            $pageCount = $m_circle_theme->gettotalpage();
+            if (!empty($theme_list)) {
+                foreach ($theme_list as $key => $val) {
+                    $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
+                }
+            }
+            output_data(array('themes' => $theme_list), mobile_page($pageCount));
+        } else {
+            output_error("圈子id错误");
+            die;
+        }
+    }
+
 
     /**
      * GET 推荐话题
