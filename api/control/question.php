@@ -48,7 +48,7 @@ class questionControl extends apiHomeControl
         if ($type > 0)
         {
             $where = array();
-            if($c_id != '' && $c_id > 0){
+            if($c_id > 0){
                 $where['circle_id'] = $c_id;
             }
             $where['thclass_id'] = $type;
