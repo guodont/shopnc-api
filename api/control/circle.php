@@ -215,7 +215,7 @@ class circleControl extends apiHomeControl
             $reply_themelist[$key]['member_avatar'] = getMemberAvatarForID($reply_themelist[$key]['member_id']);
         }
 
-        output_data(array('reply_themelist' => $reply_themelist), mobile_page($pageCount));
+        output_data(array('theme_list' => $reply_themelist), mobile_page($pageCount));
     }
 
 
