@@ -31,10 +31,9 @@ class taskControl extends taskMemberControl{
             $date = intval($_GET['date']);
             $start = mktime(0,0,0,date("m",$date),date("d",$date),date("Y",$date));
             $end = mktime(23,59,59,date("m",$date),date("d",$date),date("Y",$date));
-            $condition['article_publish_time'] = array('egt',$start,'elt',$end);
+            $condition['article_publish_time'] = array('egt',$start);
+            $condition['article_publish_time'] = array('elt',$end);
         }
-
-//        var_dump($condition);
         $this->get_task_list($condition);
     }
 
