@@ -122,8 +122,6 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         }
 
         $model = Model();
-        // 话题被浏览数增加
-        $model->table('circle_theme')->update(array('theme_id'=>$this->t_id, 'theme_browsecount'=>array('exp', 'theme_browsecount+1')));
 
         // 回复列表
         $where = array();
