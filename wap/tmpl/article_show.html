@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>文章</title>
+	<title><%=article_title%></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -14,12 +14,12 @@
 </head>
 <body>
 
-	<div id="article-content">
+	<div id="article-content" style="padding-left: 20px;padding-right: 20px">
 	</div>
 
 </body>
 <script type="text/html" id="article">
-	<div>
+	<div style="padding-left: 20px;padding-right: 20px">
 		<dl class="article-title"><%=article_title%></dl>
 		<dd class="article-content"></dd>
 	</div>
