@@ -159,7 +159,7 @@ class taskControl extends taskMemberControl
 
         //发布时间
         if (!empty($_POST['task_publish_time'])) {
-            $param['article_publish_time'] = strtotime($_POST['task_publish_time']);
+            $param['article_publish_time'] = $_POST['task_publish_time'];
         } else {
             $param['article_publish_time'] = time();
         }
