@@ -27,7 +27,7 @@ class question_answerControl extends apiMemberControl
 
         if(isset($_POST['q_id']))
         {
-            $this->q_id = intval($_POST['c_id']);
+            $this->q_id = intval($_POST['q_id']);
         }
 
         if(!isset($_GET['r_id']))
