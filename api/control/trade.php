@@ -12,9 +12,28 @@ defined('InShopNC') or exit('Access Invalid!');
 class tradeControl extends apiHomeControl
 {
 
+    private $where;
+
+    private $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
+        flea_quality,commentnum,goods_price,goods_store_price,
+        goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name,
+        flea_pname,flea_pphone,goods_status,goods_leixing";
+
     public function __construct()
     {
         parent::__construct();
+
+        $type = $_GET['type'];
+        if ($type == "0") {
+            //  转让     交易需通过审核
+            $this->where = array('goods_show' => 1, 'goods_status' => 1, 'goods_leixing' => 0);
+        } elseif ($type == "1") {
+            //  需求
+            $this->where = array('goods_show' => 1, 'goods_status' => 1, 'goods_leixing' => 1);
+        } else {
+            //  默认获取全部
+            $this->where = array('goods_show' => 1, 'goods_status' => 1);
+        }
     }
 
 
@@ -23,14 +42,8 @@ class tradeControl extends apiHomeControl
      */
     public function all_trade_listOp()
     {
-
-        $where = array('goods_show' => 1);
-        $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
-        flea_quality,commentnum,goods_price,goods_store_price,
-        goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name,
-        flea_pname,flea_pphone";
         $m_trade = Model('utrade');
-        $listgoods = $m_trade->field($fields)->where($where)->order('goods_id desc')->page($this->page)->select();
+        $listgoods = $m_trade->field($this->fields)->where($this->where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if ($listgoods) {
             foreach ($listgoods as $replace_key => $replace_val) {
@@ -48,19 +61,16 @@ class tradeControl extends apiHomeControl
     /**
      * GET 某分类下的交易
      */
-    public function class_trade_list(){
+    public function class_trade_list()
+    {
         if (!isset($_GET['cid'])) {
             output_error("缺少分类id参数");
             die;
         }
         $class_id = $_GET['cid'];
-        $where = array('gc_id' => $class_id);
-        $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
-        flea_quality,commentnum,goods_price,goods_store_price,
-        goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name,
-        flea_pname,flea_pphone";
+        $where2 = $this->where + array('gc_id' => $class_id);
         $m_trade = Model('utrade');
-        $trade_list = $m_trade->field($fields)->where($where)->order('goods_id desc')->page($this->page)->select();
+        $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if (is_array($trade_list) and !empty($trade_list)) {
             foreach ($trade_list as $key => $val) {
@@ -109,13 +119,9 @@ class tradeControl extends apiHomeControl
         }
         //TODO 查找uid是否存在，不存在则输出错误信息
         $member_id = $_GET['uid'];
-        $where = array('member_id' => $member_id);
-        $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
-        flea_quality,commentnum,goods_price,goods_store_price,
-        goods_click,flea_collect_num,goods_add_time,goods_description,salenum,flea_area_name,
-        flea_pname,flea_pphone";
+        $where2 = $this->where + array('member_id' => $member_id);
         $m_trade = Model('utrade');
-        $trade_list = $m_trade->field($fields)->where($where)->order('goods_id desc')->page($this->page)->select();
+        $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
         if (is_array($trade_list) and !empty($trade_list)) {
             foreach ($trade_list as $key => $val) {
