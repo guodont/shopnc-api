@@ -36,7 +36,6 @@
           <td class="vatop rowform"><input type="text" maxlength="20" value="<?php echo $output['class_array']['gc_name'];?>" name="gc_name" id="gc_name" class="txt"></td>
           <td class="vatop tips"></td>
         </tr>
-        <?php if ($output['class_array']['gc_parent_id'] == 0) {?>
         <tr>
           <td colspan="2" class="required"><label for="pic"><?php echo '分类图片';?>:</label></td>
         </tr>
@@ -50,7 +49,6 @@
             </span></td>
           <td class="vatop tips"><?php echo '只有第一级分类可以上传图片，建议用16px * 16px，超出后自动隐藏';?></td>
         </tr>
-        <?php } ?>
         <tr>
           <td colspan="2" class="required"><label>发布虚拟商品:</label>
             <span>

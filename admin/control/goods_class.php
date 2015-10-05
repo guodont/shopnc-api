@@ -102,13 +102,11 @@ class goods_classControl extends SystemControl{
                 $insert_array['gc_virtual']     = intval($_POST['gc_virtual']);
 				$result = $model_class->addGoodsClass($insert_array);
 				if ($result){
-    				if ($insert_array['gc_parent_id'] == 0) {
             			if (!empty($_FILES['pic']['name'])) {//上传图片
             				$upload = new UploadFile();
                 			$upload->set('default_dir',ATTACH_COMMON);
                 			$upload->set('file_name','category-pic-'.$result.'.jpg');
             				$upload->upfile('pic');
-            			}
     				}
 					$url = array(
 						array(
