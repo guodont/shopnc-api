@@ -126,9 +126,10 @@ class circleControl extends apiHomeControl
                 $where['is_digest'] = 1;
             }
 
+            $where['is_stick'] = 0;
             $m_circle_theme = $model->table('circle_theme');
 
-            $theme_list = $m_circle_theme->where($where)->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
+            $theme_list = $m_circle_theme->where($where)->order('lastspeak_time desc')->page($this->page)->select();
             $pageCount = $m_circle_theme->gettotalpage();
             if (!empty($theme_list)) {
                 foreach ($theme_list as $key => $val) {
