@@ -224,29 +224,24 @@ class member_centerControl extends apiMemberControl {
     }
 
     /**
-     * POST 上传图片 TODO
+     * POST 上传图片
      *
      */
-    public function swfuploadOp() {
+    public function uploadImageOp() {
         /**
          * 读取语言包
          */
         Language::read('sns_home');
         $lang	= Language::getLangContent();
-        $member_id	= $_SESSION['member_id'];
-        $class_id	= intval($_POST['category_id']);
-        if ($member_id <= 0 && $class_id <= 0){
-            echo json_encode(array('state'=>'false','message'=>Language::get('sns_upload_pic_fail'), 'origin_file_name' => $_FILES["file"]["name"]));
-            exit;
-        }
-
+        $member_id	= $this->member_info['member_id'];
+        $class_id	= 0;
         $model = Model();
         // 验证图片数量
-        $count = $model->table('sns_albumpic')->where(array('member_id'=>$member_id))->count();
+        /*$count = $model->table('sns_albumpic')->where(array('member_id'=>$member_id))->count();
         if(C('malbum_max_sum') != 0 && $count >= C('malbum_max_sum')){
             echo json_encode(array('state'=>'false','message'=>Language::get('sns_upload_img_max_num_error'), 'origin_file_name' => $_FILES["file"]["name"]));
             exit;
-        }
+        }*/
 
         /**
          * 上传图片
@@ -265,16 +260,12 @@ class member_centerControl extends apiMemberControl {
         $upload->set('thumb_ext', '_240,_1024');
         $result = $upload->upfile('file');
         if (!$result){
-            echo json_encode(array('state'=>'false','message'=>Language::get('sns_upload_pic_fail'), 'origin_file_name' => $_FILES["file"]["name"]));
+            output_error(Language::get('sns_upload_pic_fail'));
             exit;
         }
-
         $img_path = $upload->getSysSetPath().$upload->file_name;
         list($width, $height, $type, $attr) = getimagesize(BASE_UPLOAD_PATH.DS.ATTACH_MALBUM.DS.$member_id.DS.$img_path);
-
         $image = explode('.', $_FILES["file"]["name"]);
-
-
         if(strtoupper(CHARSET) == 'GBK'){
             $image['0'] = Language::getGBK($image['0']);
         }
@@ -294,12 +285,9 @@ class member_centerControl extends apiMemberControl {
         $data['origin_file_name'] = $_FILES["file"]["name"];
         $data['file_path'] = $img_path;
         $data['file_url'] = snsThumb($img_path, 240);
-        $data['state'] = 'true';
-        /**
-         * 整理为json格式
-         */
-        $output = json_encode($data);
-        echo $output;
+        $data['state'] = true;
+
+        output_data($data);
 
     }
 

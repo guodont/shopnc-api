@@ -27,7 +27,7 @@ class question_answerControl extends apiMemberControl
 
         if(isset($_POST['q_id']))
         {
-            $this->q_id = intval($_POST['c_id']);
+            $this->q_id = intval($_POST['q_id']);
         }
 
         if(!isset($_GET['r_id']))
@@ -39,7 +39,7 @@ class question_answerControl extends apiMemberControl
     }
 
     protected function questionInfo(){
-        $this->question_info = Model()->table('circle_theme')->where(array('theme_id'=>$this->question_id))->find();
+        $this->question_info = Model()->table('circle_theme')->where(array('theme_id'=>$this->q_id))->find();
         if(empty($this->question_info)){
             output_error("问题不存在");die;
         }

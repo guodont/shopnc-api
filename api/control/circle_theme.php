@@ -13,10 +13,6 @@ class circle_themeControl extends apiBaseCircleThemeControl {
     public function __construct() {
         parent::__construct();
 
-        $model = Model();
-        $m_theme = $model->table('circle_theme');
-        $theme = $m_theme->where(array("theme_id"=>$this->t_id))->select();
-        $this->c_id = $theme['circle_id'];
     }
 
 
@@ -24,6 +20,11 @@ class circle_themeControl extends apiBaseCircleThemeControl {
      * GET 话题详细信息
      */
     public function ajax_themeinfoOp(){
+
+        $model = Model();
+        $m_theme = $model->table('circle_theme');
+        $theme = $m_theme->where(array("theme_id"=>$this->t_id))->select();
+        $this->c_id = $theme['circle_id'];
         // 话题信息
         $this->themeInfo();
 
@@ -62,6 +63,11 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         // 话题信息
         $this->themeInfo();
 
+        $model = Model();
+        $m_theme = $model->table('circle_theme');
+        $theme = $m_theme->where(array("theme_id"=>$this->t_id))->select();
+        $this->c_id = $theme['circle_id'];
+
         $data = array();
         $data['form_action'] = CIRCLE_SITE_URL.'/index.php?act=theme&op=save_reply&type=quick&c_id='.$this->c_id.'&t_id='.$this->t_id;
         $data['member_avatar'] = getMemberAvatarForID($this->member_info['member_id']); // 头像
@@ -97,6 +103,11 @@ class circle_themeControl extends apiBaseCircleThemeControl {
      */
     public function theme_detailOp(){
 
+        $model = Model();
+        $m_theme = $model->table('circle_theme');
+        $theme = $m_theme->where(array("theme_id"=>$this->t_id))->select();
+        $this->c_id = $theme['circle_id'];
+
         // 会员信息
         $this->memberInfo();
 
@@ -111,8 +122,6 @@ class circle_themeControl extends apiBaseCircleThemeControl {
         }
 
         $model = Model();
-        // 话题被浏览数增加
-        $model->table('circle_theme')->update(array('theme_id'=>$this->t_id, 'theme_browsecount'=>array('exp', 'theme_browsecount+1')));
 
         // 回复列表
         $where = array();
@@ -210,26 +219,22 @@ class circle_themeControl extends apiBaseCircleThemeControl {
      */
     public function create_replyOp(){
 
-        // Reply function does close,throw error.
-        if(!intval(C('circle_istalk'))){
-            output_error(L('circle_has_been_closed_reply'));
-        }
-        // checked cookie of SEC
-        if(cookie(circle_intervaltime)){
-            output_error(L('circle_operation_too_frequent'));
-        }
+        $model = Model();
+        $m_theme = $model->table('circle_theme');
+        $theme = $m_theme->where(array("theme_id"=>$this->t_id))->select();
+        $this->c_id = $theme[0]['circle_id'];
+        var_dump($this->c_id);
         //圈子信息
         $this->circleInfo();
 
         // 会员信息
         $this->memberInfo();
 
-//        var_dump($this->cm_info);
-
         // 不是圈子成员不能发帖
         if(!in_array($this->identity, array(1,2,3))){
-            output_error(L('circle_no_join_ban_reply'));
+            output_error("您不是圈子成员");
         }
+
         // 话题信息
         $this->themeInfo();
 
@@ -302,9 +307,9 @@ class circle_themeControl extends apiBaseCircleThemeControl {
                         $param['itemid']		= $this->t_id;
                         Model('circle_exp')->saveExp($param);
                     }
-                    output_data(array('code'=>201,'success'=>'回复成功'));
+                    output_data(array('success'=>'回复成功'));
                 } else{
-                    output_error('回复失败');
+                    output_error("回复失败");
                 }
             }
         }

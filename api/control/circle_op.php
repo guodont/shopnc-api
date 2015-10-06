@@ -15,6 +15,13 @@ class circle_opControl extends apiBaseCircleControl {
         parent::__construct();
     }
 
+    /**
+     * GET 验证会员身份
+     */
+    public function identifyCircleMemberOp() {
+        // 身份	0游客 1圈主 2管理 3成员 4申请中 5申请失败 6禁言
+        echo $this->identity;
+    }
 
     /**
      * POST 创建一个话题
@@ -113,5 +120,99 @@ class circle_opControl extends apiBaseCircleControl {
             }
         }
         output_error('request error');
+    }
+
+
+    /**
+     * 申请加入
+     */
+    public function applyOp(){
+        // 会员信息
+        $this->memberInfo();
+        // 圈子信息
+        $this->circleInfo();
+
+        if(in_array($this->identity, array(1,2,3,4))){
+            output_error("您没有权限");
+        }
+        if(isset($_POST)){
+            /**
+             * 验证
+             */
+            $obj_validate = new Validate();
+            $obj_validate->validateparam = array(
+                array("input"=>$_POST["apply_content"], "require"=>"true", "message"=>"申请原因不能为空"),
+                array("input"=>$_POST["intro"], "require"=>"true", "message"=>"未填写个人介绍"),
+            );
+            $error = $obj_validate->validate();
+            if($error != ''){
+                output_error($error);
+            }else{
+                // Membership level information
+                $data = rkcache('circle_level') ? rkcache('circle_level') : rkcache('circle_level', true);
+
+                $model =  Model();
+                $insert = array();
+                $insert['cm_applycontent']	= $_POST['apply_content'];
+                $insert['cm_intro']			= $_POST['intro'];
+                $insert['member_id']		= $this->member_info['member_id'];
+                $insert['circle_id']		= $this->c_id;
+                $insert['circle_name']		= $this->circle_info['circle_name'];
+                $insert['member_name']		= $this->member_info['member_name'];
+                $insert['cm_applytime']		= $insert['cm_jointime']	= time();
+                $insert['cm_level']			= $data[1]['mld_id'];
+                $insert['cm_levelname']		= $data[1]['mld_name'];
+                $insert['cm_exp']			= 1;
+                $insert['cm_nextexp']		= $data[2]['mld_exp'];
+                $insert['cm_state']			= intval($this->circle_info['circle_joinaudit']) == 0 ? 1 : 0;
+                $insert['is_identity']		= 3;
+                $model->table('circle_member')->insert($insert, true);
+                if(intval($this->circle_info['circle_joinaudit']) == 0){
+                    // Update the number of members
+                    $update = array(
+                        'circle_id'=>$this->c_id,
+                        'circle_mcount'=>array('exp', 'circle_mcount+1')
+                    );
+                    $model->table('circle')->update($update);
+                    output_data(array('ok'=>"已提交申请,等待圈主审核"));
+                }else{
+                    // Update is applying for membership
+                    $update = array(
+                        'circle_id'=>$this->c_id,
+                        'new_verifycount'=>array('exp', 'new_verifycount+1')
+                    );
+                    $model->table('circle')->update($update);
+                    output_data(array('ok'=>"加入圈子成功"));
+                }
+            }
+        }
+    }
+    /**
+     * 退出圈子
+     */
+    public function quitOp(){
+        // 圈子信息
+        $this->circleInfo();
+        // 会员信息
+        $this->memberInfo();
+        if(in_array($this->identity, array(2,3))){
+            // 删除会员
+            Model()->table('circle_member')->where(array('circle_id'=>$this->c_id, 'member_id'=>$this->member_info['member_id']))->delete();
+
+            $update = array();
+            $update['circle_id']	= $this->c_id;
+            $update['circle_mcount']= array('exp','circle_mcount-1');
+
+            // Whether to apply for management
+            $rs = Model()->table('circle_mapply')->where(array('circle_id'=>$this->c_id, 'member_id'=>$this->member_info['member_id']))->find();
+            if($rs){
+                Model()->table('circle_mapply')->where(array('circle_id'=>$this->c_id, 'member_id'=>$this->member_info['member_id']))->delete();
+                $update['new_mapplycount'] = array('exp', 'new_mapplycount-1');
+            }
+
+            // 更新圈子成员数
+            Model()->table('circle')->update($update);
+        }
+        output_data(array('ok'=>"成功退出圈子"));
     }
 }
