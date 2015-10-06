@@ -65,7 +65,7 @@ class tradeControl extends apiHomeControl
     public function class_trade_listOp()
     {
         
-        if (isset($_GET['cid'])) {
+        if ($_GET['cid']!= "") {
             $class_id = $_GET['cid'];
             $where2 = $this->where + array('gc_id' => $class_id);
         }else {
