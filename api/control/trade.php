@@ -82,7 +82,7 @@ class tradeControl extends apiHomeControl
             output_error("没有交易信息");
             die;
         }
-        output_data(array('trades' => $trade_list), mobile_page($pageCount));
+        output_data(array('trade_list' => $trade_list), mobile_page($pageCount));
     }
 
 
