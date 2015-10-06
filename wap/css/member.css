@@ -33,17 +33,17 @@
 
 
 .member-body .header-back{display: none;}
-.m-top,.m-center{padding: 10px;background: #f5f5f5;}
-.m-avatar{width: 100px;height: 100px;overflow: hidden;text-align: center;border:1px solid #999;background: #fff;}
+.m-top,.m-center{/* padding: 10px; */background: #f5f5f5;}
+.m-avatar{width: 100px;height: 100px;overflow: hidden;text-align: center;/* border:1px solid #999; */background: #fff;}
 .m-avatar img{width: 100px;height: 100px;}
 .m-infor{margin-left: 10px;}
 .m-jifen,.m-yue{display:inline-block;padding: 5px 15px;background:#fff;float: left;text-align: center;}
 .m-jifen span,.m-yue span{display:block;}
 
-.mc-cnt{background: #fff;padding: 10px;}
+.mc-cnt{background: #fff;/* padding: 10px; */}
 .mc-cnt li{border-bottom: 1px solid #ded6c9;}
 .mc-cnt a{color: #6d6d6d;padding:8px;display: block;position: relative;}
-.mc-cnt li a .grayrightarrow{position: absolute;z-index: 2;top: 18px;right: 0px;}
+.mc-cnt li a .grayrightarrow{position: absolute;z-index: 2;top: 13px;right: 10px;}
 
 .favorites-list,.address-list,.order-list,.order-detail,.views-list{padding: 10px;}
 .favorites-list li,.views-list li{border-bottom: 1px solid #e8e5e5;padding: 5px 0px;}
@@ -131,3 +131,6 @@
 .voucher-tab li a {display: block; color: #999; background:#eee;}
 .voucher-tab li a.current {color: #666; background:#ccc;}
 
+.m-top.clearfix {
+    padding: 10px;
+}
