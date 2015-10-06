@@ -62,7 +62,7 @@ class tradeControl extends apiHomeControl
     /**
      * GET 某分类下的交易
      */
-    public function class_trade_list()
+    public function class_trade_listOp()
     {
         if (!isset($_GET['cid'])) {
             output_error("缺少分类id参数");
