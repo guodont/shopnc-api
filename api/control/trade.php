@@ -101,8 +101,6 @@ class tradeControl extends apiHomeControl
         $trade_info = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
 //        $trade_info['goods_image'] = $trade_info['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_info['member_id'] . '/' . str_replace('_1024', '_240', $trade_info['goods_image']);
         $trade_info['member_avatar'] = getMemberAvatarForID($trade_info['member_id']);
-        $pageCount = $m_trade->gettotalpage();
-
         $goods_image_path = UPLOAD_SITE_URL.DS.ATTACH_MALBUM.'/'.$trade_info[0]['member_id'].'/';;	//店铺商品图片目录地址
         $desc_image	= $m_trade->getListImageGoods(array('image_store_id'=>$trade_info[0]['member_id'],'item_id'=>$trade_info[0]['goods_id'],'image_type'=>12));
         $m_trade->getThumb($desc_image,$goods_image_path);
@@ -125,7 +123,7 @@ class tradeControl extends apiHomeControl
         $trade_info['goods_image'] = $desc_image;
 
         if (!empty($trade_info)) {
-            output_data(array('trade_info' => $trade_info), mobile_page($pageCount));
+            output_data(array('trade_info' => $trade_info));
         } else {
             output_error("没有此交易");
         }
