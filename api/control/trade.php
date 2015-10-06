@@ -64,12 +64,14 @@ class tradeControl extends apiHomeControl
      */
     public function class_trade_listOp()
     {
-        if (!isset($_GET['cid'])) {
-            output_error("缺少分类id参数");
-            die;
+        
+        if (isset($_GET['cid'])) {
+            $class_id = $_GET['cid'];
+            $where2 = $this->where + array('gc_id' => $class_id);
+        }else {
+            $where2 = $this->where;
         }
-        $class_id = $_GET['cid'];
-        $where2 = $this->where + array('gc_id' => $class_id);
+        
         $m_trade = Model('utrade');
         $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
