@@ -45,6 +45,7 @@ class tradeControl extends apiHomeControl
         $m_trade = Model('utrade');
         $listgoods = $m_trade->field($this->fields)->where($this->where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
+
         if ($listgoods) {
             foreach ($listgoods as $replace_key => $replace_val) {
 
@@ -98,9 +99,31 @@ class tradeControl extends apiHomeControl
         $where = array('goods_id' => $trade_id);
         $m_trade = Model('utrade');
         $trade_info = $m_trade->where($where)->order('goods_id desc')->page($this->page)->select();
-        $trade_info['goods_image'] = $trade_info['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_info['member_id'] . '/' . str_replace('_1024', '_240', $trade_info['goods_image']);
+//        $trade_info['goods_image'] = $trade_info['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_info['member_id'] . '/' . str_replace('_1024', '_240', $trade_info['goods_image']);
         $trade_info['member_avatar'] = getMemberAvatarForID($trade_info['member_id']);
         $pageCount = $m_trade->gettotalpage();
+
+        $goods_image_path = UPLOAD_SITE_URL.DS.ATTACH_MALBUM.'/'.$trade_info[0]['member_id'].'/';;	//店铺商品图片目录地址
+        $desc_image	= $m_trade->getListImageGoods(array('image_store_id'=>$trade_info[0]['member_id'],'item_id'=>$trade_info[0]['goods_id'],'image_type'=>12));
+        $m_trade->getThumb($desc_image,$goods_image_path);
+
+        $image_key = 0;
+        if(!empty($desc_image) && is_array($desc_image)) {//将封面图放到第一位显示
+            $goods_image_1	= $trade_info[0]['goods_image'];//封面图
+            foreach ($desc_image as $key => $val) {
+                if($goods_image_1 == $val['thumb_small']){
+                    $image_key = $key;break;
+                }
+            }
+            if($image_key > 0) {//将封面图放到第一位显示
+                $desc_image_0	= $desc_image[0];
+                $desc_image[0]	= $desc_image[$image_key];
+                $desc_image[$image_key]	= $desc_image_0;
+            }
+        }
+
+        $trade_info['goods_image'] = $desc_image;
+
         if (!empty($trade_info)) {
             output_data(array('trade_info' => $trade_info), mobile_page($pageCount));
         } else {
