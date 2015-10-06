@@ -57,7 +57,7 @@ class taskControl extends taskMemberControl
         if (!empty($_GET['task_id']) && $_GET['task_id'] > 0) {
             $task_id = intval($_GET['task_id']);
             $condition['article_id'] = $task_id;
-            $model_task = Model('cms_article');
+            $model_task = Model('cms_todo');
             $fields = "article_id,article_title,article_content,article_tag,article_state,article_publish_time";
             $task = $model_task->where($condition)->field($fields)->find();
             if (!empty($task)) {
@@ -103,7 +103,7 @@ class taskControl extends taskMemberControl
             $condition['article_title'] = array('like', '%' . $_GET['keyword'] . '%');
         }
         $condition['article_publisher_id'] = $this->member_info['member_id'];
-        $model_task = Model('cms_article');
+        $model_task = Model('cms_todo');
         $page_count = $model_task->gettotalpage();
         $fields = "article_id,article_title,article_content,article_tag,article_state,article_publish_time";
         $task_list = $model_task->getList($condition, $this->page, 'article_id desc', $fields);
@@ -123,7 +123,7 @@ class taskControl extends taskMemberControl
 
         if (isset($_POST['task_id'])) {
             $task_id = intval($_POST['task_id']);
-            $model_task = Model('cms_article');
+            $model_task = Model('cms_todo');
             $result = $model_task->modify(array('article_state' => $status), array('article_id' => $task_id));
             if ($result) {
                 output_data(array('ok' => "操作成功"));
@@ -168,7 +168,7 @@ class taskControl extends taskMemberControl
         //任务状态
         $param['article_state'] = self::TASK_STATE_DRAFT;
 
-        $model_task = Model('cms_article');
+        $model_task = Model('cms_todo');
         $model_tag_relation = Model('cms_tag_relation');
         if (!empty($_POST['task_id'])) {
             $task_id = intval($_POST['task_id']);
@@ -208,7 +208,7 @@ class taskControl extends taskMemberControl
     protected function check_task_auth($task_id)
     {
         if ($task_id > 0) {
-            $model_task = Model('cms_article');
+            $model_task = Model('cms_todo');
             $task_detail = $model_task->getOne(array('article_id' => $task_id));
             if (!empty($task_detail)) {
                 if ($task_detail['article_publisher_id'] == $this->member_info['member_id']) {
