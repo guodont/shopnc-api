@@ -76,7 +76,7 @@ class tradeControl extends apiHomeControl
         if (is_array($trade_list) and !empty($trade_list)) {
             foreach ($trade_list as $key => $val) {
                 $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
-                $trade_list[$key]['goods_image'] = $this->trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
+                $trade_list[$key]['goods_image'] = $trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
             }
         } else {
             output_error("没有交易信息");
