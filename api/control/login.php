@@ -12,47 +12,52 @@ use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
 
-class loginControl extends apiHomeControl {
+class loginControl extends apiHomeControl
+{
 
-	public function __construct(){
-		parent::__construct();
-	}
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-    private function isQQLogin(){
+    private function isQQLogin()
+    {
         return !empty($_GET[type]);
     }
-	/**
-	 * 登录
-	 */
-	public function indexOp(){
-        if(!$this->isQQLogin()){
-            if(empty($_POST['username']) || empty($_POST['password']) || !in_array($_POST['client'], $this->client_type_array)) {
+
+    /**
+     * 登录
+     */
+    public function indexOp()
+    {
+        if (!$this->isQQLogin()) {
+            if (empty($_POST['username']) || empty($_POST['password']) || !in_array($_POST['client'], $this->client_type_array)) {
                 output_error('登录失败');
             }
         }
-		$model_member = Model('member');
+        $model_member = Model('member');
         $array = array();
-        if($this->isQQLogin()){
-            $array['member_qqopenid']	= $_SESSION['openid'];
-        }else{
-            $array['member_name']	= $_POST['username'];
-            $array['member_passwd']	= md5($_POST['password']);
+        if ($this->isQQLogin()) {
+            $array['member_qqopenid'] = $_SESSION['openid'];
+        } else {
+            $array['member_name'] = $_POST['username'];
+            $array['member_passwd'] = md5($_POST['password']);
         }
         $member_info = $model_member->getMemberInfo($array);
-        if(!empty($member_info)) {
+        if (!empty($member_info)) {
             $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);
-            if($token){
-                    if($this->isQQLogin()){
-                        setNc2Cookie('username',$member_info['member_name']);
-                        setNc2Cookie('key',$token);
-                        header("location:".WAP_SITE_URL.'/tmpl/member/member.html?act=member');
-                    }else{
-                        output_data(array(
+            if ($token) {
+                if ($this->isQQLogin()) {
+                    setNc2Cookie('username', $member_info['member_name']);
+                    setNc2Cookie('key', $token);
+                    header("location:" . WAP_SITE_URL . '/tmpl/member/member.html?act=member');
+                } else {
+                    output_data(array(
                             'username' => $member_info['member_name'],
-                            'uid'=>$member_info['member_id'],
+                            'uid' => $member_info['member_id'],
                             'key' => $token)
-                        );
-                    }
+                    );
+                }
             } else {
                 output_error('登录失败');
             }
@@ -64,7 +69,8 @@ class loginControl extends apiHomeControl {
     /**
      * 登录生成token
      */
-    private function _get_token($member_id, $member_name, $client) {
+    private function _get_token($member_id, $member_name, $client)
+    {
         $model_mb_user_token = Model('mb_user_token');
 
         //重新登录后以前的令牌失效
@@ -76,16 +82,16 @@ class loginControl extends apiHomeControl {
 
         //生成新的token
         $mb_user_token_info = array();
-        $token = md5($member_name . strval(TIMESTAMP) . strval(rand(0,999999)));
+        $token = md5($member_name . strval(TIMESTAMP) . strval(rand(0, 999999)));
         $mb_user_token_info['member_id'] = $member_id;
         $mb_user_token_info['member_name'] = $member_name;
         $mb_user_token_info['token'] = $token;
         $mb_user_token_info['login_time'] = TIMESTAMP;
-        $mb_user_token_info['client_type'] = $_POST['client'] == null ? 'Android' : $_POST['client'] ;
+        $mb_user_token_info['client_type'] = $_POST['client'] == null ? 'Android' : $_POST['client'];
 
         $result = $model_mb_user_token->addMbUserToken($mb_user_token_info);
 
-        if($result) {
+        if ($result) {
             return $token;
         } else {
             return null;
@@ -93,11 +99,12 @@ class loginControl extends apiHomeControl {
 
     }
 
-	/**
-	 * 注册
-	 */
-	public function registerOp(){
-		$model_member	= Model('member');
+    /**
+     * 注册
+     */
+    public function registerOp()
+    {
+        $model_member = Model('member');
 
         $register_info = array();
         $register_info['username'] = $_POST['username'];
@@ -105,19 +112,19 @@ class loginControl extends apiHomeControl {
         $register_info['password_confirm'] = $_POST['password_confirm'];
         $register_info['email'] = $_POST['email'];
         $member_info = $model_member->register($register_info);
-        if(!isset($member_info['error'])) {
+        if (!isset($member_info['error'])) {
             $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);
-            if($token) {
+            if ($token) {
                 output_data(array(
-                    'username' => $member_info['member_name'],
-                    'uid' => $member_info['member_id'],
-                    'key' => $token)
+                        'username' => $member_info['member_name'],
+                        'uid' => $member_info['member_id'],
+                        'key' => $token)
                 );
             } else {
                 output_error('注册失败');
             }
         } else {
-			output_error($member_info['error']);
+            output_error($member_info['error']);
         }
 
     }
@@ -125,7 +132,8 @@ class loginControl extends apiHomeControl {
     /**
      * 手机号注册
      */
-    public function phone_registerOp(){
+    public function phone_registerOp()
+    {
         $model_member = Model('member');
         $register_info = array();
         $register_info['username'] = $_POST['username'];

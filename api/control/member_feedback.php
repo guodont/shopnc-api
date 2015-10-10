@@ -11,16 +11,19 @@
 
 defined('InShopNC') or exit('Access Invalid!');
 
-class member_feedbackControl extends apiMemberControl {
+class member_feedbackControl extends apiMemberControl
+{
 
-	public function __construct() {
-		parent::__construct();
-	}
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * 添加反馈
      */
-    public function feedback_addOp() {
+    public function feedback_addOp()
+    {
         $model_mb_feedback = Model('mb_feedback');
 
         $param = array();
@@ -32,7 +35,7 @@ class member_feedbackControl extends apiMemberControl {
 
         $result = $model_mb_feedback->addMbFeedback($param);
 
-        if($result) {
+        if ($result) {
             output_data('1');
         } else {
             output_error('保存失败');

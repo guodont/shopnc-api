@@ -11,44 +11,48 @@
 
 defined('InShopNC') or exit('Access Invalid!');
 
-class member_vr_buyControl extends apiMemberControl {
+class member_vr_buyControl extends apiMemberControl
+{
 
-	public function __construct() {
-		parent::__construct();
-	}
-
-	/**
-	 * 虚拟商品购买第一步，设置购买数量
-	 * POST
-	 * 传入：cart_id:商品ID，quantity:购买数量
-	 */
-	public function buy_step1Op() {
-	    $_POST['goods_id'] = $_POST['cart_id'];
-
-	    $logic_buy_virtual = Logic('buy_virtual');
-	    $result = $logic_buy_virtual->getBuyStep2Data($_POST['goods_id'], $_POST['quantity'], $this->member_info['member_id']);
-	    if(!$result['state']) {
-	        output_error($result['msg']);
-	    } else {
-	        $result = $result['data'];
-	    }
-	    unset($result['member_info']);
-	    output_data($result);
-	}
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
-     * 虚拟商品购买第二步，设置接收手机号
-	 * POST
-	 * 传入：goods_id:商品ID，quantity:购买数量
-	 */
-    public function buy_step2Op() {
+     * 虚拟商品购买第一步，设置购买数量
+     * POST
+     * 传入：cart_id:商品ID，quantity:购买数量
+     */
+    public function buy_step1Op()
+    {
+        $_POST['goods_id'] = $_POST['cart_id'];
 
         $logic_buy_virtual = Logic('buy_virtual');
         $result = $logic_buy_virtual->getBuyStep2Data($_POST['goods_id'], $_POST['quantity'], $this->member_info['member_id']);
-        if(!$result['state']) {
+        if (!$result['state']) {
             output_error($result['msg']);
         } else {
-	        $result = $result['data'];
+            $result = $result['data'];
+        }
+        unset($result['member_info']);
+        output_data($result);
+    }
+
+    /**
+     * 虚拟商品购买第二步，设置接收手机号
+     * POST
+     * 传入：goods_id:商品ID，quantity:购买数量
+     */
+    public function buy_step2Op()
+    {
+
+        $logic_buy_virtual = Logic('buy_virtual');
+        $result = $logic_buy_virtual->getBuyStep2Data($_POST['goods_id'], $_POST['quantity'], $this->member_info['member_id']);
+        if (!$result['state']) {
+            output_error($result['msg']);
+        } else {
+            $result = $result['data'];
             $member_info = array();
             $member_info['member_mobile'] = $result['member_info']['member_mobile'];
             $member_info['available_predeposit'] = $result['member_info']['available_predeposit'];
@@ -61,10 +65,11 @@ class member_vr_buyControl extends apiMemberControl {
 
     /**
      * 虚拟订单第三步，产生订单
-	 * POST
-	 * 传入：goods_id:商品ID，quantity:购买数量，buyer_phone：接收手机，buyer_msg:下单留言,pd_pay:是否使用预存款支付0否1是，password：支付密码
-	 */
-    public function buy_step3Op() {
+     * POST
+     * 传入：goods_id:商品ID，quantity:购买数量，buyer_phone：接收手机，buyer_msg:下单留言,pd_pay:是否使用预存款支付0否1是，password：支付密码
+     */
+    public function buy_step3Op()
+    {
         $logic_buy_virtual = Logic('buy_virtual');
         $input = array();
         $input['goods_id'] = $_POST['goods_id'];
@@ -81,7 +86,7 @@ class member_vr_buyControl extends apiMemberControl {
         $input['pd_pay'] = intval($_POST['pd_pay']);
 
         $input['order_from'] = 2;
-        $result = $logic_buy_virtual->buyStep3($input,$this->member_info['member_id']);
+        $result = $logic_buy_virtual->buyStep3($input, $this->member_info['member_id']);
         if (!$result['state']) {
             output_error($result['msg']);
         } else {

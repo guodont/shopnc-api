@@ -220,6 +220,4 @@ class circleControl extends apiHomeControl
     }
 
 
-
-
 }

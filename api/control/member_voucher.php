@@ -11,17 +11,20 @@
 
 defined('InShopNC') or exit('Access Invalid!');
 
-class member_voucherControl extends apiMemberControl {
+class member_voucherControl extends apiMemberControl
+{
 
-	public function __construct() {
-		parent::__construct();
-	}
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * 地址列表
      */
-    public function voucher_listOp() {
-		$model_voucher = Model('voucher');
+    public function voucher_listOp()
+    {
+        $model_voucher = Model('voucher');
         $voucher_list = $model_voucher->getMemberVoucherList($this->member_info['member_id'], $_POST['voucher_state'], $this->page);
         $page_count = $model_voucher->gettotalpage();
 

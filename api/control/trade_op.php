@@ -162,16 +162,14 @@ class trade_opControl extends apiMemberControl
      */
     public function canelFavTradeOp()
     {
-        if (intval($_GET['fav_id']) > 0)
-        {
+        if (intval($_GET['fav_id']) > 0) {
             $favorites_class = Model('flea_favorites');
-            if (!$favorites_class->delFavorites(intval($_GET['fav_id']),'flea'))
-            {
+            if (!$favorites_class->delFavorites(intval($_GET['fav_id']), 'flea')) {
                 output_error("取消失败");
                 die;
             }
         }
-        output_data(array("ok"=>"取消成功"));
+        output_data(array("ok" => "取消成功"));
     }
 
 }

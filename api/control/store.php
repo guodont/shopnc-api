@@ -7,23 +7,27 @@
  * by 33hao.com 好商城V3 运营版
  */
 defined('InShopNC') or exit('Access Invalid!');
-class storeControl extends apiHomeControl{
 
-	public function __construct() {
+class storeControl extends apiHomeControl
+{
+
+    public function __construct()
+    {
         parent::__construct();
     }
 
     /**
      * 商品列表
      */
-    public function goods_listOp() {
+    public function goods_listOp()
+    {
         $model_goods = Model('goods');
 
         //查询条件
         $condition = array();
-        if(!empty($_GET['store_id']) && intval($_GET['store_id']) > 0) {
+        if (!empty($_GET['store_id']) && intval($_GET['store_id']) > 0) {
             $condition['store_id'] = $_GET['store_id'];
-        } elseif (!empty($_GET['keyword'])) { 
+        } elseif (!empty($_GET['keyword'])) {
             $condition['goods_name|goods_jingle'] = array('like', '%' . $_GET['keyword'] . '%');
         }
 
@@ -45,12 +49,13 @@ class storeControl extends apiHomeControl{
     /**
      * 商品列表排序方式
      */
-    private function _goods_list_order($key, $order) {
+    private function _goods_list_order($key, $order)
+    {
         $result = 'goods_id desc';
         if (!empty($key)) {
 
             $sequence = 'desc';
-            if($order == 1) {
+            if ($order == 1) {
                 $sequence = 'asc';
             }
 
@@ -60,7 +65,7 @@ class storeControl extends apiHomeControl{
                     $result = 'goods_salenum' . ' ' . $sequence;
                     break;
                 //浏览量
-                case '2' : 
+                case '2' :
                     $result = 'goods_click' . ' ' . $sequence;
                     break;
                 //价格
@@ -75,11 +80,12 @@ class storeControl extends apiHomeControl{
     /**
      * 处理商品列表(团购、限时折扣、商品图片)
      */
-    private function _goods_list_extend($goods_list) {
+    private function _goods_list_extend($goods_list)
+    {
         //获取商品列表编号数组
         $commonid_array = array();
         $goodsid_array = array();
-        foreach($goods_list as $key => $value) {
+        foreach ($goods_list as $key => $value) {
             $commonid_array[] = $value['goods_commonid'];
             $goodsid_array[] = $value['goods_id'];
         }
@@ -105,7 +111,7 @@ class storeControl extends apiHomeControl{
             }
 
             //商品图片url
-            $goods_list[$key]['goods_image_url'] = cthumb($value['goods_image'], 360, $value['store_id']); 
+            $goods_list[$key]['goods_image_url'] = cthumb($value['goods_image'], 360, $value['store_id']);
 
             unset($goods_list[$key]['store_id']);
             unset($goods_list[$key]['goods_commonid']);
@@ -118,7 +124,8 @@ class storeControl extends apiHomeControl{
     /**
      * 商品详细页
      */
-    public function store_detailOp() {
+    public function store_detailOp()
+    {
         $store_id = intval($_GET ['store_id']);
         // 商品详细信息
         $model_store = Model('store');
@@ -146,7 +153,8 @@ class storeControl extends apiHomeControl{
     /**
      * 店铺详细信息处理
      */
-    private function _store_detail_extend($store_detail) {
+    private function _store_detail_extend($store_detail)
+    {
         //整理数据
         unset($store_detail['store_info']['goods_commonid']);
         unset($store_detail['store_info']['gc_id']);

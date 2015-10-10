@@ -142,6 +142,7 @@ class UploadFile{
 
 		//上传文件
 		$this->upload_file = $_FILES[$field];
+		var_dump($this->upload_file);
 		if ($this->upload_file['tmp_name'] == ""){
 			$this->setError(Language::get('cant_find_temporary_files'));
 			return false;

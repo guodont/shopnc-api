@@ -7,6 +7,7 @@
  * Time: 下午1:49
  */
 defined('InShopNC') or exit('Access Invalid!');
+
 class questionControl extends apiHomeControl
 {
     protected $question_info = array();
@@ -16,17 +17,20 @@ class questionControl extends apiHomeControl
         parent::__construct();
     }
 
-    protected function questionInfo($question_id){
-        $this->question_info = Model()->table('circle_theme')->where(array('theme_id'=>$question_id))->find();
-        if(empty($this->question_info)){
-            output_error("问题不存在");die;
+    protected function questionInfo($question_id)
+    {
+        $this->question_info = Model()->table('circle_theme')->where(array('theme_id' => $question_id))->find();
+        if (empty($this->question_info)) {
+            output_error("问题不存在");
+            die;
         }
     }
 
     /**
      * GET 所有问答类型
      */
-    public function allQuestionTypeOp(){
+    public function allQuestionTypeOp()
+    {
         $circle_id = 0; //问答类型从circle_id 为0 的分类数据中读取
         $where = array();
         $where['circle_id'] = $circle_id;
@@ -45,10 +49,9 @@ class questionControl extends apiHomeControl
     {
         $type = intval($_GET['type']);
         $c_id = intval($_GET['c_id']);
-        if ($type > 0)
-        {
+        if ($type > 0) {
             $where = array();
-            if($c_id >= 0){
+            if ($c_id >= 0) {
                 $where['circle_id'] = $c_id;
             }
             $where['thclass_id'] = $type;
@@ -65,9 +68,7 @@ class questionControl extends apiHomeControl
                 }
             }
             output_data(array('questions' => $question_list), mobile_page($pageCount));
-        }
-        else
-        {
+        } else {
             output_error("问题类型id错误");
             die;
         }
@@ -76,33 +77,34 @@ class questionControl extends apiHomeControl
     /**
      * GET 问题详情
      */
-    public function questionOp(){
+    public function questionOp()
+    {
         // 问题信息
         $question_id = intval($_GET['q_id']);
-        if($question_id >0 ){
+        if ($question_id > 0) {
             $this->questionInfo($question_id);
             $data = $this->question_info;
             $model = Model();
             // 访问数增加
-            $model->table('circle_theme')->update(array('theme_id'=>$question_id, 'theme_browsecount'=>array('exp', 'theme_browsecount+1')));
+            $model->table('circle_theme')->update(array('theme_id' => $question_id, 'theme_browsecount' => array('exp', 'theme_browsecount+1')));
 
             $data['theme_content'] = ubb($data['theme_content']);
-            if($data['theme_edittime'] != ''){
+            if ($data['theme_edittime'] != '') {
                 $data['theme_edittime'] = @date('Y-m-d H:i', $data['theme_edittime']);
             }
             $data['member_avatar'] = getMemberAvatarForID($data['member_id']);
 
-            if (strtoupper(CHARSET) == 'GBK'){
+            if (strtoupper(CHARSET) == 'GBK') {
                 $data = Language::getUTF8($data);
             }
-            output_data(array('questionInfo'=>$data));die;
-        }else{
-            output_error("问题id错误");die;
+            output_data(array('questionInfo' => $data));
+            die;
+        } else {
+            output_error("问题id错误");
+            die;
         }
 
     }
-
-
 
 
     /**
@@ -111,8 +113,7 @@ class questionControl extends apiHomeControl
     public function answersOp()
     {
         $question_id = intval($_GET['q_id']);
-        if($question_id >0 )
-        {
+        if ($question_id > 0) {
             // 问题信息
             $this->questionInfo($question_id);
 
@@ -157,7 +158,7 @@ class questionControl extends apiHomeControl
             $member_list = array_under_reset($member_list, 'member_id');
 
             output_data(array('answers' => $reply_info, 'member_list' => $member_list), mobile_page($pageCount));
-        }else{
+        } else {
             output_error("问题id错误");
         }
     }

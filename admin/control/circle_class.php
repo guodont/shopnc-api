@@ -100,7 +100,7 @@ class circle_classControl extends SystemControl{
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
 					array("input"=>$_POST["class_name"], "require"=>"true", "message"=>L('circle_class_name_not_null')),
-					array("input"=>$_POST["class_sort"], "require"=>"true", 'validator'=>'Number', "message"=>L(’circle_class_sort_is_number)),
+					array("input"=>$_POST["class_sort"], "require"=>"true", 'validator'=>'Number', "message"=>L('circle_class_sort_is_number')),
 			);
 			$error = $obj_validate->validate();
 			if($error != ''){

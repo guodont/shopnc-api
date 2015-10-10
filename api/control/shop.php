@@ -8,16 +8,19 @@
 defined('InShopNC') or exit('Access Invalid!');
 
 
-class shopControl extends apiHomeControl {
+class shopControl extends apiHomeControl
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
     }
 
     /*
      * 首页显示
      */
-    public function indexOp(){
+    public function indexOp()
+    {
 
 
         $this->_get_Own_Store_List();
@@ -25,12 +28,13 @@ class shopControl extends apiHomeControl {
     }
 
 
-    private  function  _get_Own_Store_List(){
-		
-		$model_store = Model('store');
+    private function  _get_Own_Store_List()
+    {
+
+        $model_store = Model('store');
         //查询条件
         $condition = array();
-        if(!empty($_GET['sc_id']) && intval($_GET['sc_id']) > 0) {
+        if (!empty($_GET['sc_id']) && intval($_GET['sc_id']) > 0) {
             $condition['sc_id'] = $_GET['sc_id'];
         } elseif (!empty($_GET['keyword'])) {
             //$condition['store_name'] = array('like', '%' . $_GET['keyword'] . '%');
@@ -51,28 +55,22 @@ class shopControl extends apiHomeControl {
             $simply_store_list[$key]['store_area_info'] = $own_store_list[$key]['area_info'];
 
         }
-		
-		 output_data(array('store_list' => $simply_store_list), mobile_page($page_count));
-       
+
+        output_data(array('store_list' => $simply_store_list), mobile_page($page_count));
+
     }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	 /**
+
+
+    /**
      * 商品列表排序方式
      */
-    private function _store_list_order($key, $order) {
+    private function _store_list_order($key, $order)
+    {
         $result = 'store_id desc';
         if (!empty($key)) {
 
             $sequence = 'desc';
-            if($order == 1) {
+            if ($order == 1) {
                 $sequence = 'asc';
             }
 
@@ -94,13 +92,5 @@ class shopControl extends apiHomeControl {
         return $result;
     }
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

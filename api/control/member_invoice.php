@@ -11,22 +11,25 @@
 
 defined('InShopNC') or exit('Access Invalid!');
 
-class member_invoiceControl extends apiMemberControl {
+class member_invoiceControl extends apiMemberControl
+{
 
-	public function __construct() {
-		parent::__construct();
-	}
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * 发票信息列表
      */
-    public function invoice_listOp() {
+    public function invoice_listOp()
+    {
         $model_invoice = Model('invoice');
 
         $condition = array();
         $condition['member_id'] = $this->member_info['member_id'];
 
-	    $invoice_list = $model_invoice->getInvList($condition, 10, 'inv_id,inv_title,inv_content');
+        $invoice_list = $model_invoice->getInvList($condition, 10, 'inv_id,inv_title,inv_content');
 
         output_data(array('invoice_list' => $invoice_list));
     }
@@ -34,16 +37,17 @@ class member_invoiceControl extends apiMemberControl {
     /**
      * 发票信息删除
      */
-    public function invoice_delOp() {
+    public function invoice_delOp()
+    {
         $inv_id = intval($_POST['inv_id']);
-        if($inv_id <= 0) {
+        if ($inv_id <= 0) {
             output_error('参数错误');
         }
 
         $model_invoice = Model('invoice');
 
-        $result = $model_invoice->delInv(array('inv_id'=>$inv_id, 'member_id'=>$this->member_info['member_id']));
-        if($result) {
+        $result = $model_invoice->delInv(array('inv_id' => $inv_id, 'member_id' => $this->member_info['member_id']));
+        if ($result) {
             output_data('1');
         } else {
             output_error('删除失败');
@@ -53,7 +57,8 @@ class member_invoiceControl extends apiMemberControl {
     /**
      * 发票信息添加
      */
-    public function invoice_addOp() {
+    public function invoice_addOp()
+    {
         $model_invoice = Model('invoice');
 
         $data = array();
@@ -62,7 +67,7 @@ class member_invoiceControl extends apiMemberControl {
         $data['inv_content'] = $_POST['inv_content'];
         $data['member_id'] = $this->member_info['member_id'];
         $result = $model_invoice->addInv($data);
-        if($result) {
+        if ($result) {
             output_data(array('inv_id' => $result));
         } else {
             output_error('添加失败');
@@ -72,7 +77,8 @@ class member_invoiceControl extends apiMemberControl {
     /**
      * 发票内容列表
      */
-    public function invoice_content_listOp() {
+    public function invoice_content_listOp()
+    {
         $invoice_content_list = array(
             '明细',
             '酒',

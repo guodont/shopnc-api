@@ -10,22 +10,26 @@
 //use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
-class goodsControl extends apiHomeControl{
 
-	public function __construct() {
+class goodsControl extends apiHomeControl
+{
+
+    public function __construct()
+    {
         parent::__construct();
     }
 
     /**
      * 商品列表
      */
-    public function goods_listOp() {
+    public function goods_listOp()
+    {
         $model_goods = Model('goods');
         $model_search = Model('search');
 
         //查询条件
         $condition = array();
-        if(!empty($_GET['gc_id']) && intval($_GET['gc_id']) > 0) {
+        if (!empty($_GET['gc_id']) && intval($_GET['gc_id']) > 0) {
             $condition['gc_id'] = $_GET['gc_id'];
         } elseif (!empty($_GET['keyword'])) {
             $condition['goods_name|goods_jingle'] = array('like', '%' . $_GET['keyword'] . '%');
@@ -41,17 +45,17 @@ class goodsControl extends apiHomeControl{
         $order = $this->_goods_list_order($_GET['key'], $_GET['order']);
 
         //优先从全文索引库里查找
-        list($indexer_ids,$indexer_count) = $model_search->indexerSearch($_GET,$this->page);
+        list($indexer_ids, $indexer_count) = $model_search->indexerSearch($_GET, $this->page);
         if (is_array($indexer_ids)) {
             //商品主键搜索
-            $goods_list = $model_goods->getGoodsOnlineList(array('goods_id'=>array('in',$indexer_ids)), $fieldstr, 0, $order, $this->page, null, false);
+            $goods_list = $model_goods->getGoodsOnlineList(array('goods_id' => array('in', $indexer_ids)), $fieldstr, 0, $order, $this->page, null, false);
 
             //如果有商品下架等情况，则删除下架商品的搜索索引信息
             if (count($goods_list) != count($indexer_ids)) {
                 $model_search->delInvalidGoods($goods_list, $indexer_ids);
             }
-            pagecmd('setEachNum',$this->page);
-            pagecmd('setTotalNum',$indexer_count);
+            pagecmd('setEachNum', $this->page);
+            pagecmd('setTotalNum', $indexer_count);
         } else {
             $goods_list = $model_goods->getGoodsListByColorDistinct($condition, $fieldstr, $order, $this->page);
         }
@@ -65,12 +69,13 @@ class goodsControl extends apiHomeControl{
     /**
      * 商品列表排序方式
      */
-    private function _goods_list_order($key, $order) {
+    private function _goods_list_order($key, $order)
+    {
         $result = 'is_own_shop desc,goods_id desc';
         if (!empty($key)) {
 
             $sequence = 'desc';
-            if($order == 1) {
+            if ($order == 1) {
                 $sequence = 'asc';
             }
 
@@ -95,11 +100,12 @@ class goodsControl extends apiHomeControl{
     /**
      * 处理商品列表(抢购、限时折扣、商品图片)
      */
-    private function _goods_list_extend($goods_list) {
+    private function _goods_list_extend($goods_list)
+    {
         //获取商品列表编号数组
         $commonid_array = array();
         $goodsid_array = array();
-        foreach($goods_list as $key => $value) {
+        foreach ($goods_list as $key => $value) {
             $commonid_array[] = $value['goods_commonid'];
             $goodsid_array[] = $value['goods_id'];
         }
@@ -138,7 +144,8 @@ class goodsControl extends apiHomeControl{
     /**
      * 商品详细页
      */
-    public function goods_detailOp() {
+    public function goods_detailOp()
+    {
         $goods_id = intval($_GET ['goods_id']);
 
         // 商品详细信息
@@ -152,7 +159,7 @@ class goodsControl extends apiHomeControl{
         $model_store = Model('store');
         $hot_sales = $model_store->getHotSalesList($goods_detail['goods_info']['store_id'], 6);
         $goods_commend_list = array();
-        foreach($hot_sales as $value) {
+        foreach ($hot_sales as $value) {
             $goods_commend = array();
             $goods_commend['goods_id'] = $value['goods_id'];
             $goods_commend['goods_name'] = $value['goods_name'];
@@ -165,66 +172,54 @@ class goodsControl extends apiHomeControl{
         $goods_detail['store_info']['store_id'] = $store_info['store_id'];
         $goods_detail['store_info']['store_name'] = $store_info['store_name'];
         $goods_detail['store_info']['member_id'] = $store_info['member_id'];
-	//显示QQ及旺旺 好商城V3
-	$goods_detail['store_info']['store_qq'] = $store_info['store_qq'];
-	$goods_detail['store_info']['store_ww'] = $store_info['store_ww'];
-	$goods_detail['store_info']['store_phone'] = $store_info['store_phone'];
+        //显示QQ及旺旺 好商城V3
+        $goods_detail['store_info']['store_qq'] = $store_info['store_qq'];
+        $goods_detail['store_info']['store_ww'] = $store_info['store_ww'];
+        $goods_detail['store_info']['store_phone'] = $store_info['store_phone'];
         $goods_detail['store_info']['member_name'] = $store_info['member_name'];
         $goods_detail['store_info']['avatar'] = getMemberAvatarForID($store_info['member_id']);
 
         //商品详细信息处理
         $goods_detail = $this->_goods_detail_extend($goods_detail);
-		
-		
-		
-		
-		
-		//v3-b11 抢购商品是否开始
-		$goods_info=$goods_detail['goods_info'];
-		//print_r($goods_info);
-		$IsHaveBuy=0;
-		if(!empty($_COOKIE['username']))
-		{
-		   $model_member = Model('member');
-		   $member_info= $model_member->getMemberInfo(array('member_name'=>$_COOKIE['username']));
-		   $buyer_id=$member_info['member_id'];
-		   
-		   $promotion_type=$goods_info["promotion_type"];
-		   
-		   if($promotion_type=='groupbuy')
-		   {   
-		    //检测是否限购数量
-			$upper_limit=$goods_info["upper_limit"];
-			if($upper_limit>0)
-			{
-				//查询些会员的订单中，是否已买过了
-				$model_order= Model('order');
-				 //取商品列表
-                $order_goods_list = $model_order->getOrderGoodsList(array('goods_id'=>$goods_id,'buyer_id'=>$buyer_id,'goods_type'=>2));
-				if($order_goods_list)
-				{   
-				    //取得上次购买的活动编号(防一个商品参加多次团购活动的问题)
-				    $promotions_id=$order_goods_list[0]["promotions_id"];
-					//用此编号取数据，检测是否这次活动的订单商品。
-					 $model_groupbuy = Model('groupbuy');
-					 $groupbuy_info = $model_groupbuy->getGroupbuyInfo(array('groupbuy_id' => $promotions_id));
-					 if($groupbuy_info)
-					 {
-						$IsHaveBuy=1;
-					 }
-					 else
-					 {
-						$IsHaveBuy=0;
-					 }
-				}
-			}
-		  }
-		}
-		$goods_detail['IsHaveBuy']=$IsHaveBuy;
-		//v3-b11 end
-		
-		
-		
+
+
+        //v3-b11 抢购商品是否开始
+        $goods_info = $goods_detail['goods_info'];
+        //print_r($goods_info);
+        $IsHaveBuy = 0;
+        if (!empty($_COOKIE['username'])) {
+            $model_member = Model('member');
+            $member_info = $model_member->getMemberInfo(array('member_name' => $_COOKIE['username']));
+            $buyer_id = $member_info['member_id'];
+
+            $promotion_type = $goods_info["promotion_type"];
+
+            if ($promotion_type == 'groupbuy') {
+                //检测是否限购数量
+                $upper_limit = $goods_info["upper_limit"];
+                if ($upper_limit > 0) {
+                    //查询些会员的订单中，是否已买过了
+                    $model_order = Model('order');
+                    //取商品列表
+                    $order_goods_list = $model_order->getOrderGoodsList(array('goods_id' => $goods_id, 'buyer_id' => $buyer_id, 'goods_type' => 2));
+                    if ($order_goods_list) {
+                        //取得上次购买的活动编号(防一个商品参加多次团购活动的问题)
+                        $promotions_id = $order_goods_list[0]["promotions_id"];
+                        //用此编号取数据，检测是否这次活动的订单商品。
+                        $model_groupbuy = Model('groupbuy');
+                        $groupbuy_info = $model_groupbuy->getGroupbuyInfo(array('groupbuy_id' => $promotions_id));
+                        if ($groupbuy_info) {
+                            $IsHaveBuy = 1;
+                        } else {
+                            $IsHaveBuy = 0;
+                        }
+                    }
+                }
+            }
+        }
+        $goods_detail['IsHaveBuy'] = $IsHaveBuy;
+        //v3-b11 end
+
 
         output_data($goods_detail);
     }
@@ -232,7 +227,8 @@ class goodsControl extends apiHomeControl{
     /**
      * 商品详细信息处理
      */
-    private function _goods_detail_extend($goods_detail) {
+    private function _goods_detail_extend($goods_detail)
+    {
         //整理商品规格
         unset($goods_detail['spec_list']);
         $goods_detail['spec_list'] = $goods_detail['spec_list_mobile'];
@@ -278,7 +274,8 @@ class goodsControl extends apiHomeControl{
     /**
      * 商品详细页
      */
-    public function goods_bodyOp() {
+    public function goods_bodyOp()
+    {
         $goods_id = intval($_GET ['goods_id']);
 
         $model_goods = Model('goods');
@@ -289,17 +286,20 @@ class goodsControl extends apiHomeControl{
         Tpl::output('goods_common_info', $goods_common_info);
         Tpl::showpage('goods_body');
     }
-	/**
+
+    /**
      * 手机商品详细页
      */
-	public function wap_goods_bodyOp() {
+    public function wap_goods_bodyOp()
+    {
         $goods_id = intval($_GET ['goods_id']);
 
         $model_goods = Model('goods');
 
-        $goods_info =$model_goods->getGoodsInfoByID($goods_id, 'goods_id');
-        $goods_common_info =$model_goods->getMobileBodyByCommonID($goods_info['goods_commonid']);
-        Tpl:output('goods_common_info',$goods_common_info);
+        $goods_info = $model_goods->getGoodsInfoByID($goods_id, 'goods_id');
+        $goods_common_info = $model_goods->getMobileBodyByCommonID($goods_info['goods_commonid']);
+        Tpl:
+        output('goods_common_info', $goods_common_info);
         Tpl::showpage('goods_body');
     }
 }
