@@ -23,6 +23,7 @@ class circle_opControl extends apiBaseCircleControl
     public function identifyCircleMemberOp()
     {
         // 身份	0游客 1圈主 2管理 3成员 4申请中 5申请失败 6禁言
+        $this->memberInfo();
         echo $this->identity;
     }
 
