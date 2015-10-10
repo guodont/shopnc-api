@@ -17,7 +17,7 @@ class member_informationControl extends BaseMemberControl {
 		$this->memberOp();
 	}
 	/**
-	 * 我的资料【用户中心】
+	 * 我的基本信息【用户中心】
 	 *
 	 * @param
 	 * @return
@@ -33,6 +33,10 @@ class member_informationControl extends BaseMemberControl {
 
 			$member_array	= array();
 			$member_array['member_truename']	= $_POST['member_truename'];
+			$member_array['member_xueke']    	= $_POST['member_xueke'];
+			$member_array['member_zhuanye']    	= $_POST['member_zhuanye'];			
+			$member_array['member_yjfx']    	= $_POST['member_yjfx'];
+			$member_array['member_shenfen']		= $_POST['member_shenfen'];			
 			$member_array['member_sex']			= $_POST['member_sex'];
 			$member_array['member_qq']			= $_POST['member_qq'];
 			$member_array['member_ww']			= $_POST['member_ww'];
@@ -64,7 +68,7 @@ class member_informationControl extends BaseMemberControl {
 		Tpl::showpage('member_profile');
 	}
 	/**
-	 * 我的资料【更多个人资料】
+	 * 我的科研标签【更多个人资料】
 	 *
 	 * @param
 	 * @return
@@ -218,7 +222,7 @@ class member_informationControl extends BaseMemberControl {
 			case 'member':
 				$menu_array	= array(
 				1=>array('menu_key'=>'member',	'menu_name'=>Language::get('home_member_base_infomation'),'menu_url'=>'index.php?act=member_information&op=member'),
-				2=>array('menu_key'=>'more',	'menu_name'=>Language::get('home_member_more'),'menu_url'=>'index.php?act=member_information&op=more'),
+				3=>array('menu_key'=>'more',	'menu_name'=>Language::get('home_member_more'),'menu_url'=>'index.php?act=member_information&op=more'),
 				5=>array('menu_key'=>'avatar',	'menu_name'=>Language::get('home_member_modify_avatar'),'menu_url'=>'index.php?act=member_information&op=avatar'));
 				break;
 		}

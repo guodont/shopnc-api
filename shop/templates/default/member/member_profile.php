@@ -23,22 +23,6 @@
          </dd>
         </dl>
         <dl>
-          <dt><?php echo $lang['home_member_email'].$lang['nc_colon'];?></dt>
-          <dd><span class="w400"><?php echo $output['member_info']['member_email']; ?>&nbsp;&nbsp;
-            <?php if ($output['member_info']['member_email_bind'] == '1') { ?>
-            <a href="index.php?act=member_security&op=auth&type=modify_email">更换邮箱</a>
-            <?php } else { ?>
-            <a href="index.php?act=member_security&op=auth&type=modify_email">绑定邮箱</a>
-            <?php } ?></span><span>
-            <select name="privacy[email]">
-              <option value="0" <?php if($output['member_info']['member_privacy']['email'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
-              <option value="1" <?php if($output['member_info']['member_privacy']['email'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
-              <option value="2" <?php if($output['member_info']['member_privacy']['email'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
-            </select>
-            </span>
-          </dd>
-        </dl>
-        <dl>
           <dt><?php echo $lang['home_member_truename'].$lang['nc_colon'];?></dt>
           <dd><span class="w400">
             <input type="text" class="text" maxlength="20" name="member_truename" value="<?php echo $output['member_info']['member_truename']; ?>" />
@@ -50,7 +34,7 @@
             </select>
             </span></dd>
         </dl>
-        <dl>
+ <dl>
           <dt><?php echo $lang['home_member_sex'].$lang['nc_colon'];?></dt>
           <dd><span class="w400">
             <label>
@@ -71,16 +55,30 @@
               <option value="2" <?php if($output['member_info']['member_privacy']['sex'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
             </select>
             </span></dd>
-        </dl>
+        </dl>		
         <dl>
-          <dt><?php echo $lang['home_member_birthday'].$lang['nc_colon'];?></dt>
+          <dt><?php echo $lang['home_member_shenfen'].$lang['nc_colon'];?></dt>
           <dd><span class="w400">
-            <input type="text" class="text" name="birthday" maxlength="10" id="birthday" value="<?php echo $output['member_info']['member_birthday']; ?>" />
+            <label>
+              <input type="radio" name="member_shenfen" value="1" <?php if($output['member_info']['member_shenfen']==1) { ?>checked="checked"<?php } ?> />
+              <?php echo $lang['home_member_shenfen_student'];?></label>
+			  &nbsp;&nbsp;	
+            <label>
+              <input type="radio" name="member_shenfen" value="2" <?php if($output['member_info']['member_shenfen']==2) { ?>checked="checked"<?php } ?> />
+              <?php echo $lang['home_member_shenfen_teacher'];?></label>
+			  &nbsp;&nbsp;  
+            <label>
+              <input type="radio" name="member_shenfen" value="3" <?php if($output['member_info']['member_shenfen']==3) { ?>checked="checked"<?php } ?> />
+              <?php echo $lang['home_member_shenfen_yjry'];?></label>
+			  &nbsp;&nbsp;  
+            <label>
+              <input type="radio" name="member_shenfen" value="4" <?php if($output['member_info']['member_shenfen']==4) { ?>checked="checked"<?php } ?> />
+              <?php echo $lang['home_member_shenfen_other'];?></label>            		  
             </span><span>
-            <select name="privacy[birthday]">
-              <option value="0" <?php if($output['member_info']['member_privacy']['birthday'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
-              <option value="1" <?php if($output['member_info']['member_privacy']['birthday'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
-              <option value="2" <?php if($output['member_info']['member_privacy']['birthday'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
+            <select name="privacy[shenfen]">
+              <option value="0" <?php if($output['member_info']['member_privacy']['shenfen'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
+              <option value="1" <?php if($output['member_info']['member_privacy']['shenfen'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
+              <option value="2" <?php if($output['member_info']['member_privacy']['shenfen'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
             </select>
             </span></dd>
         </dl>
@@ -108,6 +106,71 @@
             </select>
             </span></dd>
         </dl>
+        <dl>
+          <dt><?php echo $lang['home_member_xueke'].$lang['nc_colon'];?></dt>
+          <dd><span class="w400">
+            <input type="text" class="text" maxlength="50" name="member_xueke" value="<?php echo $output['member_info']['member_xueke']; ?>" />
+            </span><span>
+            <select name="privacy[xueke]">
+              <option value="0" <?php if($output['member_info']['member_privacy']['xueke'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
+              <option value="1" <?php if($output['member_info']['member_privacy']['xueke'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
+              <option value="2" <?php if($output['member_info']['member_privacy']['xueke'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
+            </select>
+            </span></dd>
+        </dl>									
+        <dl>
+          <dt><?php echo $lang['home_member_zhuanye'].$lang['nc_colon'];?></dt>
+          <dd><span class="w400">
+            <input type="text" class="text" maxlength="50" name="member_zhuanye" value="<?php echo $output['member_info']['member_zhuanye']; ?>" />
+            </span><span>
+            <select name="privacy[zhuanye]">
+              <option value="0" <?php if($output['member_info']['member_privacy']['zhuanye'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
+              <option value="1" <?php if($output['member_info']['member_privacy']['zhuanye'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
+              <option value="2" <?php if($output['member_info']['member_privacy']['zhuanye'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
+            </select>
+            </span></dd>
+        </dl>	       
+        <dl>
+          <dt><?php echo $lang['home_member_yjfx'].$lang['nc_colon'];?></dt>
+          <dd><span class="w400">
+            <input type="text" class="text" maxlength="50" name="member_yjfx" value="<?php echo $output['member_info']['member_yjfx']; ?>" />
+            </span><span>
+            <select name="privacy[yjfx]">
+              <option value="0" <?php if($output['member_info']['member_privacy']['yjfx'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
+              <option value="1" <?php if($output['member_info']['member_privacy']['yjfx'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
+              <option value="2" <?php if($output['member_info']['member_privacy']['yjfx'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
+            </select>
+            </span></dd>
+        </dl>		
+        <dl>
+          <dt><?php echo $lang['home_member_birthday'].$lang['nc_colon'];?></dt>
+          <dd><span class="w400">
+            <input type="text" class="text" name="birthday" maxlength="10" id="birthday" value="<?php echo $output['member_info']['member_birthday']; ?>" />
+            </span><span>
+            <select name="privacy[birthday]">
+              <option value="0" <?php if($output['member_info']['member_privacy']['birthday'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
+              <option value="1" <?php if($output['member_info']['member_privacy']['birthday'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
+              <option value="2" <?php if($output['member_info']['member_privacy']['birthday'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
+            </select>
+            </span></dd>
+        </dl>
+        
+        <dl>
+          <dt><?php echo $lang['home_member_email'].$lang['nc_colon'];?></dt>
+          <dd><span class="w400"><?php echo $output['member_info']['member_email']; ?>&nbsp;&nbsp;
+            <?php if ($output['member_info']['member_email_bind'] == '1') { ?>
+            <a href="index.php?act=member_security&op=auth&type=modify_email">更换邮箱</a>
+            <?php } else { ?>
+            <a href="index.php?act=member_security&op=auth&type=modify_email">绑定邮箱</a>
+            <?php } ?></span><span>
+            <select name="privacy[email]">
+              <option value="0" <?php if($output['member_info']['member_privacy']['email'] == 0){?>selected="selected"<?php }?>><?php echo $lang['home_member_public'];?></option>
+              <option value="1" <?php if($output['member_info']['member_privacy']['email'] == 1){?>selected="selected"<?php }?>><?php echo $lang['home_member_friend'];?></option>
+              <option value="2" <?php if($output['member_info']['member_privacy']['email'] == 2){?>selected="selected"<?php }?>><?php echo $lang['home_member_privary']?></option>
+            </select>
+            </span>
+          </dd>
+        </dl>		
         <dl>
           <dt>QQ<?php echo $lang['nc_colon'];?></dt>
           <dd><span class="w400">

@@ -18,16 +18,25 @@ $lang['home_member_avatar_thumb']			= '头像预览';
 $lang['home_member_change_avatar']			= '更换头像';
 $lang['home_member_username']				= '用户名称';
 $lang['home_member_truename']				= '真实姓名';
+$lang['home_member_shenfen']				= '身份';
+$lang['home_member_gzdw']				    = '工作单位';
+$lang['home_member_xueke']				    = '学科类别';
+$lang['home_member_zhuanye']				= '专业';
+$lang['home_member_yjfx']				    = '研究方向';
 $lang['home_member_sex']					= '性别';
 $lang['home_member_female']					= '女';
 $lang['home_member_male']					= '男';
 $lang['home_member_secret']					= '保密';
+$lang['home_member_shenfen_student']		= '学生';
+$lang['home_member_shenfen_teacher']		= '高校教师';
+$lang['home_member_shenfen_yjry']			= '研究人员';
+$lang['home_member_shenfen_other']			= '其他人员';
 $lang['home_member_birthday']				= '生日';
 $lang['home_member_format']					= '格式';
 $lang['home_member_example']				= '举例';
 $lang['home_member_save_modify']			= '保存修改';
-$lang['home_member_wangwang']		= '阿里旺旺';
-$lang['home_member_areainfo']		= '所在地区';
+$lang['home_member_wangwang']		        = '阿里旺旺';
+$lang['home_member_areainfo']	         	= '工作单位';
 $lang['home_member_avatar_upload']			= '图片上传';
 $lang['home_member_privacy_set']			= '隐私设置';
 $lang['home_member_public']					= '公开';
@@ -66,11 +75,10 @@ $lang['home_member_email_exists']				= '该电子邮箱已经存在';
 /**
  * 更多个人信息
  */
-$lang['home_member_more']						= '兴趣标签';
-$lang['home_member_more_tag_list']				= '贴上你喜欢的标签，让别人了解你。';
+$lang['home_member_more']						= '科研标签';
+$lang['home_member_more_tag_list']				= '贴上你喜欢的科研标签，让别人了解你。';
 $lang['home_memner_more_tag_list_title']		= '点击选择或拖拽Tag到“我的标签”框中，保存生效';
 $lang['home_member_more_my_tag']				= '我的标签';
 $lang['home_member_more_my_tag_title']			= '可将已选Tag拖拽回“候选标签”框或选择删除，保存生效';
-
 $lang['home_member_apply_succ']					= '申请成功';
 ?>

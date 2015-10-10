@@ -423,9 +423,12 @@ class BaseMemberControl extends Control {
                 )),
                 'app' => array('name' => '应用管理', 'child' => array(
                         'sns'               => array('name' => '个人主页', 'url'=>urlShop('member_snshome', 'index')),
-                        'cms'               => array('name' => '我的CMS', 'url'=>urlCMS('member_article', 'article_list')),
-                        'circle'            => array('name' => '我的圈子', 'url'=>urlCircle('p_center', 'index')),
-                        'microshop'         => array('name' => '我的微商城', 'url'=>urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id'])))
+						'todo'              => array('name' => '我的待办', 'url'=>urlCMS('member_article', 'article_list')),
+						'circle'            => array('name' => '科研圈子', 'url'=>urlCircle('p_center', 'index')),
+                        'member_flea'       => array('name' => '科研服务', 'url'=>urlshop('member_flea', 'index')),					
+                        'cms'               => array('name' => '资源库', 'url'=>urlCMS('member_article', 'article_list'))
+						
+                        
                 ))
         );
         return $menu_list;
