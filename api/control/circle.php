@@ -185,11 +185,10 @@ class circleControl extends apiHomeControl
     {
         $model = Model();
         $m_theme = $model->table('circle_theme');
-        $theme_list = $m_theme->where(array('circle_status' => 1, 'is_closed' => 0, 'is_recommend' => 1))->page($this->page)->order('theme_addtime desc')->select();
+        $theme_list = $m_theme->where(array('is_closed' => 0, 'is_recommend' => 1))->page($this->page)->order('theme_addtime desc')->select();
         $pageCount = $m_theme->gettotalpage();
         if (!empty($theme_list)) {
                foreach ($theme_list as $key => $val) {
-                if (isset($affix_list[$val['theme_id']])) $theme_list[$key]['affix'] = themeImageUrl($affix_list[$val['theme_id']]['affix_filethumb']);
                 $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
             }
         }
