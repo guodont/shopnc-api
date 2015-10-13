@@ -104,6 +104,32 @@ class member_centerControl extends apiMemberControl
         }
     }
 
+    /**
+     * GET 是否关注
+     */
+    public function isfollowstateOp()
+    {
+        echo "12";
+        $mid = intval($_GET['mid']);
+        if ($mid <= 0) {
+            output_error("用户id错误");
+        }
+        //验证是否已经存在好友记录
+        $friend_model = Model('sns_friend');
+        $friend_count = $friend_model->countFriend(array('friend_frommid' => "$this->member_id", 'friend_tomid' => "$mid"));
+        if ($friend_count > 0) {
+            output_error("已关注过");
+        }
+        //查询对方是否已经关注我，从而判断关注状态
+        $friend_info = $friend_model->getFriendRow(array('friend_frommid' => "{$mid}", 'friend_tomid' => "$this->member_id"));
+        if (empty($friend_info)) {
+            output_error("1");
+        } else {
+            output_error("2");
+        }
+        echo "1";
+    }
+
 
     /**
      * POST 保存个人资料

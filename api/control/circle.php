@@ -181,30 +181,25 @@ class circleControl extends apiHomeControl
     /**
      * GET 推荐话题
      */
-    public function get_theme_listOp()
+    public function get_reply_themelistOp()
     {
         $model = Model();
         $m_theme = $model->table('circle_theme');
-        $theme_list = $m_theme->field('*, is_recommend*rand()*10000 + has_affix*rand() as rand')->where(array('circle_status' => 1, 'is_closed' => 0, 'has_affix' => 0))->page($this->page)->order('rand,theme_addtime desc')->select();
+        $theme_list = $m_theme->where(array('circle_status' => 1, 'is_closed' => 0, 'is_recommend' => 1))->page($this->page)->order('theme_addtime desc')->select();
         $pageCount = $m_theme->gettotalpage();
         if (!empty($theme_list)) {
-            $themeid_array = array_keys($theme_list);
-            // 附件
-            $affix_list = $model->table('circle_affix')->where(array('theme_id' => array('in', $themeid_array), 'affix_type' => 1))->group('theme_id')->select();
-            if (!empty($affix_list)) $affix_list = array_under_reset($affix_list, 'theme_id');
-            foreach ($theme_list as $key => $val) {
+               foreach ($theme_list as $key => $val) {
                 if (isset($affix_list[$val['theme_id']])) $theme_list[$key]['affix'] = themeImageUrl($affix_list[$val['theme_id']]['affix_filethumb']);
                 $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
             }
         }
-
         output_data(array('themes' => $theme_list), mobile_page($pageCount));
     }
 
     /**
      * GET 人气话题
      */
-    public function get_reply_themelistOp()
+    public function get_theme_listOp()
     {
 
         $model = Model();
