@@ -54,22 +54,18 @@
           <td class="vatop tips"></td>
         </tr>
         <tr>
-            <td colspan="2" class="required"><label><?php echo $lang['article_add_push'];?>:</label></td>
-        </tr>
-        <tr class="noborder">
-            <td class="vatop rowform onoff"><label for="article_push1" class="cb-enable selected" ><span><?php echo $lang['nc_yes'];?></span></label>
-                <label for="article_push0" class="cb-disable" ><span><?php echo $lang['nc_no'];?></span></label>
-                <input id="article_push1" name="article_push" checked="checked" value="1" type="radio">
-                <input id="article_push0" name="article_push" value="0" type="radio"></td>
-            <td class="vatop tips"></td>
-        </tr>
-        <tr>
           <td colspan="2" class="required"><?php echo $lang['nc_sort'];?>: 
         </tr>
         <tr class="noborder">
           <td class="vatop rowform"><input type="text" value="255" name="article_sort" id="article_sort" class="txt"></td>
           <td class="vatop tips"></td>
         </tr>
+        <tr>
+          <td colspan="2" class="required"><label class="validation"><?php echo $lang['article_add_abstract'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td colspan="2"><textarea name="article_abstract" cols="110" rows="5" id="article_abstract"></textarea></td>
+        </tr>		
         <tr>
           <td colspan="2" class="required"><label class="validation"><?php echo $lang['article_add_content'];?>:</label></td>
         </tr>
