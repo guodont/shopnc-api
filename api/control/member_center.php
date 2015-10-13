@@ -109,7 +109,6 @@ class member_centerControl extends apiMemberControl
      */
     public function isfollowstateOp()
     {
-        echo "12";
         $mid = intval($_GET['mid']);
         if ($mid <= 0) {
             output_error("用户id错误");
@@ -118,16 +117,12 @@ class member_centerControl extends apiMemberControl
         $friend_model = Model('sns_friend');
         $friend_count = $friend_model->countFriend(array('friend_frommid' => "$this->member_id", 'friend_tomid' => "$mid"));
         if ($friend_count > 0) {
-            output_error("已关注过");
-        }
-        //查询对方是否已经关注我，从而判断关注状态
-        $friend_info = $friend_model->getFriendRow(array('friend_frommid' => "{$mid}", 'friend_tomid' => "$this->member_id"));
-        if (empty($friend_info)) {
-            output_error("1");
+            //  已关注
+            echo 1;
         } else {
-            output_error("2");
+            //  未关注
+            echo 0;
         }
-        echo "1";
     }
 
 
