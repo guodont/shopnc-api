@@ -7,11 +7,55 @@
  ***/
 
 defined('InShopNC') or exit('Access Invalid!');
+Base::autoload('vendor/autoload');
+use JPush\Model as M;
+use JPush\JPushClient;
+use JPush\Exception\APIConnectionException;
+use JPush\Exception\APIRequestException;
+
 class articleControl extends SystemControl{
 	public function __construct(){
 		parent::__construct();
 		Language::read('article');
 	}
+
+	/**
+	 * 推送消息到app
+	 * @param $content
+	 * @param $title
+	 * @param $extras
+	 */
+	private function pushMessage($content,$title,$extras) {
+		$pushConf = C('push');
+		$br = '<br/>';
+		$app_key = $pushConf['app_key'];
+		$master_secret = $pushConf['master_secret'];
+		$client = new JPushClient($app_key, $master_secret);
+		try {
+			$result = $client->push()
+				->setPlatform(M\all)
+				->setAudience(M\all)
+				->setNotification(M\notification(M\android($content,$title,3,$extras)))
+				->send();
+			echo 'Push Success.' . $br;
+			echo 'sendno : ' . $result->sendno . $br;
+			echo 'msg_id : ' .$result->msg_id . $br;
+			echo 'Response JSON : ' . $result->json . $br;
+		} catch (APIRequestException $e) {
+			echo 'Push Fail.' . $br;
+			echo 'Http Code : ' . $e->httpCode . $br;
+			echo 'code : ' . $e->code . $br;
+			echo 'message : ' . $e->message . $br;
+			echo 'Response JSON : ' . $e->json . $br;
+			echo 'rateLimitLimit : ' . $e->rateLimitLimit . $br;
+			echo 'rateLimitRemaining : ' . $e->rateLimitRemaining . $br;
+			echo 'rateLimitReset : ' . $e->rateLimitReset . $br;
+		} catch (APIConnectionException $e) {
+			echo 'Push Fail.' . $br;
+			echo 'message' . $e->getMessage() . $br;
+		}
+	}
+
 	/**
 	 * 文章管理
 	 */
@@ -173,6 +217,13 @@ class articleControl extends SystemControl{
 						),
 					);
 					$this->log(L('article_add_ok').'['.$_POST['article_title'].']',null);
+					$is_push = trim($_POST['article_push']);
+					if ($is_push == "1") {
+						//	推送消息通知到客户端
+						$extras = array();
+						$extras['push_type'] = "article";
+						$this->pushMessage($insert_array['article_content'],$insert_array['article_title'],$extras);
+					}
 					showMessage("{$lang['article_add_ok']}",$url);
 				}else {
 					showMessage("{$lang['article_add_fail']}");

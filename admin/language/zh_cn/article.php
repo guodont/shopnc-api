@@ -17,6 +17,7 @@ $lang['article_index_help1']	= '区别于系统文章，可在文章列表页点
 $lang['article_add_url']		= '链接';
 $lang['article_add_url_tip']			= '当填写&quot;链接&quot;后点击文章标题将直接跳转至链接地址，不显示文章内容。链接格式请以http://开头';
 $lang['article_add_show']		= '显示';
+$lang['article_add_push']		= '推送';
 $lang['article_add_class']		= '所属分类';
 $lang['article_add_content']	= '文章内容';
 $lang['article_add_abstract']	= '文章摘要';
