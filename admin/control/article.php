@@ -222,7 +222,7 @@ class articleControl extends SystemControl{
 						//	推送消息通知到客户端
 						$extras = array();
 						$extras['push_type'] = "article";
-						$this->pushMessage($insert_array['article_content'],$insert_array['article_title'],$extras);
+						$this->pushMessage($insert_array['article_abstract'],$insert_array['article_title'],$extras);
 					}
 					showMessage("{$lang['article_add_ok']}",$url);
 				}else {
