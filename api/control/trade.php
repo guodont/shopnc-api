@@ -111,6 +111,11 @@ class tradeControl extends apiHomeControl
         $desc_image = $m_trade->getListImageGoods(array('image_store_id' => $trade_info[0]['member_id'], 'item_id' => $trade_info[0]['goods_id'], 'image_type' => 12));
         $m_trade->getThumb($desc_image, $goods_image_path);
 
+        /**
+         * 浏览次数更新
+         */
+        $m_trade->updateGoods(array('goods_click'=>($trade_info[0]['goods_click']+1)),$trade_id);
+
         $image_key = 0;
         if (!empty($desc_image) && is_array($desc_image)) {//将封面图放到第一位显示
             $goods_image_1 = $trade_info[0]['goods_image'];//封面图
