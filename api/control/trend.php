@@ -52,10 +52,7 @@ class trendControl extends apiMemberControl
             $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
         }
         $pageCount = $m_theme->gettotalpage();
-        if (empty($theme_list)) {
-            output_error("没有任何动态");
-            die;
-        }
+
         output_data(array('trends' => $theme_list), mobile_page($pageCount));
     }
 }
