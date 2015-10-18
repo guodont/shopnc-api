@@ -220,8 +220,11 @@ class articleControl extends SystemControl{
 					$is_push = trim($_POST['article_push']);
 					if ($is_push == "1") {
 						//	推送消息通知到客户端
+						//	推送消息通知到客户端
 						$extras = array();
 						$extras['push_type'] = "article";
+						$extras['id'] = $result;
+//						$extras2 = json_decode($extras);
 						$this->pushMessage($insert_array['article_abstract'],$insert_array['article_title'],$extras);
 					}
 					showMessage("{$lang['article_add_ok']}",$url);
