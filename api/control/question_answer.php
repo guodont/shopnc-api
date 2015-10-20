@@ -247,5 +247,44 @@ class question_answerControl extends apiMemberControl
         }
     }
 
+    /**
+     * 我的问题
+     */
+    public function myQuestionsOp()
+    {
+        $type = intval($_GET['type']);
+        $c_id = intval($_GET['c_id']);
+        if ($type > 0) {
+            $where = array();
+            if ($c_id >= 0) {
+                $where['circle_id'] = $c_id;
+            }
+            $where['thclass_id'] = $type;
+            $model = Model();
+            if (intval($_GET['cream']) == 1) {
+                $where['is_digest'] = 1;
+            }
+            $m_circle_theme = $model->table('circle_theme');
+            $question_list = $m_circle_theme->where($where)->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
+            $pageCount = $m_circle_theme->gettotalpage();
+            if (!empty($question_list)) {
+                foreach ($question_list as $key => $val) {
+                    $question_list[$key]['member_avatar'] = getMemberAvatarForID($question_list[$key]['member_id']);
+                }
+            }
+            output_data(array('questions' => $question_list), mobile_page($pageCount));
+        } else {
+            output_error("问题类型id错误");
+            die;
+        }
+    }
+
+    /**
+     * 我的回答
+     */
+    public function myAnswersOp() {
+
+    }
+
 
 }
