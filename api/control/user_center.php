@@ -180,7 +180,8 @@ class user_centerControl extends apiHomeControl
     {
         $model = Model();
         $m_theme = $model->table('circle_theme');
-
+        $types = array(5, 6);
+        $where['thclass_id'] = array('not in',$types);
         $theme_list = $m_theme->where(array('member_id' => $this->member_id))->page($this->page)->order('theme_id desc')->select();
         $pageCount = $m_theme->gettotalpage();
         if (empty($theme_list)) {
@@ -188,5 +189,28 @@ class user_centerControl extends apiHomeControl
             die;
         }
         output_data(array('themes' => $theme_list), mobile_page($pageCount));
+    }
+
+    /**
+     * 用户的回帖
+     */
+    public function userAnswersOp()
+    {
+        // 回复列表
+        $where = array();
+        $types = array(5, 6);
+        $model = new Model();
+        $m_reply = $model->table('circle_threply');
+        $where['circle_threply.member_id'] = $this->member_id;
+        $where['circle_theme.thclass_id'] = array('not in',$types);
+        $reply_info = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_id asc')->select();
+        $pageCount = $m_reply->gettotalpage();
+        if (!empty($reply_info)) {
+            foreach ($reply_info as $key => $val) {
+                $reply_info[$key]['member_avatar'] = getMemberAvatarForID($reply_info[$key]['member_id']);
+            }
+        }
+        output_data(array('answers' => $reply_info), mobile_page($pageCount));
+
     }
 }
