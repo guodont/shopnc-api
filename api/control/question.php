@@ -163,4 +163,54 @@ class questionControl extends apiHomeControl
         }
     }
 
+    /**
+     * 用户的问题
+     */
+    public function userQuestionsOp()
+    {
+        $types = array(5, 6);
+        $u_id = intval($_GET['u_id']);
+        $where = array();
+        if ($u_id >= 0) {
+            $where['member_id'] = $u_id;
+        }
+        $where['thclass_id'] = array('in',$types);
+        $model = Model();
+        if (intval($_GET['cream']) == 1) {
+            $where['is_digest'] = 1;
+        }
+        $m_circle_theme = $model->table('circle_theme');
+        $question_list = $m_circle_theme->where($where)->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
+        $pageCount = $m_circle_theme->gettotalpage();
+        if (!empty($question_list)) {
+            foreach ($question_list as $key => $val) {
+                $question_list[$key]['member_avatar'] = getMemberAvatarForID($question_list[$key]['member_id']);
+            }
+        }
+        output_data(array('questions' => $question_list), mobile_page($pageCount));
+
+    }
+
+    /**
+     * 用户的回答
+     */
+    public function userAnswersOp()
+    {
+        // 回复列表
+        $where = array();
+        $types = array(5, 6);
+        $model = new Model();
+        $m_reply = $model->table('circle_threply');
+        $where['circle_threply.member_id'] = $_GET['u_id'];
+        $where['circle_theme.thclass_id'] = array('in',$types);
+        $reply_info = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_id asc')->select();
+        $pageCount = $m_reply->gettotalpage();
+        if (!empty($reply_info)) {
+            foreach ($reply_info as $key => $val) {
+                $reply_info[$key]['member_avatar'] = getMemberAvatarForID($reply_info[$key]['member_id']);
+            }
+        }
+        output_data(array('answers' => $reply_info), mobile_page($pageCount));
+
+    }
 } 
