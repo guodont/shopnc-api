@@ -284,10 +284,6 @@ class member_centerControl extends apiMemberControl
          */
         $upload = new UploadFile();
         $upload_dir = ATTACH_MALBUM . DS . $member_id . DS;
-
-        var_dump($upload_dir);
-
-        var_dump($upload_dir . $upload->getSysSetPath());
         $upload->set('default_dir', $upload_dir . $upload->getSysSetPath());
         $thumb_width = '240,1024';
         $thumb_height = '2048,1024';

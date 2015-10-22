@@ -172,4 +172,20 @@ class trade_opControl extends apiMemberControl
         output_data(array("ok" => "取消成功"));
     }
 
+    /**
+     * GET 收藏状态
+     * fav_id
+     */
+    public function isFav()
+    {
+        if (intval($_GET['fav_id']) > 0) {
+            $mTrade = Model('flea_favorites');
+            $status = $mTrade->checkFavorites($_GET['fav_id'],'flea',$this->member_id);
+            if($status) {
+                echo 1;
+            }else {
+                echo 0;
+            }
+        }
+    }
 }
