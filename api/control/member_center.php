@@ -292,7 +292,7 @@ class member_centerControl extends apiMemberControl
         $upload->set('thumb_width', $thumb_width);
         $upload->set('thumb_height', $thumb_height);
         $upload->set('fprefix', $member_id);
-        $upload->set('thumb_ext', '_240,_1024');
+        $upload->set('thumb_ext', '_1024,_2048');
         $result = $upload->upfile('file');
         if (!$result) {
             output_error("fail");
@@ -319,7 +319,7 @@ class member_centerControl extends apiMemberControl
         $data['file_name'] = $img_path;
         $data['origin_file_name'] = $_FILES["file"]["name"];
         $data['file_path'] = $img_path;
-        $data['file_url'] = snsThumb($img_path, 240);
+        $data['file_url'] = snsThumb($img_path, 1024);
         $data['state'] = true;
 
         output_data($data);
