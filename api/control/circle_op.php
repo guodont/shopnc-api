@@ -172,10 +172,10 @@ class circle_opControl extends apiBaseCircleControl
                 $insert['cm_exp'] = 1;
                 $insert['cm_nextexp'] = $data[2]['mld_exp'];
                 $insert['cm_state'] = intval($this->circle_info['circle_joinaudit']) == 0 ? 1 : 0;
-                $insert['is_identity'] = 3;
-                $model->table('circle_member')->insert($insert, true);
                 if (intval($this->circle_info['circle_joinaudit']) == 0) {
                     // Update the number of members
+                    $insert['is_identity'] = 4;
+                    $model->table('circle_member')->insert($insert, true);
                     $update = array(
                         'circle_id' => $this->c_id,
                         'circle_mcount' => array('exp', 'circle_mcount+1')
@@ -183,6 +183,8 @@ class circle_opControl extends apiBaseCircleControl
                     $model->table('circle')->update($update);
                     output_data(array('ok' => "已提交申请,等待圈主审核"));
                 } else {
+                    $insert['is_identity'] = 3;
+                    $model->table('circle_member')->insert($insert, true);
                     // Update is applying for membership
                     $update = array(
                         'circle_id' => $this->c_id,
