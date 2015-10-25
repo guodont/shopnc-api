@@ -66,13 +66,18 @@ class indexControl extends apiHomeControl
     {
         $version = C('mobile_apk_version');
         $url = C('mobile_apk');
+        $msg = "圈圈有新版本";
+//        $msg = C('updateMessage');
         if (empty($version)) {
             $version = '';
         }
         if (empty($url)) {
             $url = '';
         }
+        if (empty($msg)) {
+            $msg = '';
+        }
 
-        output_data(array('version' => $version, 'url' => $url));
+        json_encode(array('url' => $url,'versionCode' => $version,'updateMessage' =>$msg ));
     }
 }
