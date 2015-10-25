@@ -24,7 +24,7 @@ class mb_appControl extends SystemControl{
 		if (chksubmit()) {
 			$update_array = array();
 			$update_array['mobile_apk'] = $_POST['mobile_apk'];
-			$update_array['mobile_apk_version'] = $_POST['mobile_apk_version'];
+			$update_array['mobile_apk_version'] =intval($_POST['mobile_apk_version']);
 			$update_array['mobile_ios'] = $_POST['mobile_ios'];
 			$state = $model_setting->updateSetting($update_array);
 			if ($state) {
