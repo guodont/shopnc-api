@@ -78,6 +78,6 @@ class indexControl extends apiHomeControl
             $msg = '';
         }
 
-        json_encode(array('url' => $url,'versionCode' => $version,'updateMessage' =>$msg ));
+        echo json_encode(array('url' => $url,'versionCode' => $version,'updateMessage' =>$msg ));
     }
 }
