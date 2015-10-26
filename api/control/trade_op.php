@@ -176,7 +176,7 @@ class trade_opControl extends apiMemberControl
      * GET 收藏状态
      * fav_id
      */
-    public function isFav()
+    public function isFavOp()
     {
         if (intval($_GET['fav_id']) > 0) {
             $mTrade = Model('flea_favorites');
