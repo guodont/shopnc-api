@@ -203,7 +203,7 @@ class questionControl extends apiHomeControl
         $m_reply = $model->table('circle_threply');
         $where['circle_threply.member_id'] = $_GET['u_id'];
         $where['circle_theme.thclass_id'] = array('in',$types);
-        $reply_info = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_id asc')->select();
+        $reply_info = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
         $pageCount = $m_reply->gettotalpage();
         if (!empty($reply_info)) {
             foreach ($reply_info as $key => $val) {
