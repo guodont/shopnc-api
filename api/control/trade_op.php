@@ -124,7 +124,6 @@ class trade_opControl extends apiMemberControl
         /**
          * 读取语言包
          */
-        $lang = Language::getLangContent('UTF-8');
         if (intval($_GET['fav_id']) > 0) {
             /**
              * 实例化模型
@@ -136,7 +135,7 @@ class trade_opControl extends apiMemberControl
                 'goods_id' => intval($_GET['fav_id'])
             ));
             if ($flea_info[0]['member_id'] == $this->member_id) {
-                output_error($lang['flea_favorite_no_my_product']);
+                output_error("不能收藏自己的交易");
                 die;
             }
 

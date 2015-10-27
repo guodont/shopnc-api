@@ -184,6 +184,11 @@ class user_centerControl extends apiHomeControl
         $where['thclass_id'] = array('not in',$types);
         $theme_list = $m_theme->where(array('member_id' => $this->member_id))->page($this->page)->order('theme_addtime desc')->select();
         $pageCount = $m_theme->gettotalpage();
+        if (!empty($theme_list)) {
+            foreach ($theme_list as $key => $val) {
+                $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
+            }
+        }
         if (empty($theme_list)) {
             output_error("当前用户没有发布任何话题");
             die;
