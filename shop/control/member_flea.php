@@ -1,6 +1,6 @@
 <?php
 /**
- * 我的闲置
+ * 我的交易
  * by abc.com
  */
 defined('InShopNC') or exit('Access Invalid!');
@@ -13,21 +13,21 @@ class member_fleaControl extends BaseMemberControl{
 		Language::read('member_layout,member_store_goods_index,member_flea,home_flea_index');
 	}
 	/**
-	 * 默认显示闲置列表
+	 * 默认显示交易列表
 	 */
 	public function indexOp() {
         $this->flea_listOp() ;
     }
 	/**
-	 * 获取当前用户的闲置列表 
+	 * 获取当前用户的交易列表 
 	 */
     public function flea_listOp() {
 		/**
-		 * 实例化闲置物品模型
+		 * 实例化交易模型
 		 */
 		$model_store_goods	= Model('flea');
 		/**
-		 * 闲置分页
+		 * 交易分页
 		 */
 		$page	= new Page();
 		$page->setEachNum(10);
@@ -56,12 +56,12 @@ class member_fleaControl extends BaseMemberControl{
         Tpl::showpage('store_flea_list');
     }
 	/**
-	 * 添加闲置
+	 * 添加交易
 	 */
 	public function add_goodsOp() {
 		$lang	= Language::getLangContent();
 		/**
-		 * 检测用户发布闲置物品个数
+		 * 检测用户发布交易个数
 		 */
 		$model_flea = Model('flea');
 		$goods_num=$model_flea->countGoods(array('member_id'=>$_SESSION['member_id']));
@@ -91,7 +91,7 @@ class member_fleaControl extends BaseMemberControl{
 		Tpl::showpage('store_flea_goods_add');
 	}
 	/**
-	 * 保存闲置物品
+	 * 保存交易
 	 */
 	public function save_goodsOp() {
 		$lang	= Language::getLangContent();
@@ -115,7 +115,8 @@ class member_fleaControl extends BaseMemberControl{
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
 			array("input"=>$_POST["goods_name"],"require"=>"true","message"=>$lang['store_goods_index_flea_name_null']),
-			array("input"=>$_POST["goods_price"],"require"=>"true","validator"=>"Double","message"=>$lang['store_goods_index_flea_price_null'])
+			array("input"=>$_POST["goods_leixing"],"require"=>"true","message"=>$lang['store_goods_index_flea_goods_leixing_null']),
+			array("input"=>$_POST["goods_store_price"],"require"=>"true","validator"=>"Double","message"=>$lang['store_goods_index_flea_price_null'])
 			);//debug ..
 			$error = $obj_validate->validate();
 			if ($error != ''){
@@ -128,6 +129,7 @@ class member_fleaControl extends BaseMemberControl{
 
 			$goods_array			= array();
 			$goods_array['goods_name']		= $_POST['goods_name'];
+			$goods_array['goods_leixing']	= $_POST['goods_leixing'];
 			$goods_array['gc_id']			= $_POST['cate_id'];
 			$goods_array['gc_name']			= $_POST['cate_name'];
 			$goods_array['flea_quality']	= $_POST['sh_quality'];
@@ -139,14 +141,14 @@ class member_fleaControl extends BaseMemberControl{
 			$goods_array['goods_price']		= $_POST['goods_price'];
 			$goods_array['goods_store_price']= $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
 			$goods_array['goods_show']		= '1';
-			$goods_array['goods_commend']	= $_POST['goods_commend'];
+			$goods_array['goods_commend']	= '0';
             $goods_array['goods_body']		= $_POST['g_body'];
 			$goods_array['goods_keywords']		= $_POST['seo_keywords'];
 			$goods_array['goods_description']   = $_POST['seo_description'];
 			$state = $model_store_goods->saveGoods($goods_array);
 			if($state) {
 				/**
-				 * 更新闲置物品多图
+				 * 更新交易物品多图
 				 */
 				$upload_array = array();
 				$upload_array['store_id']	= $_SESSION['member_id'];
@@ -170,7 +172,7 @@ class member_fleaControl extends BaseMemberControl{
 		}
 	}
 	               	/**
-	 *删除闲置物品
+	 *删除交易物品
 	 */
 	public function flea_delOp(){
 		if (!empty($_GET['goods_id'])){
@@ -181,12 +183,12 @@ class member_fleaControl extends BaseMemberControl{
 		}
 	}
 	/**
-	 * 删除闲置物品
+	 * 删除交易物品
 	 */	
 	public function drop_goodsOp() {
 		$lang	= Language::getLangContent();
 		/**
-		 * 实例化闲置物品模型
+		 * 实例化交易物品模型
 		 */
 		$model_store_goods	= Model('flea');
 		/**
@@ -217,7 +219,7 @@ class member_fleaControl extends BaseMemberControl{
 		}
 	}
 	/**
-	 * 编辑闲置物品页面
+	 * 编辑交易物品页面
 	 */
 	public function edit_goodsOp() {
 		$lang	= Language::getLangContent();
@@ -278,7 +280,7 @@ class member_fleaControl extends BaseMemberControl{
 		Tpl::showpage('store_flea_goods_add');
 	}
 	/**
-	 * 编辑闲置物品保存
+	 * 编辑交易物品保存
 	 */
 	public function edit_save_goodsOp() {
 		$lang	= Language::getLangContent();
@@ -290,18 +292,20 @@ class member_fleaControl extends BaseMemberControl{
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
 			array("input"=>$_POST["goods_name"],"require"=>"true","message"=>$lang['store_goods_index_flea_name_null']),
-			array("input"=>$_POST["goods_price"],"require"=>"true","validator"=>"Double","message"=>$lang['store_goods_index_flea_price_null'])
+			array("input"=>$_POST["goods_leixing"],"require"=>"true","message"=>$lang['store_goods_index_flea_goods_leixing_null']),
+			array("input"=>$_POST["goods_store_price"],"require"=>"true","validator"=>"Double","message"=>$lang['store_goods_index_flea_price_null'])
 			);
 			$error = $obj_validate->validate();
 			if ($error != ''){
 				showMessage($lang['error'].$error,'','html','error');
 			}
 			/**
-		 	 * 实例化闲置物品模型
+		 	 * 实例化交易物品模型
 			 */
 			$model_store_goods	= Model('flea');
 			$goods_array			= array();
 			$goods_array['goods_name']		= $_POST['goods_name'];
+			$goods_array['goods_leixing']	= $_POST['goods_leixing'];
 			if (intval($_POST['cate_id']) != 0) {
 				$goods_array['gc_id']			= $_POST['cate_id'];
 				$goods_array['gc_name']			= $_POST['cate_name'];
@@ -315,14 +319,14 @@ class member_fleaControl extends BaseMemberControl{
 			$goods_array['goods_price']		= $_POST['goods_price'];
 			$goods_array['goods_store_price']= $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
 			$goods_array['goods_show']		= '1';
-			$goods_array['goods_commend']	= $_POST['goods_commend'];
+			$goods_array['goods_commend']	= '0';
 			$goods_array['goods_body']		= $_POST['g_body'];
 			$goods_array['goods_keywords']		= $_POST['seo_keywords'];
 			$goods_array['goods_description']   = $_POST['seo_description'];
 			$state = $model_store_goods->updateGoods($goods_array,$goods_id);
 			if($state) {
 				/**
-		 		 * 闲置物品封面图片修改
+		 		 * 交易物品封面图片修改
 		 		 */
 				if(!empty($_POST['goods_file_id'][0])) {
 					$image_info	= $model_store_goods->getListImageGoods(array('upload_id'=>intval($_POST['goods_file_id'][0])));
@@ -431,7 +435,7 @@ class member_fleaControl extends BaseMemberControl{
 		}
 	}
 	/**
-	 * 买家闲置收藏
+	 * 买家交易收藏
 	 *
 	 * @param
 	 * @return
@@ -545,7 +549,7 @@ class member_fleaControl extends BaseMemberControl{
 				die;
 			}
 			
-			//闲置物品收藏次数增加1
+			//交易物品收藏次数增加1
 			$check_rss = $favorites_class->checkFavorites(intval($_GET['fav_id']),'flea',$_SESSION['member_id']);
 			if (!$check_rss){
 				$condition['flea_collect_num']['value']=1;
@@ -576,18 +580,22 @@ class member_fleaControl extends BaseMemberControl{
 		switch ($menu_type) {
 			case 'goods':
 				$menu_array	= array(
-					1=>array('menu_key'=>'flea_list',	'menu_name'=>闲置列表,			'menu_url'=>'index.php?act=member_flea')
+					1=>array('menu_key'=>'flea_list',	'menu_name'=>交易列表,			'menu_url'=>'index.php?act=member_flea'),
+					2=>array('menu_key'=>'favorites',	'menu_name'=>收藏交易,	'menu_url'=>'index.php?act=member_flea&op=favorites')
 				);
 				break;
 			case 'add_goods':
 				$menu_array = array(
-					1=>array('menu_key'=>'flea_list',	'menu_name'=>闲置列表,			'menu_url'=>'index.php?act=member_flea'),
-					2=>array('menu_key'=>'goods_add',	'menu_name'=>发布闲置,	'menu_url'=>'index.php?act=member_flea&op=add_goods')
+					1=>array('menu_key'=>'flea_list',	'menu_name'=>交易列表,			'menu_url'=>'index.php?act=member_flea'),
+					2=>array('menu_key'=>'favorites',	'menu_name'=>收藏交易,	'menu_url'=>'index.php?act=member_flea&op=favorites'),					
+					3=>array('menu_key'=>'goods_add',	'menu_name'=>发布交易,	'menu_url'=>'index.php?act=member_flea&op=add_goods')
 				);
 				break;
 			case 'favorites':
 				$menu_array = array(
-					1=>array('menu_key'=>'favorites',	'menu_name'=>编辑闲置,	'menu_url'=>'index.php?act=member_flea&op=favorites')
+					1=>array('menu_key'=>'flea_list',	'menu_name'=>交易列表,	'menu_url'=>'index.php?act=member_flea'),
+					2=>array('menu_key'=>'favorites',	'menu_name'=>收藏交易,	'menu_url'=>'index.php?act=member_flea&op=favorites'),
+					3=>array('menu_key'=>'goods_add',	'menu_name'=>发布交易,	'menu_url'=>'index.php?act=member_flea&op=add_goods')					
 				);
 		}
 		if(!empty($array)) {

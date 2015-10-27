@@ -400,7 +400,7 @@ class BaseMemberControl extends Control {
                         'member_favorites'  => array('name' => '我的收藏', 'url'=>urlShop('member_favorites', 'fglist')),
                         'member_evaluate'   => array('name' => '交易评价/晒单', 'url'=>urlShop('member_evaluate', 'list')),
                         'predeposit'        => array('name' => '账户余额', 'url'=>urlShop('predeposit', 'pd_log_list')),
-						'member_flea'     => array('name' => '我的闲置', 'url'=>urlShop('member_flea', 'index')),
+						'member_flea'     => array('name' => '我的科研交易', 'url'=>urlShop('member_flea', 'index')),
                         'member_points'     => array('name' => '我的积分', 'url'=>urlShop('member_points', 'index')),
                         'member_voucher'    => array('name' => '我的代金券', 'url'=>urlShop('member_voucher', 'index'))
                 )),

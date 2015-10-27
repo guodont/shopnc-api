@@ -4,52 +4,57 @@ defined('InShopNC') or exit('Access Invalid!');
 /**
  * 页面需要的语言
  */
-$lang['store_goods_index_new_flea']					= '发布闲置';
+$lang['store_goods_index_new_flea']					= '发布交易';
 $lang['store_goods_index_flea_goods_class']			= '所属分类';
-$lang['store_goods_index_flea_goods_name']			= '宝贝标题';
-$lang['store_goods_index_flea_goods_desc']			= '宝贝描述';
-$lang['store_goods_album_flea_goods_pic']			= '宝贝图片';
-$lang['store_goods_album_flea_description_one']		= '最多可发布5张宝贝图片。';
+$lang['store_goods_index_flea_goods_name']			= '交易标题';
+$lang['store_goods_index_flea_goods_desc']			= '交易描述';
+$lang['store_goods_album_flea_goods_pic']			= '交易图片';
+$lang['store_goods_album_flea_description_one']		= '最多可发布5张交易图片。';
 $lang['store_goods_album_flea_description_two']		= '支持jpg、jpeg、gif、png格式上传，<br />建议选择尺寸300x300以上、大小2M以内的图片。';
 $lang['store_goods_album_insert_users_flea_photo']	= '插入已上传图片';
 
-$lang['store_goods_index_store_flea_price']			= '转让价格';
-$lang['store_goods_index_flea_multiple_tag']		= '让更多买家可以搜索到，请用英文逗号分隔';
-$lang['store_goods_index_flea_goods_tag']			= '宝贝标签';
+$lang['store_goods_index_store_flea_price']			= '交易价格';
+$lang['store_goods_index_flea_goods_leixing']		= '交易类型';
+$lang['store_goods_index_flea_multiple_tag']		= '让更多圈友可以搜索到，请用英文逗号分隔';
+$lang['store_goods_index_flea_goods_tag']			= '交易标签';
 $lang['store_goods_index_flea_goods_seo_keywords']	= 'SEO关键字</br>(keywords)';
 $lang['store_goods_index_flea_title']				= '宝贝标题5-30字';
-$lang['store_goods_index_flea_notice1']				= '每个用户最多发布10个闲置物品信息<br>请删除某个闲置物品信息后重新操作';
+$lang['store_goods_index_flea_notice1']				= '每个用户最多发布10个交易信息<br>请删除某个交易信息后重新操作';
 $lang['store_goods_index_flea_goods_price']			= '宝贝原价';
 $lang['store_goods_index_flea_goods_show']			= '宝贝上架';
 
 $lang['store_goods_index_flea_goods_name_null']		= '宝贝名称不能为空';
+$lang['store_goods_index_flea_goods_leixing_null']	= '交易类型不能为空';
+$lang['store_goods_index_flea_goods_leixing_zhuanrang']	= '我要转让';
+$lang['store_goods_index_flea_goods_leixing_xuqiu']	= '我有需求';
 $lang['store_goods_index_flea_goods_price_null']	= '宝贝原价不能为空';
 $lang['store_goods_index_flea_goods_price_error']	= '宝贝原价只能是数字';
 $lang['store_goods_index_flea_store_price_null']	= '转让价格不能为空';
 $lang['store_goods_index_flea_store_price_error']	= '转让价格只能是数字';
 
-$lang['store_goods_index_edit_flea']				= '编辑闲置';
-$lang['store_goods_index_flea_del_success']			= '闲置物品删除成功';
-$lang['store_goods_index_flea_del_fail']			= '闲置物品删除失败';
-$lang['store_goods_index_flea_add_success']			= '闲置物品添加成功';
-$lang['store_goods_index_flea_add_fail']			= '闲置物品添加失败';
-$lang['store_goods_index_flea_name_null']			= '宝贝标题不能为空';
-$lang['store_goods_index_flea_price_null']			= '宝贝原价不能为空';
-$lang['store_goods_index_flea_goods_edit_success']	= '闲置物品编辑成功';
-$lang['store_goods_index_flea_goods_edit_fail']		= '闲置物品编辑失败';
+$lang['store_goods_index_edit_flea']				= '编辑交易';
+$lang['store_goods_index_flea_del_success']			= '交易删除成功';
+$lang['store_goods_index_flea_del_fail']			= '交易删除失败';
+$lang['store_goods_index_flea_add_success']			= '交易添加成功';
+$lang['store_goods_index_flea_add_fail']			= '交易添加失败';
+$lang['store_goods_index_flea_name_null']			= '交易标题不能为空';
+$lang['store_goods_index_flea_price_null']			= '交易价钱不能为空';
+$lang['store_goods_index_flea_goods_edit_success']	= '交易编辑成功';
+$lang['store_goods_index_flea_goods_edit_fail']		= '交易编辑失败';
 
 $lang['store_goods_index_flea_area']				='请选择地区';
 $lang['store_goods_index_flea_next_area']			='请选择下级地区';
 
 $lang['store_goods_index_flea_title_limit']			='标题长度在5-30之间';
-$lang['store_goods_index_flea_choose_oldnew']		='请选择新旧程度';
+$lang['store_goods_index_flea_choose_oldnew']		='请选择权益归属';
 $lang['store_goods_index_flea_contact_unnull']		='联系人不能为空';
 $lang['store_goods_index_flea_tel_unnull']			='联系电话不能为空';
 $lang['store_goods_index_flea_tel_number']			='联系电话只能为数字';
 
-$lang['flea_goods_name']							= '闲置物品名称';
-$lang['flea_goods_price']							= '转让价格';
+$lang['flea_goods_name']							= '交易名称';
+$lang['flea_goods_price']							= '交易价格';
 $lang['flea_goods_gc_name']							= '所属分类';
+$lang['flea_goods_status']							= '交易状态';
 
 /**
  * 收藏

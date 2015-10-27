@@ -190,17 +190,17 @@ class flea_classControl extends BaseHomeControl {
 				$listgoods[$replace_key]['explain']	= preg_replace($exge,'',$replace_val['goods_body']);
 				$listgoods[$replace_key]['time']	= $this->time_comb(intval($replace_val['goods_add_time']));
 				switch($replace_val['flea_quality']){
-					case 10:
-						$quality	= Language::get('flea_index_new');
+					case 1:
+						$quality	= Language::get('flea_index_myself');
 						break;
-					case 9:
-						$quality	= Language::get('flea_index_almost_new');
+					case 2:
+						$quality	= Language::get('flea_index_together');
 						break;
-					case 8:
-						$quality	= Language::get('flea_index_gently_used');
+					case 3:
+						$quality	= Language::get('flea_index_herself');
 						break;
 					default;
-						$quality	= Language::get('flea_index_old');
+						$quality	= Language::get('flea_index_myself');
 						break;
 				}
 				$listgoods[$replace_key]['quality']	= $quality;

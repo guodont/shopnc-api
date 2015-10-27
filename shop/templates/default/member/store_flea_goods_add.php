@@ -70,6 +70,16 @@ add_spec h2 {padding-left: 10px;}
           <p class="hint"><?php echo $lang['store_goods_index_flea_title'];?></p>
         </dd>
       </dl>
+	  <dl>
+        <dt class="required"><em class="pngFix"></em><?php echo $lang['store_goods_index_flea_goods_leixing'].$lang['nc_colon'];?></dt>
+        <dd>
+          <p>
+          <input name="goods_leixing" type="radio" value="0" <?php if($output['goods']['goods_leixing']=='0'){echo ' checked="checked"';}?>>&nbsp;&nbsp;<?php echo $lang['store_goods_index_flea_goods_leixing_zhuanrang'];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <input name="goods_leixing" type="radio" value="1" <?php if($output['goods']['goods_leixing']=='1'){echo ' checked="checked"';}?>>&nbsp;&nbsp;<?php echo $lang['store_goods_index_flea_goods_leixing_xuqiu'];?>    
+          </p>
+		  <p class="hint"><?php echo $lang['store_goods_index_flea_goods_leixing_null'];?></p>
+        </dd>
+      </dl>
       <dl>
         <dt><?php echo $lang['store_goods_index_flea_goods_tag'].$lang['nc_colon'];?></dt>
         <dd>
@@ -136,10 +146,9 @@ add_spec h2 {padding-left: 10px;}
         <dd>
           <select name="sh_quality" class="w100">
             <option value="0"<?php if($output['goods']['flea_quality']=='0'){echo ' selected="selected"';}?>><?php echo $lang['nc_please_choose'];?></option>
-            <option value="10"<?php if($output['goods']['flea_quality']=='10'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_new'];?></option>
-            <option value="9"<?php if($output['goods']['flea_quality']=='9'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_almost_new'];?></option>
-            <option value="8"<?php if($output['goods']['flea_quality']=='8'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_gently_used'];?></option>
-            <option value="7"<?php if($output['goods']['flea_quality']=='7'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_old'];?></option>
+            <option value="1"<?php if($output['goods']['flea_quality']=='1'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_myself'];?></option>
+            <option value="2"<?php if($output['goods']['flea_quality']=='2'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_together'];?></option>
+            <option value="3"<?php if($output['goods']['flea_quality']=='3'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_herself'];?></option>
           </select>
         </dd>
       </dl>
@@ -168,15 +177,9 @@ add_spec h2 {padding-left: 10px;}
               <?php } ?>
             </select>
             <?php }?>
-            <input type="hidden" name="area_id" id="area_id" value="<?php echo $output['goods']['flea_area_id']?$output['goods']['flea_area_id']:'';?>" class="area_ids" />
-            <input type="hidden" name="area_info" id="area_info" value="<?php echo $output['goods']['flea_area_name'];?>" class="area_names" />
+            <input type="hidden" name="member_area_id" id="member_area_name" value="<?php echo $output['goods']['flea_area_id']?$output['goods']['flea_area_id']:'';?>" class="area_ids" />
+            <input type="hidden" name="member_area_name" id="member_area_name" value="<?php echo $output['goods']['flea_area_name'];?>" class="area_names" />
           </div>
-        </dd>
-      </dl>
-      <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['store_goods_index_flea_goods_price'].$lang['nc_colon'];?></dt>
-        <dd>
-          <input name="goods_price" class="text" value="<?php echo $output['goods']['goods_price']; ?>" type="text" />
         </dd>
       </dl>
       <dl>
@@ -469,8 +472,8 @@ area_id: {
             },
             sh_quality : {
                 number   : true,
-                min		 : 7,
-                max		 : 10
+                min		 : 1,
+                max		 : 3
             },
             goods_price    : {
 				required   : true,
@@ -510,10 +513,6 @@ area_id: {
             	number   : '<?php echo $lang['store_goods_index_flea_choose_oldnew'];?>',
             	min      : '<?php echo $lang['store_goods_index_flea_choose_oldnew'];?>',
             	max      : '<?php echo $lang['store_goods_index_flea_choose_oldnew'];?>'
-            },
-            goods_price : {
-				required: '<?php echo $lang['store_goods_index_flea_goods_price_null'];?>',
-                number     : '<?php echo $lang['store_goods_index_flea_goods_price_error'];?>'
             },
             goods_store_price : {
 				required: '<?php echo $lang['store_goods_index_flea_store_price_null'];?>',
