@@ -46,9 +46,14 @@ class tradeControl extends apiHomeControl
         $listgoods = $m_trade->field($this->fields)->where($this->where)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
 
+        $mTrade = Model('flea_favorites');
         if ($listgoods) {
             foreach ($listgoods as $replace_key => $replace_val) {
 
+                // 获取收藏状态
+                if(isset($_GET['uid'])) {
+                    $listgoods[$replace_key]['fav_status'] =  $mTrade->checkFavorites($listgoods[$replace_key]['goods_id'],'flea',$_GET['uid'])? 1:0;
+                }
                 $listgoods[$replace_key]['member_avatar'] = getMemberAvatarForID($listgoods[$replace_key]['member_id']);
                 $listgoods[$replace_key]['goods_image'] = $listgoods[$replace_key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $listgoods[$replace_key]['member_id'] . '/' . str_replace('_1024', '_240', $replace_val['goods_image']);
 
@@ -73,8 +78,16 @@ class tradeControl extends apiHomeControl
         $m_trade = Model('utrade');
         $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
+
+        $mTrade = Model('flea_favorites');
+
         if (is_array($trade_list) and !empty($trade_list)) {
             foreach ($trade_list as $key => $val) {
+
+                // 获取收藏状态
+                if(isset($_GET['uid'])) {
+                    $trade_list[$key]['fav_status'] = $mTrade->checkFavorites($trade_list[$key]['goods_id'], 'flea', $_GET['uid']) ? 1 : 0;
+                }
                 $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
                 $trade_list[$key]['goods_image'] = $trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
             }
