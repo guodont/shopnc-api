@@ -319,7 +319,7 @@ class member_centerControl extends apiMemberControl
         $data['file_name'] = $img_path;
         $data['origin_file_name'] = $_FILES["file"]["name"];
         $data['file_path'] = $img_path;
-        $data['file_url'] = snsThumb($img_path, 1024);
+        $data['file_url'] = snsThumb2($img_path);
         $data['state'] = true;
 
         output_data($data);
