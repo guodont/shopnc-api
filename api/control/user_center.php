@@ -74,6 +74,11 @@ class user_centerControl extends apiHomeControl
             $member['level_name'] = $member_info['level_name'];
             $member['member_points'] = $member_info['member_points'];
             $member['member_exppoints'] = $member_info['member_exppoints'];
+            $member['member_shenfen'] = $member_info['member_shenfen'];
+            $member['member_yjfx'] = $member_info['member_yjfx'];
+            $member['member_zhuanye'] = $member_info['member_zhuanye'];
+            $member['member_xueke'] = $member_info['member_xueke'];
+            $member['member_areainfo'] = $member_info['member_areainfo'];
             $member['following_count'] = $following_count;
             $member['follower_count'] = $follower_count;
         } else {
