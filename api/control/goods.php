@@ -67,6 +67,55 @@ class goodsControl extends apiHomeControl
     }
 
     /**
+     * 扫条码商品列表
+     */
+    public function goods_list_by_scanOp()
+    {
+        $model_goods = Model('goods');
+        $model_search = Model('search');
+
+        //查询条件
+        $condition = array();
+        if (!empty($_GET['gc_id']) && intval($_GET['gc_id']) > 0) {
+            $condition['gc_id'] = $_GET['gc_id'];
+        } elseif (!empty($_GET['keyword'])) {
+            $condition['goods_name|goods_jingle'] = array('like', '%' . $_GET['keyword'] . '%');
+        } elseif (!empty($_GET['code'])) {
+            $condition['goods_serial|goods_jingle'] = array('like', '%' . $_GET['code'] . '%');
+        }
+
+        //所需字段
+        $fieldstr = "goods_id,goods_commonid,store_id,goods_name,goods_price,goods_marketprice,goods_image,goods_salenum,evaluation_good_star,evaluation_count";
+
+        // 添加3个状态字段
+        $fieldstr .= ',is_virtual,is_presell,is_fcode,have_gift';
+
+        //排序方式
+        $order = $this->_goods_list_order($_GET['key'], $_GET['order']);
+
+        //优先从全文索引库里查找
+        list($indexer_ids, $indexer_count) = $model_search->indexerSearch($_GET, $this->page);
+        if (is_array($indexer_ids)) {
+            //商品主键搜索
+            $goods_list = $model_goods->getGoodsOnlineList(array('goods_id' => array('in', $indexer_ids)), $fieldstr, 0, $order, $this->page, null, false);
+
+            //如果有商品下架等情况，则删除下架商品的搜索索引信息
+            if (count($goods_list) != count($indexer_ids)) {
+                $model_search->delInvalidGoods($goods_list, $indexer_ids);
+            }
+            pagecmd('setEachNum', $this->page);
+            pagecmd('setTotalNum', $indexer_count);
+        } else {
+            $goods_list = $model_goods->getGoodsListByColorDistinct($condition, $fieldstr, $order, $this->page);
+        }
+        $page_count = $model_goods->gettotalpage();
+        //处理商品列表(抢购、限时折扣、商品图片)
+        $goods_list = $this->_goods_list_extend($goods_list);
+
+        output_data(array('goods_list' => $goods_list), mobile_page($page_count));
+    }
+
+    /**
      * 商品列表排序方式
      */
     private function _goods_list_order($key, $order)
