@@ -180,7 +180,7 @@ class questionControl extends apiHomeControl
             $where['is_digest'] = 1;
         }
         $m_circle_theme = $model->table('circle_theme');
-        $question_list = $m_circle_theme->where($where)->order('is_stick desc,lastspeak_time desc')->page($this->page)->select();
+        $question_list = $m_circle_theme->where($where)->order('theme_addtime desc')->page($this->page)->select();
         $pageCount = $m_circle_theme->gettotalpage();
         if (!empty($question_list)) {
             foreach ($question_list as $key => $val) {

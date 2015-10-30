@@ -138,24 +138,30 @@ class member_centerControl extends apiMemberControl
 
             $member_array = array();
             $member_array['member_truename'] = $_POST['member_truename'];
-            $member_array['member_sex'] = $_POST['member_sex'];
-            $member_array['member_qq'] = $_POST['member_qq'];
-            $member_array['member_ww'] = $_POST['member_ww'];
+//            $member_array['member_sex'] = $_POST['member_sex'];
+//            $member_array['member_qq'] = $_POST['member_qq'];
+//            $member_array['member_ww'] = $_POST['member_ww'];
             $member_array['member_areaid'] = $_POST['area_id'];
             $member_array['member_cityid'] = $_POST['city_id'];
             $member_array['member_provinceid'] = $_POST['province_id'];
             $member_array['member_areainfo'] = $_POST['area_info'];
-            if (strlen($_POST['birthday']) == 10) {
-                $member_array['member_birthday'] = $_POST['birthday'];
-            }
-            $member_array['member_privacy'] = serialize($_POST['privacy']);
+
+            $member_array['member_shenfen'] = $_POST['member_shenfen'];
+            $member_array['member_yjfx'] = $_POST['member_yjfx'];
+            $member_array['member_zhuanye'] = $_POST['member_zhuanye'];
+            $member_array['member_xueke'] = $_POST['member_xueke'];
+
+//
+//            if (strlen($_POST['birthday']) == 10) {
+//                $member_array['member_birthday'] = $_POST['birthday'];
+//            }
+//            $member_array['member_privacy'] = serialize($_POST['privacy']);
             $update = $model_member->editMember(array('member_id' => $this->member_id), $member_array);
             $update ? output_data(array('success' => "保存成功", 'status' => 1)) : output_error("保存失败");
             die;
         }
 
         output_error("请求方式错误");
-
     }
 
     /**
