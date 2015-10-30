@@ -227,7 +227,7 @@ class circleControl extends apiHomeControl
         $data = $model->table('circle_theme')->where(array('theme_id' => $_GET['t_id']))->find();
 
         // 访问数增加
-        $model->table('circle_theme')->update(array('theme_id' => $this->$_GET['t_id'], 'theme_browsecount' => array('exp', 'theme_browsecount+1')));
+        $model->table('circle_theme')->update(array('theme_id' => $_GET['t_id'], 'theme_browsecount' => array('exp', 'theme_browsecount+1')));
 
         $data['theme_content'] = ubb($data['theme_content']);
         if ($data['theme_edittime'] != '') {
