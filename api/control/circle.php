@@ -214,4 +214,36 @@ class circleControl extends apiHomeControl
     }
 
 
+    /**
+     * GET 话题详细信息
+     */
+    public function ajax_themeinfoOp()
+    {
+
+        $model = Model();
+        // 话题信息
+        $this->themeInfo();
+
+        $data = $model->table('circle_theme')->where(array('theme_id' => $_GET['t_id']))->find();
+
+        // 访问数增加
+        $model->table('circle_theme')->update(array('theme_id' => $this->$_GET['t_id'], 'theme_browsecount' => array('exp', 'theme_browsecount+1')));
+
+        $data['theme_content'] = ubb($data['theme_content']);
+        if ($data['theme_edittime'] != '') {
+            $data['theme_edittime'] = @date('Y-m-d H:i', $data['theme_edittime']);
+        }
+        $data['member_avatar'] = getMemberAvatarForID($data['member_id']);
+        // 是否赞过话题
+        $data['theme_nolike'] = 1;
+
+        if (strtoupper(CHARSET) == 'GBK') {
+            $data = Language::getUTF8($data);
+        }
+        output_data(array('theme_info' => $data));
+        die;
+    }
+
+
+
 }
