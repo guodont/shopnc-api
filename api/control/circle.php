@@ -222,8 +222,6 @@ class circleControl extends apiHomeControl
 
         $model = Model();
         // 话题信息
-        $this->themeInfo();
-
         $data = $model->table('circle_theme')->where(array('theme_id' => $_GET['t_id']))->find();
 
         // 访问数增加
