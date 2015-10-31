@@ -173,6 +173,8 @@ class tradeControl extends apiHomeControl
             foreach ($trade_list as $key => $val) {
                 $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
                 $trade_list[$key]['goods_image'] = $this->trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $member_id . '/' . str_replace('_1024', '_240', $val['goods_image']);
+                $trade_list[$key]['fav_status'] = 0;
+
             }
         }
         output_data(array('trades' => $trade_list), mobile_page($pageCount));
