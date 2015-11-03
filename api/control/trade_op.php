@@ -67,7 +67,7 @@ class trade_opControl extends apiMemberControl
             $goods_array['goods_tag'] = $_POST['goods_tag'];
             $goods_array['goods_leixing'] = $_POST['goods_type'];
             $goods_array['goods_price'] = $_POST['goods_price'];
-            $goods_array['goods_store_price'] = $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
+            $goods_array['goods_store_price'] = $_POST['goods_store_price'];
             $goods_array['goods_show'] = '1';
             $goods_array['goods_status'] = '0';
             $goods_array['goods_commend'] = $_POST['goods_commend'];
