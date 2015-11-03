@@ -80,7 +80,7 @@ class trade_opControl extends apiMemberControl
                  * 更新闲置物品多图
                  */
                 $upload_array = array();
-                $upload_array['store_id'] = $_SESSION['member_id'];
+                $upload_array['store_id'] = $this->member_info['member_id'];
                 $upload_array['item_id'] = '0';
                 $upload_array['upload_type_in'] = "'12','13'";
                 $upload_array['upload_id_in'] = "'" . implode("','", $_POST['goods_file_id']) . "'";
