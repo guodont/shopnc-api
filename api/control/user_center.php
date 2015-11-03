@@ -187,7 +187,8 @@ class user_centerControl extends apiHomeControl
         $m_theme = $model->table('circle_theme');
         $types = array(5, 6);
         $where['thclass_id'] = array('not in',$types);
-        $theme_list = $m_theme->where(array('member_id' => $this->member_id))->page($this->page)->order('theme_addtime desc')->select();
+        $where['member_id'] = $this->member_id;
+        $theme_list = $m_theme->where($where)->page($this->page)->order('theme_addtime desc')->select();
         $pageCount = $m_theme->gettotalpage();
         if (!empty($theme_list)) {
             foreach ($theme_list as $key => $val) {
