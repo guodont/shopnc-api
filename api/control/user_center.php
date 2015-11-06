@@ -63,6 +63,7 @@ class user_centerControl extends apiHomeControl
         if ($member_info) {
             $member['member_id'] = $member_info['member_id'];
             $member['member_name'] = $member_info['member_name'];
+            $member['member_truename'] = $member_info['member_truename'];
             $member['member_avatar'] = getMemberAvatar($member_info['member_avatar']);
             $member['member_sex'] = $this->m_sex($member_info['member_sex']);
             $member['member_email'] = $member_info['member_email'];
