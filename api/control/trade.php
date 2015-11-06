@@ -51,8 +51,8 @@ class tradeControl extends apiHomeControl
             foreach ($listgoods as $replace_key => $replace_val) {
 
                 // 获取收藏状态
-                if(isset($_GET['uid'])) {
-                    $listgoods[$replace_key]['fav_status'] =  $mTrade->checkFavorites($listgoods[$replace_key]['goods_id'],'flea',$_GET['uid'])? 1:0;
+                if (isset($_GET['uid'])) {
+                    $listgoods[$replace_key]['fav_status'] = $mTrade->checkFavorites($listgoods[$replace_key]['goods_id'], 'flea', $_GET['uid']) ? 1 : 0;
                 }
                 $listgoods[$replace_key]['member_avatar'] = getMemberAvatarForID($listgoods[$replace_key]['member_id']);
                 $listgoods[$replace_key]['goods_image'] = $listgoods[$replace_key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $listgoods[$replace_key]['member_id'] . '/' . str_replace('_1024', '_240', $replace_val['goods_image']);
@@ -85,7 +85,7 @@ class tradeControl extends apiHomeControl
             foreach ($trade_list as $key => $val) {
 
                 // 获取收藏状态
-                if(isset($_GET['uid'])) {
+                if (isset($_GET['uid'])) {
                     $trade_list[$key]['fav_status'] = $mTrade->checkFavorites($trade_list[$key]['goods_id'], 'flea', $_GET['uid']) ? 1 : 0;
                 }
                 $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
@@ -113,7 +113,7 @@ class tradeControl extends apiHomeControl
 
         if (intval($_GET['fav_id']) > 0) {
             $favorites_class = Model('flea_favorites');
-            if (!$favorites_class->checkFavorites(intval($_GET['fav_id']), 'flea',intval($_GET['user_id']))) {
+            if (!$favorites_class->checkFavorites(intval($_GET['fav_id']), 'flea', intval($_GET['user_id']))) {
                 $trade_info[0][is_favorite] = false;
             }
         }
@@ -127,7 +127,7 @@ class tradeControl extends apiHomeControl
         /**
          * 浏览次数更新
          */
-        $m_trade->updateGoods(array('goods_click'=>($trade_info[0]['goods_click']+1)),$trade_id);
+        $m_trade->updateGoods(array('goods_click' => ($trade_info[0]['goods_click'] + 1)), $trade_id);
 
         $image_key = 0;
         if (!empty($desc_image) && is_array($desc_image)) {//将封面图放到第一位显示

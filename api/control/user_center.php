@@ -133,32 +133,6 @@ class user_centerControl extends apiHomeControl
         output_data(array('followings' => $follow_list), mobile_page($pageCount));
     }
 
-    /**
-     * GET 商品收藏列表
-     */
-    public function goods_favorites_listOp()
-    {
-        $model_favorites = Model('favorites');
-
-        $favorites_list = $model_favorites->getGoodsFavoritesList(array('member_id' => $this->member_id), '*', $this->page);
-        $page_count = $model_favorites->gettotalpage();
-        $favorites_id = '';
-        foreach ($favorites_list as $value) {
-            $favorites_id .= $value['fav_id'] . ',';
-        }
-        $favorites_id = rtrim($favorites_id, ',');
-
-        $model_goods = Model('goods');
-        $field = 'goods_id,goods_name,goods_price,goods_image,store_id';
-        $goods_list = $model_goods->getGoodsList(array('goods_id' => array('in', $favorites_id)), $field);
-        foreach ($goods_list as $key => $value) {
-            $goods_list[$key]['fav_id'] = $value['goods_id'];
-            $goods_list[$key]['goods_image_url'] = cthumb($value['goods_image'], 240, $value['store_id']);
-        }
-
-        output_data(array('goods_favorites_list' => $goods_list), mobile_page($page_count));
-    }
-
 
     /**
      * GET 用户的圈子

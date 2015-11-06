@@ -202,33 +202,6 @@ class member_centerControl extends apiMemberControl
         output_data(array('thumb_img' => $thumb_img));
     }
 
-    /**
-     * POST 裁剪图像并保存头像信息
-     */
-    public function cutOp()
-    {
-        if (isset($_POST)) {
-            $thumb_width = 120;
-            $x1 = $_POST["x1"];
-            $y1 = $_POST["y1"];
-            $x2 = $_POST["x2"];
-            $y2 = $_POST["y2"];
-            $w = $_POST["w"];
-            $h = $_POST["h"];
-            $scale = $thumb_width / $w;
-            $_POST['newfile'] = str_replace('..', '', $_POST['newfile']);
-            if (strpos($_POST['newfile'], "avatar_{$this->member_id}_new.") !== 0) {
-                redirect('index.php?act=member_information&op=avatar');
-            }
-            $src = BASE_UPLOAD_PATH . DS . ATTACH_AVATAR . DS . $_POST['newfile'];
-            $avatarfile = BASE_UPLOAD_PATH . DS . ATTACH_AVATAR . DS . "avatar_{$this->member_id}.jpg";
-            import('function.thumb');
-            $cropped = resize_thumb($avatarfile, $src, $w, $h, $x1, $y1, $scale);
-            @unlink($src);
-            $save = Model('member')->editMember(array('member_id' => $this->member_id), array('member_avatar' => 'avatar_' . $this->member_id . '.jpg'));
-            $save && $cropped ? output_data(array('success' => "保存成功")) : output_error("保存失败");
-        }
-    }
 
 
     /**
@@ -330,5 +303,63 @@ class member_centerControl extends apiMemberControl
 
         output_data($data);
 
+    }
+
+    /**
+     * GET 商品收藏列表
+     */
+    public function goods_fav_listOp()
+    {
+        $model_favorites = Model('favorites');
+
+        $favorites_list = $model_favorites->getGoodsFavoritesList(array('member_id' => $this->member_id), '*', $this->page);
+        $page_count = $model_favorites->gettotalpage();
+        $favorites_id = '';
+        foreach ($favorites_list as $value) {
+            $favorites_id .= $value['fav_id'] . ',';
+        }
+        $favorites_id = rtrim($favorites_id, ',');
+
+        $model_goods = Model('goods');
+        $field = 'goods_id,goods_name,goods_price,goods_image,store_id';
+        $goods_list = $model_goods->getGoodsList(array('goods_id' => array('in', $favorites_id)), $field);
+        output_data(array('goods_list' => $goods_list), mobile_page($page_count));
+    }
+
+    /**
+     * GET 交易收藏列表
+     */
+    public function trade_fav_listOp()
+    {
+        $model_favorites = Model('flea_favorites');
+
+        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id, 'fav_type' => 'flea'), $this->page);
+        $page_count = $model_favorites->gettotalpage();
+        $favorites_id = '';
+        foreach ($favorites_list as $value) {
+            $favorites_id .= $value['fav_id'] . ',';
+        }
+        $favorites_id = rtrim($favorites_id, ',');
+
+        $model_trade = Model('utrade');
+
+        $field = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
+        flea_quality,commentnum,goods_price,goods_store_price,goods_click,
+        flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
+        flea_pname,flea_pphone,goods_status,goods_leixing";
+
+
+        $trade_list = $model_trade->listGoods(array('goods_id_in' => "'" . implode("','", $favorites_id) . "'"), '',
+            $field);
+
+        if (is_array($trade_list) and !empty($trade_list)) {
+            foreach ($trade_list as $key => $val) {
+                $trade_list[$key]['fav_status'] = 1;
+                $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
+                $trade_list[$key]['goods_image'] = $trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
+            }
+        }
+
+        output_data(array('trade_list' => $trade_list), mobile_page($page_count));
     }
 }
