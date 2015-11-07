@@ -135,10 +135,26 @@ class loginControl extends apiHomeControl
     public function phone_registerOp()
     {
         $model_member = Model('member');
+
         $register_info = array();
         $register_info['username'] = $_POST['username'];
         $register_info['password'] = $_POST['password'];
         $register_info['password_confirm'] = $_POST['password_confirm'];
-        $register_info['mobile'] = $_POST['mobile'];
+        $register_info['phone'] = $_POST['phone'];
+        $member_info = $model_member->mobile_register($register_info);
+        if (!isset($member_info['error'])) {
+            $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);
+            if ($token) {
+                output_data(array(
+                        'username' => $member_info['member_name'],
+                        'uid' => $member_info['member_id'],
+                        'key' => $token)
+                );
+            } else {
+                output_error('注册失败');
+            }
+        } else {
+            output_error($member_info['error']);
+        }
     }
 }
