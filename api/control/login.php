@@ -140,7 +140,7 @@ class loginControl extends apiHomeControl
         $register_info['username'] = $_POST['username'];
         $register_info['password'] = $_POST['password'];
         $register_info['password_confirm'] = $_POST['password_confirm'];
-        $register_info['phone'] = $_POST['phone'];
+        $register_info['mobile'] = $_POST['phone'];
         $member_info = $model_member->mobile_register($register_info);
         if (!isset($member_info['error'])) {
             $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);

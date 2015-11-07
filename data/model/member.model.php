@@ -262,6 +262,7 @@ class memberModel extends Model
         $member_info = array();
         $member_info['member_name'] = $register_info['username'];
         $member_info['member_passwd'] = $register_info['password'];
+        $member_info['member_mobile'] = $register_info['mobile'];
         $member_info['member_email'] = "";
         $member_info['member_mobile_bind'] = 1;
         //添加邀请人(推荐人)会员积分 by abc.com
