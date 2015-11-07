@@ -330,7 +330,7 @@ class member_centerControl extends apiMemberControl
      */
     public function trade_fav_listOp()
     {
-        $model_favorites = Model('favorites');
+        $model_favorites = Model('trade_favorites');
 
         $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id, 'fav_type' => 'flea'), $this->page);
         $page_count = $model_favorites->gettotalpage();
