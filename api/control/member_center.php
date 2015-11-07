@@ -332,10 +332,10 @@ class member_centerControl extends apiMemberControl
     {
         $model_favorites = Model('trade_favorites');
 
-        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id), '*', $this->page);
+        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => 1,'fav_type'=>'flea'), '*', $this->page);
         $page_count = $model_favorites->gettotalpage();
 
-        if (!empty($favorites_list) && is_array($favorites_list)) {
+        if (!empty($favorites_list)) {
 
             $favorites_id = '';
             foreach ($favorites_list as $value) {
@@ -349,8 +349,7 @@ class member_centerControl extends apiMemberControl
         flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
         flea_pname,flea_pphone,goods_status,goods_leixing";
 
-            $trade_list = $model_trade->listGoods(array('goods_id' => array('in', $favorites_id)),
-                $field);
+            $trade_list = $model_trade->getGoodsList(array('goods_id' => array('in', $favorites_id)), $field);
 
             if (is_array($trade_list) and !empty($trade_list)) {
                 foreach ($trade_list as $key => $val) {

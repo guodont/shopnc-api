@@ -61,6 +61,11 @@ class utradeModel extends Model {
         $list_goods		= Db::select($array,$page);
         return $list_goods;
     }
+
+    public function getGoodsList($condition, $field = '*', $group = '',$order = '', $limit = 0, $page = 0, $lock = false, $count = 0) {
+        return $this->table('flea')->field($field)->where($condition)->group($group)->order($order)->limit($limit)->page($page, $count)->lock($lock)->select();
+    }
+
     /**
      * 他们正在卖的
      */
