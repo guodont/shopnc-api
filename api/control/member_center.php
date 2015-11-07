@@ -203,7 +203,6 @@ class member_centerControl extends apiMemberControl
     }
 
 
-
     /**
      * GET 相册图片列表
      *
@@ -321,7 +320,7 @@ class member_centerControl extends apiMemberControl
         $favorites_id = rtrim($favorites_id, ',');
 
         $model_goods = Model('goods');
-        $field = 'goods_id,goods_name,goods_price,goods_image,store_id';
+        $field = 'goods_id,goods_commonid,store_id,goods_name,goods_price,goods_marketprice,goods_image,goods_salenum,evaluation_good_star,evaluation_count';
         $goods_list = $model_goods->getGoodsList(array('goods_id' => array('in', $favorites_id)), $field);
         output_data(array('goods_list' => $goods_list), mobile_page($page_count));
     }
@@ -335,31 +334,32 @@ class member_centerControl extends apiMemberControl
 
         $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id, 'fav_type' => 'flea'), $this->page);
         $page_count = $model_favorites->gettotalpage();
-        $favorites_id = '';
-        foreach ($favorites_list as $value) {
-            $favorites_id .= $value['fav_id'] . ',';
-        }
-        $favorites_id = rtrim($favorites_id, ',');
 
-        $model_trade = Model('utrade');
+        if (!empty($favorites_list) && is_array($favorites_list)) {
 
-        $field = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
+            $favorites_id = '';
+            foreach ($favorites_list as $value) {
+                $favorites_id .= $value['fav_id'] . ',';
+            }
+            $favorites_id = rtrim($favorites_id, ',');
+
+            $model_trade = Model('utrade');
+            $field = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
         flea_quality,commentnum,goods_price,goods_store_price,goods_click,
         flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
         flea_pname,flea_pphone,goods_status,goods_leixing";
 
+            $trade_list = $model_trade->listGoods(array('goods_id' => array('in', $favorites_id)),
+                $field);
 
-        $trade_list = $model_trade->listGoods(array('goods_id_in' => "'" . implode("','", $favorites_id) . "'"), '',
-            $field);
-
-        if (is_array($trade_list) and !empty($trade_list)) {
-            foreach ($trade_list as $key => $val) {
-                $trade_list[$key]['fav_status'] = 1;
-                $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
-                $trade_list[$key]['goods_image'] = $trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
+            if (is_array($trade_list) and !empty($trade_list)) {
+                foreach ($trade_list as $key => $val) {
+                    $trade_list[$key]['fav_status'] = 1;
+                    $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
+                    $trade_list[$key]['goods_image'] = $trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
+                }
             }
+            output_data(array('trade_list' => $trade_list), mobile_page($page_count));
         }
-
-        output_data(array('trade_list' => $trade_list), mobile_page($page_count));
     }
 }
