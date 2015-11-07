@@ -332,7 +332,7 @@ class member_centerControl extends apiMemberControl
     {
         $model_favorites = Model('trade_favorites');
 
-        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id, 'fav_type' => 'flea'), $this->page);
+        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id), '*', $this->page);
         $page_count = $model_favorites->gettotalpage();
 
         if (!empty($favorites_list) && is_array($favorites_list)) {
@@ -361,7 +361,7 @@ class member_centerControl extends apiMemberControl
             }
             output_data(array('trade_list' => $trade_list), mobile_page($page_count));
         } else {
-            output_data(array('trade_list' => null),mobile_page($page_count));
+            output_data(array('trade_list' => null), mobile_page($page_count));
         }
     }
 }
