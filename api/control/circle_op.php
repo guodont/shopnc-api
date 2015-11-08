@@ -27,6 +27,8 @@ class circle_opControl extends apiBaseCircleControl
         echo $this->identity;
     }
 
+
+
     /**
      * POST 创建一个话题
      */

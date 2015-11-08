@@ -45,6 +45,14 @@
             <input type="text" name="mobile_apk_version" id="mobile_apk_version" value="<?php echo $output['mobile_version']['value'];?>" class="txt"></td>
           <td class="vatop tips"></td>
         </tr>
+        <tr class="noborder">
+          <td colspan="2" class="required"><label class="" for="mobile_apk">更新日志:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform">
+            <textarea name="mobile_content" id="mobile_content" ><?php echo $output['mobile_content']['value'];?></textarea></td>
+          <td class="vatop tips"></td>
+        </tr>		
         <tr>
           <td colspan="2" class="required"><label class="" for="mobile_ios">iOS版:</label></td>
         </tr>

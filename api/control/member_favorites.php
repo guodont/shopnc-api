@@ -97,9 +97,7 @@ class member_favoritesControl extends apiMemberControl
         if ($fav_id <= 0) {
             output_error('参数错误');
         }
-
         $model_favorites = Model('favorites');
-
         $condition = array();
         $condition['fav_id'] = $fav_id;
         $condition['member_id'] = $this->member_info['member_id'];

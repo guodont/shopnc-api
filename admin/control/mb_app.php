@@ -19,12 +19,14 @@ class mb_appControl extends SystemControl{
 	public function mb_appOp() {
 	    $model_setting = Model('setting');
 		$mobile_apk = $model_setting->getRowSetting('mobile_apk');
+		$mobile_content = $model_setting->getRowSetting('mobile_content');		
 		$mobile_apk_version = $model_setting->getRowSetting('mobile_apk_version');
 		$mobile_ios = $model_setting->getRowSetting('mobile_ios');
 		if (chksubmit()) {
 			$update_array = array();
 			$update_array['mobile_apk'] = $_POST['mobile_apk'];
 			$update_array['mobile_apk_version'] =intval($_POST['mobile_apk_version']);
+			$update_array['mobile_content'] = $_POST['mobile_content'];
 			$update_array['mobile_ios'] = $_POST['mobile_ios'];
 			$state = $model_setting->updateSetting($update_array);
 			if ($state) {
@@ -37,6 +39,7 @@ class mb_appControl extends SystemControl{
 		Tpl::output('mobile_apk',$mobile_apk);
 		Tpl::output('mobile_version',$mobile_apk_version);
 		Tpl::output('mobile_ios',$mobile_ios);
+		Tpl::output('mobile_content',$mobile_content);		
 		Tpl::showpage('mb_app.edit');
 	}
 
