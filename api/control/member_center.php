@@ -336,9 +336,8 @@ class member_centerControl extends apiMemberControl
     {
         $model_favorites = Model('trade_favorites');
 
-        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => 1, 'fav_type' => 'flea'), '*', $this->page);
+        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id, 'fav_type' => 'flea'), '*', $this->page);
         $page_count = $model_favorites->gettotalpage();
-
 
         $favorites_id = '';
         foreach ($favorites_list as $value) {
