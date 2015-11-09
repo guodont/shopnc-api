@@ -44,7 +44,7 @@ class advControl extends apiControl
             $pic_content[$key] = $this->mb_unserialize($val);
             $pic = $pic_content[$key]['adv_pic'];
             $url = $pic_content[$key]['adv_pic_url'];
-            $advs[$key]['img_url'] = $pic;
+            $advs[$key]['img_url'] = UPLOAD_SITE_URL."/".ATTACH_ADV."/".$pic;
             $advs[$key]['adv_url'] = $url;
         }
         output_data($advs);
