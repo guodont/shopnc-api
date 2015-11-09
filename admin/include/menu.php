@@ -96,7 +96,7 @@ $arr = array(
 					array('args'=>'store_domain_setting,domain,store',		'text'=>$lang['nc_domain_manage']),
 					array('args'=>'stracelist,sns_strace,store',			'text'=>$lang['nc_s_snstrace']),
 					array('args'=>'help_store,help_store,store',			'text'=>'店铺帮助'),
-					array('args'=>'edit_info,store_joinin,store',			'text'=>'开店首页'),
+					array('args'=>'edit_info,store_joinin,store',			'text'=>'开店服务'),
 					array('args'=>'list,ownshop,store',						'text'=>'自营店铺'),
 				)
 			),
@@ -106,6 +106,7 @@ $arr = array(
 				'list' => array(
 					array('args'=>'member,member,member',					'text'=>$lang['nc_member_manage']),
 					array('args'=>'index,member_grade,member',				'text'=>'会员级别'),
+					array('args'=>'member_xueke,member_xueke,member',		'text'=>$lang['nc_member_xueke']),					
 					array('args'=>'index,exppoints,member',					'text'=>$lang['nc_exppoints_manage']),
 					array('args'=>'notice,notice,member',					'text'=>$lang['nc_member_notice']),
 					array('args'=>'addpoints,points,member',				'text'=>$lang['nc_member_pointsmanage']),
@@ -187,17 +188,17 @@ $arr = array(
 if(C('flea_isuse')==1){
 	$arr['top'][] = array(
 				'args'	=> 'flea',
-				'text'	=> 闲置);
+				'text'	=> 交易);
 	$arr['left'][] = array(
 				'nav' => 'flea',
-				'text' => 闲置,
+				'text' => 交易,
 				'list' => array(
 					0 => array('args'=>'flea_index,flea_index,flea',			'text'=>SEO设置),
 					1 => array('args'=>'flea_class,flea_class,flea',			'text'=>分类管理),
 					2 => array('args'=>'flea_class_index,flea_class_index,flea','text'=>首页分类管理),
-					3 => array('args'=>'flea,flea,flea',						'text'=>闲置管理),
-					4 => array('args'=>'flea_region,flea_region,flea',			'text'=>地区管理),
-					5 => array('args'=>'adv_manage,flea_index,flea',			'text'=>闲置幻灯),
+					3 => array('args'=>'flea,flea,flea',						'text'=>交易管理),
+					4 => array('args'=>'flea_region,flea_region,flea',			'text'=>单位管理),
+					5 => array('args'=>'adv_manage,flea_index,flea',			'text'=>交易幻灯),
 				)
 			);
 }
@@ -226,14 +227,10 @@ if(C('microshop_isuse') !== null){
 				'nav' => 'microshop',
 				'text' => $lang['nc_microshop'],
 				'list' => array(
-					0 => array('args'=>'manage,microshop,microshop','text'=>$lang['nc_microshop_manage']),
-					1 => array('args'=>'goods_manage,microshop,microshop','text'=>$lang['nc_microshop_goods_manage']),
-					2 => array('args'=>'goodsclass_list,microshop,microshop','text'=>$lang['nc_microshop_goods_class']),
-					3 => array('args'=>'personal_manage,microshop,microshop','text'=>$lang['nc_microshop_personal_manage']),
-					4 => array('args'=>'personalclass_list,microshop,microshop','text'=>$lang['nc_microshop_personal_class']),
-					5 => array('args'=>'store_manage,microshop,microshop','text'=>$lang['nc_microshop_store_manage']),
-					6 => array('args'=>'comment_manage,microshop,microshop','text'=>$lang['nc_microshop_comment_manage']),
-					7 => array('args'=>'adv_manage,microshop,microshop','text'=>$lang['nc_microshop_adv_manage']),
+					0 => array('args'=>'personal_manage,microshop,microshop','text'=>$lang['nc_microshop_personal_manage']),
+					1 => array('args'=>'personalclass_list,microshop,microshop','text'=>$lang['nc_microshop_personal_class']),
+					2 => array('args'=>'comment_manage,microshop,microshop','text'=>$lang['nc_microshop_comment_manage']),
+					3 => array('args'=>'adv_manage,microshop,microshop','text'=>$lang['nc_microshop_adv_manage']),
 				)
 			);
 }
