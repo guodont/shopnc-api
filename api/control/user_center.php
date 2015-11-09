@@ -141,7 +141,7 @@ class user_centerControl extends apiHomeControl
     public function user_circlesOp()
     {
         $model = Model();
-        $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id))->order('cm_jointime desc')->select();
+        $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id, 'cm_state' => array('not in',array(0,2))))->order('cm_jointime desc')->select();
         if (!empty($cm_list)) {
             $cm_list = array_under_reset($cm_list, 'circle_id');
             $circleid_array = array_keys($cm_list);
