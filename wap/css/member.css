@@ -34,8 +34,8 @@
 
 .member-body .header-back{display: none;}
 .m-top,.m-center{padding-bottom: 10px;background: #f5f5f5; width:100%;}
-.m-infor{width:100%; text-align:center;}
-.m-jifen,.m-yue{display:inline-block; background:#fff; text-align: center; width:33%}
+.m-infor{width:100%; text-align:center;/* padding-bottom: 10px; */}
+.m-jifen,.m-yue{display:inline-block; background:#fff; text-align: center; width: 32%;padding-bottom: 9px;}
 .m-jifen span,.m-yue span{display:block;}
 
 .mc-cnt{background: #fff;/* padding: 10px; */}
@@ -117,7 +117,7 @@
 .order-delivery-infolist li {margin:15px; border-bottom:1px dotted #ccc; font-size:13px;}
 
 /* voucher list */
-.voucher-item { *word-spacing: -1px/*IE6、7*/; margin-bottom: 10px;}
+.voucher-item { *word-spacing: -1px/*IE6ã€7*/; margin-bottom: 10px;}
 .voucher-img-wrapper { width: 20%; padding: 1% 2% 1% 1%; text-align: center; vertical-align: top; display: inline-block;}
 .voucher-img-wrapper img { width: 100%; min-height: 80px; max-height: 160px;}
 .voucher-info { color: #777; line-height: 1.5em; vertical-align: top; display: inline-block; width: 75%;}
