@@ -75,6 +75,15 @@ class fleaControl extends SystemControl{
 			/**
 			 * 商品名称
 			 */
+			case 'status':
+				$this->log(L('flea_pass_cerify').'['.intval($_GET['id']).']');
+			case 'commend':
+				$model_goods = Model('flea');
+				$update_array = array();
+				$update_array[$_GET['column']] = $_GET['value'];
+				$model_goods->updateGoods($update_array,$_GET['id']);
+				echo 'true';
+				break;
 			case 'goods_name':
 				$model_goods = Model('flea');
 				$update_array = array();

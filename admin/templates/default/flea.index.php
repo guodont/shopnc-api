@@ -2,9 +2,9 @@
 <div class="page">
   <div class="fixed-bar">
     <div class="item-title">
-      <h3>闲置物品</h3>
+      <h3>科研交易</h3>
       <ul class="tab-base">
-        <li><a href="JavaScript:void(0);" class="current"><span>所有闲置物品</span></a></li>
+        <li><a href="JavaScript:void(0);" class="current"><span>所有科研交易</span></a></li>
       </ul>
     </div>
   </div>
@@ -15,7 +15,7 @@
     <table class="tb-type1 noborder search">
       <tbody>
         <tr>
-          <th><label for="search_goods_name"> 闲置物品名</label></th>
+          <th><label for="search_goods_name"> 交易商品名</label></th>
           <td><input type="text" value="<?php echo $output['search']['search_goods_name'];?>" name="search_goods_name" id="search_goods_name" class="txt"></td>
 		  <th><label for="search_member_name"> 发布会员名</label></th>
 		  <td><input type="text" value="<?php echo $output['search']['search_store_name'];?>" name="search_store_name" class="queryInput">
@@ -41,9 +41,11 @@
       <thead>
         <tr class="thead">
           <th width="25px"></th>
-          <th colspan="2">闲置物品名</th>
+          <th colspan="2">交易商品名</th>
 		  <th>发布会员名</th>
           <th>分类</th>
+		  <th class="align-center">审核</th>
+		  <th class="align-center">推荐</th>
           <th class="align-center">浏览</th>
           <th class="align-center">操作 </th>
         </tr>
@@ -58,6 +60,16 @@
           <td class="goods-name w270"><p><span title="<?php echo $lang['nc_editable'];?>" class="editable-tarea tooltip" required="1" ajax_branch_textarea="goods_name" fieldid="<?php echo $v['goods_id'];?>" fieldname="goods_name" nc_type="inline_edit_textarea"><?php echo $v['goods_name'];?></span></p></td>
           <td class="w156"><?php echo $v['member_name'];?></td>
           <td><?php echo $v['gc_name'];?></td>
+		  <td class="align-center yes-onoff"><?php if($v['goods_status'] == 0){ ?>
+            <a href="JavaScript:void(0);" class=" disabled" fieldvalue="0" fieldid="<?php echo $v['goods_id'];?>" ajax_branch="status" fieldname="goods_status" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
+            <?php }else{ ?>
+            <a href="JavaScript:void(0);" class=" enabled" fieldvalue="1" fieldid="<?php echo $v['goods_id'];?>" ajax_branch="status" fieldname="goods_status" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
+            <?php } ?></td>
+		  <td class="align-center yes-onoff"><?php if($v['goods_commend'] == 0){ ?>
+            <a href="JavaScript:void(0);" class=" disabled" fieldvalue="0" fieldid="<?php echo $v['goods_id'];?>" ajax_branch="commend" fieldname="goods_commend" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
+            <?php }else{ ?>
+            <a href="JavaScript:void(0);" class=" enabled" fieldvalue="1" fieldid="<?php echo $v['goods_id'];?>" ajax_branch="commend" fieldname="goods_commend" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
+            <?php } ?></td>
           <td class="align-center"><?php echo $v['goods_click']?></td>
           <td class="w48 align-center"><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=flea_goods&goods_id=<?php echo $v['goods_id'];?>" target="_blank"><?php echo $lang['nc_view'];?></a></td>
         </tr>
