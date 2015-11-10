@@ -63,7 +63,7 @@ $lang['microshop_commend_time'] = '推荐时间';
 $lang['microshop_commend_message'] = '推荐说明';
 $lang['microshop_goods_tip1'] = '通过修改排序数字可以控制前台随心看的显示顺序，数字越小越靠前';
 $lang['microshop_goods_tip2'] = '点亮推荐列的符号，该商品将推荐到微商城首页';
-$lang['microshop_goods_class_tip1'] = '通过修改排序数字可以控制前台随心看分类的显示顺序，数字越小越靠前';
+$lang['microshop_goods_class_tip1'] = '通过修改排序数字可以控制前台服务分类的显示顺序，数字越小越靠前';
 $lang['microshop_goods_class_tip2'] = '点亮推荐列的符号，该分类将推荐到微商城首页';
 $lang['microshop_goods_class_tip3'] = '点击行首的"+"号，可以展开下级分类';
 $lang['microshop_goods_class_tip4'] = '点击二级分类后的"绑定分类"按钮可以绑定微商城和商城系统的分类，绑定后推荐的随心看商品将自动匹配分类';
@@ -71,8 +71,8 @@ $lang['microshop_goods_class_tip5'] = '点击二级分类后的"设为默认"按
 $lang['microshop_goods_class_binding_tip1'] = '选择下方的商城分类后单击完成绑定，绑定后推荐的随心看商品将自动匹配分类';
 $lang['microshop_goods_class_binding_tip2'] = '鼠标移到已绑定的分类上，点击右上角的"x"可以删除绑定';
 
-$lang['microshop_personal_tip1'] = '通过修改排序数字可以控制前台随心看的显示顺序，数字越小越靠前';
-$lang['microshop_personal_tip2'] = '点亮推荐列的符号，该商品将推荐到微商城首页';
+$lang['microshop_personal_tip1'] = '通过修改排序数字可以手机端的的显示顺序，数字越小越靠前';
+$lang['microshop_personal_tip2'] = '点亮推荐列的符号，该服务将推荐到服务列表最前面';
 
 //店铺
 $lang['microshop_store_add_confirm'] = '确认添加该店铺到店铺街?';

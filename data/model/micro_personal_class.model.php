@@ -12,7 +12,7 @@ class micro_personal_classModel extends Model{
 
     public function __construct(){
 
-        parent::__construct('micro_personal_class');
+        parent::__construct('company_class');
 
     }
 
@@ -88,7 +88,5 @@ class micro_personal_classModel extends Model{
 
         return $this->where($condition)->delete();
 
-    }
-	
+    }	
 }
-

@@ -17,9 +17,9 @@ class service_classControl extends apiHomeControl
         /**
          * 此处读取micro_personal_class表中的分类
          */
-        $model_service_class = Model('micro_personal_class');
+        $model_service_class = Model('company_class');
         //取分类
-        $service_class_list = $model_service_class->getList(TRUE,NULL,'class_sort asc');
+        $service_class_list = $model_service_class->getClassList();
 
         output_data(array('service_class' => $service_class_list));
     }

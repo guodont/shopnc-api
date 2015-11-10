@@ -227,10 +227,11 @@ if(C('microshop_isuse') !== null){
 				'nav' => 'microshop',
 				'text' => $lang['nc_microshop'],
 				'list' => array(
-					0 => array('args'=>'personal_manage,microshop,microshop','text'=>$lang['nc_microshop_personal_manage']),
-					1 => array('args'=>'personalclass_list,microshop,microshop','text'=>$lang['nc_microshop_personal_class']),
-					2 => array('args'=>'comment_manage,microshop,microshop','text'=>$lang['nc_microshop_comment_manage']),
-					3 => array('args'=>'adv_manage,microshop,microshop','text'=>$lang['nc_microshop_adv_manage']),
+					0 => array('args'=>'service_manage,service,microshop','text'=>$lang['nc_microshop_personal_manage']),
+					1 => array('args'=>'company,company,microshop','text'=>$lang['nc_microshop_company']),
+					2 => array('args'=>'personalclass_list,service,microshop','text'=>$lang['nc_microshop_personal_class']),
+					3 => array('args'=>'comment_manage,microshop,microshop','text'=>$lang['nc_microshop_comment_manage']),
+					4 => array('args'=>'adv_manage,microshop,microshop','text'=>$lang['nc_microshop_adv_manage']),
 				)
 			);
 }

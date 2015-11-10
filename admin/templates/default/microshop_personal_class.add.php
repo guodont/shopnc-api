@@ -71,7 +71,7 @@ $(document).ready(function(){
     </div>
   </div>
   <div class="fixed-empty"></div>
-  <form id="add_form" method="post" enctype="multipart/form-data" action="index.php?act=microshop&op=personalclass_save">
+  <form id="add_form" method="post" enctype="multipart/form-data" action="index.php?act=service&op=personalclass_save">
     <input name="class_id" type="hidden" value="<?php echo $output['class_info']['class_id'];?>" />
     <table class="table tb-type2">
       <tbody>
