@@ -148,6 +148,7 @@ $lang['nc_microshop_goods_manage']			= '随心看管理';
 $lang['nc_microshop_goods_class']			= '随心看分类';
 $lang['nc_microshop_personal_manage']			= '服务管理';
 $lang['nc_microshop_personal_class']			= '服务分类';
+$lang['nc_microshop_company']		      	= '单位管理';
 $lang['nc_microshop_store_manage']			= '店铺街管理';
 $lang['nc_microshop_comment_manage']			= '预约管理';
 $lang['nc_microshop_adv_manage']			= '广告管理';
