@@ -6,7 +6,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     //行内ajax编辑
-    $('span[nc_type="microshop_sort"]').inline_edit({act: 'microshop',op: 'personal_sort_update'});
+    $('span[nc_type="microshop_sort"]').inline_edit({act: 'service',op: 'personal_sort_update'});
     //时间
     $('#commend_time_from').datepicker({dateFormat: 'yy-mm-dd'});
     $('#commend_time_to').datepicker({dateFormat: 'yy-mm-dd'});
@@ -28,7 +28,7 @@ function submit_batch(){
 function submit_delete(id){
     if(confirm("<?php echo $lang['nc_ensure_del'];?>")) {
         $('#list_form').attr('method','post');
-        $('#list_form').attr('action','index.php?act=microshop&op=personal_drop');
+        $('#list_form').attr('action','index.php?act=service&op=personal_drop');
         $('#personal_id').val(id);
         $('#list_form').submit();
     }

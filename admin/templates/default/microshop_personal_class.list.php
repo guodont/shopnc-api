@@ -3,8 +3,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
     //行内ajax编辑
-    $('span[nc_type="class_sort"]').inline_edit({act: 'microshop',op: 'personalclass_sort_update'});
-    $('span[nc_type="class_name"]').inline_edit({act: 'microshop',op: 'personalclass_name_update'});
+    $('span[nc_type="class_sort"]').inline_edit({act: 'service',op: 'personalclass_sort_update'});
+    $('span[nc_type="class_name"]').inline_edit({act: 'service',op: 'personalclass_name_update'});
 });
 function submit_delete_batch(){
     /* 获取选中的项 */
@@ -23,7 +23,7 @@ function submit_delete_batch(){
 function submit_delete(id){
     if(confirm('<?php echo $lang['nc_ensure_del'];?>')) {
         $('#list_form').attr('method','post');
-        $('#list_form').attr('action','index.php?act=microshop&op=personalclass_drop');
+        $('#list_form').attr('action','index.php?act=service&op=personalclass_drop');
         $('#class_id').val(id);
         $('#list_form').submit();
     }
@@ -81,7 +81,7 @@ function submit_delete(id){
           <td class="w48"><input type="checkbox" value="<?php echo $val['class_id'];?>" class="checkitem"></td>
           <td class="w48 sort"><span nc_type="class_sort" column_id="<?php echo $val['class_id'];?>" title="<?php echo $lang['nc_editable'];?>" class="editable "><?php echo $val['class_sort'];?></span>
           <td class="name"><span nc_type="class_name" column_id="<?php echo $val['class_id'];?>" title="<?php echo $lang['nc_editable'];?>" class="editable "><?php echo $val['class_name'];?></span></td>
-          <td class="w72 align-center"><a href="index.php?act=microshop&op=personalclass_edit&class_id=<?php echo $val['class_id'];?>"><?php echo $lang['nc_edit'];?></a> <a href="javascript:submit_delete(<?php echo $val['class_id'];?>)"><?php echo $lang['nc_del'];?></a></td>
+          <td class="w72 align-center"><a href="index.php?act=service&op=personalclass_edit&class_id=<?php echo $val['class_id'];?>"><?php echo $lang['nc_edit'];?></a> <a href="javascript:submit_delete(<?php echo $val['class_id'];?>)"><?php echo $lang['nc_del'];?></a></td>
         </tr>
         <?php } ?>
         <?php }else { ?>
