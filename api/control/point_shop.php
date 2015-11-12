@@ -20,7 +20,7 @@ class point_shopControl extends apiHomeControl
         if (C('pointprod_isuse') == 1){
             //热门积分兑换商品
             $recommend_pointsprod = Model('pointprod')->getRecommendPointProd(10);
-            output_data(array('recommend_pointsprod' => $recommend_pointsprod));
+            output_data(array('gifts' => $recommend_pointsprod));
         }else {
             output_error("并没有开启积分兑换");
             die;
@@ -32,7 +32,7 @@ class point_shopControl extends apiHomeControl
         //开启代金券功能后查询推荐的热门代金券列表
         if (C('voucher_allow') == 1){
             $recommend_voucher = Model('voucher')->getRecommendTemplate(6);
-            output_data(array('recommend_voucher' => $recommend_voucher));
+            output_data(array('vouchers' => $recommend_voucher));
         } else {
             output_error("并没有开启代金券功能");
             die;

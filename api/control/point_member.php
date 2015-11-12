@@ -27,7 +27,7 @@ class point_memberControl extends apiMemberControl
     /**
      *列表
      */
-    public function point_prod_listOp()
+    public function giftsOp()
     {
 
         $model_pointprod = Model('pointprod');
@@ -107,14 +107,14 @@ class point_memberControl extends apiMemberControl
 
         $pointprod_list = $model_pointprod->getPointProdList($where, '*', $orderby,'',$this->page);
         $pageCount = $model_pointprod->gettotalpage();
-        output_data(array('list_pointsprod' => $pointprod_list), mobile_page($pageCount));
+        output_data(array('gifts' => $pointprod_list), mobile_page($pageCount));
     }
 
     /**
      *详细信息
      *
      */
-    public function point_infoOp()
+    public function giftOp()
     {
         $pid = intval($_GET['id']);
         if (!$pid){
@@ -135,10 +135,9 @@ class point_memberControl extends apiMemberControl
             $result = $model_pointprod->editPointProdViewnum($pid);
             if ($result['state'] == true){//累加成功则cookie中增加该商品ID
                 $tm_tm_visite_pgoods[] = $pid;
-                // setNcCookie('tm_visite_pgoods',implode(',', $tm_tm_visite_pgoods));
             }
         }
-        output_data(array('point_good_info' => $prodinfo));
+        output_data(array('gift' => $prodinfo));
     }
 
     /**
@@ -164,7 +163,7 @@ class point_memberControl extends apiMemberControl
     /**
      * 代金券列表
      */
-    public function pointvoucherOp(){
+    public function vouchersOp(){
         $model_voucher = Model('voucher');
 
         //代金券模板状态
@@ -183,7 +182,7 @@ class point_memberControl extends apiMemberControl
         //查询仅我能兑换和所需积分
         $points_filter = array();
         if (intval($_GET['isable']) == 1){
-            $points_filter['isable'] = $this->$member_info['member_points'];
+            $points_filter['isable'] = $this->member_info['member_points'];
         }
         if (intval($_GET['points_min']) > 0){
             $points_filter['min'] = intval($_GET['points_min']);
@@ -227,7 +226,7 @@ class point_memberControl extends apiMemberControl
         //查询代金券面额
         // $pricelist = $model_voucher->getVoucherPriceList();
         $pageCount = $model_voucher->gettotalpage();
-        output_data(array('pointvoucher' => $voucherlist), mobile_page($pageCount));
+        output_data(array('vouchers' => $voucherlist), mobile_page($pageCount));
     }
 
     /**
@@ -260,13 +259,11 @@ class point_memberControl extends apiMemberControl
     /**
      * 积分礼品购物车
      */
-    public function cart_indexOp() {
+    public function cartOp() {
         $cart_goods = array();
         $model_pointcart = Model('pointcart');
         $data = $model_pointcart->getPCartListAndAmount(array('pmember_id'=>$this->member_info['member_id']));
-        output_data(array('cartgoods_list' => $data['data']));
-        // Tpl::output('pgoods_pointall',$data['data']['cartgoods_pointall']);
-        // Tpl::output('cart_array',$data['data']['cartgoods_list']);
+        output_data(array('cart_list' => $data['data']));
     }
 
     /**
@@ -279,7 +276,6 @@ class point_memberControl extends apiMemberControl
             output_error("操作失败");
             die;
         }
-        
         //验证积分礼品是否存在购物车中
         $model_pointcart = Model('pointcart');
         $check_cart = $model_pointcart->getPointCartInfo(array('pgoods_id'=>$pgid,'pmember_id'=>$this->member_info['member_id']));
@@ -310,7 +306,6 @@ class point_memberControl extends apiMemberControl
         $insert_arr['pgoods_points']    = $prod_info['pgoods_points'];
         $insert_arr['pgoods_choosenum'] = $prod_info['quantity'];
         $insert_arr['pgoods_image']     = $prod_info['pgoods_image_old'];
-        $cart_state = $model_pointcart->addPointCart($insert_arr);
         output_data("操作成功");
     }
 
@@ -358,7 +353,7 @@ class point_memberControl extends apiMemberControl
             output_error("操作失败");
             die;
         }
-        output_data(array('point_good_info' => $order_info));
+        output_data(array('exchange_order' => $order_info));
     }
 
 
