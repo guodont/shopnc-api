@@ -258,8 +258,6 @@ class serviceControl extends SystemControl{
 		$page	= new Page();
 		$page->setEachNum(10);
 		$page->setStyle('admin');
-		$goods_list = $model_goods->listGoods($condition,$page);
-		
 		
 		/**
 		 * 取单位分类
@@ -273,6 +271,17 @@ class serviceControl extends SystemControl{
 			}
 		}
 		
+		
+		$goods_list = $model_goods->listGoods($condition,$page);
+        foreach ($goods_list as $k => $v){
+				/**
+				 * 所属分类
+				 */
+				if (@array_key_exists($v['gc_id'],$tmp_class_name)){
+					$goods_list[$k]['class_name'] = $tmp_class_name[$v['gc_id']];
+				}
+			}		
+				
 		Tpl::output('search',$_GET);
 		Tpl::output('goods_class',$goods_class);
 		Tpl::output('goods_list',$goods_list);
@@ -332,23 +341,104 @@ class serviceControl extends SystemControl{
 	 */
 	public function service_addOp(){
 		$lang	= Language::getLangContent();
+		$model_service = Model('service');
 		/**
-		 * 实例化商品分类模型
-		 */
-		$model_class		= Model('flea_class');
-		$goods_class		= $model_class->getTreeClassList(1);
-		Tpl::output('goods_class',$goods_class);
+		 * 取单位分类
+		*/
+		$model_class = Model('company_class');
+		$class_list = $model_class->getClassList($condition);
+		$tmp_class_name = array();
+		if (is_array($class_list)){
+			foreach ($class_list as $k => $v){
+		    $tmp_class_name[$v['class_id']] = $v['class_name'];
+			}
+		}
 		/**
-		 * 地区 
+		 * 保存
 		 */
-	
-		$goods_image_path	= UPLOAD_SITE_URL.DS.ATTACH_MALBUM.'/'.$_SESSION['member_id'].'/';	//店铺商品图片目录地址
-		Tpl::output('goods_image_path',$goods_image_path);
-		Tpl::output('item_id','');
-		//查询会员信息
-		Tpl::output('menu_sign','flea');
-		Tpl::output('menu_sign_url','index.php?act=member_flea');
-		Tpl::output('menu_sign1','add_flea_goods');
+		if (chksubmit()){
+			/**
+			 * 验证
+			 */
+			$obj_validate = new Validate();
+			$obj_validate->validateparam = array(
+				array("input"=>$_POST["service_title"], "require"=>"true", "message"=>$lang['service_name_null']),
+				array("input"=>$_POST["gc_id"], "require"=>"true", "message"=>$lang['service_add_class_null']),
+				array("input"=>$_POST["service_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_price_error']),
+				array("input"=>$_POST["service_now_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_now_price_error']),
+				array("input"=>$_POST["service_abstract"], 'require'=>'true', "message"=>$lang['service_add_abstract_null']),
+				array("input"=>$_POST["service_content"], "require"=>"true", "message"=>$lang['service_add_content_null']),
+				array("input"=>$_POST["service_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_add_sort_int']),
+			);
+			$error = $obj_validate->validate();
+			if ($error != ''){
+				showMessage($error);
+			}else {
+
+				$insert_array = array();
+				$insert_array['service_name'] = trim($_POST['service_title']);
+				$insert_array['gc_id'] = intval($_POST['gc_id']);
+				$insert_array['service_price'] = trim($_POST['service_price']);
+				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
+				$insert_array['service_show'] = trim($_POST['service_show']);
+				$insert_array['order_online'] = trim($_POST['service_order']);	
+				$insert_array['pay_online'] = trim($_POST['service_pay']);	
+				$insert_array['service_sort'] = trim($_POST['service_sort']);
+				$insert_array['service_abstract'] = trim($_POST['service_abstract']);				
+				$insert_array['service_content'] = trim($_POST['service_content']);
+				$insert_array['service_add_time'] = time();
+				$result = $model_service->add($insert_array);
+				if ($result){
+					/**
+					 * 更新图片信息ID
+					 */
+					$model_upload = Model('upload');
+					if (is_array($_POST['file_id'])){
+						foreach ($_POST['file_id'] as $k => $v){
+							$v = intval($v);
+							$update_array = array();
+							$update_array['upload_id'] = $v;
+							$update_array['item_id'] = $result;
+							$model_upload->update($update_array);
+							unset($update_array);
+						}
+					}
+
+					$url = array(
+						array(
+							'url'=>'index.php?act=service&op=service_manage',
+							'msg'=>"{$lang['service_add_tolist']}",
+						),
+						array(
+							'url'=>'index.php?act=service&op=service_add&gc_id='.intval($_POST['gc_id']),
+							'msg'=>"{$lang['service_add_continueadd']}",
+						),
+					);
+					$this->log(L('service_add_ok').'['.$_POST['service_title'].']',null);
+					showMessage("{$lang['service_add_ok']}",$url);
+				}else {
+					showMessage("{$lang['service_add_fail']}");
+				}
+			}
+		}
+
+		/**
+		 * 模型实例化
+		 */
+		$model_upload = Model('upload');
+		$condition['upload_type'] = '1';
+		$condition['item_id'] = '0';
+		$file_upload = $model_upload->getUploadList($condition);
+		if (is_array($file_upload)){
+			foreach ($file_upload as $k => $v){
+				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/'.$file_upload[$k]['file_name'];
+			}
+		}
+
+		Tpl::output('PHPSESSID',session_id());
+		Tpl::output('gc_id',intval($_GET['gc_id']));
+		Tpl::output('class_list',$class_list);
+		Tpl::output('file_upload',$file_upload);		
         Tpl::showpage('service.add');
     }
 
@@ -381,6 +471,49 @@ class serviceControl extends SystemControl{
             }
         }
     }
+	
+	/**
+	 * 单位图片上传
+	 */
+	public function service_pic_uploadOp(){
+		/**
+		 * 上传图片
+		 */
+		$upload = new UploadFile();
+		$upload->set('default_dir',ATTACH_ARTICLE);
+		$result = $upload->upfile('fileupload');
+		if ($result){
+			$_POST['pic'] = $upload->file_name;
+		}else {
+			echo 'error';exit;
+		}
+		/**
+		 * 模型实例化
+		 */
+		$model_upload = Model('upload');
+		/**
+		 * 图片数据入库
+		 */
+		$insert_array = array();
+		$insert_array['file_name'] = $_POST['pic'];
+		$insert_array['upload_type'] = '1';
+		$insert_array['file_size'] = $_FILES['fileupload']['size'];
+		$insert_array['upload_time'] = time();
+		$insert_array['item_id'] = intval($_POST['item_id']);
+		$result = $model_upload->add($insert_array);
+		if ($result){
+			$data = array();
+			$data['file_id'] = $result;
+			$data['file_name'] = $_POST['pic'];
+			$data['file_path'] = $_POST['pic'];
+			/**
+			 * 整理为json格式
+			 */
+			$output = json_encode($data);
+			echo $output;
+		}
+
+	}
 
     /**
      * 评论管理

@@ -7,32 +7,48 @@ defined('InShopNC') or exit('Access Invalid!');
 
 class serviceModel {
 	/**
-	 * 商品保存
+	 * 新增
 	 *
-	 * @param	array $param 商品资料
+	 * @param array $param 参数内容
+	 * @return bool 布尔类型的返回结果
 	 */
-	public function saveGoods($param) {
-		if(empty($param)) {
+	public function add($param){
+		if (empty($param)){
 			return false;
 		}
-		$goods_array	= array();
-		$goods_array['service_name']	= $param['service_name'];
-		$goods_array['gc_id']		= $param['gc_id'];
-		$goods_array['gc_name']		= $param['gc_name'];
-		$goods_array['service_image']	= $param['service_image'];
-		$goods_array['service_pname']	= $param['service_pname'];
-		$goods_array['service_pphone']	= $param['service_pphone'];
-		$goods_array['service_tag']	= $param['service_tag'];
-		$goods_array['service_price']	= $param['service_price'];
-		$goods_array['service_now_price']= $param['service_now_price'];
-		$goods_array['service_show']	= $param['service_show'];
-		$goods_array['order_online']= $param['order_online'];
-		$goods_array['service_add_time']= time();
-		$goods_array['service_body']	= $param['service_body'];
-		$goods_array['service_description'] = $param['service_description'];
-		
-		$result	= Db::insert('service',$goods_array);
-		return $result;
+		if (is_array($param)){
+			$tmp = array();
+			foreach ($param as $k => $v){
+				$tmp[$k] = $v;
+			}
+			$result = Db::insert('service',$tmp);
+			return $result;
+		}else {
+			return false;
+		}
+	}
+
+	/**
+	 * 更新信息
+	 *
+	 * @param array $param 更新数据
+	 * @return bool 布尔类型的返回结果
+	 */
+	public function update($param){
+		if (empty($param)){
+			return false;
+		}
+		if (is_array($param)){
+			$tmp = array();
+			foreach ($param as $k => $v){
+				$tmp[$k] = $v;
+			}
+			$where = " service_id = '". $param['service_id'] ."'";
+			$result = Db::update('service',$tmp,$where);
+			return $result;
+		}else {
+			return false;
+		}
 	}
 	/**
 	 * 商品列表

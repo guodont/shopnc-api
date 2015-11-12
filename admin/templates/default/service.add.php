@@ -1,33 +1,4 @@
 <?php defined('InShopNC') or exit('Access Invalid!');?>
-<style>
-.size182 {height: 182px;width: 182px;}
-.box_arr .table_btn {width: 222px;}
-.box_arr .table_btn a {float: left;}
-.box_arr .table_btn a.disable_spec {background: url(<?php echo SHOP_TEMPLATES_URL;?>/images/member/btn.gif) repeat 0 -1018px;float: right;}
-.dialog_body {border: 0px;}
-.add_spec .add_link {color: #919191;}
-.add_spec .add_link:hover {color: red;}
-add_spec h2 {padding-left: 10px;}
-.f_l {float: left;}
-.mls_id {width: 0;filter: alpha(opacity=0);opacity: 0;}
-.noSelect {color: #B9B9B9 !important;}
-.flea_pic_list {background-color: #A7CAED;width: 648px;clear: both;margin-top: 10px;}
-.flea_pic_list ul.menu {background-color: #FFF;width: 648px;height: 32px;border-bottom: solid 1px #A7CAED;}
-.flea_pic_list .menu li {float: left;cursor: pointer;}
-.flea_pic_list .menu li a {font-size: 12px;line-height: 20px;color: #555;height: 20px;float: left;padding: 6px 15px;margin: 0;}
-.flea_pic_list .menu li a:hover {}
-.flea_pic_list .menu li.active a, .goods-pictures .menu li.active a:hover {font-size: 13px;font-weight: 600;color: #36C;background-color: #FFF;line-height: 20px;height: 20px;float: left;padding: 5px 14px 7px 14px;border: solid 1px #A7CAED;border-bottom: 0;}
-.flea_pic_list .content {width: 648px;background-color: #FFF;border: solid 1px #A7CAED;border-top: 0;}
-.flea_pic_list .content .standard {padding: 10px 5px 10px 5px;*padding-bottom : 5px;}
-.flea_pic_list .content .standard .big_pic {background-color: #FFF;margin-left: 7px;display: inline;width: 190px;height: 190px;float: left;}
-.flea_pic_list .content .standard .big_pic .picture { /* if IE7/8/9*/*text-align: center;display: inline;width: 182px;height: 182px;float: left;padding: 2px;margin: 1px;border: dashed 1px #E7E7E7;}
-.flea_pic_list .content .standard .small_pic {width: 430px;float: left;margin-left: 7px;display: inline;overflow: hidden;}
-.flea_pic_list .content .standard .small_pic ul {width: 450px;float: left;display: inline;padding-bottom: 8px;}
-.flea_pic_list .content .standard .small_pic ul li {display: inline;width: 80px;height: 114px;float: left;margin-right: 8px;position: relative;z-index: 99;cursor: pointer;}
-.flea_pic_list .content .standard .small_pic .picture {background-color: #FFF; /* if IE7/8/9*/*text-align: center;width: 72px;height: 72px;float: left;padding: 1px;margin: 1px;border: dashed 1px #E7E7E7;position: absolute;top: 0px;left: 0px;}
-.flea_pic_list .content .standard .small_pic .bg {display: none;width: 70px;height: 70px;border: 1px solid #09F;position: absolute;top: 3px;left: 3px;}
-.flea_pic_list .content .standard .small_pic .operation {background-color: #09F;width: 70px;height: 17px;padding-top: 1px;position: absolute;z-index: 999;bottom: 0px;left: 0px;-moz-opacity: 0.75;opacity: .75;filter: alpha(opacity=75);}
-.flea_pic_list .content .standard .small_pic .cut_in {background: url(<?php echo SHOP_TEMPLATES_URL;?>/images/member/picedit.png) 0px -64px;width: 16px;height: 16px;float: left;margin-left: 7px;display: inline;}.flea_pic_list .content .standard .small_pic .delete {background: url(<?php echo SHOP_TEMPLATES_URL;?>/images/member/picedit.png) 0 0;display: inline;width: 16px;height: 16px;float: right;margin-right: 7px;}.flea_pic_list .content .standard .small_pic .upload-btn {width: 74px;height: 32px;padding: 0px;position: absolute;*z-index: -1;z-index: 1;left: 1px;bottom: 0px;}.flea_pic_list .content .standard .small_pic .titles {width: 66px;height: 16px;line-height: 15px;text-align: center;color: #3d3f3e;background: #fdf04c;border: 1px solid #ffba2f;position: absolute;top: 1px;left: 1px;z-index: 9999;}.flea_pic_list .content .standard .small_pic .line {width: 66px;height: 2px;overflow: hidden;background: #d8deda;position: absolute;bottom: -3px;left: -1px;}.flea_pic_list .content .standard .small_pic .help {line-height: 18px;background-color: #FFFAE3;width: 420px;height: 57px;clear: both;padding: 4px;border: 1px solid #F1E38B;}.flea_pic_list .standard .small_pic .help p {padding-left: 24px;width: 398px;}.flea_pic_list .content .standard .help .ico {background: url(<?php echo SHOP_TEMPLATES_URL;?>/images/member/ico.gif) no-repeat 3px -2867px;color: #F60;}.flea_goods-attribute {width: 792px;margin-top: 0;border: none;}.flea_goods-attribute dl dd p {float: none;}.goods-gallery {width: 650px;}.goods-gallery .list li{display: inline;float: left;margin: 5px; width:90px; height:90px;position: relative;z-index: 99;cursor: pointer; border:1px solid #ddd;}</style>
 
 <div class="page">
   <div class="fixed-bar">
@@ -40,488 +11,220 @@ add_spec h2 {padding-left: 10px;}
     </div>
   </div>
   <div class="fixed-empty"></div>
-  <div class="ncm-default-form">
-    <form method="post" id="goods_form" action="index.php?act=member_flea&op=<?php if ($output['goods']['service_id']!='') echo 'edit_save_goods'; else echo 'save_goods'; ?>">
-      <input type="hidden" name="form_submit" value="ok" />
-      <input type="hidden" name="service_id" value="<?php echo $output['goods']['service_id']; ?>" />
-      <input type="hidden" name="spec_id" value="<?php echo $output['goods']['spec_id']; ?>" />
-      <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['service_class'].$lang['nc_colon'];?></dt>
-        <dd id="gcategory">
-          <?php if (!empty($output['goods']['gc_id'])) { ?>
-          <span class="f_l"><?php echo $output['goods']['gc_name'];?></span> <a class="edit_gcategory btn" href="javascript:void(0)"><?php echo $lang['nc_edit'];?></a>
-          <select style="display:none">
-            <option value="0"><?php echo $lang['nc_please_choose'];?></option>
-            <?php foreach($output['goods_class'] as $val) { ?>
-            <option value="<?php echo $val['gc_id']; ?>"><?php echo $val['gc_name']; ?></option>
-            <?php } ?>
-          </select>
-          <?php } else { ?>
-          <select>
-            <option value="0"><?php echo $lang['nc_please_choose'];?></option>
-            <?php foreach($output['goods_class'] as $val) { ?>
-            <option value="<?php echo $val['gc_id']; ?>"><?php echo $val['gc_name']; ?></option>
-            <?php } ?>
-          </select>
-          <?php } ?>
-          <input type="text" id="cate_id" name="cate_id" value="" class="mls_id text" />
-          <input type="hidden" name="cate_name" value="" class="mls_names text"/>
-        </dd>
-      </dl>
-      <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['service_name'].$lang['nc_colon'];?></dt>
-        <dd>
-          <p>
-            <input type="text" class="text w400" name="service_name" value="<?php echo $output['goods']['service_name']; ?>"  />
-          </p>
-          <p class="hint"><?php echo $lang['service_title'];?></p>
-        </dd>
-      </dl>
-      <dl>
-        <dt><?php echo $lang['service_tag'].$lang['nc_colon'];?></dt>
-        <dd>
-          <p>
-            <input type="text" class="text w400" name="service_tag" value="<?php echo $output['goods']['service_tag']; ?>"/>
-          </p>
-          <p class="hint"><?php echo $lang['service_multiple_tag'];?></p>
-        </dd>
-      </dl>
-      <dl>
-        <dt><?php echo $lang['service_goods_pic'].$lang['nc_colon'];?></dt>
-        <dd>
-          <div class="flea_pic_list">
-            <ul id="menu" class="menu">
-              <li class="active" id="li_1"><a href="javascript:void(0);"><?php echo $lang['service_goods_pic'];?></a></li>
-            </ul>
-            <div class="content">
-              <div id="demo"></div>
-              <div class="standard">
-                <div id="goodsCoverPicture" class="big_pic">
-                  <div class="picture"> <span class="thumb size182"><i></i>
-                    <?php if ($output['goods']['service_image']) { ?>
-                    <img id="big_goods_image" src="<?php echo $output['goods_image_path'].$output['goods']['service_image'];?>" onload="javascript:DrawImage(this,182,182);" alt="" />
-                    <?php } else { ?>
-                    <img id="big_goods_image" src="<?php echo SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>" onload="javascript:DrawImage(this,182,182);" alt="" />
-                    <?php } ?>
-                    </span> </div>
-                </div>
-                <div class="small_pic" >
-                  <ul id="goods_images">
-                    <?php for($i=0;$i<5;$i++){?>
-                    <li nc_type="handle_pic" file_id="<?php echo $output['service_image'][$i]['upload_id']; ?>" thumbnail="<?php echo $output['service_image'][$i]['file_thumb']; ?>" id="thumbnail_<?php echo $i;?>">
-                      <input type="hidden" name="goods_file_id[]" value="<?php echo $output['service_image'][$i]['upload_id']; ?>">
-                      <div class="picture"><span class="thumb size60"><i></i>
-                      <img id="img_<?php echo $i;?>" src="<?php echo $output['service_image'][$i]['file_thumb'] !=''?$output['service_image'][$i]['file_thumb']:SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>" onerror="this.src='<?php echo SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>'" onload="javascript:DrawImage(this,60,60);"/>
-                      
-                      
-                      </span></div>
-                      <div nc_type="handler" class="bg" id="<?php echo $i;?>">
-                        <?php if($output['service_image'][$i]['file_thumb'] !=''){?>
-                        <p class="operation"><span class="cut_in" nc_type="set_cover" ecm_title="<?php echo $lang['store_goods_index_face'];?>"></span><span class="delete" nc_type="drop_image" ecm_title="<?php echo $lang['nc_del'];?>"></span></p>
-                        <?php }?>
-                      </div>
-                      <div class="upload-btn"><a href="javascript:void(0);">
-                        <iframe id="iframe_<?php echo $i;?>" width="86" scrolling="no" height="30" frameborder="0" src="index.php?act=member_flea&op=image_upload&id=<?php echo $i;?>&item_id=<?php echo $output['item_id']?>&file_id=<?php echo $output['service_image'][$i]['upload_id']; ?>" ></iframe>
-                        </a></div>
-                    </li>
-                    <?php } ?>
-                  </ul>
-                  <div class="help">
-                    <p class="ico"><?php echo $lang['service_description_one'];?></p>
-                    <p><?php echo $lang['service_description_two'];?></p>
-                  </div>
-                </div>
-                <div class="clear"></div>
-              </div>
-              <div class="upload_btn" style=" display: none;"> </div>
-            </div>
-          </div>
-        </dd>
-      </dl>
-      <dl>
-        <dt nc_type="no_spec" class="required"><em></em><?php echo $lang['service_price'].$lang['nc_colon'];?></dt>
-        <dd nc_type="no_spec">
-          <input name="service_price" class="text" value="<?php echo $output['goods']['service_price']; ?>" type="text" />
-        </dd>
-      </dl>  
-      <dl>
-        <dt nc_type="no_spec" class="required"><em></em><?php echo $lang['service_now_price'].$lang['nc_colon'];?></dt>
-        <dd nc_type="no_spec">
-          <input name="service_now_price" class="text" value="<?php echo $output['goods']['service_now_price']; ?>" type="text" />
-        </dd>
-      </dl>
-      <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['service_contact_person'].$lang['nc_colon'];?></dt>
-        <dd>
-          <input name="service_pname" value="<?php echo $output['goods']['service_pname']; ?>" type="text" class="text" />
-        </dd>
-      </dl>
-      <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['service_contact_tel'].$lang['nc_colon'];?></dt>
-        <dd>
-          <input name="service_pphone" value="<?php echo $output['goods']['service_pphone']; ?>" type="text" class="text" />
-        </dd>
-      </dl>
-      <dl>
-        <dt><?php echo $lang['service_seo_keywords'].$lang['nc_colon'];?></dt>
-        <dd>
-          <p>
-            <textarea  class="w800" name="seo_description" rows="3" id="remark_input" ><?php echo $output['goods']['service_description']; ?></textarea>
-          </p>
-          <p class="hint"> <?php echo $lang['store_goods_index_goods_seo_description_help']; ?></p>
-        </dd>
-      </dl>
-      <dl>
-        <dt><?php echo $lang['service_desc'].$lang['nc_colon'];?></dt>
-        <dd>
-          <p>
-<?php showEditor('g_body',$output['goods']['service_body'],'800px','480px','visibility:hidden;',"false",$output['editor_multimedia']);?>
-          </p>
-          <p class="info-album"><a class="des_demo" href="index.php?act=flea_album&op=pic_list&item=des&service_id=<?php echo $_GET['service_id']; ?>"><?php echo $lang['service_insert_users_flea_photo'];?></a></p>
-          <p id="des_demo" style="display:none;"></p>
-        </dd>
-      </dl>
-      <dl class="bottom">
-        <dt>&nbsp;</dt>
-        <dd>
-          <input type="submit" class="submit" value="<?php echo $lang['nc_submit'];?>" />
-        </dd>
-      </dl>
-    </form>
-  </div>
+  <form id="service_form" method="post" name="articleForm">
+    <input type="hidden" name="form_submit" value="ok" />
+    <table class="table tb-type2 nobdb">
+      <tbody>
+        <tr class="noborder">
+          <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_name'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="service_title" id="service_title" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label class="validation" for="cate_id"><?php echo $lang['service_class'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><select name="gc_id" id="gc_id">
+              <option value=""><?php echo $lang['nc_please_choose'];?>...</option>
+              <?php if(!empty($output['class_list']) && is_array($output['class_list'])){ ?>
+              <?php foreach($output['class_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['class_id'];?>"><?php echo $v['class_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="articleForm"><?php echo $lang['service_price'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="service_price" id="service_price" class="txt"></td>
+          <td class="vatop tips"><?php echo $lang['service_price_null'];?></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="articleForm"><?php echo $lang['service_now_price'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="service_now_price" id="service_now_price" class="txt"></td>
+          <td class="vatop tips"><?php echo $lang['service_now_price_null'];?></td>
+        </tr>		
+        <tr>
+          <td colspan="2" class="required"><label><?php echo $lang['service_show'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform onoff"><label for="service_show1" class="cb-enable selected" ><span><?php echo $lang['nc_yes'];?></span></label>
+            <label for="service_show0" class="cb-disable" ><span><?php echo $lang['nc_no'];?></span></label>
+            <input id="service_show1" name="service_show" checked="checked" value="1" type="radio">
+            <input id="service_show0" name="service_show" value="0" type="radio"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="required"><label><?php echo $lang['service_order'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+            <td class="vatop rowform onoff"><label for="service_order1" class="cb-enable selected" ><span><?php echo $lang['nc_yes'];?></span></label>
+                <label for="service_order0" class="cb-disable" ><span><?php echo $lang['nc_no'];?></span></label>
+                <input id="service_order1" name="service_order" checked="checked" value="1" type="radio">
+                <input id="service_order0" name="service_order" value="0" type="radio"></td>
+            <td class="vatop tips"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="required"><label><?php echo $lang['service_pay'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+            <td class="vatop rowform onoff"><label for="service_pay1" class="cb-enable selected" ><span><?php echo $lang['nc_yes'];?></span></label>
+                <label for="service_pay0" class="cb-disable" ><span><?php echo $lang['nc_no'];?></span></label>
+                <input id="service_pay1" name="service_pay" checked="checked" value="1" type="radio">
+                <input id="service_pay0" name="service_pay" value="0" type="radio"></td>
+            <td class="vatop tips"></td>
+        </tr>		
+        <tr>
+          <td colspan="2" class="required"><?php echo $lang['nc_sort'];?>: 
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="255" name="service_sort" id="service_sort" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_abstract'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td colspan="2"><textarea name="service_abstract" cols="110" rows="5" id="service_abstract"></textarea></td>
+        </tr>		
+        <tr>
+          <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_content'];?>:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td colspan="2" class="vatop rowform"><?php showEditor('service_content');?></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><?php echo $lang['service_add_upload'];?>:</td>
+        </tr>
+        <tr class="noborder">
+          <td colspan="3" id="divComUploadContainer"><input type="file" multiple="multiple" id="fileupload" name="fileupload" /></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><?php echo $lang['service_add_uploaded'];?>:</td>
+        <tr>
+          <td colspan="2"><ul id="thumbnails" class="thumblists">
+              <?php if(is_array($output['file_upload'])){?>
+              <?php foreach($output['file_upload'] as $k => $v){ ?>
+              <li id="<?php echo $v['upload_id'];?>" class="picture" >
+                <input type="hidden" name="file_id[]" value="<?php echo $v['upload_id'];?>" />
+                <div class="size-64x64"><span class="thumb"><i></i><img src="<?php echo $v['upload_path'];?>" alt="<?php echo $v['file_name'];?>" onload="javascript:DrawImage(this,64,64);"/></span></div>
+                <p><span><a href="javascript:insert_editor('<?php echo $v['upload_path'];?>');"><?php echo $lang['service_img_add_insert'];?></a></span><span><a href="javascript:del_file_upload('<?php echo $v['upload_id'];?>');"><?php echo $lang['nc_del'];?></a></span></p>
+              </li>
+              <?php } ?>
+              <?php } ?>
+            </ul><div class="tdare">
+              
+          </div></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="tfoot">
+          <td colspan="15" ><a href="JavaScript:void(0);" class="btn" id="submitBtn"><span><?php echo $lang['nc_submit'];?></span></a></td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
-		$('.goods_demo').ajaxContent({
-			event:'click', //mouseover
-			loaderType:"img",
-			loadingMsg:"<?php echo SHOP_TEMPLATES_URL;?>/images/loading.gif",
-			target:'#demo'
-		});
-		regionInit("region");
-		$('input[class="edit_region"]').click(function(){
-			$(this).css('display','none');
-			$('#area_id').val('');
-			$(this).parent().children('select').css('display','');
-			$(this).parent().children('span').css('display','none');
-		});
-		$('.des_demo').ajaxContent({
-			event:'click', //mouseover
-			loaderType:"img",
-			loadingMsg:"<?php echo SHOP_TEMPLATES_URL;?>/images/loading.gif",
-			target:'#des_demo'
-		});
-
-	    /* 图片控制 */
-	    var handle_pic, handler, drop, cover, insert;
-
-	    $('*[nc_type="handle_pic"]').find('img:first').hover(function(){
-	        $('*[nc_type="explain_layer"]').remove();
-	        handle_pic = $(this).parents('*[nc_type="handle_pic"]');
-	        handler = handle_pic.find('*[nc_type="handler"]');
-	        var parents = handler.parents();
-	        handler.show();
-	        handler.hover(function(){
-	            $(this).show();
-	            set_zindex(parents, "999");
-	        },
-	        function(){
-	            $(this).hide();
-	            set_zindex(parents, "0");
-	        });
-	        set_zindex(parents, '999');
-
-	        cover = handler.find('*[nc_type="set_cover"]');
-	        cover.unbind('click');
-	        cover.click(function(){
-	            set_cover(handle_pic.attr("file_id"));
-	        });
-
-	        drop = handler.find('*[nc_type="drop_image"]');
-	        drop.unbind('click');
-	        drop.click(function(){
-	            drop_image(handler.attr("id"));
-	        });
-
-	        insert = handler.find('*[nc_type="insert_editor"]');
-	        insert.unbind('click');
-	        insert.click(function(){
-	            insert_editor(handle_pic.attr("file_name"),handle_pic.attr("goods_image_path"));
-	            return false;
-	        });
-	    },
-	    function(){
-	        handler.hide();
-	        var parents = handler.parents();
-	        set_zindex(parents, '0');
-	    });
-});
-
-</script> 
-<script src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.ajaxContent.pack.js"></script>
-<script src="<?php echo RESOURCE_SITE_URL;?>/js/jquery-ui/i18n/zh-CN.js"></script>
-<script src="<?php echo RESOURCE_SITE_URL;?>/js/common_select.js"></script>
-<script src="<?php echo RESOURCE_SITE_URL;?>/js/flea/common_flea_select.js"></script>
-<script src="<?php echo SHOP_RESOURCE_SITE_URL;?>/js/store_goods_add.step2.js"></script>
 <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/fileupload/jquery.iframe-transport.js" charset="utf-8"></script> 
 <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/fileupload/jquery.ui.widget.js" charset="utf-8"></script> 
 <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/fileupload/jquery.fileupload.js" charset="utf-8"></script> 
-<script src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.poshytip.min.js"></script> 
-<script type="text/javascript">
-var SITE_URL = "<?php echo SHOP_SITE_URL; ?>";
-$(function(){
-	gcategoryInit("gcategory");
-	$('#li_1').click(function(){
-		$('#li_1').attr('class','active');
-		$('#li_2').attr('class','');
-		$('#demo').hide();
-	});
-	$('#goods_demo').click(function(){
-		$('#li_1').attr('class','');
-		$('#li_2').attr('class','active');
-		$('#demo').show();
-	});
-
-	$('.des_demo').click(function(){
-		if($('#des_demo').css('display') == 'none'){
-            $('#des_demo').show();
-        }else{
-            $('#des_demo').hide();
-        }
+<script>
+//按钮先执行验证再提交表单
+$(function(){$("#submitBtn").click(function(){
+    if($("#service_form").valid()){
+     $("#service_form").submit();
+	}
 	});
 });
-
-
-//var SPEC = <?php echo $output['spec_json']; ?>;
-var item_id = '<?php echo $output['item_id']?>';
-function add_uploadedfile(file_data)
-{
-	file_data = jQuery.parseJSON(file_data);
-	if(file_data.state == 'false') {
-		alert(file_data.message);
-		return false;
-	}
-    if(file_data.instance == 'service_image'){
-        id = file_data.id;
-        $('#thumbnail_'+id).attr('thumbnail','<?php echo $output['goods_image_path']; ?>'+file_data.file_name).attr('file_id',file_data.file_id);
-        $('#thumbnail_'+id).find('input[name="goods_file_id[]"]').val(file_data.file_id);
-        $('#img_'+id).attr('src','<?php echo $output['goods_image_path']; ?>'+ file_data.file_name);
-        $('#'+id).html('<p class="operation"><span class="cut_in" nc_type="set_cover" ecm_title="<?php echo $lang['store_goods_index_face'];?>"></span><span class="delete" nc_type="drop_image" ecm_title="<?php echo $lang['nc_del'];?>"></span></p>');
-        $('#iframe_'+id).attr('src','index.php?act=member_flea&op=image_upload&id='+id+'&item_id='+item_id+'&file_id='+file_data.file_id);
-        if($('#big_goods_image').attr('src') == '<?php echo SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>'){
-            set_cover(file_data.file_id);
-        }
-    }
-}
-function drop_image(id){
-    if (confirm('<?php echo $lang['store_goods_index_goods_del_confirm']; ?>')){
-            var url = SITE_URL + '/index.php?act=member_flea&op=drop_image';
-            goods_file_id = $('#thumbnail_'+id).attr('file_id');
-            $.getJSON(url, {'id':goods_file_id}, function(data){
-                if (data.done)
-                {
-                	$('#thumbnail_'+id).attr('thumbnail','').attr('file_id','');
-                	$('#img_'+id).attr('src','<?php echo SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>');
-                	$('#'+id).html('');
-                }
-                else
-                {
-                    alert(data.msg);
-                }
-            });
-            if($('#big_goods_image').attr('src') == $('#img_'+id).attr('src')){
-				$('#big_goods_image').attr('src','<?php echo SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>');
-            }
-        }
-}
-function insert_editor(file_path){
-	KE.appendHtml('g_body', '<img src="'+ file_path + '">');
-}
-
-function set_cover(file_id){
-    if(typeof(file_id) == 'undefined'){
-        $('#big_goods_image').attr('src','<?php echo SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>');
-        return;
-    }
-    var obj = $('*[file_id="'+ file_id +'"]');
-    $('*[file_id="'+ file_id +'"]').clone(true).prependTo('#goods_images');
-    $('*[nc_type="handler"]').hide();
-    $('#big_goods_image').attr('src',obj.attr('thumbnail'));
-    obj.remove();
-}
-function insert_img(id,item_url){
-	var url = SITE_URL + '/index.php?act=member_flea&op=insert_image';
-	var j	= 0;
-	var y	= 'sign';
-	for (var i = 0; i < 5; i++){
-		if($('#thumbnail_'+i).attr('file_id') ==  ''){
-			if(y == 'sign'){
-				y=i;
-			}
-		}else{
-			if($('#thumbnail_'+i).attr('thumbnail') == item_url){alert('<?php echo $lang['store_goods_index_goods_the_same'];?>');return false;}
-			j++;
-		}
-	}
-	if(j==5){
-		alert('<?php echo $lang['store_goods_index_goods_not_add']; ?>');
-	}else{
-		$.getJSON(url, {'id':id,'item_id':item_id}, function(data){
-        	if (data.done){
-    			$('#thumbnail_'+y).attr('thumbnail','<?php echo $output['goods_image_path']; ?>'+data.file_name).attr('file_id',data.file_id);
-    			$('#thumbnail_'+y).find('input[name="goods_file_id[]"]').val(data.file_id);
-        		$('#img_'+y).attr('src','<?php echo $output['goods_image_path']; ?>'+ data.file_name);
-        		$('#iframe_'+y).attr('src','index.php?act=member_flea&op=image_upload&id='+y+'&item_id='+item_id+'&file_id='+data.file_id);
-        		$('#'+y).html('<p class="operation"><span class="cut_in" nc_type="set_cover" ecm_title="<?php echo $lang['store_goods_index_face'];?>"></span><span class="delete" nc_type="drop_image" ecm_title="<?php echo $lang['nc_del'];?>"></span></p>');
-        		if($('#big_goods_image').attr('src') == '<?php echo SHOP_TEMPLATES_URL.'/images/member/default_image.png';?>'){
-                    set_cover(data.file_id);
-                }
-        	}else{
-            	alert(data.msg);
-        	}
-    	});
-	}
-}
-
-$(function(){
-     $('#goods_form').validate({
+//
+$(document).ready(function(){
+	$('#service_form').validate({
         errorPlacement: function(error, element){
-            $(element).next('.field_notice').hide();
-            $(element).after(error);
+			error.appendTo(element.parent().parent().prev().find('td:first'));
         },
         rules : {
-<?php if ($output['goods']['service_id']=='') { ?>
-            cate_id    : {
-				required : true,
-                remote   : {
-                    url  : 'index.php?act=member_flea&op=check_class',
-                    type : 'get',
-                    data : {
-                        cate_id : function(){
-                            return $('#cate_id').val();
-                        }
-                    }
-                }
+            service_title : {
+                required   : true
             },
-<?php } ?>
-<?php if ($output['goods']['service_id']=='') { ?>            
-area_id: {
-	required: true,
-	remote   : {
-        url  : 'index.php?act=index&op=flea_area&check=1',
-        type : 'get',
-        data : {
-            region_id : function(){
-                return $('#area_id').val();
+			gc_id : {
+                required   : true
+            },
+			service_price : {
+                required   : true
+            },
+			service_now_price : {
+                required   : true
+            },						
+			service_content : {
+                required   : true
+            },
+            service_sort : {
+                number   : true
             }
-        }
-    }
-},
-<?php }?>	
-            service_name : {
-                required   : true,
-                minlength  : 5,
-                maxlength  : 30
-            },
-            sh_quality : {
-                number   : true,
-                min		 : 1,
-                max		 : 3
-            },
-            service_price    : {
-				required   : true,
-                number     : true
-            },
-            service_now_price : {
-				required   : true,
-                number     : true
-            },
-            service_pname    : {
-				required   : true
-            },
-            service_pphone    : {
-				required   : true,
-                number     : true
-            }            
         },
         messages : {
-<?php if ($output['goods']['service_id']=='') { ?>
-            cate_id     : {
-				required: '<?php echo $lang['store_goods_index_goods_class_null'];?>',
-                remote  : '<?php echo $lang['store_goods_index_goods_class_error'];?>'
+            service_title : {
+                required   : '<?php echo $lang['service_name_null'];?>'
             },
-<?php } ?>
-<?php if ($output['goods']['service_id']=='') { ?>            
-area_id: {
-	required: '<?php echo $lang['service_area'];?>',
-	remote: '<?php echo $lang['service_next_area'];?>'
-},
-<?php }?>
-            service_name  : {
-                required   : '<?php echo $lang['service_name_null'];?>',
-                minlength  : '<?php echo $lang['service_title_limit'];?>',
-                maxlength  : '<?php echo $lang['service_title_limit'];?>'
+			gc_id : {
+                required   : '<?php echo $lang['service_add_class_null'];?>'
             },
-            sh_quality  : {
-            	number   : '<?php echo $lang['service_choose_oldnew'];?>',
-            	min      : '<?php echo $lang['service_choose_oldnew'];?>',
-            	max      : '<?php echo $lang['service_choose_oldnew'];?>'
+			service_price : {
+                required   : '<?php echo $lang['service_price_null'];?>'
             },
-            service_now_price : {
-				required: '<?php echo $lang['service_store_price_null'];?>',
-                number     : '<?php echo $lang['service_store_price_error'];?>'
+			service_now_price : {
+                required   : '<?php echo $lang['service_now_price_null'];?>'
+            },						
+			service_content : {
+                required   : '<?php echo $lang['service_add_content_null'];?>'
             },
-            service_pname  : {
-                required   : '<?php echo $lang['service_contact_unnull'];?>'
-            },
-            service_pphone  : {
-                required   : '<?php echo $lang['service_tel_unnull'];?>',
-                number     : '<?php echo $lang['service_tel_number'];?>'
+            service_sort  : {
+                number   : '<?php echo $lang['service_add_sort_int'];?>'
             }
         }
     });
-
-    // init spec
-    spec_update();
+    // 图片上传
+    $('#fileupload').each(function(){
+        $(this).fileupload({
+            dataType: 'json',
+            url: 'index.php?act=service&op=service_pic_upload',
+            done: function (e,data) {
+                if(data != 'error'){
+                	add_uploadedfile(data.result);
+                }
+            }
+        });
+    });
 });
-</script> 
-<script>
-function preventSelectDisabled(oSelect)
+
+
+function add_uploadedfile(file_data)
 {
-   //得到当前select选中项的disabled属性。
-   var isOptionDisabled = oSelect.options[oSelect.selectedIndex].disabled;
-   //如果是有disabled属性的话
-   if(isOptionDisabled)
-   {
-      //让他恢复上一次选择的状态，oSelect.defaultSelectedIndex属性是前一次选中的选项index
-      //oSelect.selectedIndex = oSelect.defaultSelectedIndex;
-	  //让他恢复未选择状态
-	  oSelect.selectedIndex = '0';
-      return false;
-   }
-  //如果没有disabled属性的话
-   else
-   {
-	   var currentvalue = oSelect.value;
-	   //为了实现下面的验证,先清空选择的项
-       oSelect.value = '0';
-	   if(checkselected(currentvalue)){
-		 	//oSelect.defaultSelectedIndex属性，设置成当前选择的index
-	        oSelect.value = currentvalue;   
-	   }else{
-		   //alert("该分类已经选择,请选择其他分类");
-		   alert('<?php echo $lang['store_goods_index_add_sclasserror']; ?>');
-	   }
-       return true;
-   }
+    var newImg = '<li id="' + file_data.file_id + '" class="picture"><input type="hidden" name="file_id[]" value="' + file_data.file_id + '" /><div class="size-64x64"><span class="thumb"><i></i><img src="<?php echo UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/';?>' + file_data.file_name + '" alt="' + file_data.file_name + '" width="64px" height="64px"/></span></div><p><span><a href="javascript:insert_editor(\'<?php echo UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/';?>' + file_data.file_name + '\');"><?php echo $lang['service_img_add_insert'];?></a></span><span><a href="javascript:del_file_upload(' + file_data.file_id + ');"><?php echo $lang['nc_del'];?></a></span></p></li>';
+    $('#thumbnails').prepend(newImg);
 }
-function checkselected(currentvalue){
-	var result = true;
-	jQuery.each($(".sgcategory"),function(){
-		if(currentvalue!=0 && currentvalue == $(this).val()){
-			result = false;
-		}
-	});
-	return result;
+function insert_editor(file_path){
+	KE.appendHtml('service_content', '<img src="'+ file_path + '" alt="'+ file_path + '">');
 }
+function del_file_upload(file_id)
+{
+    if(!window.confirm('<?php echo $lang['nc_ensure_del'];?>')){
+        return;
+    }
+    $.getJSON('index.php?act=service&op=ajax&branch=del_file_upload&file_id=' + file_id, function(result){
+        if(result){
+            $('#' + file_id).remove();
+        }else{
+            alert('<?php echo $lang['service_add_del_fail'];?>');
+        }
+    });
+}
+
+
 </script>

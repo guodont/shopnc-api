@@ -57,7 +57,7 @@
           <td class="w60 picture">
 		  <div class="size-56x56"><span class="thumb size-56x56"><img height="56" width="56" src="<?php echo $v['service_image']?UPLOAD_SITE_URL.DS.ATTACH_MALBUM.'/'.$v['member_id'].'/'.str_replace('_small', '_tiny', $v['service_image']):TEMPLATES_PATH.'/images/default_goods_image.gif';?>" onload="javascript:DrawImage(this,56,56);"/></span></div></td>
           <td class="goods-name w270"><p><span title="<?php echo $lang['nc_editable'];?>" class="editable-tarea tooltip" required="1" ajax_branch_textarea="service_name" fieldid="<?php echo $v['service_id'];?>" fieldname="service_name" nc_type="inline_edit_textarea"><?php echo $v['service_name'];?></span></p></td>
-          <td><?php echo $v['gc_name'];?></td>
+          <td><?php echo $v['class_name']; ?></td>
           <td class="align-center yes-onoff"><?php if($v['service_show'] == 0){ ?>
             <a href="JavaScript:void(0);" class=" disabled" fieldvalue="0" fieldid="<?php echo $v['service_id'];?>" ajax_branch="service_show" fieldname="service_show" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
             <?php }else{ ?>
