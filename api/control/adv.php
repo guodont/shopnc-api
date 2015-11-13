@@ -47,7 +47,7 @@ class advControl extends apiControl
             $advs[$key]['img_url'] = UPLOAD_SITE_URL."/".ATTACH_ADV."/".$pic;
             $advs[$key]['adv_url'] = $url;
         }
-        output_data($advs);
+        output_data(array('advs'=>$advs));
     }
 
 
