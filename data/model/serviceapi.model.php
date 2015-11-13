@@ -23,9 +23,9 @@ class serviceapiModel extends Model
      * @param int $page
      * @return mixed
      */
-    public function geServiceList($condition, $field = '*', $order = '', $limit = 0, $page = 0)
+    public function geServiceList($condition, $field = '*', $order = '', $page = 0)
     {
-        return $this->table('service')->field($field)->where($condition)->order($order)->limit($limit)->page($page)->select();
+        return $this->table('service')->field($field)->where($condition)->order($order)->page($page)->select();
     }
 
     /**
