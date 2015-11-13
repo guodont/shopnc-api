@@ -21,15 +21,9 @@ class serviceControl extends apiHomeControl
         $model_service = Model('serviceapi');
 
         //  排序
-//        $condition['service_name'] = trim($_GET['keyword']);
         $condition = array();
         $condition['gc_id'] = intval($_GET['cate_id']);
-
-        $service_list = $model_service->table('service')->field('*')->where($condition)->order('service_id desc')->page($this->page)->select();
-
-        var_dump($service_list);
-
-//        $service_list = $model_service->geServiceList($condition,'*','',$this->page);
+        $service_list = $model_service->geServiceList($condition,'*','',$this->page);
 
         $pageCount = $model_service->gettotalpage();
 
