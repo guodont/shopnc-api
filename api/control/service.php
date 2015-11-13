@@ -18,7 +18,7 @@ class serviceControl extends apiHomeControl
     public function servicesOp()
     {
 
-        $model_service = Model('service');
+        $model_service = Model('serviceapi');
 
         //  排序
         $condition['keyword'] = trim($_GET['search_service_name']);
