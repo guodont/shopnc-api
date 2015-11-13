@@ -25,9 +25,13 @@ class serviceControl extends apiHomeControl
         $condition['brand_id'] = intval($_GET['search_brand_id']);
         $condition['gc_id'] = intval($_GET['cate_id']);
 
-        $service_list = $model_service->geServiceList($condition,'*','',$this->page);
+        $service_list = $model_service->field('*')->where($condition)->order('service_id desc')->page($this->page)->select();
 
-        output_data(array('services' => $service_list));
+//        $service_list = $model_service->geServiceList($condition,'*','',$this->page);
+
+        $pageCount = $model_service->gettotalpage();
+
+        output_data(array('services' => $service_list),mobile_page($pageCount));
 
     }
 
