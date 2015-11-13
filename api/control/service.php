@@ -1,10 +1,10 @@
 <?php
 /**
- * 服务分类 api
+ * 服务 api
  */
 defined('InShopNC') or exit('Access Invalid!');
 
-class service_classControl extends apiHomeControl
+class serviceControl extends apiHomeControl
 {
 
     public function __construct()

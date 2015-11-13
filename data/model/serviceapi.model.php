@@ -25,7 +25,7 @@ class serviceapiModel extends Model
      */
     public function geServiceList($condition, $field = '*', $order = '', $limit = 0, $page = 0)
     {
-        return $this->field($field)->where($condition)->order($order)->limit($limit)->page($page)->select();
+        return $this->table('service')->field($field)->where($condition)->order($order)->limit($limit)->page($page)->select();
     }
 
     /**
