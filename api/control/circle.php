@@ -117,7 +117,9 @@ class circleControl extends apiHomeControl
             $model = Model();
             // 话题列表
             $where = array();
+            $types = array(5, 6);
             $where['circle_id'] = $c_id;
+            $where['thclass_id'] = array('not in',$types);
             $thc_id = intval($_GET['thc_id']);
             if ($thc_id > 0) {
                 $where['thclass_id'] = $thc_id;
