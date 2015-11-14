@@ -157,4 +157,18 @@ class loginControl extends apiHomeControl
             output_error($member_info['error']);
         }
     }
+
+    public function phone_statusOp()
+    {
+        $member_model = Model('member');
+        $check_member_mobile = $member_model->getMemberInfo(array('member_mobile' => $_GET['mobile']));
+        if (is_array($check_member_mobile) and count($check_member_mobile) > 0)
+        {
+            echo '1';
+        }
+        else
+        {
+            echo '0';
+        }
+    }
 }
