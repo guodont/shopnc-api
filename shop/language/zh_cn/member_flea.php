@@ -29,8 +29,8 @@ $lang['store_goods_index_flea_goods_leixing_zhuanrang']	= '我要转让';
 $lang['store_goods_index_flea_goods_leixing_xuqiu']	= '我有需求';
 $lang['store_goods_index_flea_goods_price_null']	= '宝贝原价不能为空';
 $lang['store_goods_index_flea_goods_price_error']	= '宝贝原价只能是数字';
-$lang['store_goods_index_flea_store_price_null']	= '转让价格不能为空';
-$lang['store_goods_index_flea_store_price_error']	= '转让价格只能是数字';
+$lang['store_goods_index_flea_store_price_null']	= '交易价格不能为空';
+$lang['store_goods_index_flea_store_price_error']	= '交易价格只能是数字';
 
 $lang['store_goods_index_edit_flea']				= '编辑交易';
 $lang['store_goods_index_flea_del_success']			= '交易删除成功';

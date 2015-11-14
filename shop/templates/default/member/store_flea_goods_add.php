@@ -483,6 +483,9 @@ area_id: {
 				required   : true,
                 number     : true
             },
+            goods_leixing    : {
+				required   : true
+            },			
             flea_pname    : {
 				required   : true
             },
@@ -518,7 +521,10 @@ area_id: {
 				required: '<?php echo $lang['store_goods_index_flea_store_price_null'];?>',
                 number     : '<?php echo $lang['store_goods_index_flea_store_price_error'];?>'
             },
-            flea_pname  : {
+            goods_leixing  : {
+                required   : '<?php echo $lang['store_goods_index_flea_goods_leixing_null'];?>'
+            },
+			flea_pname  : {
                 required   : '<?php echo $lang['store_goods_index_flea_contact_unnull'];?>'
             },
             flea_pphone  : {

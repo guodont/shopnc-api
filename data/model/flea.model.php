@@ -36,6 +36,8 @@ class fleaModel {
 		$goods_array['goods_body']	= $param['goods_body'];
 		$goods_array['goods_keywords'] = $param['goods_keywords'];
 		$goods_array['goods_description'] = $param['goods_description'];
+		$goods_array['goods_leixing'] = $param['goods_leixing'];
+	
 		
 		$result	= Db::insert('flea',$goods_array);
 		return $result;
