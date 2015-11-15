@@ -134,6 +134,8 @@ class goodsControl extends apiHomeControl
 
         $page_count = $model_goods->gettotalpage();
 
+        $goods_list = $this->_goods_list_extend($goods_list);
+
         output_data(array('goods_list' => $goods_list), mobile_page($page_count));
     }
 
