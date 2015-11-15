@@ -28,9 +28,9 @@
         <tr class="noborder">
           <td class="vatop rowform"><select name="ac_id" id="ac_id">
               <option value=""><?php echo $lang['nc_please_choose'];?>...</option>
-              <?php if(!empty($output['class_list']) && is_array($output['class_list'])){ ?>
-              <?php foreach($output['class_list'] as $k => $v){ ?>
-              <option value="<?php echo $v['class_id'];?>"><?php echo $v['class_name'];?></option>
+              <?php if(!empty($output['service_list']) && is_array($output['service_list'])){ ?>
+              <?php foreach($output['service_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['service_id'];?>"><?php echo $v['service_name'];?></option>
               <?php } ?>
               <?php } ?>
             </select></td>

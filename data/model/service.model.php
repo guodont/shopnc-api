@@ -1,6 +1,6 @@
 <?php
 /**
- * 闲置管理
+ * 服务管理
  *by 3 3hao .com 
  */
 defined('InShopNC') or exit('Access Invalid!');
@@ -51,7 +51,7 @@ class serviceModel {
 		}
 	}
 	/**
-	 * 商品列表
+	 * 服务列表
 	 */ 	
 	public function listGoods($param,$page = '',$field='*') {
 		$condition_str = $this->getCondition($param);
@@ -65,23 +65,26 @@ class serviceModel {
 		return $list_goods;
 	}	
 	/**
-	 * 他们正在卖的
+	 * 取单个内容
+	 *
+	 * @param int $id ID
+	 * @return array 数组类型的返回结果
 	 */
-	public function saleGoods($param,$page = '',$field='*') {
-		$condition_str = $this->getCondition($param);
-		$array	= array();
-		$array['table']	= 'service,member';
-		$array['join_type']='left join';
-		$array['field'] = $field;
-		$array['join_on']= array('service.member_id=member.member_id');
-		$array['order'] = 'service_id desc';
-		$array['limit'] = $param['limit'];
-		$list_goods		= Db::select($array,$page);
-		return $list_goods;
+	public function getOneservice($id){
+		if (intval($id) > 0){
+			$param = array();
+			$param['table'] = 'service';
+			$param['field'] = 'service_id';
+			$param['value'] = intval($id);
+			$result = Db::getRow($param);
+			return $result;
+		}else {
+			return false;
+		}
 	}
 
 	/**
-	 * 闲置物品多图
+	 * 服务多图
 	 *
 	 * @param	array $param 列表条件
 	 * @param	array $field 显示字段
@@ -131,9 +134,9 @@ class serviceModel {
 		return $update;
 	}
 	/**
-	 * 闲置物品数量
+	 * 服务数量
 	 *
-	 * @param	array $param 闲置物品资料
+	 * @param	array $param 服务资料
 	 */
 	public function countGoods($param,$type = ''){
 		if (empty($param)) {
@@ -148,7 +151,7 @@ class serviceModel {
 		return $goods_array[0][0];
 	}
 	/**
-	 * 闲置物品删除
+	 * 服务删除
 	 *
 	 * @param	array $param 列表条件
 	 * @param	int $service_id 商品id
@@ -170,7 +173,7 @@ class serviceModel {
 		return true;
 	}
 	/**
-	 * 闲置物品多图删除
+	 * 服务多图删除
 	 *
 	 * @param	array $param 删除条件
 	 */ 
@@ -191,7 +194,7 @@ class serviceModel {
 	}
 
 	/**
-	 * 按所属分类查找闲置物品 
+	 * 按所属分类查找服务 
 	 */
 	public function getGoodsByClass($param){
 		$condition_str = $this->getCondition($param);
@@ -207,7 +210,7 @@ class serviceModel {
 		return $goods_array;		
 	}
 	/**
-	 * 查询闲置信息id
+	 * 查询服务信息id
 	 */
 	public function getFleaID(){
 		$flea_ids = Db::select(array('table'=>'service','field'=>'service_id','limit'=>'27'));

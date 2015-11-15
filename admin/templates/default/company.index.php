@@ -22,9 +22,9 @@
           <th><label for="search_ac_id"><?php echo $lang['company_index_class'];?></label></th>
           <td><select name="search_ac_id" id="search_ac_id" class="">
               <option value=""><?php echo $lang['nc_please_choose'];?>...</option>
-              <?php if(!empty($output['class_list']) && is_array($output['class_list'])){ ?>
-              <?php foreach($output['class_list'] as $k => $v){ ?>
-              <option <?php if($output['search_ac_id'] == $v['class_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['class_id'];?>"><?php echo $v['class_name'];?></option>
+              <?php if(!empty($output['service_list']) && is_array($output['service_list'])){ ?>
+              <?php foreach($output['service_list'] as $k => $v){ ?>
+              <option <?php if($output['search_ac_id'] == $v['service_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['service_id'];?>"><?php echo $v['service_name'];?></option>
               <?php } ?>
               <?php } ?>
             </select></td>
@@ -66,7 +66,7 @@
           <td><input type="checkbox" name='del_id[]' value="<?php echo $v['company_id']; ?>" class="checkitem"></td>
           <td><?php echo $v['company_sort']; ?></td>
           <td><?php echo $v['company_title']; ?></td>
-          <td><?php echo $v['class_name']; ?></td>
+          <td><?php echo $v['service_name']; ?></td>
           <td class="align-center"><?php if($v['company_show'] == '0'){echo $lang['nc_no'];}else{echo $lang['nc_yes'];} ?></td>
           <td class="nowrap align-center"><?php echo $v['company_time']; ?></td>
           <td class="align-center"><a href="index.php?act=company&op=company_edit&company_id=<?php echo $v['company_id']; ?>"><?php echo $lang['nc_edit'];?></a></td>

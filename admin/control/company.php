@@ -74,12 +74,12 @@ class companyControl extends SystemControl{
 			/**
 			 * 取单位分类
 			 */
-			$model_class = Model('company_class');
-			$class_list = $model_class->getClassList($condition);
+			$model_service = Model('service');
+			$service_list = $model_service->Listgoods($condition);
 			$tmp_class_name = array();
-			if (is_array($class_list)){
-				foreach ($class_list as $k => $v){
-					$tmp_class_name[$v['class_id']] = $v['class_name'];
+			if (is_array($service_list)){
+				foreach ($service_list as $k => $v){
+					$tmp_class_name[$v['service_id']] = $v['service_name'];
 				}
 			}
 
@@ -92,7 +92,7 @@ class companyControl extends SystemControl{
 				 * 所属分类
 				 */
 				if (@array_key_exists($v['ac_id'],$tmp_class_name)){
-					$company_list[$k]['class_name'] = $tmp_class_name[$v['ac_id']];
+					$company_list[$k]['service_name'] = $tmp_class_name[$v['ac_id']];
 				}
 			}
 		}
@@ -102,7 +102,7 @@ class companyControl extends SystemControl{
 		Tpl::output('page',$page->show());
 		Tpl::output('search_title',trim($_GET['search_title']));
 		Tpl::output('search_ac_id',intval($_GET['search_ac_id']));
-		Tpl::output('class_list',$class_list);
+		Tpl::output('service_list',$service_list);
 		Tpl::showpage('company.index');
 	}
 
@@ -113,14 +113,14 @@ class companyControl extends SystemControl{
 		$lang	= Language::getLangContent();
 		$model_company = Model('company');
 		/**
-		 * 取单位分类
+		 * 取服务列表
 		*/
-		$model_class = Model('company_class');
-		$class_list = $model_class->getClassList($condition);
+		$model_service = Model('service');
+		$service_list = $model_service->listGoods($condition);
 		$tmp_class_name = array();
-		if (is_array($class_list)){
-			foreach ($class_list as $k => $v){
-		    $tmp_class_name[$v['class_id']] = $v['class_name'];
+		if (is_array($service_list)){
+			foreach ($service_list as $k => $v){
+		    $tmp_class_name[$v['service_id']] = $v['service_name'];
 			}
 		}
 		/**
@@ -203,7 +203,7 @@ class companyControl extends SystemControl{
 
 		Tpl::output('PHPSESSID',session_id());
 		Tpl::output('ac_id',intval($_GET['ac_id']));
-		Tpl::output('class_list',$class_list);
+		Tpl::output('service_list',$service_list);
 		Tpl::output('file_upload',$file_upload);
 		Tpl::showpage('company.add');
 	}
@@ -283,12 +283,12 @@ class companyControl extends SystemControl{
 		/**
 		 * 取单位分类
 		*/
-		$model_class = Model('company_class');
-		$class_list = $model_class->getClassList($condition);
+		$model_service = Model('service');
+		$service_list = $model_service->Listgoods($condition);
 		$tmp_class_name = array();
-		if (is_array($class_list)){
-			foreach ($class_list as $k => $v){
-		    $tmp_class_name[$v['class_id']] = $v['class_name'];
+		if (is_array($service_list)){
+			foreach ($service_list as $k => $v){
+		    $tmp_class_name[$v['service_id']] = $v['service_name'];
 			}
 		}
 		/**
@@ -306,7 +306,7 @@ class companyControl extends SystemControl{
 
 		Tpl::output('PHPSESSID',session_id());
 		Tpl::output('file_upload',$file_upload);
-		Tpl::output('class_list',$class_list);
+		Tpl::output('service_list',$service_list);
 		Tpl::output('company_array',$company_array);
 		Tpl::showpage('company.edit');
 	}

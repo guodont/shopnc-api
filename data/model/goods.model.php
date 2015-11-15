@@ -947,6 +947,7 @@ class goodsModel extends Model{
         return $goods_info;
     }
 
+
     /**
      * 取得商品详细信息（优先查询缓存）
      * 如果未找到，则缓存所有字段

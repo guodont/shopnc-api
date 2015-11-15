@@ -116,6 +116,28 @@ class goodsControl extends apiHomeControl
     }
 
     /**
+     * GET 专题商品
+     */
+    private function special_goods()
+    {
+        $model_goods = Model('goods');
+
+        //所需字段
+        $fieldstr = "goods_id,goods_commonid,store_id,goods_name,goods_price,goods_marketprice,goods_image,goods_salenum,evaluation_good_star,evaluation_count";
+
+        // 添加3个状态字段
+        $fieldstr .= ',is_virtual,is_presell,is_fcode,have_gift';
+
+        $indexer_ids = explode(",", $_GET['ids']);
+
+        $goods_list = $model_goods->getGoodsOnlineList(array('goods_id' => array('in', $indexer_ids)), $fieldstr, 0, '', $this->page, null, false);
+
+        $page_count = $model_goods->gettotalpage();
+
+        output_data(array('goods_list' => $goods_list), mobile_page($page_count));
+    }
+
+    /**
      * 商品列表排序方式
      */
     private function _goods_list_order($key, $order)
