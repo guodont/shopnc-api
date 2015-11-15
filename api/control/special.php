@@ -38,7 +38,7 @@ class specialControl extends apiHomeControl
 
         $special_id = $_GET['sid'];
         $m_special = Model('cms_special');
-        $where = array('spacial_id' => $special_id);
+        $where = array('special_id' => $special_id);
         $special_info = $m_special->getOne($where);
 
         /**

@@ -218,3 +218,4 @@ $lang['cms_log_special_save'] = 'CMS专题保存，专题编号';
 $lang['cms_log_special_drop'] = 'CMS专题删除，专题编号';
 $lang['cms_log_tag_save'] = 'CMS标签保存，标签编号';
 $lang['cms_log_tag_drop'] = 'CMS标签删除，标签编号';
+$lang['cms_mobile_goods'] = '手机端商品';

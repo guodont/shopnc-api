@@ -78,6 +78,7 @@ class cms_specialControl extends SystemControl{
     public function cms_special_saveOp() {
         $param = array();
         $param['special_title'] = $_POST['special_title'];
+        $param['special_goods'] = $_POST['special_goods'];	
         $special_image = $this->cms_special_image_upload('special_image');
         if(!empty($special_image)) {
             $param['special_image'] = $special_image;

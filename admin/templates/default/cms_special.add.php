@@ -82,6 +82,7 @@ h3.dialog_head { margin: 0 !important;}
           <td class="vatop rowform"><input id="special_title" name="special_title" class="txt" type="text" value="<?php if(!empty($output['special_detail'])) echo $output['special_detail']['special_title'];?>"/></td>
           <td class="vatop tips"><?php echo $lang['cms_special_title_explain'];?></td>
         </tr>
+		
         <tr class="noborder">
           <td colspan="2" class="required"><label for="special_title" class="validation">专题类型</label></td>
         </tr>
@@ -148,6 +149,12 @@ h3.dialog_head { margin: 0 !important;}
               <?php echo $lang['cms_special_background_type_yrepeat'];?></label></td>
           <td class="vatop tips"><span class="vatop rowform"><?php echo $lang['cms_special_background_type_explain'];?></span></td>
         </tr>
+        <tr class="noborder">
+          <td colspan="2" class="required"><label for="special_title" class="validation"><?php echo $lang['cms_mobile_goods'];?></label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input id="special_goods" name="special_goods" class="txt" type="text" value="<?php if(!empty($output['special_detail'])) echo $output['special_detail']['special_goods'];?>"/></td>
+        </tr>		
         <tr class="space">
           <th colspan="2"><?php echo $lang['cms_special_content'];?><?php echo $lang['nc_colon'];?></th>
         </tr>
