@@ -44,9 +44,9 @@ class cms_specialModel extends Model{
         return $this->getList($condition, $page=null, $order='', $field='*', $limit='');
     }
 
-	public function getShopList($condition, $page=null, $order='', $field='*', $limit=''){
+	public function getShopList($condition, $page = 0, $order='', $field='*', $limit=''){
         $condition['special_type'] = self::SPECIAL_TYPE_SHOP;
-        return $this->getList($condition, $page=null, $order='', $field='*', $limit='');
+        return $this->getList($condition, $page , $order='', $field='*', $limit='');
     }
 
     /**

@@ -29,7 +29,7 @@ class specialControl extends apiHomeControl
     /**
      * GET 专题详情
      */
-    public function serviceOp()
+    public function specialOp()
     {
         if (!isset($_GET['sid'])) {
             output_error("缺少专题id参数");
