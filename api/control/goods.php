@@ -118,7 +118,7 @@ class goodsControl extends apiHomeControl
     /**
      * GET 专题商品
      */
-    private function special_goods()
+    private function special_goodsOp()
     {
         $model_goods = Model('goods');
 
