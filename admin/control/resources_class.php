@@ -6,26 +6,24 @@
 
  */
 defined('InShopNC') or exit('Access Invalid!');
-class flea_classControl extends SystemControl{
+class resources_classcontrol extends SystemControl{
 	public function __construct(){
 		parent::__construct();
-		Language::read('flea_class');
+		Language::read('resources_class');
 		if($GLOBALS['setting_config']['flea_isuse']!='1'){
 			showMessage(Language::get('flea_isuse_off_tips'),'index.php?act=dashboard&op=welcome');
 		}
 	}
 	public function indexOp(){
-		$this->flea_classOp();
+		$this->resources_classOp();
 	}
-	public function goods_classOp(){
-		$this->flea_classOp();
-	}
+
 	/**
 	 * 分类管理
 	 */
-	public function flea_classOp(){
+	public function resources_classOp(){
 		$lang	= Language::getLangContent();
-		$model_class = Model('flea_class');
+		$model_class = Model('resources_class');
 		/**
 		 * 删除,编辑
 		 */
@@ -43,9 +41,9 @@ class flea_classControl extends SystemControl{
 							}
 						}
 					}
-					showMessage($lang['goods_class_index_del_succ']);
+					showMessage($lang['resources_class_index_del_succ']);
 				}else {
-					showMessage($lang['goods_class_index_choose_del']);
+					showMessage($lang['resources_class_index_choose_del']);
 				}
 			}
 			/**
@@ -54,9 +52,9 @@ class flea_classControl extends SystemControl{
 			if ($_POST['submit_type'] == 'brach_edit'){
 				if (!empty($_POST['check_gc_id'])){
 					Tpl::output('id',implode(',',$_POST['check_gc_id']));
-					Tpl::showpage('flea_class.brach_edit');
+					Tpl::showpage('resources_class.brach_edit');
 				}else {
-					showMessage($lang['goods_class_index_choose_edit']);
+					showMessage($lang['resources_class_index_choose_edit']);
 				}
 			}
 		}
@@ -93,7 +91,7 @@ class flea_classControl extends SystemControl{
 			exit;
 		}else {
 			Tpl::output('class_list',$class_list);
-			Tpl::showpage('flea_class.index');
+			Tpl::showpage('resources_class.index');
 		}
 	}
 	
@@ -103,10 +101,10 @@ class flea_classControl extends SystemControl{
 	public function brach_edit_saveOp(){
 		$lang	= Language::getLangContent();
 		if ($_POST['gc_show'] == '-1'){
-			showMessage($lang['goods_class_batch_edit_succ'],'index.php?act=flea_class&op=flea_class');
+			showMessage($lang['resources_class_batch_edit_succ'],'index.php?act=resources_class&op=resources_class');
 		}
 		if ($_POST['form_submit'] == 'ok'){
-			$model_class = Model('flea_class');
+			$model_class = Model('resources_class');
 			
 			$array = explode(',',$_POST['id']);
 			if (is_array($array)){
@@ -117,28 +115,28 @@ class flea_classControl extends SystemControl{
 					
 					$model_class->update($update_array);
 				}
-				showMessage($lang['goods_class_batch_edit_succ']);
+				showMessage($lang['resources_class_batch_edit_succ']);
 			}else {
-				showMessage($lang['goods_class_batch_edit_wrong_content']);
+				showMessage($lang['resources_class_batch_edit_wrong_content']);
 			}
 		}else {
-			showMessage($lang['goods_class_batch_edit_wrong_content']);
+			showMessage($lang['resources_class_batch_edit_wrong_content']);
 		}
 	}
 	/**
-	 * 商品分类添加
+	 * 分类添加
 	 */
-	public function goods_class_addOp(){
+	public function resources_class_addOp(){
 		$lang	= Language::getLangContent();
-		$model_class = Model('flea_class');
+		$model_class = Model('resources_class');
 		if ($_POST['form_submit'] == 'ok'){
 			/**
 			 * 验证
 			 */
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
-				array("input"=>$_POST["gc_name"], "require"=>"true", "message"=>$lang['goods_class_add_name_null']),
-				array("input"=>$_POST["gc_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['goods_class_add_sort_int']),
+				array("input"=>$_POST["gc_name"], "require"=>"true", "message"=>$lang['resources_class_add_name_null']),
+				array("input"=>$_POST["gc_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['resources_class_add_sort_int']),
 			);
 			$error = $obj_validate->validate();
 			if ($error != ''){
@@ -154,17 +152,17 @@ class flea_classControl extends SystemControl{
 				if ($result){
 					$url = array(
 						array(
-							'url'=>'index.php?act=flea_class&op=goods_class_add&gc_parent_id='.$_POST['gc_parent_id'],
-							'msg'=>$lang['goods_class_add_again'],
+							'url'=>'index.php?act=resources_class&op=resources_class_add&gc_parent_id='.$_POST['gc_parent_id'],
+							'msg'=>$lang['resources_class_add_again'],
 						),
 						array(
-							'url'=>'index.php?act=flea_class&op=flea_class',
-							'msg'=>$lang['goods_class_add_back_to_list'],
+							'url'=>'index.php?act=resources_class&op=resources_class',
+							'msg'=>$lang['resources_class_add_back_to_list'],
 						)
 					);
-					showMessage($lang['goods_class_add_succ'],$url);
+					showMessage($lang['resources_class_add_succ'],$url);
 				}else {
-					showMessage($lang['goods_class_add_fail']);
+					showMessage($lang['resources_class_add_fail']);
 				}
 			}
 		}
@@ -180,15 +178,15 @@ class flea_classControl extends SystemControl{
 		
 		Tpl::output('gc_parent_id',$_GET['gc_parent_id']);
 		Tpl::output('parent_list',$parent_list);
-		Tpl::showpage('flea_class.add');
+		Tpl::showpage('resources_class.add');
 	}
 	
 	/**
 	 * 编辑
 	 */
-	public function goods_class_editOp(){
+	public function resources_class_editOp(){
 		$lang	= Language::getLangContent();
-		$model_class = Model('flea_class');
+		$model_class = Model('resources_class');
 		
 		if ($_POST['form_submit'] == 'ok'){
 			/**
@@ -196,8 +194,8 @@ class flea_classControl extends SystemControl{
 			 */
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
-				array("input"=>$_POST["gc_name"], "require"=>"true", "message"=>$lang['goods_class_add_name_null']),
-				array("input"=>$_POST["gc_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['goods_class_add_sort_int']),
+				array("input"=>$_POST["gc_name"], "require"=>"true", "message"=>$lang['resources_class_add_name_null']),
+				array("input"=>$_POST["gc_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['resources_class_add_sort_int']),
 			);
 			$error = $obj_validate->validate();
 			if ($error != ''){
@@ -214,24 +212,24 @@ class flea_classControl extends SystemControl{
 				if ($result){
 					$url = array(
 						array(
-							'url'=>'index.php?act=flea_class&op=goods_class_edit&gc_id='.$_POST['gc_id'],
-							'msg'=>$lang['goods_class_batch_edit_again'],
+							'url'=>'index.php?act=resources_class&op=resources_class_edit&gc_id='.$_POST['gc_id'],
+							'msg'=>$lang['resources_class_batch_edit_again'],
 						),
 						array(
-							'url'=>'index.php?act=flea_class&op=flea_class',
-							'msg'=>$lang['goods_class_add_back_to_list'],
+							'url'=>'index.php?act=resources_class&op=resources_class',
+							'msg'=>$lang['resources_class_add_back_to_list'],
 						)
 					);
-					showMessage($lang['goods_class_batch_edit_ok'],$url);
+					showMessage($lang['resources_class_batch_edit_ok'],$url);
 				}else {
-					showMessage($lang['goods_class_batch_edit_fail']);
+					showMessage($lang['resources_class_batch_edit_fail']);
 				}
 			}
 		}
 				
 		$class_array = $model_class->getOneGoodsClass($_GET['gc_id']);
 		if (empty($class_array)){
-			showMessage($lang['goods_class_batch_edit_paramerror']);
+			showMessage($lang['resources_class_batch_edit_paramerror']);
 		}
 
 		/**
@@ -260,99 +258,24 @@ class flea_classControl extends SystemControl{
 		
 		Tpl::output('parent_list',$parent_list);
 		Tpl::output('class_array',$class_array);
-		Tpl::showpage('flea_class.edit');
-	}
-	
-	/**
-	 * 分类导入
-	 */
-	public function goods_class_importOp(){
-		$lang	= Language::getLangContent();
-		/**
-		 * 实例化模型
-		 */
-		$model_class = Model('flea_class');
-		/**
-		 * 导入
-		 */
-		if ($_POST['form_submit'] == 'ok'){
-			/**
-			 * 得到导入文件后缀名
-			 */
-			$file_type = end(explode('.',$_FILES['csv']['name']));
-			if (!empty($_FILES['csv']) && !empty($_FILES['csv']['name']) && $file_type == 'csv'){
-				$fp = @fopen($_FILES['csv']['tmp_name'],'rb');
-				/**
-				 * 父ID
-				 */
-				$parent_id_1 = 0;
-				
-				while (!feof($fp)) {
-					$data = fgets($fp, 4096);
-					switch (strtoupper($_POST['charset'])){
-						case 'UTF-8':
-							if (strtoupper(CHARSET) !== 'UTF-8'){
-								$data = iconv('UTF-8',strtoupper(CHARSET),$data);
-							}
-							break;
-						case 'GBK':
-							if (strtoupper(CHARSET) !== 'GBK'){
-								$data = iconv('GBK',strtoupper(CHARSET),$data);
-							}
-							break;
-					}
-					
-					if (!empty($data)){
-						$data	= str_replace('"','',$data);
-						/**
-						 * 逗号去除
-						 */
-						$tmp_array = array();
-						$tmp_array = explode(',',$data);
-						if($tmp_array[0] == 'sort_order')continue;
-						/**
-						 * 第一位是序号，后面的是内容，最后一位名称
-						 */
-						$tmp_deep = 'parent_id_'.(count($tmp_array)-1);
-						
-						$insert_array = array();
-						$insert_array['gc_sort'] = $tmp_array[0];
-						$insert_array['gc_parent_id'] = $$tmp_deep;
-						$insert_array['gc_name'] = $tmp_array[count($tmp_array)-1];
-						$gc_id = $model_class->add($insert_array);
-						/**
-						 * 赋值这个深度父ID
-						 */
-						$tmp = 'parent_id_'.count($tmp_array);
-						$$tmp = $gc_id;
-					}
-				}
-				/**
-				 * 重新生成缓存
-				 */
-				showMessage($lang['goods_class_import_succ'],'index.php?act=flea_class&op=flea_class');
-			}else {
-				showMessage($lang['goods_class_import_csv_null']);
-			}
-		}
-		Tpl::showpage('flea_class.import');
+		Tpl::showpage('resources_class.edit');
 	}
 	
 	
 	/**
 	 * 删除分类
 	 */
-	public function goods_class_delOp(){
+	public function resources_class_delOp(){
 		$lang	= Language::getLangContent();
-		$model_class = Model('flea_class');
+		$model_class = Model('resources_class');
 		if (intval($_GET['gc_id']) > 0){
 			/**
 			 * 删除分类
 			 */
 			$model_class->del($_GET['gc_id']);
-			showMessage($lang['goods_class_index_del_succ'],'index.php?act=flea_class&op=flea_class');
+			showMessage($lang['resources_class_index_del_succ'],'index.php?act=resources_class&op=resources_class');
 		}else {
-			showMessage($lang['goods_class_index_choose_del'],'index.php?act=flea_class&op=flea_class');
+			showMessage($lang['resources_class_index_choose_del'],'index.php?act=resources_class&op=resources_class');
 		}
 	}
 	/**
@@ -363,8 +286,8 @@ class flea_classControl extends SystemControl{
 			/**
 			 * 验证是否有重复的名称
 			 */
-			case 'goods_class_name':
-				$model_class = Model('flea_class');
+			case 'resources_class_name':
+				$model_class = Model('resources_class');
 				$class_array = $model_class->getOneGoodsClass($_GET['id']);
 				
 				$condition['gc_name'] = $_GET['value'];
@@ -384,10 +307,10 @@ class flea_classControl extends SystemControl{
 			/**
 			 * 分类 排序 显示 设置
 			 */
-			case 'goods_class_sort':
-			case 'goods_class_show':
-			case 'goods_class_index_show':
-				$model_class = Model('flea_class');
+			case 'resources_class_sort':
+			case 'resources_class_show':
+			case 'resources_class_index_show':
+				$model_class = Model('resources_class');
 				$update_array = array();
 				$update_array['gc_id'] = $_GET['id'];
 				$update_array[$_GET['column']] = $_GET['value'];
@@ -398,7 +321,7 @@ class flea_classControl extends SystemControl{
 			 * 添加、修改操作中 检测类别名称是否有重复
 			 */
 			case 'check_class_name':
-				$model_class = Model('flea_class');
+				$model_class = Model('resources_class');
 				$condition['gc_name'] = $_GET['gc_name'];
 				$condition['gc_parent_id'] = $_GET['gc_parent_id'];
 				$condition['no_gc_id'] = $_GET['gc_id'];

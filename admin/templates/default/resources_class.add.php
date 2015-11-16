@@ -5,7 +5,7 @@
     <div class="item-title">
       <h3>交易分类</h3>
       <ul class="tab-base">
-        <li><a href="index.php?act=flea_class&op=goods_class"><span>管理</span></a></li>
+        <li><a href="index.php?act=resources_class&op=resources_class"><span>管理</span></a></li>
         <li><a href="JavaScript:void(0);" class="current"><span>新增</span></a></li>
       </ul>
     </div>
@@ -91,7 +91,7 @@ $(function(){
             gc_name : {
                 required : true,
                 remote   : {                
-                url :'index.php?act=flea_class&op=ajax&branch=check_class_name',
+                url :'index.php?act=resources_class&op=ajax&branch=check_class_name',
                 type:'get',
                 data:{
                     gc_name : function(){

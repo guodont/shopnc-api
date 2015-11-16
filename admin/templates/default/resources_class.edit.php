@@ -3,16 +3,16 @@
 <div class="page">
   <div class="fixed-bar">
     <div class="item-title">
-      <h3>交易分类</h3>
+      <h3>资源分类</h3>
       <ul class="tab-base">
-        <li><a href="index.php?act=flea_class&op=goods_class"><span>管理</span></a></li>
-        <li><a href="index.php?act=flea_class&op=goods_class_add"><span>新增</span></a></li>
+        <li><a href="index.php?act=resources_class&op=resources_class"><span>管理</span></a></li>
+        <li><a href="index.php?act=resources_class&op=resources_class_add"><span>新增</span></a></li>
         <li><a href="JavaScript:void(0);" class="current"><span>编辑</span></a></li>
       </ul>
     </div>
   </div>
   <div class="fixed-empty"></div>
-  <form id="goods_class_form" name="goodsClassForm" method="post">
+  <form id="resources_class_form" name="goodsClassForm" method="post">
     <input type="hidden" name="form_submit" value="ok" />
     <input type="hidden" name="gc_id" value="<?php echo $output['class_array']['gc_id'];?>" />
     <table class="table tb-type2">
@@ -56,8 +56,8 @@
 $(document).ready(function(){
 	//按钮先执行验证再提交表单
 	$("#submitBtn").click(function(){
-	    if($("#goods_class_form").valid()){
-	     $("#goods_class_form").submit();
+	    if($("#resources_class_form").valid()){
+	     $("#resources_class_form").submit();
 		}
 	});
 
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#goods_class_form').validate({
+	$('#resources_class_form').validate({
         errorPlacement: function(error, element){
 			error.appendTo(element.parent().parent().prev().find('td:first'));
         },
@@ -80,7 +80,7 @@ $(document).ready(function(){
             gc_name : {
                 required : true,
                 remote   : {                
-                url :'index.php?act=flea_class&op=ajax&branch=check_class_name',
+                url :'index.php?act=resources_class&op=ajax&branch=check_class_name',
                 type:'get',
                 data:{
                     gc_name : function(){
@@ -99,11 +99,11 @@ $(document).ready(function(){
         },
         messages : {
              gc_name : {
-                required : '<?php echo $lang['goods_class_add_name_null'];?>',
-                remote   : '<?php echo $lang['goods_class_add_name_exists'];?>'
+                required : '<?php echo $lang['resources_class_add_name_null'];?>',
+                remote   : '<?php echo $lang['resources_class_add_name_exists'];?>'
             },
             gc_sort  : {
-                number   : '<?php echo $lang['goods_class_add_sort_int'];?>'
+                number   : '<?php echo $lang['resources_class_add_sort_int'];?>'
             }
         }
     });

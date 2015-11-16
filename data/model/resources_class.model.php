@@ -1,10 +1,10 @@
 <?php
 /**
- * 闲置物品类别模型
+ * 资源类别模型
  *by 3 3hao .com 
  */
 defined('InShopNC') or exit('Access Invalid!');
-class flea_classModel{
+class resources_classModel{
 	/**
 	 * 类别列表
 	 *
@@ -14,7 +14,7 @@ class flea_classModel{
 	public function getClassList($condition){
 		$condition_str = $this->_condition($condition);
 		$param = array();
-		$param['table'] = 'flea_class';
+		$param['table'] = 'resources_class';
 		$param['where'] = $condition_str;
 		$param['order'] = $condition['order'] ? $condition['order'] : 'gc_parent_id asc,gc_sort asc,gc_id asc';
 		$result = Db::select($param);
@@ -57,7 +57,7 @@ class flea_classModel{
 	public function getOneGoodsClass($id){
 		if (intval($id) > 0){
 			$param = array();
-			$param['table'] = 'flea_class';
+			$param['table'] = 'resources_class';
 			$param['field'] = 'gc_id';
 			$param['value'] = intval($id);
 			$result = Db::getRow($param);
@@ -116,7 +116,7 @@ class flea_classModel{
 			foreach ($param as $k => $v){
 				$tmp[$k] = $v;
 			}
-			$result = Db::insert('flea_class',$tmp);
+			$result = Db::insert('resources_class',$tmp);
 			return $result;
 		}else {
 			return false;
@@ -139,7 +139,7 @@ class flea_classModel{
 				$tmp[$k] = $v;
 			}
 			$where = " gc_id = '". $param['gc_id'] ."'";
-			$result = Db::update('flea_class',$tmp,$where);
+			$result = Db::update('resources_class',$tmp,$where);
 			return $result;
 		}else {
 			return false;
@@ -155,7 +155,7 @@ class flea_classModel{
 	public function del($id){
 		if (intval($id) > 0){
 			$where = " gc_id = '". intval($id) ."'";
-			$result = Db::delete('flea_class',$where);
+			$result = Db::delete('resources_class',$where);
 			return $result;
 		}else {
 			return false;
@@ -243,9 +243,8 @@ class flea_classModel{
      */
     public function getNextLevelGoodsClassById($gc_id) {
         $param = array();
-        $param['table'] = 'flea_class';
+        $param['table'] = 'resources_class';
         $param['where'] = ' and gc_parent_id = '.$gc_id;
-        $param['order'] = 'gc_sort desc';
         return Db::select($param);
     }
 }

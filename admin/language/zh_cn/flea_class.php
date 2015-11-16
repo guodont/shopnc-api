@@ -1,11 +1,10 @@
 <?php
 defined('InShopNC') or exit('Access Invalid!');
 	
-$lang['flea_class']							   = '闲置分类';
-$lang['flea_class_help1']					   = '当用户添加闲置闲置信息时选择闲置分类，用户可根据分类查询闲置列表';
+$lang['flea_class']							   = '交易分类';
+$lang['flea_class_help1']					   = '当用户添加交易信息时选择交易分类，用户可根据分类查询交易列表';
 $lang['flea_class_help2']					   = '点击分类名前“+”符号，显示当前分类的下级分类';
-$lang['flea_class_index_tips']                 = '页首分类名称可修改为"显示为XXX"，若不填则显示原分类名称';
-$lang['flea_isuse_off_tips']                   = '系统未开启闲置市场功能';
+$lang['flea_isuse_off_tips']                   = '系统未开启交易市场功能';
 
 $lang['flea_class_setting_ok']                 = '设置成功'; 
 $lang['flea_class_setting_error']              = '设置失败'; 
@@ -61,28 +60,3 @@ $lang['goods_class_add_sup_class']             = '上级分类';
 $lang['goods_class_add_sup_class_notice']	= '如果选择上级分类，那么新增的分类则为被选择上级分类的子分类';
 $lang['goods_class_add_update_sort']           = '更新排序';
 $lang['goods_class_add_display_tip']           = '新增的分类名称是否显示';
-/**
-* 分类导入
-*/
-$lang['goods_class_import_succ']               = '导入成功';
-$lang['goods_class_import_csv_null']           = '导入的csv文件不能为空';
-$lang['goods_class_import_data']               = '导入数据';
-$lang['goods_class_import_choose_file']        = '请选择文件';
-$lang['goods_class_import_file_tip']           = '如果导入速度较慢，建议您把文件拆分为几个小文件，然后分别导入';
-$lang['goods_class_import_choose_code']        = '请选择文件编码';
-$lang['goods_class_import_code_tip']           = '如果文件较大，建议您先把文件转换为 utf-8 编码，这样可以避免转换编码时耗费时间';
-$lang['goods_class_import_file_type']          = '文件格式';
-$lang['goods_class_import_first_class']        = '一级分类';
-$lang['goods_class_import_second_class']       = '二级分类';
-$lang['goods_class_import_third_class']        = '三级分类';
-$lang['goods_class_import_example_download']   = '例子文件下载';
-$lang['goods_class_import_example_tip']        = '点击下载导入例子文件';
-$lang['goods_class_import_import']             = '导入';
-/**
-* 分类导出
-*/
-$lang['goods_class_export_data']               = '导出数据';
-$lang['goods_class_export_if_trans']           = '导出您的商品分类数据';
-$lang['goods_class_export_trans_tip']          = '';
-$lang['goods_class_export_export']             = '导出';
-$lang['goods_class_export_help1']				= '导出内容为商品分类信息的.csv文件';

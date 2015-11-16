@@ -193,12 +193,9 @@ if(C('flea_isuse')==1){
 				'nav' => 'flea',
 				'text' => 交易,
 				'list' => array(
-					0 => array('args'=>'flea_index,flea_index,flea',			'text'=>SEO设置),
-					1 => array('args'=>'flea_class,flea_class,flea',			'text'=>分类管理),
-					2 => array('args'=>'flea_class_index,flea_class_index,flea','text'=>首页分类管理),
-					3 => array('args'=>'flea,flea,flea',						'text'=>交易管理),
-					4 => array('args'=>'flea_region,flea_region,flea',			'text'=>单位管理),
-					5 => array('args'=>'adv_manage,flea_index,flea',			'text'=>交易幻灯),
+					0 => array('args'=>'flea_class,flea_class,flea',			'text'=>分类管理),
+					1 => array('args'=>'flea,flea,flea',						'text'=>交易管理),
+					2 => array('args'=>'flea_region,flea_region,flea',			'text'=>单位管理),
 				)
 			);
 }
@@ -236,22 +233,18 @@ if(C('microshop_isuse') !== null){
 }
 if(C('cms_isuse') !== null){
 	$arr['top'][] = array(
-				'args'	=> 'cms',
+				'args'	=> 'resources',
 				'text'	=> $lang['nc_cms']);
 	$arr['left'][] = array(
-				'nav' => 'cms',
+				'nav' => 'resources',
 				'text' => $lang['nc_cms'],
 				'list' => array(
-					0 => array('args'=>'cms_manage,cms_manage,cms','text'=>$lang['nc_cms_manage']),
-                    1 => array('args'=>'cms_index,cms_index,cms','text'=>$lang['nc_cms_index_manage']),
-                    2 => array('args'=>'cms_article_list,cms_article,cms','text'=>$lang['nc_cms_article_manage']),
-                    3 => array('args'=>'cms_article_class_list,cms_article_class,cms','text'=>$lang['nc_cms_article_class']),
-                    4 => array('args'=>'cms_picture_list,cms_picture,cms','text'=>$lang['nc_cms_picture_manage']),
-                    5 => array('args'=>'cms_picture_class_list,cms_picture_class,cms','text'=>$lang['nc_cms_picture_class']),
-                    6 => array('args'=>'cms_special_list,cms_special,cms','text'=>$lang['nc_cms_special_manage']),
-                    7 => array('args'=>'cms_navigation_list,cms_navigation,cms','text'=>$lang['nc_cms_navigation_manage']),
-                    8 => array('args'=>'cms_tag_list,cms_tag,cms','text'=>$lang['nc_cms_tag_manage']),
-                    9 => array('args'=>'comment_manage,cms_comment,cms','text'=>$lang['nc_cms_comment_manage']),
+					0 => array('args'=>'cms_manage,cms_manage,resources','text'=>$lang['nc_cms_manage']),
+                    1 => array('args'=>'cms_article_list,cms_article,resources','text'=>$lang['nc_cms_article_manage']),
+                    2 => array('args'=>'resources_class,resources_class,resources','text'=>$lang['nc_cms_article_class']),
+                    3 => array('args'=>'cms_special_list,cms_special,resources','text'=>$lang['nc_cms_special_manage']),
+                    4 => array('args'=>'cms_tag_list,cms_tag,resources','text'=>$lang['nc_cms_tag_manage']),
+                    5 => array('args'=>'comment_manage,cms_comment,resources','text'=>$lang['nc_cms_comment_manage']),
 				)
 			);
 }
