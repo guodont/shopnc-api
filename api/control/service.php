@@ -120,7 +120,7 @@ class serviceControl extends apiHomeControl
         try {
             $ch = \Pingpp\Charge::create(
                 array(
-                    'order_no' => '123456789',
+                    'order_no' => '123456789233',
                     'app' => array('id' => 'app_u1yjzHbvvLeLybbT'),
                     'channel' => 'alipay',
                     'amount' => 100,
