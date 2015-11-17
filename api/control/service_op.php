@@ -89,7 +89,7 @@ class service_opControl extends apiMemberControl
         $mod_order = $model->table('service_yuyue');
         $where = array();
         $where['service_yuyue.member_id'] = $this->member_id;
-        $orders = $model->table('service_yuyue,service')->join('right join')->on('service_yuyue.service_id=service.service_id')->where($where)->page($this->page)->order('yuyue_time desc')->select();
+        $orders = $model->table('service_yuyue,service')->join('right join')->on('service_yuyue.yuyue_service_id=service.service_id')->where($where)->page($this->page)->order('yuyue_time desc')->select();
         $pageCount = $mod_order->gettotalpage();
         output_data(array('yuyues' => $orders), mobile_page($pageCount));
     }
