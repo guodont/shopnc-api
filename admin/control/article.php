@@ -14,6 +14,7 @@ use JPush\Exception\APIConnectionException;
 use JPush\Exception\APIRequestException;
 
 class articleControl extends SystemControl{
+
 	public function __construct(){
 		parent::__construct();
 		Language::read('article');

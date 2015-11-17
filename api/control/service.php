@@ -3,6 +3,7 @@
  * 服务 api
  */
 defined('InShopNC') or exit('Access Invalid!');
+
 Base::autoload('vendor/autoload');
 
 class serviceControl extends apiHomeControl
