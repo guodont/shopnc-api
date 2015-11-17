@@ -119,20 +119,24 @@ class serviceControl extends apiHomeControl
             'test1' => 123,
             'test2' => 1234
         );
-
-        $ch = \Pingpp\Charge::create(
-            array(
-                'order_no' => '123456789',
-                'app' => array('id' => 'app_u1yjzHbvvLeLybbT'),
-                'channel' => 'alipay',
-                'amount' => 100,
-                'client_ip' => '127.0.0.1',
-                'currency' => 'cny',
-                'subject' => 'Your Subject',
-                'body' => 'Your Body',
-                'extra' => $extra
-            )
-        );
-        echo $ch;
+        try {
+            $ch = \Pingpp\Charge::create(
+                array(
+                    'order_no' => '123456789',
+                    'app' => array('id' => 'app_u1yjzHbvvLeLybbT'),
+                    'channel' => 'alipay',
+                    'amount' => 100,
+                    'client_ip' => '127.0.0.1',
+                    'currency' => 'cny',
+                    'subject' => 'Your Subject',
+                    'body' => 'Your Body',
+                    'extra' => $extra
+                )
+            );
+            echo $ch;
+        } catch (\Pingpp\Error\Base $e) {
+            header('Status: ' . $e->getHttpStatus());
+            echo($e->getHttpBody());
+        }
     }
 }
