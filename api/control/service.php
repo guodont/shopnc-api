@@ -3,6 +3,7 @@
  * 服务 api
  */
 defined('InShopNC') or exit('Access Invalid!');
+Base::autoload('vendor/autoload');
 
 class serviceControl extends apiHomeControl
 {
@@ -23,11 +24,11 @@ class serviceControl extends apiHomeControl
         //  排序
         $condition = array();
         $condition['gc_id'] = intval($_GET['cate_id']);
-        $service_list = $model_service->geServiceList($condition,'*','',$this->page);
+        $service_list = $model_service->geServiceList($condition, '*', '', $this->page);
 
         $pageCount = $model_service->gettotalpage();
 
-        output_data(array('services' => $service_list),mobile_page($pageCount));
+        output_data(array('services' => $service_list), mobile_page($pageCount));
 
     }
 
@@ -91,5 +92,44 @@ class serviceControl extends apiHomeControl
         } else {
             output_error("没有此交易");
         }
+    }
+
+
+    /**
+     * GET 属于某服务的所有单位
+     */
+    public function companiesOp()
+    {
+        $model_company = Model('company');
+        $condition['ac_id'] = intval($_GET['service_id']);
+        $condition['like_title'] = trim($_GET['search_title']);
+        $company_list = $model_company->getcompanyList($condition);
+        output_data(array('companies' => $company_list));
+    }
+
+
+    public function payTestOp()
+    {
+        \Pingpp\Pingpp::setApiKey('sk_test_vP8WX9KKG4CSmfDGCSPm1WTO');
+
+        $extra = array(
+            'test1' => 123,
+            'test2' => 1234
+        );
+
+        $ch = \Pingpp\Charge::create(
+            array(
+                'order_no' => '123456789',
+                'app' => array('id' => 'app_u1yjzHbvvLeLybbT'),
+                'channel' => 'alipay',
+                'amount' => 100,
+                'client_ip' => '127.0.0.1',
+                'currency' => 'cny',
+                'subject' => 'Your Subject',
+                'body' => 'Your Body',
+                'extra' => $extra
+            )
+        );
+        echo $ch;
     }
 }
