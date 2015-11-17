@@ -4,6 +4,8 @@
  */
 defined('InShopNC') or exit('Access Invalid!');
 
+require_once('../core/framework/libraries/vendor/pingpp/init.php');
+
 class service_opControl extends apiMemberControl
 {
 
@@ -35,9 +37,9 @@ class service_opControl extends apiMemberControl
         //  生成订单号
         $data['yuyue_pay_number'] = $this->makePaySn($this->member_id);
 
-        if($mod_order->save($data)) {
+        if ($mod_order->save($data)) {
             echo 1;
-        }else{
+        } else {
             echo 0;
         }
     }
@@ -48,11 +50,12 @@ class service_opControl extends apiMemberControl
      * 1000个会员同一微秒提订单，重复机率为1/100
      * @return string
      */
-    private function makePaySn($member_id) {
-        return mt_rand(10,99)
-        . sprintf('%010d',time() - 946656000)
-        . sprintf('%03d', (float) microtime() * 1000)
-        . sprintf('%03d', (int) $member_id % 1000);
+    private function makePaySn($member_id)
+    {
+        return mt_rand(10, 99)
+        . sprintf('%010d', time() - 946656000)
+        . sprintf('%03d', (float)microtime() * 1000)
+        . sprintf('%03d', (int)$member_id % 1000);
     }
 
     /**
@@ -66,7 +69,7 @@ class service_opControl extends apiMemberControl
     /**
      * POST 取消收藏
      */
-    public function canelFavTradeOp()
+    public function cancelFavTradeOp()
     {
 
     }
@@ -76,6 +79,80 @@ class service_opControl extends apiMemberControl
      *
      */
     public function isFavOp()
+    {
+
+    }
+
+    public function myOrdersOp()
+    {
+        $mod_order = Model('service_yuyue');
+        $where = array();
+        $where['yuyue_member_id'] = $this->member_id;
+        $orders = $mod_order->getList($where, $this->page);
+        $pageCount = $mod_order->gettotalpage();
+        output_data(array('yuyues' => $orders), mobile_page($pageCount));
+    }
+
+    public function updateOrderOp()
+    {
+
+    }
+
+    /**
+     * 支付订单1
+     */
+    public function payOrderStep1Op()
+    {
+        \Pingpp\Pingpp::setApiKey('sk_test_vP8WX9KKG4CSmfDGCSPm1WTO');
+        $mod_order = Model('service_yuyue');
+        $mod_service = Model('service');
+        //获取appId
+        $appId = $_POST['appId'];
+        $yuyueId = $_GET['yuyue_id'];
+        //根据服务预约id找出记录
+        $where['yuyue_id'] = $yuyueId;
+        $order = $mod_order->getOne($where);
+        $serviceId = $order['yuyue_service_id'];
+        $service = $mod_service->getOne(array('service_id' => $serviceId));
+        //取出支付订单id
+        $orderId = $order['yuyue_pay_number'];
+        //取出订单金额
+        $amount = $service['service_now_price'] * 100;
+        //取出交易名称
+        $orderName = "[科研助手]" . $service['service_name'];
+        //交易描述
+        $orderDesc = $service['service_name'];
+        //获取请求ip
+        $clientIp = "";
+        //获取支付方式
+        $channel = $_POST['channel'];
+//        'app_u1yjzHbvvLeLybbT'
+        $extra = array();
+        try {
+            $ch = \Pingpp\Charge::create(
+                array(
+                    'order_no' => $orderId,
+                    'app' => array('id' => $appId),
+                    'channel' => 'alipay',
+                    'amount' => $amount,
+                    'client_ip' => $clientIp,
+                    'currency' => 'cny',
+                    'subject' => $orderName,
+                    'body' => $orderDesc,
+                    'extra' => $extra
+                )
+            );
+            echo $ch;
+        } catch (\Pingpp\Error\Base $e) {
+            header('Status: ' . $e->getHttpStatus());
+            echo($e->getHttpBody());
+        }
+    }
+
+    /**
+     * 支付订单2
+     */
+    public function payOrderStep2Op()
     {
 
     }
