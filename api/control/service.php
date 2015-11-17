@@ -6,7 +6,7 @@ defined('InShopNC') or exit('Access Invalid!');
 
 //Base::autoload('vendor/autoload');
 
-require_once('../../core/framework/libraries/vendor/pingpp/init.php');
+require_once('../core/framework/libraries/vendor/pingpp/init.php');
 
 class serviceControl extends apiHomeControl
 {
@@ -116,8 +116,6 @@ class serviceControl extends apiHomeControl
         \Pingpp\Pingpp::setApiKey('sk_test_vP8WX9KKG4CSmfDGCSPm1WTO');
 
         $extra = array(
-            'test1' => 123,
-            'test2' => 1234
         );
         try {
             $ch = \Pingpp\Charge::create(
