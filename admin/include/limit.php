@@ -134,7 +134,7 @@ if (C('microshop_isuse') !== NULL){
 		));
 }
 
-if (C('cms_isuse') !== NULL){
+if (C('resources_isuse') !== NULL){
 	$_limit[] = array('name'=>$lang['nc_cms'], 'child'=>array(
 		array('name'=>$lang['nc_cms_manage'], 'op'=>null, 'act'=>'cms_manage'),
 		array('name'=>$lang['nc_cms_index_manage'], 'op'=>null, 'act'=>'cms_index'),
