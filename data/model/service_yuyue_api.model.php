@@ -3,7 +3,7 @@
  * 服务预约模型
  */
 defined('InShopNC') or exit('Access Invalid!');
-class service_yuyueModel extends Model{
+class service_yuyue_apiModel extends Model{
 
     public function __construct(){
         parent::__construct('service_yuyue');

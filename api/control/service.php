@@ -27,7 +27,8 @@ class serviceControl extends apiHomeControl
         //  排序
         $condition = array();
         $condition['gc_id'] = intval($_GET['cate_id']);
-        $service_list = $model_service->geServiceList($condition, '*', '', $this->page);
+        $condition['service_show'] = 1;
+        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
 
         $pageCount = $model_service->gettotalpage();
 

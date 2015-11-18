@@ -86,7 +86,7 @@ class service_opControl extends apiMemberControl
     public function myOrdersOp()
     {
         $model = new Model();
-        $mod_order = $model->table('service_yuyue_api');
+        $mod_order = $model->table('service_yuyue');
         $where = array();
         $where['service_yuyue.yuyue_member_id'] = $this->member_id;
         $orders = $model->table('service_yuyue,service')->join('right join')->on('service_yuyue.yuyue_service_id=service.service_id')->where($where)->page($this->page)->order('yuyue_time desc')->select();
