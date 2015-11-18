@@ -86,7 +86,7 @@
       </dd>
     </dl>
 
-    <?php if (C('resources_isuse') != null) {?>
+    <?php if (C('cms_isuse') != null) {?>
     <dl class="cms">
       <dt>
         <div class="ico"><i></i></div>

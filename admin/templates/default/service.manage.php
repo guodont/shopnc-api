@@ -11,8 +11,8 @@
   </div>
   <div class="fixed-empty"></div>
   <form method="get" name="formSearch">
-	<input type="hidden" name="act" value="service">
-	<input type="hidden" name="op" value="service_manage">
+	<input type="hidden" name="act" value="flea">
+	<input type="hidden" name="op" value="flea">
     <table class="tb-type1 noborder search">
       <tbody>
         <tr>
@@ -33,19 +33,19 @@
       </tbody>
     </table>
   </form>
-  <form method='post' id="form_service">
+  <form method='post' id="form_goods">
     <input type="hidden" name="form_submit" value="ok" />
     <input type="hidden" name="type" id="type" value="" />
     <table class="table tb-type2">
       <thead>
         <tr class="thead">
           <th width="25px"></th>
-          <th>服务名称</th>
+          <th colspan="2">服务名称</th>
           <th>服务分类</th>
 		  <th class="align-center">服务上架</th>		  
 		  <th class="align-center">在线预约</th>
 		  <th class="align-center">在线支付</th>
-          <th class="align-center">预约数量</th>
+          <th class="align-center">浏览</th>
           <th class="align-center">操作 </th>
         </tr>
       </thead>
@@ -54,6 +54,8 @@
         <?php foreach($output['goods_list'] as $k => $v){?>
         <tr class="hover edit">
           <td class="w24"><input type="checkbox" name="del_id[]" value="<?php echo $v['service_id'];?>" class="checkitem"></td>
+          <td class="w60 picture">
+		  <div class="size-56x56"><span class="thumb size-56x56"><img height="56" width="56" src="<?php echo $v['service_image']?UPLOAD_SITE_URL.DS.ATTACH_MALBUM.'/'.$v['member_id'].'/'.str_replace('_small', '_tiny', $v['service_image']):TEMPLATES_PATH.'/images/default_goods_image.gif';?>" onload="javascript:DrawImage(this,56,56);"/></span></div></td>
           <td class="goods-name w270"><p><span title="<?php echo $lang['nc_editable'];?>" class="editable-tarea tooltip" required="1" ajax_branch_textarea="service_name" fieldid="<?php echo $v['service_id'];?>" fieldname="service_name" nc_type="inline_edit_textarea"><?php echo $v['service_name'];?></span></p></td>
           <td><?php echo $v['class_name']; ?></td>
           <td class="align-center yes-onoff"><?php if($v['service_show'] == 0){ ?>
@@ -71,8 +73,8 @@
             <?php }else{ ?>
             <a href="JavaScript:void(0);" class=" enabled" fieldvalue="1" fieldid="<?php echo $v['service_id'];?>" ajax_branch="pay_online" fieldname="pay_online" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
             <?php } ?></td>
-          <td class="align-center"><?php echo $v['salenum']?></td>
-          <td class="w48 align-center"><a href="index.php?act=service&op=service_edit&service_id=<?php echo $v['service_id']; ?>"><?php echo $lang['nc_edit'];?></a></td>
+          <td class="align-center"><?php echo $v['service_click']?></td>
+          <td class="w48 align-center"><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=flea_goods&service_id=<?php echo $v['service_id'];?>" target="_blank"><?php echo $lang['nc_edit'];?></a></td>
         </tr>
         <?php } ?>
         <?php }else { ?>
@@ -107,6 +109,6 @@ function submit_form(type){
 		}
 	}
 	$('#type').val(type);
-	$('#form_service').submit();
+	$('#form_goods').submit();
 }
 </script>

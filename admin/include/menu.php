@@ -218,20 +218,20 @@ if(C('mobile_isuse')){
 }
 if(C('microshop_isuse') !== null){
 	$arr['top'][] = array(
-				'args'	=> 'service',
+				'args'	=> 'microshop',
 				'text'	=> $lang['nc_microshop']);
 	$arr['left'][] = array(
-				'nav' => 'service',
+				'nav' => 'microshop',
 				'text' => $lang['nc_microshop'],
 				'list' => array(
-					0 => array('args'=>'service_manage,service,service','text'=>$lang['nc_microshop_personal_manage']),
-					1 => array('args'=>'company,company,service','text'=>$lang['nc_microshop_company']),
-					2 => array('args'=>'personalclass_list,service,service','text'=>$lang['nc_microshop_personal_class']),
-					3 => array('args'=>'service_yuyue,service,service','text'=>$lang['nc_microshop_comment_manage']),
+					0 => array('args'=>'service_manage,service,microshop','text'=>$lang['nc_microshop_personal_manage']),
+					1 => array('args'=>'company,company,microshop','text'=>$lang['nc_microshop_company']),
+					2 => array('args'=>'personalclass_list,service,microshop','text'=>$lang['nc_microshop_personal_class']),
+					3 => array('args'=>'comment_manage,service,microshop','text'=>$lang['nc_microshop_comment_manage']),
 				)
 			);
 }
-if(C('resources_isuse') !== null){
+if(C('cms_isuse') !== null){
 	$arr['top'][] = array(
 				'args'	=> 'resources',
 				'text'	=> $lang['nc_cms']);
@@ -239,12 +239,12 @@ if(C('resources_isuse') !== null){
 				'nav' => 'resources',
 				'text' => $lang['nc_cms'],
 				'list' => array(
-					0 => array('args'=>'resources_manage,resources_manage,resources','text'=>$lang['nc_cms_manage']),
-                    1 => array('args'=>'resource_list,resources_list,resources','text'=>$lang['nc_cms_article_manage']),
+					0 => array('args'=>'cms_manage,cms_manage,resources','text'=>$lang['nc_cms_manage']),
+                    1 => array('args'=>'cms_article_list,cms_article,resources','text'=>$lang['nc_cms_article_manage']),
                     2 => array('args'=>'resources_class,resources_class,resources','text'=>$lang['nc_cms_article_class']),
                     3 => array('args'=>'cms_special_list,cms_special,resources','text'=>$lang['nc_cms_special_manage']),
                     4 => array('args'=>'cms_tag_list,cms_tag,resources','text'=>$lang['nc_cms_tag_manage']),
-                    5 => array('args'=>'cms_comment,cms_comment,resources','text'=>$lang['nc_cms_comment_manage']),
+                    5 => array('args'=>'comment_manage,cms_comment,resources','text'=>$lang['nc_cms_comment_manage']),
 				)
 			);
 }

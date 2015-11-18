@@ -22,7 +22,7 @@ class service_opControl extends apiMemberControl
      */
     public function createOrderOp()
     {
-        $mod_order = Model('service_yuyue_api');
+        $mod_order = Model('service_yuyue');
         $data = array();
         $data['yuyue_member_id'] = $this->member_id;
         $data['yuyue_service_id'] = trim($_POST['service_id']);
@@ -86,7 +86,7 @@ class service_opControl extends apiMemberControl
     public function myOrdersOp()
     {
         $model = new Model();
-        $mod_order = $model->table('service_yuyue_api');
+        $mod_order = $model->table('service_yuyue');
         $where = array();
         $where['service_yuyue.yuyue_member_id'] = $this->member_id;
         $orders = $model->table('service_yuyue,service')->join('right join')->on('service_yuyue.yuyue_service_id=service.service_id')->where($where)->page($this->page)->order('yuyue_time desc')->select();
@@ -105,7 +105,7 @@ class service_opControl extends apiMemberControl
     public function payOrderStep1Op()
     {
         \Pingpp\Pingpp::setApiKey('sk_test_vP8WX9KKG4CSmfDGCSPm1WTO');
-        $mod_order = Model('service_yuyue_api');
+        $mod_order = Model('service_yuyue');
         $mod_service = Model('service');
         //获取appId
         $appId = $_POST['appId'];

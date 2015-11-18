@@ -74,6 +74,7 @@ class settingModel extends Model{
 				}
 			}
 			dkcache('setting');
+			// @unlink(BASE_DATA_PATH.DS.'cache'.DS.'setting.php');
 			return true;
 		}else {
 			return false;

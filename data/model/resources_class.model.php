@@ -1,4 +1,8 @@
 <?php
+/**
+ * 资源类别模型
+ *by 3 3hao .com 
+ */
 defined('InShopNC') or exit('Access Invalid!');
 class resources_classModel{
 	/**

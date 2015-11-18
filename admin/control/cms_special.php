@@ -7,6 +7,8 @@
  *
  */
 
+
+
 defined('InShopNC') or exit('Access Invalid!');
 class cms_specialControl extends SystemControl{
 
@@ -18,7 +20,7 @@ class cms_specialControl extends SystemControl{
 
 	public function __construct(){
 		parent::__construct();
-		Language::read('resources');
+		Language::read('cms');
 	}
 
 	public function indexOp() {

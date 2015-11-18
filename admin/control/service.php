@@ -10,7 +10,7 @@ defined('InShopNC') or exit('Access Invalid!');
 class serviceControl extends SystemControl{
 	public function __construct(){
 		parent::__construct();
-		Language::read('service,goods,microshop,layout');
+		Language::read('service,goods,');
 	}
 
 
@@ -366,7 +366,6 @@ class serviceControl extends SystemControl{
 				array("input"=>$_POST["gc_id"], "require"=>"true", "message"=>$lang['service_add_class_null']),
 				array("input"=>$_POST["service_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_price_error']),
 				array("input"=>$_POST["service_now_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_now_price_error']),
-				array("input"=>$_POST["service_pphone"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_tel_number']),
 				array("input"=>$_POST["service_abstract"], 'require'=>'true', "message"=>$lang['service_add_abstract_null']),
 				array("input"=>$_POST["service_content"], "require"=>"true", "message"=>$lang['service_add_content_null']),
 				array("input"=>$_POST["service_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_add_sort_int']),
@@ -385,8 +384,6 @@ class serviceControl extends SystemControl{
 				$insert_array['order_online'] = trim($_POST['service_order']);	
 				$insert_array['pay_online'] = trim($_POST['service_pay']);	
 				$insert_array['service_sort'] = trim($_POST['service_sort']);
-				$insert_array['service_pname'] = trim($_POST['service_pname']);
-				$insert_array['service_pphone'] = trim($_POST['service_pphone']);
 				$insert_array['service_abstract'] = trim($_POST['service_abstract']);				
 				$insert_array['service_content'] = trim($_POST['service_content']);
 				$insert_array['service_add_time'] = time();
@@ -429,7 +426,7 @@ class serviceControl extends SystemControl{
 		 * 模型实例化
 		 */
 		$model_upload = Model('upload');
-		$condition['upload_type'] = '8';
+		$condition['upload_type'] = '1';
 		$condition['item_id'] = '0';
 		$file_upload = $model_upload->getUploadList($condition);
 		if (is_array($file_upload)){
@@ -445,116 +442,6 @@ class serviceControl extends SystemControl{
         Tpl::showpage('service.add');
     }
 
-	/**
-	 * 服务编辑
-	 */
-	public function service_editOp(){
-		$lang	 = Language::getLangContent();
-		$model_service = Model('service');
-
-		if (chksubmit()){
-			/**
-			 * 验证
-			 */
-			$obj_validate = new Validate();
-			$obj_validate->validateparam = array(
-				array("input"=>$_POST["service_title"], "require"=>"true", "message"=>$lang['service_name_null']),
-				array("input"=>$_POST["gc_id"], "require"=>"true", "message"=>$lang['service_add_class_null']),
-				array("input"=>$_POST["service_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_price_error']),
-				array("input"=>$_POST["service_now_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_now_price_error']),
-				array("input"=>$_POST["service_pphone"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_tel_number']),
-				array("input"=>$_POST["service_abstract"], 'require'=>'true', "message"=>$lang['service_add_abstract_null']),
-				array("input"=>$_POST["service_content"], "require"=>"true", "message"=>$lang['service_add_content_null']),
-				array("input"=>$_POST["service_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_add_sort_int']),
-			);
-			$error = $obj_validate->validate();
-			if ($error != ''){
-				showMessage($error);
-			}else {
-
-				$update_array = array();
-				$insert_array['service_name'] = trim($_POST['service_title']);
-				$insert_array['gc_id'] = intval($_POST['gc_id']);
-				$insert_array['service_price'] = trim($_POST['service_price']);
-				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
-				$insert_array['service_show'] = trim($_POST['service_show']);
-				$insert_array['order_online'] = trim($_POST['service_order']);	
-				$insert_array['pay_online'] = trim($_POST['service_pay']);	
-				$insert_array['service_sort'] = trim($_POST['service_sort']);
-				$insert_array['service_pname'] = trim($_POST['service_pname']);
-				$insert_array['service_pphone'] = trim($_POST['service_pphone']);
-				$insert_array['service_abstract'] = trim($_POST['service_abstract']);				
-				$insert_array['service_content'] = trim($_POST['service_content']);
-				$insert_array['service_add_time'] = time();
-
-				$result = $model_service->update($update_array);
-				if ($result){
-					/**
-					 * 更新图片信息ID
-					 */
-					$model_upload = Model('upload');
-					if (is_array($_POST['file_id'])){
-						foreach ($_POST['file_id'] as $k => $v){
-							$update_array = array();
-							$update_array['upload_id'] = intval($v);
-							$update_array['item_id'] = intval($_POST['service_id']);
-							$model_upload->update($update_array);
-							unset($update_array);
-						}
-					}
-
-					$url = array(
-						array(
-							'url'=>$_POST['ref_url'],
-							'msg'=>$lang['service_edit_back_to_list'],
-						),
-						array(
-							'url'=>'index.php?act=service&op=service_edit&service_id='.intval($_POST['service_id']),
-							'msg'=>$lang['service_edit_edit_again'],
-						),
-					);
-					$this->log(L('service_edit_succ').'['.$_POST['service_title'].']',null);
-					showMessage($lang['service_edit_succ'],$url);
-				}else {
-					showMessage($lang['service_edit_succ']);
-				}
-			}
-		}
-
-		$service_array = $model_service->getOneservice(intval($_GET['service_id']));
-		if (empty($service_array)){
-			showMessage($lang['param_error']);
-		}
-		/**
-		 * 取单位分类
-		*/
-		$model_class = Model('company_class');
-		$class_list = $model_class->getClassList($condition);
-		$tmp_class_name = array();
-		if (is_array($class_list)){
-			foreach ($class_list as $k => $v){
-		    $tmp_class_name[$v['class_id']] = $v['class_name'];
-			}
-		}
-		/**
-		 * 模型实例化
-		 */
-		$model_upload = Model('upload');
-		$condition['upload_type'] = '8';
-		$condition['item_id'] = $service_array['service_id'];
-		$file_upload = $model_upload->getUploadList($condition);
-		if (is_array($file_upload)){
-			foreach ($file_upload as $k => $v){
-				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/'.$file_upload[$k]['file_name'];
-			}
-		}
-
-		Tpl::output('PHPSESSID',session_id());
-		Tpl::output('file_upload',$file_upload);
-		Tpl::output('class_list',$class_list);
-		Tpl::output('service_array',$service_array);
-		Tpl::showpage('service.edit');
-	}
 
     /**
      * 更新排序
@@ -586,7 +473,7 @@ class serviceControl extends SystemControl{
     }
 	
 	/**
-	 * 服务图片上传
+	 * 单位图片上传
 	 */
 	public function service_pic_uploadOp(){
 		/**
@@ -631,146 +518,38 @@ class serviceControl extends SystemControl{
     /**
      * 评论管理
      */
-	public function service_yuyueOp() {
-		$lang	= Language::getLangContent();
-		$model_goods = Model('service_yuyue');
-		/**
-		 * 推荐，编辑，删除
-		 */
-		if ($_POST['form_submit'] == 'ok'){
-			if (!empty($_POST['del_id'])){
-				$model_goods->dropGoods(implode(',',$_POST['del_id']));
-				showMessage($lang['goods_index_del_succ']);
-			}else {
-				showMessage($lang['goods_index_choose_del']);
-			}
-			showMessage($lang['goods_index_argument_invalid']);
-		}
-		
-		/**
-		 * 排序
-		 */
-		$condition['keyword'] = trim($_GET['search_service_name']);
-		$condition['brand_id'] = intval($_GET['search_brand_id']);
-		$condition['gc_id'] = intval($_GET['cate_id']);
-		
-		/**
-		 * 分页
-		 */
-		$page	= new Page();
-		$page->setEachNum(10);
-		$page->setStyle('admin');
-		
-		/**
-		 * 取单位分类
-		*/
-		$model_service = Model('service');
-		$service_list = $model_service->Listgoods($condition);
-		$tmp_class_name = array();
-		if (is_array($service_list)){
-			foreach ($service_list as $k => $v){
-		    $tmp_class_name[$v['service_id']] = $v['service_name'];
-			}
-		}
-		
-		
-		$goods_list = $model_goods->listGoods($condition,$page);
-        foreach ($goods_list as $k => $v){
-				/**
-				 * 所属分类
-				 */
-				if (@array_key_exists($v['yuyue_service_id'],$tmp_class_name)){
-					$goods_list[$k]['service_name'] = $tmp_class_name[$v['yuyue_service_id']];
-				}
-			}		
-				
-		Tpl::output('search',$_GET);
-		Tpl::output('goods_list',$goods_list);
-		Tpl::output('page',$page->show());
-		Tpl::output('service_list',$service_list);
-		Tpl::showpage('service_yuyue.manage');
+	public function comment_manageOp() {
+        $condition = array();
+        if(!empty($_GET['comment_id'])) {
+            $condition['comment_id'] = intval($_GET['comment_id']);
+        }
+        if(!empty($_GET['member_name'])) {
+            $condition['member_name'] = array('like','%'.trim($_GET['member_name']).'%');
+        }
+        if(!empty($_GET['comment_type'])) {
+            $condition['comment_type'] = intval($_GET['comment_type']);
+        }
+        if(!empty($_GET['comment_object_id'])) {
+            $condition['comment_object_id'] = intval($_GET['comment_object_id']);
+        }
+        if(!empty($_GET['comment_message'])) {
+            $condition['comment_message'] = array('like','%'.trim($_GET['comment_message']).'%');
+        }
+        $model_comment = Model("micro_comment");
+        $comment_list = $model_comment->getListWithUserInfo($condition,10,'comment_time desc');
+        Tpl::output('list',$comment_list);
+        Tpl::output('show_page',$model_comment->showpage(2));
+        $this->show_menu('comment_manage');
+        Tpl::showpage('microshop_comment.manage');
     }
-	
-	
-	/**
-	 * 服务编辑
-	 */
-	public function service_yuyue_editOp(){
-		$lang	 = Language::getLangContent();
-		$model_service_yuyue = Model('service_yuyue');
-
-		if (chksubmit()){
-			/**
-			 * 验证
-			 */
-			$obj_validate = new Validate();
-			$obj_validate->validateparam = array(
-				/*array("input"=>$_POST["service_title"], "require"=>"true", "message"=>$lang['service_name_null']),
-				array("input"=>$_POST["gc_id"], "require"=>"true", "message"=>$lang['service_add_class_null']),
-				array("input"=>$_POST["service_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_price_error']),
-				array("input"=>$_POST["service_now_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_now_price_error']),
-				array("input"=>$_POST["service_pphone"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_tel_number']),
-				array("input"=>$_POST["service_abstract"], 'require'=>'true', "message"=>$lang['service_add_abstract_null']),
-				array("input"=>$_POST["service_content"], "require"=>"true", "message"=>$lang['service_add_content_null']),
-				array("input"=>$_POST["service_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_add_sort_int']),*/
-			);
-			$error = $obj_validate->validate();
-			if ($error != ''){
-				showMessage($error);
-			}else {
-
-				$update_array = array();
-				$insert_array['service_name'] = trim($_POST['service_title']);
-				$insert_array['gc_id'] = intval($_POST['gc_id']);
-				$insert_array['service_price'] = trim($_POST['service_price']);
-				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
-				$insert_array['service_show'] = trim($_POST['service_show']);
-				$insert_array['order_online'] = trim($_POST['service_order']);	
-				$insert_array['pay_online'] = trim($_POST['service_pay']);	
-				$insert_array['service_sort'] = trim($_POST['service_sort']);
-				$insert_array['service_pname'] = trim($_POST['service_pname']);
-				$insert_array['service_pphone'] = trim($_POST['service_pphone']);
-				$insert_array['service_abstract'] = trim($_POST['service_abstract']);				
-				$insert_array['service_content'] = trim($_POST['service_content']);
-				$insert_array['service_add_time'] = time();
-
-				$result = $model_service->update($update_array);
-				if ($result){
-					$url = array(
-						array(
-							'url'=>$_POST['ref_url'],
-							'msg'=>$lang['service_edit_back_to_list'],
-						),
-						array(
-							'url'=>'index.php?act=service&op=service_yuyue_edit&yuyue_id='.intval($_POST['yuyue_id']),
-							'msg'=>$lang['service_edit_edit_again'],
-						),
-					);
-					$this->log(L('service_edit_succ').'['.$_POST['yuyue_title'].']',null);
-					showMessage($lang['service_edit_succ'],$url);
-				}else {
-					showMessage($lang['service_edit_succ']);
-				}
-			}
-		}
-
-		$service_yuyue_array = $model_service_yuyue->getOneyuyue(intval($_GET['yuyue_id']));
-		if (empty($service_yuyue_array)){
-			showMessage($lang['param_error']);
-		}
-
-		Tpl::output('PHPSESSID',session_id());
-		Tpl::output('service_yuyue_array',$service_yuyue_array);
-		Tpl::showpage('service_yuyue.edit');
-	}	
 
     /**
      * 评论删除
      */
-    public function service_yuyue_dropOp() {
-        $model = Model('service_yuyue');
+    public function comment_dropOp() {
+        $model = Model('micro_comment');
         $condition = array();
-        $condition['yuyue_id'] = array('in',trim($_POST['yuyue_id']));
+        $condition['comment_id'] = array('in',trim($_POST['comment_id']));
         $result = $model->drop($condition);
         if($result) {
             showMessage(Language::get('nc_common_del_succ'),'');
@@ -786,10 +565,22 @@ class serviceControl extends SystemControl{
 
 		switch ($_GET['branch']){
             //推荐
-			case 'yuyue_Complete_status':
+			case 'order_online':
                 if(intval($_GET['id']) > 0) {
-                    $model= Model('service_yuyue');
-                    $condition['yuyue_id'] = intval($_GET['id']);
+                    $model= Model('micro_goods');
+                    $condition['commend_id'] = intval($_GET['id']);
+                    $update[$_GET['column']] = trim($_GET['value']);
+                    $model->modify($update,$condition);
+                    echo 'true';die;
+                } else {
+                    echo 'false';die;
+                }
+                break;
+            //推荐
+			case 'personal_commend':
+                if(intval($_GET['id']) > 0) {
+                    $model= Model('micro_personal');
+                    $condition['personal_id'] = intval($_GET['id']);
                     $update[$_GET['column']] = trim($_GET['value']);
                     $model->modify($update,$condition);
                     echo 'true';die;
@@ -843,22 +634,7 @@ class serviceControl extends SystemControl{
 				$update_array[$_GET['column']] = $_GET['value'];
 				$model_goods->updateGoods($update_array,$_GET['id']);
 				echo 'true';exit;
-				break;			
-            //预约开关
-			case 'yuyue_Auditing_status':
-				$model_goods = Model('service_yuyue');
-				$update_array = array();
-				$update_array[$_GET['column']] = $_GET['value'];
-				$model_goods->updateGoods($update_array,$_GET['id']);
-				echo 'true';exit;
 				break;	
-			case 'yuyue_Complete_status':
-				$model_goods = Model('service_yuyue');
-				$update_array = array();
-				$update_array[$_GET['column']] = $_GET['value'];
-				$model_goods->updateGoods($update_array,$_GET['id']);
-				echo 'true';exit;
-				break;								
 		}
 	}
 
