@@ -153,7 +153,7 @@ class dashboardControl extends SystemControl{
         /**
          * CMS
          */
-        if (C('cms_isuse')) {
+        if (C('resources_isuse')) {
             // 文章审核
             $statistics['cms_article_verify'] = Model('cms_article')->getCmsArticleCount(array('article_state' => 2));
             // 画报审核
