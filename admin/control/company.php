@@ -35,7 +35,7 @@ class companyControl extends SystemControl{
 					/**
 					 * 删除图片
 					 */
-					$condition['upload_type'] = '1';
+					$condition['upload_type'] = '7';
 					$condition['item_id'] = $v;
 					$upload_list = $model_upload->getUploadList($condition);
 					if (is_array($upload_list)){
@@ -192,7 +192,7 @@ class companyControl extends SystemControl{
 		 * 模型实例化
 		 */
 		$model_upload = Model('upload');
-		$condition['upload_type'] = '1';
+		$condition['upload_type'] = '7';
 		$condition['item_id'] = '0';
 		$file_upload = $model_upload->getUploadList($condition);
 		if (is_array($file_upload)){
@@ -295,7 +295,7 @@ class companyControl extends SystemControl{
 		 * 模型实例化
 		 */
 		$model_upload = Model('upload');
-		$condition['upload_type'] = '1';
+		$condition['upload_type'] = '7';
 		$condition['item_id'] = $company_array['company_id'];
 		$file_upload = $model_upload->getUploadList($condition);
 		if (is_array($file_upload)){
