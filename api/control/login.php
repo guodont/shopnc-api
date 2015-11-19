@@ -46,16 +46,25 @@ class loginControl extends apiHomeControl
         $member_info = $model_member->getMemberInfo($array);
         if (!empty($member_info)) {
             $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);
+
+            if($member_info['imToken']==null) {
+                $imToken = $this->getImToken($member_info['member_id'],$member_info['member_name']);
+            } else {
+                $imToken = $member_info['imToken'];
+            }
+
             if ($token) {
                 if ($this->isQQLogin()) {
                     setNc2Cookie('username', $member_info['member_name']);
                     setNc2Cookie('key', $token);
                     header("location:" . WAP_SITE_URL . '/tmpl/member/member.html?act=member');
                 } else {
+                    //  融云Token
                     output_data(array(
                             'username' => $member_info['member_name'],
                             'uid' => $member_info['member_id'],
-                            'key' => $token)
+                            'key' => $token,
+                            'imToken' => $imToken)
                     );
                 }
             } else {
@@ -64,6 +73,18 @@ class loginControl extends apiHomeControl
         } else {
             output_error('用户名密码错误');
         }
+    }
+
+
+    private function getImToken($uid,$uname)
+    {
+        $p = new ServerAPI('0vnjpoadnw2uz','hg0BUlbxV8a1');
+        $r = $p->getToken($uid,$uname,getMemberAvatarForID($uid));
+        //  处理返回的json数据
+        $obj = json_decode($r);
+        $imToken = $obj->token;
+        //  TODO 将解析出的Token存入数据库
+        return $imToken;
     }
 
     /**

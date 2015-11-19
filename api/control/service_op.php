@@ -28,8 +28,7 @@ class service_opControl extends apiMemberControl
         $data['yuyue_service_id'] = trim($_POST['service_id']);
         $data['yuyue_company_id'] = trim($_POST['company_id']);
         $data['yuyue_content'] = $_POST['remark'];
-        $data['yuyue_Auditing_status'] = 0;
-        $data['yuyue_Complete_status'] = 1;
+        $data['yuyue_status'] = 0;
         $data['yuyue_pay_way'] = trim($_POST['pay_way']);
         $data['yuyue_start_time'] = trim($_POST['start_time']);
         $data['yuyue_end_time'] = trim($_POST['end_time']);
