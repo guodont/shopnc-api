@@ -11,7 +11,7 @@
 use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
-Base::autoload('vendor/autoload');
+//Base::autoload('vendor/autoload');
 class loginControl extends apiHomeControl
 {
 
