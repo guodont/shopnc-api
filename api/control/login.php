@@ -11,7 +11,7 @@
 use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
-
+Base::autoload('vendor/autoload');
 class loginControl extends apiHomeControl
 {
 
@@ -47,11 +47,7 @@ class loginControl extends apiHomeControl
         if (!empty($member_info)) {
             $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);
 
-            if($member_info['imToken']==null) {
-                $imToken = $this->getImToken($member_info['member_id'],$member_info['member_name']);
-            } else {
-                $imToken = $member_info['imToken'];
-            }
+            $imToken = $this->getImToken($member_info['member_id'],$member_info['member_name']);
 
             if ($token) {
                 if ($this->isQQLogin()) {
