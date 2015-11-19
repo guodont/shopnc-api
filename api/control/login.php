@@ -74,7 +74,7 @@ class loginControl extends apiHomeControl
 
     private function getImToken($uid,$uname)
     {
-        $p = new ServerAPI('0vnjpoadnw2uz','hg0BUlbxV8a1');
+        $p = new ServerApi('0vnjpoadnw2uz','hg0BUlbxV8a1');
         $r = $p->getToken($uid,$uname,getMemberAvatarForID($uid));
         //  处理返回的json数据
         $obj = json_decode($r);
