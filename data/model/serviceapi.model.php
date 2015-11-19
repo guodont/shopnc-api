@@ -101,7 +101,7 @@ class serviceapiModel extends Model
      *
      * @param    array $goods 商品列表
      */
-    public function getThumb($goods, $path)
+    public function getThumb(&$goods, $path)
     {
         if (is_array($goods)) {
             foreach ($goods as $k => $v) {

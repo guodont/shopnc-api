@@ -59,7 +59,7 @@ class serviceControl extends apiHomeControl
 //            }
 //        }
 
-        $goods_image_path = UPLOAD_SITE_URL . DS . ATTACH_ARTICLE . '/';    //店铺商品图片目录地址
+        $goods_image_path = UPLOAD_SITE_URL . DS . ATTACH_SERVICE . '/';    //店铺商品图片目录地址
 
         $desc_image = $m_service->getListImageService(array('item_id' => $service_id, 'upload_type' => 8));
 
