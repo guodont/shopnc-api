@@ -24,17 +24,23 @@ class serviceControl extends apiHomeControl
 
         $model_service = Model('serviceapi');
 
+        $model_upload = Model('upload');
         $model = new Model();
 //        //  排序
-//        $condition = array();
-//        $condition['gc_id'] = intval($_GET['cate_id']);
-//        $condition['service_show'] = 1;
-//        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
+        $condition = array();
+        $condition['gc_id'] = intval($_GET['cate_id']);
+        $condition['service_show'] = 1;
+        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
 
-        $where['upload.upload_type'] = 8;
-        $where['service.service_show'] = 1;
-        $where['service.gc_id'] = intval($_GET['cate_id']);
-        $service_list = $model->table('service,upload')->join('right join')->on('service.service_id=upload.item_id')->where($where)->page($this->page)->order('service_sort asc')->select();
+        foreach ($service_list as $key => $val) {
+            $imgs = $model_upload->getUploadList(array('item_id'=>$val['service_id']));
+            $service_list[$key]['service_img'] = $imgs[0]['file_name'];
+        }
+
+//        $where['upload.upload_type'] = 8;
+//        $where['service.service_show'] = 1;
+//        $where['service.gc_id'] = intval($_GET['cate_id']);
+//        $service_list = $model->table('service,upload')->join('right join')->on('service.service_id=upload.item_id')->where($where)->page($this->page)->order('service_sort asc')->select();
 
         $pageCount = $model_service->gettotalpage();
 
