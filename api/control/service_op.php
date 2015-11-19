@@ -27,6 +27,8 @@ class service_opControl extends apiMemberControl
         $data['yuyue_member_id'] = $this->member_id;
         $data['yuyue_service_id'] = trim($_POST['service_id']);
         $data['yuyue_company_id'] = trim($_POST['company_id']);
+        $data['yuyue_company'] = $_POST['company'];
+        $data['yuyue_member_name'] = $this->member_info['member_name'];
         $data['yuyue_content'] = $_POST['remark'];
         $data['yuyue_status'] = 0;
         $data['yuyue_pay_way'] = trim($_POST['pay_way']);

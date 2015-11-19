@@ -9,6 +9,7 @@
 defined('InShopNC') or exit('Access Invalid!');
 
 class utradeModel extends Model {
+
     public function __construct(){
         parent::__construct('flea');
     }

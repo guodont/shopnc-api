@@ -59,15 +59,13 @@ class serviceControl extends apiHomeControl
 //            }
 //        }
 
-//        $service_info[0]['member_avatar'] = getMemberAvatarForID($service_info['member_id']);
+        $goods_image_path = UPLOAD_SITE_URL . DS . ATTACH_ARTICLE . '/';    //店铺商品图片目录地址
 
-//        $goods_image_path = UPLOAD_SITE_URL . DS . ATTACH_MALBUM . '/' . $service_info[0]['member_id'] . '/';;    //店铺商品图片目录地址
-//
-//        $desc_image = $m_service->getListImageService(array('image_store_id' => $service_info[0]['member_id'], 'item_id' => $service_info[0]['goods_id'], 'image_type' => 12));
-//
-//        $m_service->getThumb($desc_image, $goods_image_path);
+        $desc_image = $m_service->getListImageService(array('item_id' => $service_id, 'upload_type' => 8));
 
-        //        $image_key = 0;
+        $m_service->getThumb($desc_image, $goods_image_path);
+
+//        $image_key = 0;
 //
 //        if (!empty($desc_image) && is_array($desc_image)) {//将封面图放到第一位显示
 //            $goods_image_1 = $service_info[0]['goods_image'];//封面图
@@ -83,8 +81,8 @@ class serviceControl extends apiHomeControl
 //                $desc_image[$image_key] = $desc_image_0;
 //            }
 //        }
-//
-//        $service_info[0]['goods_image'] = $desc_image;
+
+        $service_info[0]['service_image'] = $desc_image;
 
         /**
          * 浏览次数更新
@@ -116,8 +114,7 @@ class serviceControl extends apiHomeControl
     {
         \Pingpp\Pingpp::setApiKey('sk_test_vP8WX9KKG4CSmfDGCSPm1WTO');
 
-        $extra = array(
-        );
+        $extra = array();
         try {
             $ch = \Pingpp\Charge::create(
                 array(

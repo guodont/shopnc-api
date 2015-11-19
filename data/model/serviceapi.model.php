@@ -41,7 +41,7 @@ class serviceapiModel extends Model
         //得到条件语句
         $condition_str	= $this->getCondition($param);
         $array	= array();
-        $array['table']		= 'flea_upload';
+        $array['table']		= 'upload';
         $array['where']		= $condition_str;
         $array['field']		= $field;
         $list_image			= Db::select($array);

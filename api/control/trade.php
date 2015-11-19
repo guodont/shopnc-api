@@ -76,7 +76,7 @@ class tradeControl extends apiHomeControl
         }
 
         $m_trade = Model('utrade');
-        $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc')->page($this->page)->select();
+        $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc,goods_commend desc')->page($this->page)->select();
         $pageCount = $m_trade->gettotalpage();
 
         $mTrade = Model('flea_favorites');
