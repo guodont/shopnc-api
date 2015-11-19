@@ -63,7 +63,7 @@ class serviceControl extends apiHomeControl
 
         $desc_image = $m_service->getListImageService(array('item_id' => $service_id, 'upload_type' => 8));
 
-//        $m_service->getThumb($desc_image, $goods_image_path);
+        $m_service->getThumb($desc_image, $goods_image_path);
 
 //        $image_key = 0;
 //
