@@ -5,8 +5,8 @@
     <div class="item-title">
       <h3>服务管理</h3>
       <ul class="tab-base">
-        <li><a href="index.php?act=service&op=service"><span><?php echo $lang['nc_manage'];?></span></a></li>
-        <li><a href="index.php?act=service&op=service_add"><span><?php echo $lang['nc_new'];?></span></a></li>
+        <li><a href="../../control/index.php?act=service&op=service"><span><?php echo $lang['nc_manage'];?></span></a></li>
+        <li><a href="../../control/index.php?act=service&op=service_add"><span><?php echo $lang['nc_new'];?></span></a></li>
         <li><a href="JavaScript:void(0);" class="current"><span><?php echo $lang['nc_edit'];?></span></a></li>
       </ul>
     </div>
