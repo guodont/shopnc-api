@@ -101,13 +101,13 @@ class serviceapiModel extends Model
      *
      * @param    array $goods 商品列表
      */
-    public function getThumb(&$goods, $path)
+    public function getThumb($goods, $path)
     {
         if (is_array($goods)) {
             foreach ($goods as $k => $v) {
-                $goods[$k]['thumb_small'] = $path . $v['file_thumb'];
-                $goods[$k]['thumb_mid'] = $path . str_replace('_small', '_mid', $v['file_thumb']);
-                $goods[$k]['thumb_max'] = $path . str_replace('_small', '_max', $v['file_thumb']);
+                $goods[$k]['thumb'] = $path . $v['file_name'];
+                $goods[$k]['thumb_mid'] = $path . str_replace('_small', '_mid', $v['file_name']);
+                $goods[$k]['thumb_max'] = $path . str_replace('_small', '_max', $v['file_name']);
             }
         }
     }

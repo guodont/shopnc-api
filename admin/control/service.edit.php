@@ -1,24 +1,28 @@
 <?php defined('InShopNC') or exit('Access Invalid!');?>
+
 <div class="page">
   <div class="fixed-bar">
     <div class="item-title">
       <h3>服务管理</h3>
       <ul class="tab-base">
-        <li><a href="index.php?act=service&op=service_manage"><span>所有服务</span></a></li>
-        <li><a href="JavaScript:void(0);" class="current"><span><?php echo $lang['nc_new'];?></span></a></li>
+        <li><a href="index.php?act=service&op=service"><span><?php echo $lang['nc_manage'];?></span></a></li>
+        <li><a href="index.php?act=service&op=service_add"><span><?php echo $lang['nc_new'];?></span></a></li>
+        <li><a href="JavaScript:void(0);" class="current"><span><?php echo $lang['nc_edit'];?></span></a></li>
       </ul>
     </div>
   </div>
   <div class="fixed-empty"></div>
-  <form id="service_form" method="post" name="serviceform">
+  <form id="service_form" method="post">
     <input type="hidden" name="form_submit" value="ok" />
-    <table class="table tb-type2 nobdb">
+    <input type="hidden" name="service_id" value="<?php echo $output['service_array']['service_id'];?>" />
+    <input type="hidden" name="ref_url" value="<?php echo getReferer();?>" />
+    <table class="table tb-type2">
       <tbody>
         <tr class="noborder">
-          <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_name'];?>:</label></td>
+          <td colspan="2" class="required"><label class="validation" for="service_title"><?php echo $lang['service_name'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="" name="service_title" id="service_title" class="txt"></td>
+          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_name'];?>" name="service_title" id="service_title" class="txt"></td>
           <td class="vatop tips"></td>
         </tr>
         <tr>
@@ -29,7 +33,7 @@
               <option value=""><?php echo $lang['nc_please_choose'];?>...</option>
               <?php if(!empty($output['class_list']) && is_array($output['class_list'])){ ?>
               <?php foreach($output['class_list'] as $k => $v){ ?>
-              <option value="<?php echo $v['class_id'];?>"><?php echo $v['class_name'];?></option>
+              <option <?php if($output['service_array']['gc_id'] == $v['class_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['class_id'];?>"><?php echo $v['class_name'];?></option>
               <?php } ?>
               <?php } ?>
             </select></td>
@@ -39,79 +43,79 @@
           <td colspan="2" class="required"><label for="serviceform"><?php echo $lang['service_price'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="" name="service_price" id="service_price" class="txt"></td>
+          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_price'];?>" name="service_price" id="service_price" class="txt"></td>
           <td class="vatop tips"><?php echo $lang['service_price_null'];?></td>
         </tr>
         <tr>
           <td colspan="2" class="required"><label for="serviceform"><?php echo $lang['service_now_price'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="" name="service_now_price" id="service_now_price" class="txt"></td>
+          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_now_price'];?>" name="service_now_price" id="service_now_price" class="txt"></td>
           <td class="vatop tips"><?php echo $lang['service_now_price_null'];?></td>
-        </tr>		
+        </tr>			
         <tr>
           <td colspan="2" class="required"><label><?php echo $lang['service_show'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform onoff"><label for="service_show1" class="cb-enable selected" ><span><?php echo $lang['nc_yes'];?></span></label>
-            <label for="service_show0" class="cb-disable" ><span><?php echo $lang['nc_no'];?></span></label>
-            <input id="service_show1" name="service_show" checked="checked" value="1" type="radio">
-            <input id="service_show0" name="service_show" value="0" type="radio"></td>
+          <td class="vatop rowform onoff"><label for="service_show1" class="cb-enable <?php if($output['service_array']['service_show'] == '1'){ ?>selected<?php } ?>" ><span><?php echo $lang['nc_yes'];?></span></label>
+            <label for="service_show0" class="cb-disable <?php if($output['service_array']['service_show'] == '0'){ ?>selected<?php } ?>" ><span><?php echo $lang['nc_no'];?></span></label>
+            <input id="service_show1" name="service_show" <?php if($output['service_array']['service_show'] == '1'){ ?>checked="checked"<?php } ?> value="1" type="radio">
+            <input id="service_show0" name="service_show" <?php if($output['service_array']['service_show'] == '0'){ ?>checked="checked"<?php } ?> value="0" type="radio"></td>
           <td class="vatop tips"></td>
         </tr>
         <tr>
             <td colspan="2" class="required"><label><?php echo $lang['service_order'];?>:</label></td>
         </tr>
         <tr class="noborder">
-            <td class="vatop rowform onoff"><label for="service_order1" class="cb-enable selected" ><span><?php echo $lang['nc_yes'];?></span></label>
-                <label for="service_order0" class="cb-disable" ><span><?php echo $lang['nc_no'];?></span></label>
-                <input id="service_order1" name="service_order" checked="checked" value="1" type="radio">
-                <input id="service_order0" name="service_order" value="0" type="radio"></td>
+            <td class="vatop rowform onoff"><label for="service_order1" class="cb-enable <?php if($output['service_array']['order_online'] == '1'){ ?>selected<?php } ?>" ><span><?php echo $lang['nc_yes'];?></span></label>
+                <label for="service_order0" class="cb-disable <?php if($output['service_array']['order_online'] == '0'){ ?>selected<?php } ?>" ><span><?php echo $lang['nc_no'];?></span></label>
+                <input id="service_order1" name="service_order" <?php if($output['service_array']['order_online'] == '1'){ ?>checked="checked"<?php } ?> value="1" type="radio">
+                <input id="service_order0" name="service_order" <?php if($output['service_array']['order_online'] == '0'){ ?>checked="checked"<?php } ?> value="0" type="radio"></td>
             <td class="vatop tips"></td>
         </tr>
         <tr>
             <td colspan="2" class="required"><label><?php echo $lang['service_pay'];?>:</label></td>
         </tr>
         <tr class="noborder">
-            <td class="vatop rowform onoff"><label for="service_pay1" class="cb-enable selected" ><span><?php echo $lang['nc_yes'];?></span></label>
-                <label for="service_pay0" class="cb-disable" ><span><?php echo $lang['nc_no'];?></span></label>
-                <input id="service_pay1" name="service_pay" checked="checked" value="1" type="radio">
-                <input id="service_pay0" name="service_pay" value="0" type="radio"></td>
+            <td class="vatop rowform onoff"><label for="service_pay1" class="cb-enable <?php if($output['service_array']['pay_online'] == '1'){ ?>selected<?php } ?>" ><span><?php echo $lang['nc_yes'];?></span></label>
+                <label for="service_pay0" class="cb-disable <?php if($output['service_array']['pay_online'] == '0'){ ?>selected<?php } ?>" ><span><?php echo $lang['nc_no'];?></span></label>
+                <input id="service_pay1" name="service_pay" <?php if($output['service_array']['pay_online'] == '1'){ ?>checked="checked"<?php } ?> value="1" type="radio">
+                <input id="service_pay0" name="service_pay" <?php if($output['service_array']['pay_online'] == '0'){ ?>checked="checked"<?php } ?> value="0" type="radio"></td>
             <td class="vatop tips"></td>
         </tr>		
         <tr>
           <td colspan="2" class="required"><?php echo $lang['nc_sort'];?>: 
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="255" name="service_sort" id="service_sort" class="txt"></td>
+          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_sort'];?>" name="service_sort" id="service_sort" class="txt"></td>
           <td class="vatop tips"></td>
-        </tr>
+        </tr>  
         <tr>
           <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_abstract'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td colspan="2"><textarea name="service_abstract" cols="110" rows="5" id="service_abstract"></textarea></td>
-        </tr>		
+          <td colspan="2"><textarea name="service_abstract" cols="110" rows="5" id="service_abstract" ><?php echo $output['service_array']['service_abstract'];?></textarea></td>
+        </tr>			      
         <tr>
           <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_content'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td colspan="2" class="vatop rowform"><?php showEditor('service_content');?></td>
+          <td colspan="2" class="vatop rowform"><?php showEditor('service_content',$output['service_array']['service_content']);?></td>
         </tr>
         <tr>
           <td colspan="2" class="required"><?php echo $lang['service_contact_person'];?>: 
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" name="service_pname" id="service_pname" class="txt"></td>
+          <td class="vatop rowform"><input type="text" name="service_pname" id="service_pname" class="txt" value="<?php echo $output['service_array']['service_pname'];?>"></td>
           <td class="vatop tips"></td>
         </tr>
         <tr>
           <td colspan="2" class="required"><?php echo $lang['service_contact_tel'];?>: 
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" name="service_pphone" id="service_pphone" class="txt"></td>
+          <td class="vatop rowform"><input type="text" name="service_pphone" id="service_pphone" class="txt" value="<?php echo $output['service_array']['service_pphone'];?>"></td>
           <td class="vatop tips"></td>
-        </tr>				
+        </tr>		
         <tr>
           <td colspan="2" class="required"><?php echo $lang['service_add_upload'];?>:</td>
         </tr>
@@ -120,7 +124,8 @@
         </tr>
         <tr>
           <td colspan="2" class="required"><?php echo $lang['service_add_uploaded'];?>:</td>
-        <tr>
+        </tr>
+        <tr class="noborder">
           <td colspan="2"><ul id="thumbnails" class="thumblists">
               <?php if(is_array($output['file_upload'])){?>
               <?php foreach($output['file_upload'] as $k => $v){ ?>
@@ -131,9 +136,7 @@
               </li>
               <?php } ?>
               <?php } ?>
-            </ul><div class="tdare">
-              
-          </div></td>
+            </ul></td>
         </tr>
       </tbody>
       <tfoot>
@@ -188,7 +191,7 @@ $(document).ready(function(){
             },
             service_pphone : {
                 number   : true
-            }			
+            }		
         },
         messages : {
             service_title : {
@@ -211,20 +214,20 @@ $(document).ready(function(){
             },
 			service_pphone : {
                 required   : '<?php echo $lang['service_tel_unnull'];?>'
-            },									
+            },								
             service_sort  : {
                 number   : '<?php echo $lang['service_add_sort_int'];?>'
             },	
 			service_pphone : {
                 number   : '<?php echo $lang['service_tel_number'];?>'
-            }		
+            }	
         }
     });
     // 图片上传
     $('#fileupload').each(function(){
         $(this).fileupload({
             dataType: 'json',
-            url: 'index.php?act=service&op=service_pic_upload',
+            url: 'index.php?act=service&op=service_pic_upload&item_id=<?php echo $output['service_array']['service_id'];?>',
             done: function (e,data) {
                 if(data != 'error'){
                 	add_uploadedfile(data.result);
@@ -233,11 +236,9 @@ $(document).ready(function(){
         });
     });
 });
-
-
 function add_uploadedfile(file_data)
 {
-    var newImg = '<li id="' + file_data.file_id + '" class="picture"><input type="hidden" name="file_id[]" value="' + file_data.file_id + '" /><div class="size-64x64"><span class="thumb"><i></i><img src="<?php echo UPLOAD_SITE_URL.'/'.ATTACH_SERVICE.'/';?>' + file_data.file_name + '" alt="' + file_data.file_name + '" width="64px" height="64px"/></span></div><p><span><a href="javascript:insert_editor(\'<?php echo UPLOAD_SITE_URL.'/'.ATTACH_SERVICE.'/';?>' + file_data.file_name + '\');"><?php echo $lang['service_img_add_insert'];?></a></span><span><a href="javascript:del_file_upload(' + file_data.file_id + ');"><?php echo $lang['nc_del'];?></a></span></p></li>';
+	var newImg = '<li id="' + file_data.file_id + '" class="picture"><input type="hidden" name="file_id[]" value="' + file_data.file_id + '" /><div class="size-64x64"><span class="thumb"><i></i><img src="<?php echo UPLOAD_SITE_URL.'/'.ATTACH_SERVICE.'/';?>' + file_data.file_name + '" alt="' + file_data.file_name + '" width="64px" height="64px"/></span></div><p><span><a href="javascript:insert_editor(\'<?php echo UPLOAD_SITE_URL.'/'.ATTACH_SERVICE.'/';?>' + file_data.file_name + '\');"><?php echo $lang['service_img_add_insert'];?></a></span><span><a href="javascript:del_file_upload(' + file_data.file_id + ');"><?php echo $lang['nc_del'];?></a></span></p></li>';
     $('#thumbnails').prepend(newImg);
 }
 function insert_editor(file_path){

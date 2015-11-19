@@ -434,7 +434,7 @@ class serviceControl extends SystemControl{
 		$file_upload = $model_upload->getUploadList($condition);
 		if (is_array($file_upload)){
 			foreach ($file_upload as $k => $v){
-				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/'.$file_upload[$k]['file_name'];
+				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_SERVICE.'/'.$file_upload[$k]['file_name'];
 			}
 		}
 
@@ -545,7 +545,7 @@ class serviceControl extends SystemControl{
 		$file_upload = $model_upload->getUploadList($condition);
 		if (is_array($file_upload)){
 			foreach ($file_upload as $k => $v){
-				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/'.$file_upload[$k]['file_name'];
+				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_SERVICE.'/'.$file_upload[$k]['file_name'];
 			}
 		}
 
@@ -593,7 +593,7 @@ class serviceControl extends SystemControl{
 		 * 上传图片
 		 */
 		$upload = new UploadFile();
-		$upload->set('default_dir',ATTACH_ARTICLE);
+		$upload->set('default_dir',ATTACH_SERVICE);
 		$result = $upload->upfile('fileupload');
 		if ($result){
 			$_POST['pic'] = $upload->file_name;
@@ -609,7 +609,7 @@ class serviceControl extends SystemControl{
 		 */
 		$insert_array = array();
 		$insert_array['file_name'] = $_POST['pic'];
-		$insert_array['upload_type'] = '1';
+		$insert_array['upload_type'] = '8';
 		$insert_array['file_size'] = $_FILES['fileupload']['size'];
 		$insert_array['upload_time'] = time();
 		$insert_array['item_id'] = intval($_POST['item_id']);
@@ -629,7 +629,7 @@ class serviceControl extends SystemControl{
 	}
 
     /**
-     * 评论管理
+     * 管理
      */
 	public function service_yuyueOp() {
 		$lang	= Language::getLangContent();
@@ -662,14 +662,14 @@ class serviceControl extends SystemControl{
 		$page->setStyle('admin');
 		
 		/**
-		 * 取单位分类
+		 * 取服务
 		*/
 		$model_service = Model('service');
 		$service_list = $model_service->Listgoods($condition);
-		$tmp_class_name = array();
+		$tmp_service_name = array();
 		if (is_array($service_list)){
 			foreach ($service_list as $k => $v){
-		    $tmp_class_name[$v['service_id']] = $v['service_name'];
+		    $tmp_service_name[$v['service_id']] = $v['service_name'];
 			}
 		}
 		
@@ -677,10 +677,10 @@ class serviceControl extends SystemControl{
 		$goods_list = $model_goods->listGoods($condition,$page);
         foreach ($goods_list as $k => $v){
 				/**
-				 * 所属分类
+				 * 所属服务
 				 */
-				if (@array_key_exists($v['yuyue_service_id'],$tmp_class_name)){
-					$goods_list[$k]['service_name'] = $tmp_class_name[$v['yuyue_service_id']];
+				if (@array_key_exists($v['yuyue_service_id'],$tmp_service_name)){
+					$goods_list[$k]['service_name'] = $tmp_service_name[$v['yuyue_service_id']];
 				}
 			}		
 				
@@ -693,26 +693,19 @@ class serviceControl extends SystemControl{
 	
 	
 	/**
-	 * 服务编辑
+	 * 服务安排
 	 */
 	public function service_yuyue_editOp(){
 		$lang	 = Language::getLangContent();
 		$model_service_yuyue = Model('service_yuyue');
-
+		
 		if (chksubmit()){
 			/**
 			 * 验证
 			 */
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
-				/*array("input"=>$_POST["service_title"], "require"=>"true", "message"=>$lang['service_name_null']),
-				array("input"=>$_POST["gc_id"], "require"=>"true", "message"=>$lang['service_add_class_null']),
-				array("input"=>$_POST["service_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_price_error']),
-				array("input"=>$_POST["service_now_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_now_price_error']),
-				array("input"=>$_POST["service_pphone"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_tel_number']),
-				array("input"=>$_POST["service_abstract"], 'require'=>'true', "message"=>$lang['service_add_abstract_null']),
-				array("input"=>$_POST["service_content"], "require"=>"true", "message"=>$lang['service_add_content_null']),
-				array("input"=>$_POST["service_sort"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_add_sort_int']),*/
+				array("input"=>$_POST["yuyue_status"], "require"=>"true", "message"=>$lang['yuyue_status']),
 			);
 			$error = $obj_validate->validate();
 			if ($error != ''){
@@ -720,21 +713,11 @@ class serviceControl extends SystemControl{
 			}else {
 
 				$update_array = array();
-				$insert_array['service_name'] = trim($_POST['service_title']);
-				$insert_array['gc_id'] = intval($_POST['gc_id']);
-				$insert_array['service_price'] = trim($_POST['service_price']);
-				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
-				$insert_array['service_show'] = trim($_POST['service_show']);
-				$insert_array['order_online'] = trim($_POST['service_order']);	
-				$insert_array['pay_online'] = trim($_POST['service_pay']);	
-				$insert_array['service_sort'] = trim($_POST['service_sort']);
-				$insert_array['service_pname'] = trim($_POST['service_pname']);
-				$insert_array['service_pphone'] = trim($_POST['service_pphone']);
-				$insert_array['service_abstract'] = trim($_POST['service_abstract']);				
-				$insert_array['service_content'] = trim($_POST['service_content']);
-				$insert_array['service_add_time'] = time();
-
-				$result = $model_service->update($update_array);
+				$insert_array['yuyue_company_id'] = intval($_POST['yuyue_company_id']);
+				$insert_array['yuyue_status'] = intval($_POST['yuyue_status']);			
+				$insert_array['yuyue_order_number'] = trim($_POST['yuyue_order_number']);
+				$insert_array['yuyue_pay_status'] = 1;
+				$result = $model_service_yuyue->update($update_array);
 				if ($result){
 					$url = array(
 						array(
@@ -758,9 +741,22 @@ class serviceControl extends SystemControl{
 		if (empty($service_yuyue_array)){
 			showMessage($lang['param_error']);
 		}
+		
+		/**
+		 * 取服务单位
+		*/
+		$model_company = Model('company');
+		$company_list = $model_company->getcompanyList($condition);
+		$tmp_company_name = array();
+		if (is_array($company_list)){
+			foreach ($company_list as $k => $v){
+		    $tmp_company_name[$v['company_id']] = $v['company_title'];
+			}
+		}
 
 		Tpl::output('PHPSESSID',session_id());
 		Tpl::output('service_yuyue_array',$service_yuyue_array);
+		Tpl::output('company_list',$company_list);		
 		Tpl::showpage('service_yuyue.edit');
 	}	
 
@@ -785,18 +781,6 @@ class serviceControl extends SystemControl{
 	public function ajaxOp(){
 
 		switch ($_GET['branch']){
-            //推荐
-			case 'yuyue_Complete_status':
-                if(intval($_GET['id']) > 0) {
-                    $model= Model('service_yuyue');
-                    $condition['yuyue_id'] = intval($_GET['id']);
-                    $update[$_GET['column']] = trim($_GET['value']);
-                    $model->modify($update,$condition);
-                    echo 'true';die;
-                } else {
-                    echo 'false';die;
-                }
-                break;
             //店铺街推荐
 			case 'store_commend':
                 if(intval($_GET['id']) > 0) {
@@ -845,20 +829,40 @@ class serviceControl extends SystemControl{
 				echo 'true';exit;
 				break;			
             //预约开关
-			case 'yuyue_Auditing_status':
+			case 'yuyue_status':
 				$model_goods = Model('service_yuyue');
 				$update_array = array();
 				$update_array[$_GET['column']] = $_GET['value'];
 				$model_goods->updateGoods($update_array,$_GET['id']);
 				echo 'true';exit;
 				break;	
-			case 'yuyue_Complete_status':
+            //支付开关
+			case 'yuyue_pay_status':
 				$model_goods = Model('service_yuyue');
 				$update_array = array();
 				$update_array[$_GET['column']] = $_GET['value'];
 				$model_goods->updateGoods($update_array,$_GET['id']);
 				echo 'true';exit;
-				break;								
+				break;	
+			 //删除图片	
+             case 'del_file_upload':
+				if (intval($_GET['file_id']) > 0){
+					$model_upload = Model('upload');
+					/**
+					 * 删除图片
+					 */
+					$file_array = $model_upload->getOneUpload(intval($_GET['file_id']));
+					@unlink(BASE_UPLOAD_PATH.DS.ATTACH_SERVICE.DS.$file_array['file_name']);
+					/**
+					 * 删除信息
+					 */
+					$model_upload->del(intval($_GET['file_id']));
+					echo 'true';exit;
+				}else {
+					echo 'false';exit;
+				}
+				break;				
+															
 		}
 	}
 

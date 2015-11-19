@@ -41,7 +41,7 @@ class companyControl extends SystemControl{
 					if (is_array($upload_list)){
 						foreach ($upload_list as $k_upload => $v_upload){
 							$model_upload->del($v_upload['upload_id']);
-							@unlink(BASE_UPLOAD_PATH.DS.ATTACH_ARTICLE.DS.$v_upload['file_name']);
+							@unlink(BASE_UPLOAD_PATH.DS.ATTACH_COMPANY.DS.$v_upload['file_name']);
 						}
 					}
 					$model_company->del($v);
@@ -197,7 +197,7 @@ class companyControl extends SystemControl{
 		$file_upload = $model_upload->getUploadList($condition);
 		if (is_array($file_upload)){
 			foreach ($file_upload as $k => $v){
-				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/'.$file_upload[$k]['file_name'];
+				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_COMPANY.'/'.$file_upload[$k]['file_name'];
 			}
 		}
 
@@ -300,7 +300,7 @@ class companyControl extends SystemControl{
 		$file_upload = $model_upload->getUploadList($condition);
 		if (is_array($file_upload)){
 			foreach ($file_upload as $k => $v){
-				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_ARTICLE.'/'.$file_upload[$k]['file_name'];
+				$file_upload[$k]['upload_path'] = UPLOAD_SITE_URL.'/'.ATTACH_COMPANY.'/'.$file_upload[$k]['file_name'];
 			}
 		}
 
@@ -318,7 +318,7 @@ class companyControl extends SystemControl{
 		 * 上传图片
 		 */
 		$upload = new UploadFile();
-		$upload->set('default_dir',ATTACH_ARTICLE);
+		$upload->set('default_dir',ATTACH_COMPANY);
 		$result = $upload->upfile('fileupload');
 		if ($result){
 			$_POST['pic'] = $upload->file_name;
@@ -334,7 +334,7 @@ class companyControl extends SystemControl{
 		 */
 		$insert_array = array();
 		$insert_array['file_name'] = $_POST['pic'];
-		$insert_array['upload_type'] = '1';
+		$insert_array['upload_type'] = '7';
 		$insert_array['file_size'] = $_FILES['fileupload']['size'];
 		$insert_array['upload_time'] = time();
 		$insert_array['item_id'] = intval($_POST['item_id']);
@@ -367,7 +367,7 @@ class companyControl extends SystemControl{
 					 * 删除图片
 					 */
 					$file_array = $model_upload->getOneUpload(intval($_GET['file_id']));
-					@unlink(BASE_UPLOAD_PATH.DS.ATTACH_ARTICLE.DS.$file_array['file_name']);
+					@unlink(BASE_UPLOAD_PATH.DS.ATTACH_COMPANY.DS.$file_array['file_name']);
 					/**
 					 * 删除信息
 					 */
