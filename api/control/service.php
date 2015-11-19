@@ -34,7 +34,7 @@ class serviceControl extends apiHomeControl
 
         foreach ($service_list as $key => $val) {
             $imgs = $model_upload->getUploadList(array('item_id'=>$val['service_id']));
-            $service_list[$key]['service_img'] = $imgs[0]['file_name'];
+            $service_list[$key]['service_image'] = $imgs[0]['file_name'];
         }
 
 //        $where['upload.upload_type'] = 8;
