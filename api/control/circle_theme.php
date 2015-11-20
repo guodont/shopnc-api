@@ -8,12 +8,6 @@
  */
 
 defined('InShopNC') or exit('Access Invalid!');
-Base::autoload('vendor/autoload');
-use JPush\Model as M;
-use JPush\JPushClient;
-use JPush\Exception\APIConnectionException;
-use JPush\Exception\APIRequestException;
-
 class circle_themeControl extends apiBaseCircleThemeControl
 {
 
@@ -324,34 +318,20 @@ class circle_themeControl extends apiBaseCircleThemeControl
                         Model('circle_exp')->saveExp($param);
                     }
 
-//                    $jpush = new JPush();
+                    $jpush = new JPush();
                     $extras = array();
                     $extras['push_type'] = "hasReply";
                     $extras['id'] = $this->t_id;
-                    $this->pushMessageByAlias($this->member_info['member_name'] . "发表了新的回帖", "有新的回贴", $extras, array($to_user_id));
+                    $extras['circle_id'] = $this->theme_info['circle_id'];
+                    //  回复自己的帖子不推送
+                    if ($to_user_id != $this->member_info['member_id']) {
+                        $jpush->pushMessageByAlias($this->member_info['member_name'] . "发表了新的回帖", "有新的回贴", $extras, array($to_user_id));
+                    }
                     output_data(array('success' => '回复成功'));
                 } else {
                     output_error("回复失败");
                 }
             }
-        }
-    }
-
-    private function pushMessageByAlias($content, $title, $extras, $alias)
-    {
-        $pushConf = C('push');
-        $app_key = $pushConf['app_key'];
-        $master_secret = $pushConf['master_secret'];
-        $client = new JPushClient($app_key, $master_secret);
-        try {
-            $result = $client->push()
-                ->setPlatform(M\all)
-                ->setAudience(M\audience(
-                    M\alias($alias)))
-                ->setNotification(M\notification(M\android($content, $title, 3, $extras)))
-                ->send();
-        } catch (APIRequestException $e) {
-        } catch (APIConnectionException $e) {
         }
     }
 

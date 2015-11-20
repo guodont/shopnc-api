@@ -239,15 +239,24 @@ class question_answerControl extends apiMemberControl
                         $param['itemid'] = $this->q_id;
                         Model('circle_exp')->saveExp($param);
                     }
+
+                    $jpush = new JPush();
+                    $extras = array();
+                    $extras['push_type'] = "hasAnswer";
+                    $extras['id'] = $this->q_id;
+                    //  回复自己的帖子不推送
+                    if ($this->question_info['member_id'] != $this->member_info['member_id']) {
+                        $jpush->pushMessageByAlias($this->member_info['member_name'] . "发表了新的回帖", "有新的回贴", $extras, array($this->question_info['member_id']));
+                    }
+
                     output_data(array('code' => 201, 'success' => '回复成功'));
+
                 } else {
                     output_error('回复失败');
                 }
             }
         }
     }
-
-
 
 
 }
