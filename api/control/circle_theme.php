@@ -328,7 +328,7 @@ class circle_themeControl extends apiBaseCircleThemeControl
                     $extras = array();
                     $extras['push_type'] = "hasReply";
                     $extras['id'] = $this->t_id;
-                    $this->pushMessageByAlias($this->member_info['member_name'] . "发表了新的回帖", "有新的回贴", $extras, array($to_user_id, $this->r_id));
+                    $this->pushMessageByAlias($this->member_info['member_name'] . "发表了新的回帖", "有新的回贴", $extras, array($to_user_id));
                     output_data(array('success' => '回复成功'));
                 } else {
                     output_error("回复失败");
