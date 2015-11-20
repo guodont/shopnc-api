@@ -365,23 +365,16 @@ class member_centerControl extends apiMemberControl
 
     private function getMyThemeIds()
     {
-        $ids = array();
         $model = Model();
         $m_theme = $model->table('circle_theme');
         $field = 'theme_id';
         $ids = $m_theme->where(array("member_id" => $this->member_id))->field($field)->select();
-        return $ids;
+        $themeIds = array();
+        foreach($ids as $key=>$val) {
+            $themeIds[$key] = $val['theme_id'];
+        }
+        return $themeIds;
     }
-
-    public function getMyQuestionIds()
-    {
-        $ids = array();
-        $friend_model = Model('sns_friend');
-        $field = 'member_id';
-        $ids = $friend_model->listFriend(array('friend_frommid' => $this->member_id), $field, '', 'detail');
-        return $ids;
-    }
-
 
     /**
      * GET 消息中心的回帖列表
@@ -393,10 +386,12 @@ class member_centerControl extends apiMemberControl
         $types = array(5, 6);
 
         $m_reply = $model->table('circle_threply');
-        $where['theme_id'] = array('in', $themeIds);
-        $where['circle_theme.thclass_id'] = array('not in',$types);
+
+        $where['circle_threply.theme_id'] = array('in', $themeIds);
+        $where['circle_theme.thclass_id'] = array('not in', $types);
 
         $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
+
         $pageCount = $m_reply->gettotalpage();
 
         if (!empty($replies)) {
@@ -404,7 +399,7 @@ class member_centerControl extends apiMemberControl
                 $replies[$key]['member_avatar'] = getMemberAvatarForID($replies[$key]['member_id']);
             }
         }
-        output_data(array('replies' => $replies), mobile_page($pageCount));
+        output_data(array('receiveReplies' => $replies), mobile_page($pageCount));
     }
 
     /**
@@ -418,8 +413,8 @@ class member_centerControl extends apiMemberControl
 
         $m_reply = $model->table('circle_threply');
 
-        $where['theme_id'] = array('in', $themeIds);
-        $where['circle_theme.thclass_id'] = array('in',$types);
+        $where['circle_threply.theme_id'] = array('in', $themeIds);
+        $where['circle_theme.thclass_id'] = array('in', $types);
 
         $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
         $pageCount = $m_reply->gettotalpage();
@@ -429,6 +424,6 @@ class member_centerControl extends apiMemberControl
                 $replies[$key]['member_avatar'] = getMemberAvatarForID($replies[$key]['member_id']);
             }
         }
-        output_data(array('replies' => $replies), mobile_page($pageCount));
+        output_data(array('receiveAnswers' => $replies), mobile_page($pageCount));
     }
 }
