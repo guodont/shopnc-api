@@ -323,7 +323,7 @@ class member_centerControl extends apiMemberControl
         $field = 'goods_id,goods_commonid,store_id,goods_name,goods_price,goods_marketprice,goods_image,goods_salenum,evaluation_good_star,evaluation_count';
         $goods_list = $model_goods->getGoodsList(array('goods_id' => array('in', $favorites_id)), $field);
 
-        foreach($goods_list as $key => $value) {
+        foreach ($goods_list as $key => $value) {
             $goods_list[$key]['goods_image_url'] = cthumb($value['goods_image'], 360, $value['store_id']);
         }
         output_data(array('goods_list' => $goods_list), mobile_page($page_count));
@@ -361,5 +361,74 @@ class member_centerControl extends apiMemberControl
             }
         }
         output_data(array('trade_list' => $trade_list), mobile_page($page_count));
+    }
+
+    private function getMyThemeIds()
+    {
+        $ids = array();
+        $model = Model();
+        $m_theme = $model->table('circle_theme');
+        $field = 'theme_id';
+        $ids = $m_theme->where(array("member_id" => $this->member_id))->field($field)->select();
+        return $ids;
+    }
+
+    public function getMyQuestionIds()
+    {
+        $ids = array();
+        $friend_model = Model('sns_friend');
+        $field = 'member_id';
+        $ids = $friend_model->listFriend(array('friend_frommid' => $this->member_id), $field, '', 'detail');
+        return $ids;
+    }
+
+
+    /**
+     * GET 消息中心的回帖列表
+     */
+    public function repliesOp()
+    {
+        $themeIds = $this->getMyThemeIds();
+        $model = new Model();
+        $types = array(5, 6);
+
+        $m_reply = $model->table('circle_threply');
+        $where['theme_id'] = array('in', $themeIds);
+        $where['circle_theme.thclass_id'] = array('not in',$types);
+
+        $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
+        $pageCount = $m_reply->gettotalpage();
+
+        if (!empty($replies)) {
+            foreach ($replies as $key => $val) {
+                $replies[$key]['member_avatar'] = getMemberAvatarForID($replies[$key]['member_id']);
+            }
+        }
+        output_data(array('replies' => $replies), mobile_page($pageCount));
+    }
+
+    /**
+     * GET 消息中心的回答列表
+     */
+    public function answersOp()
+    {
+        $themeIds = $this->getMyThemeIds();
+        $model = new Model();
+        $types = array(5, 6);
+
+        $m_reply = $model->table('circle_threply');
+
+        $where['theme_id'] = array('in', $themeIds);
+        $where['circle_theme.thclass_id'] = array('in',$types);
+
+        $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
+        $pageCount = $m_reply->gettotalpage();
+
+        if (!empty($replies)) {
+            foreach ($replies as $key => $val) {
+                $replies[$key]['member_avatar'] = getMemberAvatarForID($replies[$key]['member_id']);
+            }
+        }
+        output_data(array('replies' => $replies), mobile_page($pageCount));
     }
 }
