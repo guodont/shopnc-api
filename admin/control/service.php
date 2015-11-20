@@ -362,7 +362,7 @@ class serviceControl extends SystemControl{
 			 */
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
-				array("input"=>$_POST["service_title"], "require"=>"true", "message"=>$lang['service_name_null']),
+				array("input"=>$_POST["service_name"], "require"=>"true", "message"=>$lang['service_name_null']),
 				array("input"=>$_POST["gc_id"], "require"=>"true", "message"=>$lang['service_add_class_null']),
 				array("input"=>$_POST["service_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_price_error']),
 				array("input"=>$_POST["service_now_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_now_price_error']),
@@ -377,7 +377,7 @@ class serviceControl extends SystemControl{
 			}else {
 
 				$insert_array = array();
-				$insert_array['service_name'] = trim($_POST['service_title']);
+				$insert_array['service_name'] = trim($_POST['service_name']);
 				$insert_array['gc_id'] = intval($_POST['gc_id']);
 				$insert_array['service_price'] = trim($_POST['service_price']);
 				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
@@ -417,7 +417,7 @@ class serviceControl extends SystemControl{
 							'msg'=>"{$lang['service_add_continueadd']}",
 						),
 					);
-					$this->log(L('service_add_ok').'['.$_POST['service_title'].']',null);
+					$this->log(L('service_add_ok').'['.$_POST['service_name'].']',null);
 					showMessage("{$lang['service_add_ok']}",$url);
 				}else {
 					showMessage("{$lang['service_add_fail']}");
@@ -458,10 +458,8 @@ class serviceControl extends SystemControl{
 			 */
 			$obj_validate = new Validate();
 			$obj_validate->validateparam = array(
-				array("input"=>$_POST["service_title"], "require"=>"true", "message"=>$lang['service_name_null']),
+				array("input"=>$_POST["service_name"], "require"=>"true", "message"=>$lang['service_name_null']),
 				array("input"=>$_POST["gc_id"], "require"=>"true", "message"=>$lang['service_add_class_null']),
-				array("input"=>$_POST["service_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_price_error']),
-				array("input"=>$_POST["service_now_price"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_now_price_error']),
 				array("input"=>$_POST["service_pphone"], "require"=>"true", 'validator'=>'Number', "message"=>$lang['service_tel_number']),
 				array("input"=>$_POST["service_abstract"], 'require'=>'true', "message"=>$lang['service_add_abstract_null']),
 				array("input"=>$_POST["service_content"], "require"=>"true", "message"=>$lang['service_add_content_null']),
@@ -473,7 +471,7 @@ class serviceControl extends SystemControl{
 			}else {
 
 				$update_array = array();
-				$insert_array['service_name'] = trim($_POST['service_title']);
+				$insert_array['service_name'] = trim($_POST['service_name']);
 				$insert_array['gc_id'] = intval($_POST['gc_id']);
 				$insert_array['service_price'] = trim($_POST['service_price']);
 				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
@@ -513,7 +511,7 @@ class serviceControl extends SystemControl{
 							'msg'=>$lang['service_edit_edit_again'],
 						),
 					);
-					$this->log(L('service_edit_succ').'['.$_POST['service_title'].']',null);
+					$this->log(L('service_edit_succ').'['.$_POST['service_name'].']',null);
 					showMessage($lang['service_edit_succ'],$url);
 				}else {
 					showMessage($lang['service_edit_succ']);

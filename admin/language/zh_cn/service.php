@@ -61,4 +61,20 @@ $lang['service_add_content_null']	= '服务介绍不能为空';
 $lang['service_add_sort_int']		= '排序仅能为数字';
 $lang['service_add_upload']		    = '上传图片';
 $lang['service_add_uploaded']		= '已传图片';
+$lang['service_add_shangpin']		= '支付链接';
+$lang['service_add_shangpin_null']	= '支付链接不能为空';
+/**
+ * 单位编辑
+ */
+$lang['service_edit_back_to_list']	= '返回单位列表';
+$lang['service_edit_edit_again']	= '重新编辑该单位';
+$lang['service_edit_succ']			= '编辑单位成功';
+$lang['service_edit_succ']			= '编辑单位失败';
 
+/**
+ * 服务预约
+ */
+$lang['yuyue_status']	= '预约服务状态不能为空';
+$lang['service_edit_edit_again']	= '重新编辑该单位';
+$lang['service_edit_succ']			= '编辑单位成功';
+$lang['service_edit_succ']			= '编辑单位失败';
