@@ -370,7 +370,7 @@ class member_centerControl extends apiMemberControl
         $field = 'theme_id';
         $ids = $m_theme->where(array("member_id" => $this->member_id))->field($field)->select();
         $themeIds = array();
-        foreach($ids as $key=>$val) {
+        foreach ($ids as $key => $val) {
             $themeIds[$key] = $val['theme_id'];
         }
         return $themeIds;
@@ -390,7 +390,10 @@ class member_centerControl extends apiMemberControl
         $where['circle_threply.theme_id'] = array('in', $themeIds);
         $where['circle_theme.thclass_id'] = array('not in', $types);
 
-        $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
+        $fields = "circle_threply.reply_content,circle_threply.reply_addtime,circle_threply.member_name,circle_threply.member_id,
+        circle_threply.circle_id,circle_threply.reply_id,circle_threply.theme_id,circle_theme.theme_name";
+
+        $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->field($fields)->page($this->page)->order('reply_addtime desc')->select();
 
         $pageCount = $m_reply->gettotalpage();
 
@@ -416,7 +419,11 @@ class member_centerControl extends apiMemberControl
         $where['circle_threply.theme_id'] = array('in', $themeIds);
         $where['circle_theme.thclass_id'] = array('in', $types);
 
-        $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
+        $fields = "circle_threply.reply_content,circle_threply.reply_addtime,circle_threply.member_name,circle_threply.member_id,
+        circle_threply.circle_id,circle_threply.reply_id,circle_threply.theme_id,circle_theme.theme_name";
+
+        $replies = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->field($fields)->page($this->page)->order('reply_addtime desc')->select();
+
         $pageCount = $m_reply->gettotalpage();
 
         if (!empty($replies)) {
