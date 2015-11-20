@@ -233,7 +233,8 @@ class circle_themeControl extends apiBaseCircleThemeControl
         $m_theme = $model->table('circle_theme');
         $theme = $m_theme->where(array("theme_id" => $this->t_id))->select();
         $this->c_id = $theme[0]['circle_id'];
-        var_dump($this->c_id);
+        $to_user_id = $theme[0]['member_id'];
+//        var_dump($this->c_id);
         //圈子信息
         $this->circleInfo();
 
@@ -317,6 +318,12 @@ class circle_themeControl extends apiBaseCircleThemeControl
                         $param['itemid'] = $this->t_id;
                         Model('circle_exp')->saveExp($param);
                     }
+
+                    $jpush = new JPush();
+                    $extras = array();
+                    $extras['push_type'] = "hasReply";
+                    $extras['id'] = $this->t_id;
+                    $jpush->pushMessageByAlias($this->member_info['member_name']."发表了新的回帖","有新的回贴", $extras, array($to_user_id, $this->r_id));
                     output_data(array('success' => '回复成功'));
                 } else {
                     output_error("回复失败");
