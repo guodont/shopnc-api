@@ -471,19 +471,19 @@ class serviceControl extends SystemControl{
 			}else {
 
 				$update_array = array();
-				$insert_array['service_name'] = trim($_POST['service_name']);
-				$insert_array['gc_id'] = intval($_POST['gc_id']);
-				$insert_array['service_price'] = trim($_POST['service_price']);
-				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
-				$insert_array['service_show'] = trim($_POST['service_show']);
-				$insert_array['order_online'] = trim($_POST['service_order']);	
-				$insert_array['pay_online'] = trim($_POST['service_pay']);	
-				$insert_array['service_sort'] = trim($_POST['service_sort']);
-				$insert_array['service_pname'] = trim($_POST['service_pname']);
-				$insert_array['service_pphone'] = trim($_POST['service_pphone']);
-				$insert_array['service_abstract'] = trim($_POST['service_abstract']);				
-				$insert_array['service_content'] = trim($_POST['service_content']);
-				$insert_array['service_add_time'] = time();
+				$update_array['service_name'] = trim($_POST['service_name']);
+				$update_array['gc_id'] = intval($_POST['gc_id']);
+				$update_array['service_price'] = trim($_POST['service_price']);
+				$update_array['service_now_price'] = trim($_POST['service_now_price']);
+				$update_array['service_show'] = trim($_POST['service_show']);
+				$update_array['order_online'] = trim($_POST['service_order']);	
+				$update_array['pay_online'] = trim($_POST['service_pay']);	
+				$update_array['service_sort'] = trim($_POST['service_sort']);
+				$update_array['service_pname'] = trim($_POST['service_pname']);
+				$update_array['service_pphone'] = trim($_POST['service_pphone']);
+				$update_array['service_abstract'] = trim($_POST['service_abstract']);				
+				$update_array['service_content'] = trim($_POST['service_content']);
+				$update_array['service_add_time'] = time();
 
 				$result = $model_service->update($update_array);
 				if ($result){
@@ -695,7 +695,7 @@ class serviceControl extends SystemControl{
 	 */
 	public function service_yuyue_editOp(){
 		$lang	 = Language::getLangContent();
-		$model_service_yuyue = Model('service_yuyue');
+		$model_yuyue = Model('service_yuyue');
 		
 		if (chksubmit()){
 			/**
@@ -711,11 +711,11 @@ class serviceControl extends SystemControl{
 			}else {
 
 				$update_array = array();
-				$insert_array['yuyue_company_id'] = intval($_POST['yuyue_company_id']);
-				$insert_array['yuyue_status'] = intval($_POST['yuyue_status']);			
-				$insert_array['yuyue_order_number'] = trim($_POST['yuyue_order_number']);
-				$insert_array['yuyue_pay_status'] = 1;
-				$result = $model_service_yuyue->update($update_array);
+				$update_array['yuyue_company_id'] = intval($_POST['yuyue_company_id']);
+				$update_array['yuyue_status'] = intval($_POST['yuyue_status']);			
+				$update_array['yuyue_order_number'] = trim($_POST['yuyue_order_number']);
+				$update_array['yuyue_pay_status'] = 1;
+				$result = $model_yuyue->update($update_array);
 				if ($result){
 					$url = array(
 						array(
@@ -735,7 +735,7 @@ class serviceControl extends SystemControl{
 			}
 		}
 
-		$service_yuyue_array = $model_service_yuyue->getOneyuyue(intval($_GET['yuyue_id']));
+		$service_yuyue_array = $model_yuyue->getOneyuyue(intval($_GET['yuyue_id']));
 		if (empty($service_yuyue_array)){
 			showMessage($lang['param_error']);
 		}
@@ -759,7 +759,7 @@ class serviceControl extends SystemControl{
 	}	
 
     /**
-     * 评论删除
+     * 预约删除
      */
     public function service_yuyue_dropOp() {
         $model = Model('service_yuyue');
@@ -792,15 +792,17 @@ class serviceControl extends SystemControl{
                 }
                 break;
             //分类推荐
-			case 'class_commend':
+			case 'class_show':
                 if(intval($_GET['id']) > 0) {
-                    $model= Model('micro_goods_class');
+                    $model= Model('micro_personal_class');
                     $condition['class_id'] = intval($_GET['id']);
                     $update[$_GET['column']] = trim($_GET['value']);
                     $model->modify($update,$condition);
-                    echo 'true';die;
+                    echo 'true';
+					break;
                 } else {
-                    echo 'false';die;
+                    echo 'false';
+					break;
                 }
                 break;
 			case 'pay_online':

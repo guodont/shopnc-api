@@ -71,6 +71,7 @@ function submit_delete(id){
           <th></th>
           <th class="align-left"><?php echo $lang['nc_sort'];?></th>
           <th class="align-left"><?php echo $lang['microshop_class_name'];?></th>
+          <th class="align-center">显示</th>
           <th class="align-center"><?php echo $lang['nc_handle'];?></th>
         </tr>
       </thead>
@@ -81,6 +82,11 @@ function submit_delete(id){
           <td class="w48"><input type="checkbox" value="<?php echo $val['class_id'];?>" class="checkitem"></td>
           <td class="w48 sort"><span nc_type="class_sort" column_id="<?php echo $val['class_id'];?>" title="<?php echo $lang['nc_editable'];?>" class="editable "><?php echo $val['class_sort'];?></span>
           <td class="name"><span nc_type="class_name" column_id="<?php echo $val['class_id'];?>" title="<?php echo $lang['nc_editable'];?>" class="editable "><?php echo $val['class_name'];?></span></td>
+		  <td class="align-center power-onoff"><?php if($val['class_show'] == 0){ ?>
+            <a href="JavaScript:void(0);" class="tooltip disabled" fieldvalue="0" fieldid="<?php echo $val['class_id'];?>" ajax_branch="class_show" fieldname="class_show" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
+            <?php }else{ ?>
+            <a href="JavaScript:void(0);" class="tooltip enabled" fieldvalue="1" fieldid="<?php echo $val['class_id'];?>" ajax_branch="class_show" fieldname="class_show" nc_type="inline_edit" title="<?php echo $lang['nc_editable'];?>"><img src="<?php echo ADMIN_TEMPLATES_URL;?>/images/transparent.gif"></a>
+            <?php } ?></td>
           <td class="w72 align-center"><a href="index.php?act=service&op=personalclass_edit&class_id=<?php echo $val['class_id'];?>"><?php echo $lang['nc_edit'];?></a> <a href="javascript:submit_delete(<?php echo $val['class_id'];?>)"><?php echo $lang['nc_del'];?></a></td>
         </tr>
         <?php } ?>
