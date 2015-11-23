@@ -16,7 +16,7 @@ class company_classModel{
 		$param = array();
 		$param['table'] = 'company_class';
 		$param['where'] = $condition_str;
-		$param['order']	= empty($condition['order'])?'class_sort desc':$condition['order'];
+		$param['order']	= empty($condition['order'])?'class_sort asc':$condition['order'];
 		$result = Db::select($param);
 		return $result;
 	}

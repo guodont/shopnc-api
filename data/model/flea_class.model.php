@@ -16,7 +16,7 @@ class flea_classModel{
 		$param = array();
 		$param['table'] = 'flea_class';
 		$param['where'] = $condition_str;
-		$param['order'] = $condition['order'] ? $condition['order'] : 'gc_parent_id asc,gc_sort asc,gc_id asc';
+		$param['order'] = $condition['order'] ? $condition['order'] : 'gc_parent_id asc,gc_sort desc,gc_id asc';
 		$result = Db::select($param);
 		return $result;
 	}

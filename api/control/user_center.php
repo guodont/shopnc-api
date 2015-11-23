@@ -146,9 +146,6 @@ class user_centerControl extends apiHomeControl
             $cm_list = array_under_reset($cm_list, 'circle_id');
             $circleid_array = array_keys($cm_list);
             $circle_list = $model->table('circle')->where(array('circle_id' => array('in', $circleid_array)))->select();
-        } else {
-            output_error("没有加入的圈子");
-            die;
         }
         output_data(array('circle_list' => $circle_list));
     }
@@ -169,10 +166,6 @@ class user_centerControl extends apiHomeControl
             foreach ($theme_list as $key => $val) {
                 $theme_list[$key]['member_avatar'] = getMemberAvatarForID($theme_list[$key]['member_id']);
             }
-        }
-        if (empty($theme_list)) {
-            output_error("当前用户没有发布任何话题");
-            die;
         }
         output_data(array('themes' => $theme_list), mobile_page($pageCount));
     }

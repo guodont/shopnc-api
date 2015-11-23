@@ -89,7 +89,7 @@ class goods_classModel extends Model
      * @return array   返回二位数组
      */
     public function getGoodsClassList($condition, $field = '*') {
-        $result = $this->table('goods_class')->field($field)->where($condition)->order('gc_parent_id asc,gc_sort asc,gc_id asc')->limit(false)->select();
+        $result = $this->table('goods_class')->field($field)->where($condition)->order('gc_parent_id asc,gc_sort desc,gc_id asc')->limit(false)->select();
         return $result;
     }
 
