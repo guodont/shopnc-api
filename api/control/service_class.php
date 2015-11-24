@@ -19,7 +19,11 @@ class service_classControl extends apiHomeControl
          */
         $model_service_class = Model('company_class');
         //取分类
-        $service_class_list = $model_service_class->getClassList();
+        $where = array();
+
+        $where['class_show'] = 1;
+
+        $service_class_list = $model_service_class->getClassList($where);
 
         output_data(array('service_class' => $service_class_list));
     }
