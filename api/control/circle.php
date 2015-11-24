@@ -31,7 +31,7 @@ class circleControl extends apiHomeControl
     public function classOp()
     {
         $model = Model();
-        $class_list = $model->table('circle_class')->where(array('class_status' => 1, 'is_recommend' => 1))->order('class_sort desc')->select();
+        $class_list = $model->table('circle_class')->where(array('class_status' => 1, 'is_recommend' => 1))->order('class_sort asc')->select();
         output_data(array('circle_classes' => $class_list));
     }
 
@@ -54,6 +54,7 @@ class circleControl extends apiHomeControl
         $circle_list = $m_circle->where($where)->page($this->page)->select();
         $pageCount = $m_circle->gettotalpage();
         output_data(array('circles' => $circle_list), mobile_page($pageCount));
+
     }
 
     /**
