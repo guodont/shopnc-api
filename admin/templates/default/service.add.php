@@ -18,7 +18,7 @@
           <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_name'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="" name="service_title" id="service_title" class="txt"></td>
+          <td class="vatop rowform"><input type="text" value="" name="service_name" id="service_name" class="txt"></td>
           <td class="vatop tips"></td>
         </tr>
         <tr>
@@ -162,7 +162,7 @@ $(document).ready(function(){
 			error.appendTo(element.parent().parent().prev().find('td:first'));
         },
         rules : {
-            service_title : {
+            service_name : {
                 required   : true
             },
 			gc_id : {
@@ -191,7 +191,7 @@ $(document).ready(function(){
             }			
         },
         messages : {
-            service_title : {
+            service_name : {
                 required   : '<?php echo $lang['service_name_null'];?>'
             },
 			gc_id : {
