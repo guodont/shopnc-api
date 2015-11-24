@@ -28,6 +28,7 @@ class company_classModel{
 	 * @return string 字符串类型的返回结果
 	 */
 	private function _condition($condition){
+
 		$condition_str = '';
 		
 		if ($condition['no_ac_id'] != ''){
@@ -35,6 +36,9 @@ class company_classModel{
 		}
 		if ($condition['ac_name'] != ''){
 			$condition_str .= " and ac_name = '". $condition['ac_name'] ."'";
+		}
+		if ($condition['class_show'] != ''){
+			$condition_str .= " and class_show = '". $condition['class_show'] ."'";
 		}
 		return $condition_str;
 	}

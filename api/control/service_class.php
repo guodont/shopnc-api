@@ -21,7 +21,9 @@ class service_classControl extends apiHomeControl
         //取分类
         $condition = array();
 
-        $condition['where'] = array('class_show' => 1);
+//        $condition['where'] = array('class_show' => 1);
+
+        $condition['class_show'] = 1;
 
         $service_class_list = $model_service_class->getClassList($condition);
 
