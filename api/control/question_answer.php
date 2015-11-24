@@ -246,9 +246,8 @@ class question_answerControl extends apiMemberControl
                     $extras['id'] = $this->q_id;
                     //  回复自己的帖子不推送
                     if ($this->question_info['member_id'] != $this->member_info['member_id']) {
-                        $jpush->pushMessageByAlias($this->member_info['member_name'] . "发表了新的回帖", "有新的回贴", $extras, array($this->question_info['member_id']));
+                        $jpush->pushMessageByAlias($this->member_info['member_name'] . "发表了新的回答", "有新的回答", $extras, array($this->question_info['member_id']));
                     }
-
                     output_data(array('code' => 201, 'success' => '回复成功'));
 
                 } else {
