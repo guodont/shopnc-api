@@ -245,7 +245,7 @@ class flea_classModel{
         $param = array();
         $param['table'] = 'flea_class';
         $param['where'] = ' and gc_parent_id = '.$gc_id;
-        $param['order'] = 'gc_sort desc';
+        $param['order'] = 'gc_sort asc';
         return Db::select($param);
     }
 }
