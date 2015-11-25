@@ -4,10 +4,20 @@
 <?php if ($output['hidden_nctoolbar'] != 1) {?>
 <div id="ncToolbar" class="nc-appbar">
   <div class="nc-appbar-tabs" id="appBarTabs">
-    <?php if ($_SESSION['is_login']) {?>
+    <div class="ever">
+    <?php if (!$output['hidden_rtoolbar_cart']) { ?>
+      <div class="cart"><a href="javascript:void(0);" id="rtoolbar_cart"><span class="icon"></span> <span class="name">购物车</span><i id="rtoobar_cart_count" class="new_msg" style="display:none;"></i></a></div>
+       <?php } ?>
+      <div class="chat"><a href="javascript:void(0);" id="chat_show_user"><span class="icon"></span><i id="new_msg" class="new_msg" style="display:none;"></i><span class="tit">在线联系</span></a></div>
+    </div>
+    <div class="variation">
+      <div class="middle">
+        <?php if ($_SESSION['is_login']) {?>
     <div class="user" nctype="a-barUserInfo">
+     <a href="javascript:void(0);">
       <div class="avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/></div>
-      <p>我</p>
+<span class="tit">会员登录</span>
+</a>
     </div>
     <div class="user-info" nctype="barUserInfo" style="display:none;"><i class="arrow"></i>
       <div class="avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/>
@@ -20,10 +30,9 @@
       </dl>
     </div>
     <?php } else {?>
-    <div class="user" nctype="a-barLoginBox">
-      <div class="avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/></div>
-      <p>未登录</p>
-    </div>
+    <div class="user" nctype="a-barLoginBox"> <a href="javascript:void(0);" >
+          <div class="avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/></div>
+          <span class="tit">会员登录</span> </a> </div>
     <div class="user-login-box" nctype="barLoginBox" style="display:none;"> <i class="arrow"></i> <a href="javascript:void(0);" class="close" nctype="close-barLoginBox" title="关闭">X</a>
       <form id="login_form" method="post" action="index.php?act=login&op=login" onsubmit="ajaxpost('login_form', '', '', 'onerror')">
         <?php Security::getToken();?>
@@ -60,18 +69,14 @@
       </form>
     </div>
     <?php }?>
-
-    <ul class="tools">
-      <li><a href="javascript:void(0);" id="chat_show_user" class="chat">聊天<i id="new_msg" class="new_msg" style="display:none;"></i></a></li>
-      <?php if (!$output['hidden_rtoolbar_cart']) { ?>
-      <li><a href="javascript:void(0);" id="rtoolbar_cart" class="cart">购物车<i id="rtoobar_cart_count" class="new_msg" style="display:none;"></i></a></li>
+        
+        <div class="prech">&nbsp;</div>
+        <?php if (!$output['hidden_rtoolbar_compare']) { ?>
+        <div class="compare"><a href="javascript:void(0);" id="compare"><span class="icon"></span><span class="tit">商品对比</span></a></div>
       <?php } ?>
-      <?php if (!$output['hidden_rtoolbar_compare']) { ?>
-      <li><a href="javascript:void(0);" id="compare" class="compare">对比</a></li>
-      <?php } ?>
-      <li><a href="javascript:void(0);" id="gotop" class="gotop">顶部</a></li>
-    </ul>
-
+      </div>
+      <div class="gotop"><a href="javascript:void(0);" id="gotop"><span class="icon"></span><span class="tit">返回顶部</span></a></div>
+    </div>
     <div class="content-box" id="content-compare">
       <div class="top">
         <h3>商品对比</h3>
@@ -83,17 +88,6 @@
         <h3>我的购物车</h3>
         <a href="javascript:void(0);" class="close" title="隐藏"></a></div>
       <div id="rtoolbar_cartlist"></div>
-    </div>
-    <a id="activator" href="javascript:void(0);" class="nc-appbar-hide"></a> </div>
-  <div class="nc-hidebar" id="ncHideBar">
-    <div class="nc-hidebar-bg">
-      <?php if ($_SESSION['is_login']) {?>
-      <div class="user-avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/></div>
-      <?php } else {?>
-      <div class="user-avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/></div>
-      <?php }?>
-      <div class="frame"></div>
-      <div class="show"></div>
     </div>
   </div>
 </div>
@@ -120,6 +114,76 @@ backTop=function (btnId){
 	}
 };
 backTop('gotop');
+//动画显示边条内容区域
+$(function() {
+    ncToolbar();
+    $(window).resize(function() {
+        ncToolbar();
+    });
+    function ncToolbar() {
+        if ($(window).width() >= 1240) {
+            $('#appBarTabs >.variation').show();
+        } else {
+            $('#appBarTabs >.variation').hide();
+        }
+    }
+    $('#appBarTabs').hover(
+        function() {
+            $('#appBarTabs >.variation').show();
+        }, 
+        function() {
+            ncToolbar();
+        }
+    );
+    $("#compare").click(function(){
+    	if ($("#content-compare").css('right') == '-210px') {
+ 		   loadCompare(false);
+ 		   $('#content-cart').animate({'right': '-210px'});
+  		   $("#content-compare").animate({right:'35px'});
+    	} else {
+    		$(".close").click();
+    		$(".chat-list").css("display",'none');
+        }
+	});
+    $("#rtoolbar_cart").click(function(){
+        if ($("#content-cart").css('right') == '-210px') {
+         	$('#content-compare').animate({'right': '-210px'});
+    		$("#content-cart").animate({right:'35px'});
+    		if (!$("#rtoolbar_cartlist").html()) {
+    			$("#rtoolbar_cartlist").load('index.php?act=cart&op=ajax_load&type=html');
+    		}
+        } else {
+        	$(".close").click();
+        	$(".chat-list").css("display",'none');
+        }
+	});
+	$(".close").click(function(){
+		$(".content-box").animate({right:'-210px'});
+      });
+
+	$(".quick-menu dl").hover(function() {
+		$(this).addClass("hover");
+	},
+	function() {
+		$(this).removeClass("hover");
+	});
+
+    // 右侧bar用户信息
+    $('div[nctype="a-barUserInfo"]').click(function(){
+        $('div[nctype="barUserInfo"]').toggle();
+    });
+    // 右侧bar登录
+    $('div[nctype="a-barLoginBox"]').click(function(){
+        $('div[nctype="barLoginBox"]').toggle();
+        document.getElementById('codeimage').src='<?php echo SHOP_SITE_URL?>/index.php?act=seccode&op=makecode&nchash=c93636e5&t=' + Math.random();
+    });
+    $('a[nctype="close-barLoginBox"]').click(function(){
+        $('div[nctype="barLoginBox"]').toggle();
+    });
+     <?php if ($output['cart_goods_num'] > 0) { ?>
+    $('#rtoobar_cart_count').html(<?php echo $output['cart_goods_num'];?>).show();
+    <?php } ?>
+});
 </script>
 <?php } ?>
 <div class="public-top-layout w">
@@ -222,78 +286,3 @@ backTop('gotop');
     </div>
   </div>
 </div>
-<script type="text/javascript">
-//动画显示边条内容区域
-$(function() {
-	$(function() {
-		$('#activator').click(function() {
-			$('#content-cart').animate({'right': '-250px'});
-			$('#content-compare').animate({'right': '-150px'});
-			$('#ncToolbar').animate({'right': '-60px'}, 300,
-			function() {
-				$('#ncHideBar').animate({'right': '59px'},	300);
-			});
-	        $('div[nctype^="bar"]').hide();
-		});
-		$('#ncHideBar').click(function() {
-			$('#ncHideBar').animate({
-				'right': '-79px'
-			},
-			300,
-			function() {
-				$('#content-cart').animate({'right': '-250px'});
-				$('#content-compare').animate({'right': '-250px'});
-				$('#ncToolbar').animate({'right': '0'},300);
-			});
-		});
-	});
-    $("#compare").click(function(){
-    	if ($("#content-compare").css('right') == '-210px') {
- 		   loadCompare(false);
- 		   $('#content-cart').animate({'right': '-210px'});
-  		   $("#content-compare").animate({right:'50px'});
-    	} else {
-    		$(".close").click();
-    		$(".chat-list").css("display",'none');
-        }
-	});
-    $("#rtoolbar_cart").click(function(){
-        if ($("#content-cart").css('right') == '-210px') {
-         	$('#content-compare').animate({'right': '-210px'});
-    		$("#content-cart").animate({right:'50px'});
-    		if (!$("#rtoolbar_cartlist").html()) {
-    			$("#rtoolbar_cartlist").load('index.php?act=cart&op=ajax_load&type=html');
-    		}
-        } else {
-        	$(".close").click();
-        	$(".chat-list").css("display",'none');
-        }
-	});
-	$(".close").click(function(){
-		$(".content-box").animate({right:'-210px'});
-      });
-
-	$(".quick-menu dl").hover(function() {
-		$(this).addClass("hover");
-	},
-	function() {
-		$(this).removeClass("hover");
-	});
-
-    // 右侧bar用户信息
-    $('div[nctype="a-barUserInfo"]').click(function(){
-        $('div[nctype="barUserInfo"]').toggle();
-    });
-    // 右侧bar登录
-    $('div[nctype="a-barLoginBox"]').click(function(){
-        $('div[nctype="barLoginBox"]').toggle();
-        document.getElementById('codeimage').src='<?php echo SHOP_SITE_URL?>/index.php?act=seccode&op=makecode&nchash=<?php echo getNchash('login','index');?>&t=' + Math.random();
-    });
-    $('a[nctype="close-barLoginBox"]').click(function(){
-        $('div[nctype="barLoginBox"]').toggle();
-    });
-    <?php if ($output['cart_goods_num'] > 0) { ?>
-    $('#rtoobar_cart_count').html(<?php echo $output['cart_goods_num'];?>).show();
-    <?php } ?>
-});
-</script>

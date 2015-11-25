@@ -164,7 +164,9 @@ class tradeControl extends apiHomeControl
             die;
         }
         //TODO 查找uid是否存在，不存在则输出错误信息
+
         $member_id = $_GET['uid'];
+
         $where2 = $this->where + array('member_id' => $member_id);
         $m_trade = Model('utrade');
         $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc')->page($this->page)->select();

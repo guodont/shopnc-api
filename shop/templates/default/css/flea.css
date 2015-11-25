@@ -2,7 +2,7 @@
 
 
 /*
-by abc.com 
+by 33hao.com 
 */
 
 @import url(base.css); /* 公用样式*/
@@ -147,7 +147,7 @@ body .fn-hide {
 /*==============================*/
 /* 全局 */
 /*==============================*/
-.content{ width:1000px; margin:0 auto;}
+.content{ width:1200px; margin:0 auto;}
 .backToTop { font-size: 12px; line-height: 1.2; color: #fff; background-color: #000; text-align: center; display: none; width: 18px; padding: 5px 0; position: fixed; _position: absolute; right: 10px; bottom: 100px; _bottom: "auto"; cursor: pointer; opacity: .6; filter: Alpha(opacity=60);}
 
 /*图片等比例缩放*/
@@ -162,16 +162,17 @@ body .fn-hide {
 	.size76{ width:76px; height:76px;}
 	.size100{ width:100px; height:100px;}
 	.size120{ width:120px; height:120px;}
-	.size125{ width:125px; height:125px;}
+	.size125{ width:132px; height:132px;}
 	.size160{ width:160px; height:160px;}
 
 /*==============================*/
 /* 头部区域 */
 /*==============================*/
 #topHeader { width: 1200px; height: 90px; margin: 0 auto; position: relative; z-index: 99;}
-#topHeader .site-logo { position: absolute; top: 20px; left: 0px;}
+#topHeader .site-logo { position: absolute; top: 20px; left: 0px; width:220px; height:60px; overflow:hidden}
+#topHeader .site-logo img { max-width:220px;}
 /* 头部搜索Tab切换样式 */
-#search { display: block; width: 500px; height: 90px; position: absolute; left: 500px; z-index:-1;}
+#search { display: block; width: 500px; height: 90px; position: absolute; left: 700px; z-index:-1;}
 	#search .details { width: 500px; height: 90px; position: relative; z-index: 1;}
 		#search ul.tab { float: left; width: 200px; height: 23px; position: absolute; z-index: 99; top: 10px; left: 0px; overflow: hidden;}
 			#search ul.tab li { height: 20px; float: left; padding: 0 0 3px 3px; margin-right: 8px; cursor: pointer;}
@@ -219,7 +220,7 @@ body .fn-hide {
 
         /* 分类菜单样式 */
 #category{ width:100%; height:90px; background:#f5f5f5; border-bottom:1px solid #E9E9E9;}	
-  #category li{ width:200px; float:left;}	
+  #category li{ width:240px; float:left;}	
   #category .items_pic{ margin-top:20px; float:left;}
   #category .cat_list{ width:142px; height:50px; padding-left:7px; padding-top:18px; float:left; overflow:hidden;}
   #category .cat_list p{ line-height:25px;}
@@ -250,26 +251,26 @@ a.gray2{ float:right; color:#333;}
 	   
 .flea_goods{ margin-top:20px;}
   #first_items{ height:222px;}
-   .hotgoods{margin-left: 16px; width: 479px; float:left;}
+   .hotgoods{margin-left: 16px; width: 679px; float:left;}
      .hotgoods h2{background:url(../images/flea/text.gif) no-repeat; height:22px; line-height:22px; overflow:hidden; }
 	 .hotgoods h2 a,#fir_items h2 a,#third_items h2 a{ color:#333;background:url(../images/flea/flea_icon.png) right -1003px no-repeat; height:20px; float:right; margin-top:3px; margin-left:3px; padding-right:20px; }
      .hotgoods_G{ color:#333; background-color: #FFFFFF;height: 180px;margin-top: 9px; padding-top:13px;}
 	 .hotgoods_G .pic{ background-color:#fff; width:100px; height:100px; float:left; padding:1px; border:1px solid #EAEAEA}
 	 .hotgoods_G dl{ position:relative;}
 	 .hotgoods_G dt{ margin-left:20px;}
-	 .hotgoods_G dd{ width:310px; line-height:24px; color:#555; margin-left:10px; margin-right:10px;}
+	 .hotgoods_G dd{ width:449px; line-height:24px; color:#555; margin-left:10px; margin-right:10px;}
 	 .hotgoods_G dd.flea_message{ width:449px; padding-left:10px; line-height:24px; height:48px; overflow:hidden;}
    .sell{ float:right; width:250px;}
      #buttonContainer a{ margin-top:16px; background:url(../images/flea/flea_buy.png) 0 0 no-repeat; width:250px; height:40px; display:block;}
 	 #buttonContainer a:hover{background:url(../images/flea/flea_buy.png) 0 -65px no-repeat;}
 	 
-  #fir_items,#third_items,#five_items{ width:1000px;}
+  #fir_items,#third_items,#five_items{ width:1200px;}
   
   #fir_items h2{background:url(../images/flea/text.gif) 0 -108px no-repeat; height:22px; line-height:22px; overflow:hidden; margin-top:20px; padding-bottom:10px;}
   #fir_items .people{ margin-left:85px; margin-right:5px; float:left;font-family: Arial,Helvetica,sans-serif;font-size: 14px;font-weight: bold;}
   #fir_items .number{ background:url(../images/flea/text.gif) 0 -264px no-repeat; float:left; width:118px; height:22px;}
-  #fir_items ul{ width:998px; border:1px solid #e8e8e8; float:left;}
-  #fir_items li{ width:120px; height:170px; background:#F6F6F6; padding-right:10px; padding-left:11px; float:left; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; padding-top:10px;}
+  #fir_items ul{ width:1196px; border:1px solid #e8e8e8; float:left;}
+  #fir_items li{ width:127px; height:170px; background:#F6F6F6; padding-right:10px; padding-left:11px; float:left; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; padding-top:10px;}
   #fir_items li.cn{ border-right:none; padding-left:13px; padding-right:13px;}
   #fir_items li .pic{ width:120px; height:120px; background:#fff;}
   #fir_items li p{ color:#333; width:90%; margin:5px 5% 0;}
@@ -288,16 +289,16 @@ a.gray2{ float:right; color:#333;}
 	#second_items .area-list li{float: left;font-size: 12px;padding-bottom: 5px;width: 68px;}
   
   #third_items h2{background:url(../images/flea/text.gif) 0 -35px no-repeat; height:22px; line-height:22px; overflow:hidden; }
-    .look_items{ margin-top:10px; padding-left:16px; width:984px; border:1px solid #ECECEC; float:left; padding-bottom:20px;}
+    .look_items{ margin-top:10px; padding-left:16px; width:1184px; border:1px solid #ECECEC; float:left; padding-bottom:20px;}
     .look_items li{margin: 20px 13px 0 0;}
 	.look_items li p{ color:#333; line-height:24px; float:left;}
 	.look_items li p span{ padding-left:5px; padding-right:0}
-	.look_items .pic{ width:125px; height:125px;border:1px solid #eaeaea;}
+	.look_items .pic{ width:132px; height:132px;border:1px solid #eaeaea;}
 	
   #fourth_items{ width:1200px; margin-top:20px; margin-bottom:20px; float:left;}	
   #fourth_items h2{background:url(../images/flea/text.gif) 0 -142px no-repeat; width:100%; height:22px; line-height:22px; overflow:hidden;}
     #fourth_items ul{ margin-top:10px;}
-    #fourth_items ul li{ width:240px; height:100px; margin-right:13px;}
+    #fourth_items ul li{ width:290px; height:100px; margin-right:13px;}
     #fourth_items ul li img{display: block;}
 	#fourth_items ul li.last{ margin:0}
 	
@@ -455,9 +456,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #list-content ul#seller .nonegoods{ background:url(../images/flea/nofound.jpg) left 10px no-repeat; padding-left:120px; width:620px; font-weight:bold; margin:30px 0 0 40px; display:block;}
   .nonegoods h3{ font-weight:bold; font-size:14px; line-height:30px;}
   .nonegoods dl{ font-weight:normal; line-height:24px; padding-top:10px;}
-#list-content ul li.seller_goods{ width:770px; padding:17px 10px; border-bottom:1px dashed #ccc; margin-bottom:5px;}
+#list-content ul li.seller_goods{ width:970px; padding:17px 10px; border-bottom:1px dashed #ccc; margin-bottom:5px;}
 #list-content ul li.seller_goods p.pic{ border:1px solid #ccc; width:120px; height:120px;}
-#list-content .list{ width:430px; margin:0 15px; overflow:hidden;}
+#list-content .list{ width:630px; margin:0 15px; overflow:hidden;}
 #list-content .list h2{ font-size:14px; height:20px; line-height:20px;}
 #list-content .list h2 a.blue:hover{ color:#2953A6;}
 #list-content ul li p.details{ height:36px; line-height:36px;}
@@ -589,14 +590,15 @@ a.sell_btn2:active{background:url(../images/flea/flea_icon.png) 0 -267px no-repe
   
 
 /*闲置首页tab切换效果*/
+
 #five_items{ float:left;}
 .cont{padding:10px;}
 .hidden{display:none;}
-.scrolldoorFrame{width:1200px; height:400px; margin:0px auto 20px;overflow:hidden; position:relative;}
+.scrolldoorFrame{width:1200px; height:540px; overflow:hidden; margin:0px auto 20px; position:relative;}
 .scrolldoorFrame h2{ position:absolute; top:5px; left:0; background:url(../images/flea/text.gif) 0 -310px no-repeat; width:102px; height:23px;}
 .scrollUl{width:875px;overflow:hidden; position:absolute; left:125px; top:11px;}
 .scrollUl li{float:left;}
-.bor03{border:1px solid #EAEAEA;position:absolute; top:35px; width:978px;}
+.bor03{border:1px solid #EAEAEA;position:absolute; top:35px; width:1178px;}
 .bor03 .cc{ display:none;}
 .bor03 #c01{ display:block;}
 
@@ -613,7 +615,7 @@ a.sell_btn2:active{background:url(../images/flea/flea_icon.png) 0 -267px no-repe
     margin-left: 14px;
     position: relative;
     text-align: left;
-    width: 124px;}
+    width: 132px;}
 .bor03 .pic{ width:120px; height:120px; margin-bottom:5px;}
 .bor03 p{ width:120px; height:20px; line-height:20px; overflow:hidden;}
 .bor03 .price{ font-size:14px;}

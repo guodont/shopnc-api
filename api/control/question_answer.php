@@ -103,7 +103,7 @@ class question_answerControl extends apiMemberControl
             $insert['theme_name'] = circleCenterCensor($_POST['name']);
             $insert['theme_content'] = circleCenterCensor($_POST['content']);
             $insert['circle_id'] = $this->c_id;
-            $insert['circle_name'] = empty($this->circle_info) ? "大学圈圈首页" : $this->circle_info['circle_name'];
+            $insert['circle_name'] = empty($this->circle_info) ? "首页问答" : $this->circle_info['circle_name'];
             $insert['thclass_id'] = $thclass_id;
             $insert['thclass_name'] = $thclass_name;
             $insert['member_id'] = $this->member_info['member_id'];

@@ -16,9 +16,9 @@
 .head-search-bar { width: 440px; float: left; padding-top:28px; overflow: hidden;}
 #search ul.tab { width: 200px; height: 23px; display:block; position: absolute; z-index: 99; top: 8px; left: 0px; overflow: hidden;}
 #search ul.tab li { font-weight: bold; line-height: 20px; color: #555; white-space: nowrap; float: left; height: 20px; float: left; padding: 0 14px 3px 14px; margin-right: 8px; cursor: pointer;}
-#search ul.tab li.current:hover {background: #D93600;}
-#search ul.tab li.current { line-height: 22px; color: #FFF; background: #D93600; height: 20px; float: left; padding: 0 14px 3px 14px; margin: 0;}
-.head-search-bar .search-form { background-color: #D93600; height: 36px; padding: 3px;}
+#search ul.tab li.current:hover {background: #b01934;}
+#search ul.tab li.current { line-height: 22px; color: #FFF; background: #19b095; height: 20px; float: left; padding: 0 14px 2px 14px; margin: 0;}
+.head-search-bar .search-form { background-color: #19b095; height: 36px; padding: 2px;}
 .head-search-bar .input-text { line-height: 24px; color: #555; width: 82%; height: 24px; float: left; padding: 6px 1%; border: none 0;}
 .head-search-bar .input-submit,
 .head-search-bar .input-submit:hover { font-size: 14px; color: #FFF; font-weight: 600; background-color: transparent; width: 15%; height: 40px; float: right; border: none; cursor: pointer;}
@@ -99,50 +99,64 @@
 .head-user-menu dl div.addcart-goods-num { font: bold 11px/14px Verdana; color: #FFF; background: #F00; text-align: center; display: inline-block; height: 16px; min-width: 16px; max-width: auto!important; border: none 0; border-radius: 8px; position: absolute; z-index: 3; top: -4px; left: 20px;}
 
 /* 公用导航区域
--------------------------------------- //zmr>v30*/
-.public-nav-layout { background:#D93600; width: 100%; height: 48px; border-bottom: solid 2px #d93600; margin: 0 auto; position: relative; z-index: 99;}
+-------------------------------------- */
+.public-nav-layout { width: 100%; height: 36px; border-bottom: solid 2px #031512; margin: 0 auto; position: relative; z-index: 99; zoom: 1;}
+.public-nav-layout .div { margin: 0; padding: 0; _zoom: 1;}
 /*站点导航菜单*/
 .public-nav-layout .site-menu { font-size: 0; *word-spacing:-1px/*IE6、7*/; white-space: nowrap; max-width: 988px; float: left; overflow: hidden;}
 .public-nav-layout .site-menu li { vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display:inline/*IE6、7*/; *zoom: 1;}
-.public-nav-layout .site-menu li a {  font-size: 16px; font-weight: normal; line-height: 48px; color: #fffeee; height: 48px; padding: 0 24px; display: inline-block; *display:inline/*IE6、7*/; zoom:1;}
-.public-nav-layout .site-menu li a:hover { text-decoration: none; color: #ffffff; font-weight:bold}
-.public-nav-layout .site-menu li a.current { font-weight: 600; color: #ffffff; }
+.public-nav-layout .site-menu li a {  font-size: 16px; font-weight: normal; line-height: 20px; color: #333; height: 20px; padding: 8px 18px; display: inline-block; *display:inline/*IE6、7*/; zoom:1;}
+.public-nav-layout .site-menu li a:hover { text-decoration: none; color: #F32613;}
+.public-nav-layout .site-menu li a.current { font-weight: 600; color: #F32613; }
+
 /*分类导航菜单*/
-.public-nav-layout .all-category { background-color: #D93600; display: block; width: 212px; height: 48px; float: left;}
-.public-nav-layout .all-category .title { line-height: 22px; height: 22px; padding: 14px;}
-.public-nav-layout .all-category .title h3 a { font-size: 16px; font-weight: normal; color: #FFF; float: left; margin-left: 4px;}
+.public-nav-layout .all-category { background-color: #19b095; display: block; width: 212px; height: 36px; float: left;}
+.public-nav-layout .all-category .title { line-height: 20px; height: 20px; padding: 8px 10px 10px 52px;}
+.public-nav-layout .all-category .title h3 a { font-size: 14px; font-weight: normal; color: #FFF; float: left; margin-left: 4px;}
 
 .public-nav-layout .all-category .title i { font-size: 0px; line-height: 0; background: url(../images/top_bg.png) no-repeat -182px -186px; width: 18px; height: 14px; float: left; margin: 4px 4px 0 0;}
-.public-nav-layout .all-category .category { display:none; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#19000000', endColorstr='#19000000'); background:rgba(0,0,0,0.1); width: 210px; padding: 0 1px 1px;}
+.public-nav-layout .all-category .category { display:none; width: 212px;}
 .public-nav-layout .all-category:hover .category { display:block;}
-.public-nav-layout .category .menu { background-color: #FFF;}
-.public-nav-layout .category .menu li { background-color: #FAFAFA; width: 210px; height: 59px; *float: left; *clear: left; border-top: solid 1px #FFF; position: relative; z-index: 1; zoom:1;}
-
-.public-nav-layout .category .menu li.odd { background-color: #FAFAFA;}
-.public-nav-layout .category .menu li.even { background-color: #F0F0F0;}
+.public-nav-layout .category .menu { background-color: #B01D1D; *float:left; border-top: solid 2px #031512; }
+.public-nav-layout .category .menu li { background-color: #333333; width: 212px; height: 38px; *float: left; *clear: left; position: relative; z-index: 1; zoom:1;}
 .public-nav-layout .category .menu li.hover { z-index: 2;}
-.public-nav-layout .category .menu li:last-child { height: 60px;}
-.public-nav-layout .category .class { border-style: solid; border-width: 1px 0 1px 4px; border-color: transparent; display: block; width: 178px; height: 35px; padding: 12px 15px; position: absolute; z-index: 1; top: -1px; left: -1px;}
-.public-nav-layout .category .hover .class { background-color: #FFF!important; border-color: #B22D00 transparent #B22D00 #B22D00; z-index: 2;}
-.public-nav-layout .category .class span.ico { width: 16px; height: 16px; float: left; margin-right: 6px; float:left; filter:alpha(opacity=50)/*IE*/; -moz-opacity:0.5/*Moz+FF*/; opacity: 0.5;}
-.public-nav-layout .category .menu li.hover .ico { filter:alpha(opacity=100)/*IE*/; -moz-opacity:1/*Moz+FF*/; opacity: 1;}
-.public-nav-layout .category .class span.ico img { max-width: 16px; max-height: 16px; -webkit-filter: grayscale(100%)/*Webkit*/; -o-filter: grayscale(100%); filter: gray;}
-.public-nav-layout .category .menu li.hover .ico img { -webkit-filter: grayscale(0)/*Webkit*/; -o-filter: grayscale(0); filter: none;}
-.public-nav-layout .category .class h4 { font-weight: 600; line-height: 16px; color: #333; height: 16px; float: left;}
-.public-nav-layout .category .class h4 a { color: #333;}
-.public-nav-layout .category .menu li.hover .class h4 a { color: #B22D00;}
-.public-nav-layout .category .class .recommend-class { line-height: 16px; width: 168px; height: 16px; float: left; clear: both; margin-top: 4px; overflow: hidden;}
-.public-nav-layout .category .class .recommend-class a { color: #999; white-space: nowrap; margin-right: 6px;}
-.public-nav-layout .category .class .arrow { background: url(../images/top_bg.png) no-repeat -150px -10px; width: 5px; height: 9px; float: right;}
-.public-nav-layout .category .sub-class { background-color: #FFF; display: none; width: 532px; padding: 0 7px; border: solid 1px #B22D00; position: absolute; z-index: 1;top: -1px; left: 210px;}
+.public-nav-layout .category .menu li:last-child { height: 38px;}
+.public-nav-layout .category .class { display: block; width: 183px; height: 16px; padding: 11px 15px; position: absolute; z-index: 1; top: 0; left: 0; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.public-nav-layout .category .hover .class { background-color: #fff; width: 175px; padding: 11px 15px 11px 23px; z-index: 2;}
+.public-nav-layout .category .class .ico { vertical-align: top; display: inline-block; width: 16px; height: 16px; margin-right: 6px;}
+.public-nav-layout .category .class .ico img { display: block; width: 16px; height: 16px;}
+.public-nav-layout .category .class h4 { vertical-align: top; display: inline-block;*display: inline/*IE7*/; *zoom: 1/*IE7*/;}
+.public-nav-layout .category .class h4 a { color: #FFF; font-size: 13px; line-height: 16px; height: 16px;}
+.public-nav-layout .category .menu li.hover .class h4 a { color: #b61d1d;font-weight:bold;}
+.public-nav-layout .category .class .arrow { background: url(../images/top_bg.png) no-repeat -150px -10px; width: 3px; height: 5px; float: right; margin: 5px 0 0;}
+.public-nav-layout .category .sub-class { background-color: #FAFAFA; display: none; width: 730px; min-height: 350px; padding: 10px 20px 19px 20px; border-style: solid; border-color: transparent #19b095 #19b095 transparent; border-width: 0 1px 1px 0; position: absolute; z-index: 1;top: -1px; left: 212px; }
 .public-nav-layout .category li.hover .sub-class { display: block;}
-.public-nav-layout .category .sub-class dl { width: 250px; margin: 8px; float: left;}
-.public-nav-layout .category .sub-class dl dt { line-height: 24px; border-bottom: solid 2px #333;}
-.public-nav-layout .category .sub-class dl dt h3 { font-weight: 600; color: #333;}
-.public-nav-layout .category .sub-class dl dd { font-size: 0; *word-spacing:-1px/*IE6、7*/; padding: 3px 0;}
-.public-nav-layout .category .sub-class dl dd.brands-class { border-top: dotted 1px #333; margin-top: 4px;}
-.public-nav-layout .category .sub-class dl dd a { font-family: Tahoma; font-size: 12px; line-height: 16px; color: #555; background: url(../images/top_bg.png) no-repeat right -24px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display:inline/*IE6、7*/; height: 16px; padding-right: 7px; margin: 2px 7px 2px 0; *zoom:1/*IE6、7*/;}
+.public-nav-layout .category .sub-class-content { display: block; width: 530px; float: left;}
+.public-nav-layout .category .recommend-class { font-size: 0;  word-spacing:-1em; display: block; overflow: hidden;}
+.public-nav-layout .category .recommend-class span { font-size: 12px; background-color: #7C7171; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; margin: 0 10px 10px 0; *zoom: 1/*IE7*/;}
+.public-nav-layout .category .recommend-class span a { color: #FFF; line-height: 20px; display: block; padding: 2px 10px;}
+.public-nav-layout .category .sub-class dl {  font-size: 0;  word-spacing:-1em; padding-top: 10px;}
+.public-nav-layout .category .sub-class dl dt,
+.public-nav-layout .category .sub-class dl dd { font-size: 12px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; *zoom: 1/*IE7*/;}
+.public-nav-layout .category .sub-class dl dt { background: url(../images/top_bg.png) no-repeat right -25px; width: 70px; height: 16px; padding-right: 15px; margin-right: 15px; }
+.public-nav-layout .category .sub-class dl dt h3 { line-height: 16px; font-weight: 600; color: #5C5251; text-align: right;}
+.public-nav-layout .category .sub-class dl dd { font-size: 0;  word-spacing:-1em; width: 630px; border-bottom: solid 1px #F0F0F0;}
+.public-nav-layout .category .sub-class dl:last-child dd { border-bottom: none 0;}
+.public-nav-layout .category .sub-class dl dd a { font-size: 12px; color: #7C7171; line-height: 14px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display:inline/*IE6、7*/; height: 14px; padding: 0 10px; margin-bottom: 10px; border-left: solid 1px #E7E7E7; *zoom:1/*IE6、7*/;}
+.public-nav-layout .category .sub-class dl dd a:hover { color: #C81623;}
 .public-nav-layout .category .sub-class dl dd h5 { font-size: 12px; line-height: 20px; color: #333; margin: 4px 0 2px 0;}
+
+.public-nav-layout .category .sub-class-right { display: block; width: 194px; height: 440px; float: right;}
+.public-nav-layout .category .brands-list {}
+.public-nav-layout .category .brands-list ul {font-size: 0;  word-spacing:-1em; height: 136px; overflow: hidden;}
+.public-nav-layout .category .brands-list li { font-size: 12px; background-color: transparent !important; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 94px; height: 31px; margin: 0 1px 3px 2px; *zoom: 1/*IE7*/;}
+.public-nav-layout .category .brands-list li a { display: block; position: relative; z-index: 1;} 
+.public-nav-layout .category .brands-list li a img { width: 94px; height: 31px; position: absolute; z-index: 2; top: 0; right: 0; bottom: 0; left: 0;}
+.public-nav-layout .category .brands-list li a span { color: #333; line-height: 25px; background-color: #FFF; white-space: nowrap; text-align: center; width: 86px; height: 25px; padding: 3px 4px; position: absolute; z-index: 1; top: 0; right: 0; overflow: hidden;}
+.public-nav-layout .category .brands-list li a:hover span { color: #FFF; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#F27C7171', endColorstr='#F27C7171');background:rgba(124,113,113,0.95); z-index: 3;}
+.public-nav-layout .category .adv-promotions { display: block; width: 190px; margin: 0 2px;}
+.public-nav-layout .category .adv-promotions a { background: #FFF; display: block; width: 190px; height: 150px; margin-top: 10px; }
+.public-nav-layout .category .adv-promotions img { background: #D3D3D3; width: 190px; height: 150px;}
 
 /* 面包屑所在位置 */
 .nch-breadcrumb-layout { text-align: center;}
@@ -152,3 +166,7 @@
 .nch-breadcrumb span.arrow { font-family: "宋体"; line-height: 20px; color: #AAA; margin: 0 6px;}
 .nch-breadcrumb a { color: #777; display: block; }
 .nch-breadcrumb a:hover { color: #D93600;}
+
+/*顶部banner广告*/
+#top-banner { position:relative; display:none}
+#top-banner .close { position:absolute; right:8px; top:5px;background: url(../images/close.gif) no-repeat; width:35px; height:12px; display:block}

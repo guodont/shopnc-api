@@ -1,9 +1,9 @@
 /* ================================ */
 /* 初始化HTML标签及常用类型				*/
-/* Author:			abc		*/
-/* 	*/
+/* Author:			33hao		*/
+/* Copyright:		www.33hao.com	*/
 /* Create Date:		Apr-01-2012		*/
-/* Retrofit Date:	May-28-2014		*/
+/* Retrofit Date:	May-28-2015		*/
 /* ================================ */
 
 
@@ -333,9 +333,11 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 .tip-yellowsimple .tip-arrow-left { background:url(../images/tip-yellowsimple_arrows.gif) no-repeat -27px 0; width:6px; height:9px; margin-top:-4px; margin-left:-6px; top:50%; left:0;}
 
 /* 侧边工具条 */
-.nc-appbar { position: fixed; z-index: 1998; width: 50px; height: 100%; right: 0; top: 0; bottom: 0;}
-.nc-appbar-tabs { background: #FEFCF5 url(../images/app_bar_bg.png) no-repeat top center; width: 50px; height: 100%; position: absolute; z-index: 1; top: 0; bottom: 0; box-shadow: -5px 0 3px rgba(0,0,0,0.35);}
-
+.nc-appbar { position: fixed; z-index: 1998; width: 35px; height: 100%; right: 0; top: 0; bottom: 0;}
+.nc-appbar-tabs { width: 35px; height: 100%;}
+.nc-appbar-tabs .ever { width: 35px; height: 158px; background-color: #000; position: absolute; z-index: 2; top: 50%; margin-top: -79px;}
+.nc-appbar-tabs .variation { width: 35px; height: 100%; background-color: #000; position: relative; z-index: 1;}
+.nc-appbar-tabs .variation .middle { width: 35px; height: 250px; margin-top: -125px; position: absolute; z-index: 1; top: 50%; left: 0;}
 .nc-hidebar { display: block; position: absolute; z-index: 3; bottom: 15px; right: -79px; cursor: pointer;}
 .nc-hidebar .nc-hidebar-bg { background: url(../images/toolbar.png) no-repeat -100px 0; width: 79px; height: 56px; position: relative; z-index: 1;}
 .nc-hidebar .nc-hidebar-bg .user-avatar,
@@ -347,29 +349,46 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 .nc-hidebar .nc-hidebar-bg .show { display: none; background-position: -140px -70px; z-index: 3;}
 .nc-hidebar .nc-hidebar-bg:hover .show { display: block;}
 .nc-hidebar:hover { background-position: -100px -60px;}
-.nc-appbar-tabs .user { text-align: center; width: 50px; position: absolute; z-index: 1; top: 40%; margin-top: -100px; cursor: pointer;}
-.nc-appbar-tabs .user .avatar { background-color: #FFF; width: 28px; height: 28px; padding: 1px; margin: 0 auto 5px auto; border-radius: 15px;}
-.nc-appbar-tabs .user .avatar img { width: 28px; height: 28px; border-radius: 14px;}
-.nc-appbar-tabs .tools { position: absolute; z-index: 1; top: 40%;}
-.nc-appbar-tabs .tools { margin-top: 0px;}
-.nc-appbar-tabs .tools a { font: 12px/20px Arial,"microsoft yahei"; color: #333; background: url(../images/toolbar.png) no-repeat; text-align: center; display: block; width: 50px; height: 20px; padding-top: 32px; margin-bottom: 24px; position: relative; z-index: 1;}
-.nc-appbar-tabs .tools a i { font: 10px/12px Arial;  color: #FFF; background-color: #D93600; text-align: center; min-width: 12px; height: 12px; padding: 2px; border-radius: 8px; position: absolute; z-index: 1; top: 0; right: 5px;}
 
-.nc-appbar-tabs a.chat { background-position: 0 0;}
-.nc-appbar-tabs a.compare { background-position: 0 -60px;}
-.nc-appbar-tabs a.cart { background-position: 0 -120px;}
-.nc-appbar-tabs a.gotop { background-position: 0 -180px; opacity: 0.5;}
-.nc-appbar-tabs .tools a:hover { background-color: #D93600; text-decoration: none; color: #FFF;}
-.nc-appbar-tabs .tools a:hover i { color: #D93600; background-color: #FFF;}
-.nc-appbar-tabs a:hover.chat { background-position: -50px 0;}
-.nc-appbar-tabs a:hover.compare { background-position: -50px -60px;}
-.nc-appbar-tabs a:hover.cart { background-position: -50px -120px;}
-.nc-appbar-tabs a:hover.gotop { background-position: -50px -180px; opacity: 1;}
-.nc-appbar-tabs a.nc-appbar-hide { background: transparent url(../images/appbar-hide.png) no-repeat 0 0; width: 15px; height: 15px; padding: 0; margin: 0; position: absolute; z-index: 2; bottom: 35px ; right: 15px;}
+.nc-appbar-tabs .user { display: block;}
+.nc-appbar-tabs .user .avatar { background-color: #FFF; width: 28px; height: 28px; margin: 3px auto 4px auto; border-radius: 14px;}
+.nc-appbar-tabs .user .avatar img { width: 28px; height: 28px; border-radius: 14px;}
+.nc-appbar-tabs span.icon { display: block; background: url(../images/toolbar.png) no-repeat; width: 35px; height: 35px;}
+.nc-appbar-tabs .chat { display: block;}
+.nc-appbar-tabs .chat .icon { background-position: 0 0;}
+
+.nc-appbar-tabs .cart a { display: block; width: 35px; height: 100px; padding: 10px 0 0; border-top: dotted 1px #555; border-bottom: dotted 1px #555; position: relative; z-index: 1;}
+.nc-appbar-tabs .chat a,
+.nc-appbar-tabs .user a,
+.nc-appbar-tabs .compare a,
+.nc-appbar-tabs .gotop a { display: block; width: 35px; height: 35px; padding: 5px 0 6px 0; position: relative; z-index: 1;}
+
+.nc-appbar-tabs .cart a:hover,
+.nc-appbar-tabs .user a:hover,
+.nc-appbar-tabs .chat a:hover, 
+.nc-appbar-tabs .compare a:hover,
+.nc-appbar-tabs .gotop a:hover { text-decoration: none; background-color: #F32613;}
+
+.nc-appbar-tabs .compare .icon { background-position: 0 -40px;}
+.nc-appbar-tabs .cart .icon { background-position: 0 -120px;}
+.nc-appbar-tabs .cart .name { line-height: 16px; color: #FFF; display: block; text-align: center; width: 15px; padding: 0 10px; white-space: pre-wrap;}
+
+.nc-appbar-tabs .prech { display: block; width: 35px; height: 158px;}
+
+.nc-appbar-tabs .gotop { position: fixed; bottom: 0;}
+.nc-appbar-tabs .gotop .icon { background-position: 0 -80px; opacity: 1;}
+.nc-appbar-tabs .gotop:hover .icon { opacity: 1;}
+
+.nc-appbar-tabs a i { font: 10px/12px Arial;  color: #FFF; background-color: #F32613; text-align: center; min-width: 12px; height: 12px; padding: 1px; border-radius: 100%; position: absolute; z-index: 1; top: 5px; right: 3px;}
+.nc-appbar-tabs a:hover i { color: #F32613; background-color: #FFF;}
+.nc-appbar-tabs a span.tit { line-height: 25px; color: #FFF; background: url(../images/toolbar.png) no-repeat -50px 0; white-space: nowrap; display: none; width: 50px; height: 25px; padding: 4px 21px 4px 15px; position: absolute; z-index: 1; top: 5px; right: 29px;}
+.nc-appbar-tabs a:hover span.tit { display: block;}
+
+
 /*工具条-会员登录*/
-.nc-appbar-tabs .user-login-box { background-color: #FFF; width: 240px; padding: 10px 40px 30px 40px; border: solid 1px #CCC; position: absolute; z-index: 2; top: 40%; margin-top: -120px; right: 50px; box-shadow: -4px 0 4px rgba(0,0,0,0.25);}
+.nc-appbar-tabs .user-login-box { background-color: #FFF; width: 240px; padding: 10px 40px 30px 40px; border: solid 1px #CCC; position: absolute; z-index: 2; top: -32px; right: 35px; box-shadow: -4px 0 4px rgba(0,0,0,0.25);}
 .nc-appbar-tabs .user-login-box i.arrow { background:url(../images/toolbar.png) no-repeat -100px -150px; width: 7px; height: 13px; position: absolute; z-index: 3; top: 45px; right: -7px;}
-.nc-appbar-tabs .user-login-box a.close { font: 600 11px /16px Verdana, Geneva, sans-serif; text-decoration: none; color: #999; text-align: center; width: 16px; height: 16px; position: absolute; z-index: 3; top: 10px; right: 10px;}
+.nc-appbar-tabs .user-login-box a.close-a { font: 600 11px /16px Verdana, Geneva, sans-serif; text-decoration: none; color: #999; text-align: center; width: 16px; height: 16px; position: absolute; z-index: 3; top: 10px; right: 10px;}
 .nc-appbar-tabs .user-login-box a { font: 12px/20px arial,"宋体"; color: #005EA6; text-decoration: underline; float: right;}
 .nc-appbar-tabs .user-login-box dl {}
 .nc-appbar-tabs .user-login-box dt { font: 13px/20px Arial,"microsoft yahei"; height: 20px; padding: 10px 0 0;}
@@ -377,9 +396,9 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 .nc-appbar-tabs .user-login-box dd {}
 .nc-appbar-tabs .user-login-box dd .text { line-height: 20px; width: 226px; height: 20px; padding: 3px 5px; border: solid 1px #CCC;}
 .nc-appbar-tabs .user-login-box .bottom { margin-top: 20px;}
-.nc-appbar-tabs .user-login-box .submit { font: 600 14px/20px Arial,"microsoft yahei";  color: #FFF; background-color: #D93600; width: 240px; height: 30px; border: solid 1px #B22D00; cursor: pointer;}
+.nc-appbar-tabs .user-login-box .submit { font: 600 14px/20px Arial,"microsoft yahei";  color: #FFF; background-image:none;background-color: #D93600; width: 240px; height: 30px; border: solid 1px #B22D00; cursor: pointer;}
 /*工具条-会员信息*/
-.nc-appbar-tabs .user-info { background-color: #FFF; width: 240px; padding: 9px 19px; border: solid 1px #CCC; position: absolute; z-index: 2; top: 40%; margin-top: -120px; right: 50px; box-shadow: -4px 0 4px rgba(0,0,0,0.25);}
+.nc-appbar-tabs .user-info { background-color: #FFF; width: 240px; padding: 9px 19px; border: solid 1px #CCC; position: absolute; z-index: 2; top: -32px; right: 35px; box-shadow: -4px 0 4px rgba(0,0,0,0.25);}
 .nc-appbar-tabs .user-info i.arrow { background:url(../images/toolbar.png) no-repeat -100px -150px; width: 7px; height: 13px; position: absolute; z-index: 3; top: 45px; right: -7px;}
 .nc-appbar-tabs .user-info .avatar { width: 88px; height: 88px; float: left; position: relative; z-index: 1;}
 .nc-appbar-tabs .user-info .avatar .frame { background: url(../images/point_bg.png) no-repeat 0 0; width: 88px; height: 88px; position: absolute; z-index: 2; top: 0; left: 0;}
@@ -405,12 +424,12 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 #ncToolbar .goods-list li:hover .goods-price .del { display: block;}
 #ncToolbar .content-box .no-compare { color: #999; line-height: 180px; text-align: center;}
 .nc-appbar .content-box .btn-box { background-color: #F5F5F5; text-align: center; width: 160px; padding: 10px; position: absolute; z-index: 2; bottom: 0; left: 10px;}
-.nc-appbar .content-box .btn-box a { background-color: #E74649; color: #FFFFFF; cursor: pointer; padding: 5px 10px;}
+.nc-appbar .content-box .btn-box a { background-color: #F32613; color: #FFFFFF; cursor: pointer; padding: 5px 10px;}
 .nc-appbar .content-box .btn-box .total-price { color: #777; padding-bottom: 10px;}
 
 .nc-appbar .cart-list { width: 180px; margin: 0 auto;}
 .nc-appbar .cart-list li { font-size: 0; *word-spacing:-1px/*IE6、7*/; background-color: #FFF; padding: 4px; border: solid 1px #FFF; margin-bottom: 10px; position: relative; z-index: 1;}
-.nc-appbar .cart-list li:hover { border-color: #e74649; box-shadow: 3px 3px 0 rgba(204,204,204,0.75);}
+.nc-appbar .cart-list li:hover { border-color: #F32613; box-shadow: 3px 3px 0 rgba(204,204,204,0.75);}
 .nc-appbar .cart-list .goods-pic,
 .nc-appbar .cart-list dl { font-size: 12px; vertical-align: top; letter-spacing: normal; display: inline-block; *display: inline/*IE6、7*/; *zoom:1; }
 .nc-appbar .cart-list .goods-pic { width: 40px ; height: 40px; margin: 0;}
@@ -419,7 +438,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 .nc-appbar .cart-list dl { width: 125px; margin-left: 5px;}
 .nc-appbar .cart-list .goods-name { text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
 .nc-appbar .cart-list a.del { font: 600 10px/14px Arial; color: #FFF; background-color: #CCC; text-align: center; width: 14px; height: 14px; border-radius: 7px; position: absolute; z-index: 1; top: -5px; right: -5px;}
-.nc-appbar .cart-list li:hover a.del { background-color: #e74649;}
+.nc-appbar .cart-list li:hover a.del { background-color: #F32613;}
 
 /* 顶部搜索 */
 #top_search_box .ui-widget-content { background: #FFF none !important; border-color: #CCC !important; border: 1px solid #dddddd;}
@@ -517,8 +536,10 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 .help .contact .tel:hover, .help .contact .mail:hover { text-decoration: none; }
 .help .contact .mail { font-size: 16px; background-position: 0 -280px; color: #666; }
 .help .contact .attention { padding-top: 10px; }
-.help .contact .weixin { width: 150px; }
-.help .contact .weixin img { width: 62px; height:62px; }
+.help .contact .weixin { width: 155px; }
+.help .weixin p, .help .qq ul{ margin-top:10px;}
+
+.help .contact .weixin img { width: 85px; height:85px; }
 .help .contact .weixin span { display: block; line-height: 31px; height: 31px; padding: 0 16px 0 6px; color: #666; }
 .help .contact .sina, .help .contact .qq { height: 30px; line-height: 30px; padding-left: 36px; color: #666; }
 .help .contact .sina { background-position: 0 -310px; }

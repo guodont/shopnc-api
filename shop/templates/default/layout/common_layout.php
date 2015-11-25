@@ -7,9 +7,17 @@ if(($ua == '' || preg_match($uachar, $ua))&& !strpos(strtolower($_SERVER['REQUES
 	global $config;
         if(!empty($config['wap_site_url'])){
             $url = $config['wap_site_url'];
-            if($_GET['act'] == 'goods') {
-                $url .= '/tmpl/product_detail.html?goods_id=' . $_GET['goods_id'];
-            }
+            switch ($_GET['act']){
+			case 'goods':
+			  $url .= '/tmpl/product_detail.html?goods_id=' . $_GET['goods_id'];
+			  break;
+			case 'store_list':
+			  $url .= '/shop.html';
+			  break;
+			case 'show_store':
+			  $url .= '/tmpl/go_store.html?store_id=' . $_GET['store_id'];
+			  break;
+			}
         } else {
             $url = $config['site_url'];
         }
@@ -73,7 +81,6 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
 <script src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.validation.min.js"></script>
 <script src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.masonry.js"></script>
 <script src="<?php echo RESOURCE_SITE_URL;?>/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
-<!--<script src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.lazyload.js"></script>-->
 <script type="text/javascript">
 var PRICE_FORMAT = '<?php echo $lang['currency'];?>%s';
 $(function(){
@@ -85,19 +92,12 @@ $(function(){
 				    var cat_id = $(this).attr("cat_id");
 					var menu = $(this).find("div[cat_menu_id='"+cat_id+"']");
 					menu.show();
-					$(this).addClass("hover");
-					if(menu.attr("hover")>0) return;
-					menu.masonry({itemSelector: 'dl'});
+					$(this).addClass("hover");					
 					var menu_height = menu.height();
 					if (menu_height < 60) menu.height(80);
 					menu_height = menu.height();
 					var li_top = $(this).position().top;
-					if ((li_top > 60) && (menu_height >= li_top)) $(menu).css("top",-li_top+50);
-					if ((li_top > 150) && (menu_height >= li_top)) $(menu).css("top",-li_top+90);
-					if ((li_top > 240) && (li_top > menu_height)) $(menu).css("top",menu_height-li_top+90);
-					if (li_top > 300 && (li_top > menu_height)) $(menu).css("top",60-menu_height);
-					if ((li_top > 40) && (menu_height <= 120)) $(menu).css("top",-5);
-					menu.attr("hover",1);
+					$(menu).css("top",-li_top + 38);
 				},
 				function() {
 					$(this).removeClass("hover");
@@ -168,12 +168,7 @@ $(function(){
 		$('#keyword').attr("placeholder",$(this).attr("title"));
 	});
 	$("#keyword").blur();
-	/*$("img").lazyload({
-    	placeholder : "<?php echo SHOP_SITE_URL;?>/templates/default/images/grey.gif",  
-		effect : "fadeIn",  
-    	failurelimit : 10  
-		
-    });*/
+
 });
 </script>
 </head>
@@ -196,17 +191,17 @@ $(function(){
  }
 </SCRIPT>
  <?php } ?>
-
+ 
 <!-- PublicHeadLayout Begin -->
 <!-- 顶部广告展开效果-->
-<!-- 顶部广告展开效果//zmr>v30-->
+<!-- 顶部广告展开效果-->
 <div class="header-wrap">
   <header class="public-head-layout wrapper">
     <h1 class="site-logo"><a href="<?php echo BASE_SITE_URL;?>"><img src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.$output['setting_config']['site_logo']; ?>" class="pngFix"></a></h1>
     <?php if (C('mobile_isuse') && C('mobile_app')){?>
     <div class="head-app"><span class="pic"></span>
       <div class="download-app">
-       <div class="qrcode"><img src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.C('mobile_app');?>?t=<?php echo time();?>" ></div>
+       <div class="qrcode"><img src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.C('mobile_app');?>" ></div>
         <div class="hint">
           <h4>扫描二维码</h4>
           下载手机客户端</div>
@@ -242,27 +237,6 @@ $(function(){
         </ul>
       </div>
     </div>
-    
-    
-    
-    <!--<div class="head-search-bar">
-      <form action="<?php echo SHOP_SITE_URL;?>" method="get" class="search-form" id="top_search_form">
-        <input name="act" id="search_act" value="search" type="hidden">
-        <input name="keyword" id="keyword" type="text" class="input-text" value="<?php echo $_GET['keyword'];?>" maxlength="60" x-webkit-speech lang="zh-CN" onwebkitspeechchange="foo()" placeholder="请输入您要搜索的商品关键字" x-webkit-grammar="builtin:search" />
-        <input type="submit" id="button" value="<?php echo $lang['nc_common_search'];?>" class="input-submit">
-      </form>
-      <div class="keyword"><?php echo $lang['hot_search'].$lang['nc_colon'];?>
-        <ul>
-          <?php if(is_array($output['hot_search']) && !empty($output['hot_search'])) { foreach($output['hot_search'] as $val) { ?>
-          <li><a href="<?php echo urlShop('search', 'index', array('keyword' => $val));?>"><?php echo $val; ?></a></li>
-          <?php } }?>
-        </ul>
-      </div>
-    </div>-->
-    
-    
-    
-    
     <div class="head-user-menu">
       <dl class="my-mall">
         <dt><span class="ico"></span>我的商城<i class="arrow"></i></dt>
