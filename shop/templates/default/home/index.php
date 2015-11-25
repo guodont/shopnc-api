@@ -21,13 +21,6 @@ else {document.cookie='uid='+uid[1];}
 <!-- HomeFocusLayout Begin-->
 <div class="home-focus-layout"> <?php echo $output['web_html']['index_pic'];?>
   <div class="right-sidebar">
-    <div class="policy">
-      <ul>
-        <li class="b1">七天包退</li>
-        <li class="b2">正品保障</li>
-        <li class="b3">闪电发货</li>
-      </ul>
-    </div>
     <?php if(!empty($output['group_list']) && is_array($output['group_list'])) { ?>
     <div class="groupbuy">
       <div class="title"><i>抢</i>近期抢购</div>
