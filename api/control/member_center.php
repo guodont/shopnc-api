@@ -433,4 +433,20 @@ class member_centerControl extends apiMemberControl
         }
         output_data(array('receiveAnswers' => $replies), mobile_page($pageCount));
     }
+
+
+    /**
+     * GET 用户的圈子
+     */
+    public function user_circlesOp()
+    {
+        $model = Model();
+        $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id, 'cm_state' => array('not in',array(0,2))))->order('cm_jointime desc')->select();
+        if (!empty($cm_list)) {
+            $cm_list = array_under_reset($cm_list, 'circle_id');
+            $circleid_array = array_keys($cm_list);
+            $circle_list = $model->table('circle')->where(array('circle_id' => array('in', $circleid_array)))->select();
+        }
+        output_data(array('circles' => $circle_list));
+    }
 }

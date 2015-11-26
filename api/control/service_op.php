@@ -45,6 +45,24 @@ class service_opControl extends apiMemberControl
         }
     }
 
+    public function cancelOrderOp()
+    {
+        $mod_order = Model('service_yuyue_api');
+
+        $data = array();
+        $data['yuyue_status'] = 5;
+
+        $where = array();
+        $where['yuyue_member_id'] = $this->member_id;
+        $where['yuyue_id'] = $_POST['order_id'];
+
+        if ($mod_order->modify($data, $where)) {
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }
+
     /**
      * 生成支付单编号(两位随机 + 从2000-01-01 00:00:00 到现在的秒数+微秒+会员ID%1000)，该值会传给第三方支付接口
      * 长度 =2位 + 10位 + 3位 + 3位  = 18位
