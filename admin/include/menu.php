@@ -166,7 +166,7 @@ $arr = array(
 					array('args'=>'pointprod,pointprod,operation',				'text'=>$lang['nc_pointprod']),
 					array('args'=>'index,mall_consult,operation',               'text'=>'平台客服'),
                     array('args'=>'index,rechargecard,operation',               'text'=>'平台充值卡'),
-                    array('args'=>'index,delivery,operation',                   'text'=>'物流自提服务站')
+                    array('args'=>'index,delivery,operation',                   'text'=>'校园服务站')
 				)
 			),
 			8 => array(

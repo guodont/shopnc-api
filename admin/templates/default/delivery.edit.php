@@ -3,7 +3,7 @@
 <div class="page">
   <div class="fixed-bar">
     <div class="item-title">
-      <h3>物流自提服务站管理</h3>
+      <h3>校园服务站管理</h3>
       <ul class="tab-base">
         <li><a href="<?php echo urlAdmin('delivery', 'index');?>"><span><?php echo $lang['nc_manage'];?></span></a></li>
         <li><a href="<?php echo urlAdmin('delivery', 'index', array('sign' => 'verify'));?>"><span>等待审核</span></a></li>
@@ -19,7 +19,7 @@
     <table class="table tb-type2">
       <tbody>
         <tr class="noborder">
-          <td colspan="2" class="required"><label for="">物流自提服务站用户名：</label></td>
+          <td colspan="2" class="required"><label for="">校园服务站用户名：</label></td>
         </tr>
         <tr class="noborder">
           <td class="vatop rowform"><?php echo $output['dlyp_info']['dlyp_name'];?></td>

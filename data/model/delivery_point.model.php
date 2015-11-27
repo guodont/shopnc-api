@@ -1,6 +1,6 @@
 <?php
 /**
- * 物流自提服务站模型
+ * 科研购校园服务站模型
  *
  
  */
@@ -29,7 +29,7 @@ class delivery_pointModel extends Model {
         return $this->insert($insert);
     }
     /**
-     * 查询物流自提服务站列表
+     * 查询科研购校园服务站列表
      * @param array $condition
      * @param int $page
      * @param string $order
@@ -38,7 +38,7 @@ class delivery_pointModel extends Model {
         return $this->where($condition)->page($page)->order($order)->select();
     }
     /**
-     * 等待审核的物流自提服务站列表
+     * 等待审核的科研购校园服务站列表
      * @param unknown $condition
      * @param number $page
      * @param string $order
@@ -48,7 +48,7 @@ class delivery_pointModel extends Model {
         return $this->getDeliveryPointList($condition, $page, $order);
     }
     /**
-     * 等待审核的物流自提服务站列表
+     * 等待审核的科研购校园服务站列表
      * @param unknown $condition
      * @param number $page
      * @param string $order
@@ -69,7 +69,7 @@ class delivery_pointModel extends Model {
     }
 
     /**
-     * 取得物流自提服务站详细信息
+     * 取得科研购校园服务站详细信息
      * @param unknown $condition
      * @param string $field
      */
@@ -98,7 +98,7 @@ class delivery_pointModel extends Model {
     }
 
     /**
-     * 物流自提服务站信息
+     * 科研购校园服务站信息
      * @param array $update
      * @param array $condition
      */

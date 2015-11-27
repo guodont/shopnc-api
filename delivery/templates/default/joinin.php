@@ -7,7 +7,7 @@ background: #637159 url(<?php echo DELIVERY_TEMPLATES_URL;
 </style>
 
 <div class="ncd-joinin">
-  <h1>物流自提服务站加盟</h1>
+  <h1>校园服务站加盟</h1>
   <form id="delivery_joinin" method="post" enctype="multipart/form-data" action="<?php echo DELIVERY_SITE_URL?>/index.php?act=joinin&op=save_delivery">
     <input type="hidden" name="form_submit" value="ok" />
     <dl class="r1">
@@ -49,7 +49,7 @@ background: #637159 url(<?php echo DELIVERY_TEMPLATES_URL;
       <dt>服务站信息提交：</dt>
       <dd>
         <label class="phrases">服务站名称</label>
-        <input class="input-txt tip" type="text" name="daddressname" id="daddressname" title="服务站名称请使用您的实体店铺或经营场所、办公地点名称，例如“某某超市”、“某某小区物业”，便于收货人自提时使用；最多不超过15位字符。">
+        <input class="input-txt tip" type="text" name="daddressname" id="daddressname" title="服务站名称请使用您的实体店铺或经营场所、办公地点名称，例如“某某超市”、“某某办公室”，便于收货人自提时使用；最多不超过15位字符。">
         <span></span>
       </dd>
       <dd id="region">

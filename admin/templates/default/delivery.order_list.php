@@ -3,7 +3,7 @@
 <div class="page">
   <div class="fixed-bar">
     <div class="item-title">
-      <h3>物流自提服务站管理</h3>
+      <h3>校园服务站管理</h3>
       <ul class="tab-base">
         <li><a href="<?php echo urlAdmin('delivery', 'index');?>"><span><?php echo $lang['nc_manage'];?></span></a></li>
         <li><a href="<?php echo urlAdmin('delivery', 'index', array('sign' => 'verify'));?>"><span>等待审核</span></a></li>

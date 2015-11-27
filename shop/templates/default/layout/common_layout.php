@@ -1,5 +1,11 @@
 <?php defined('InShopNC') or exit('Access Invalid!');
-
+//zmr>v19
+$zmr=intval($_GET['zmr']);
+if($zmr>0)
+{
+  setcookie('zmr', $zmr);
+}
+//zmr>v19
 $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
 $uachar = "/(nokia|sony|ericsson|mot|samsung|sgh|lg|philips|panasonic|alcatel|lenovo|cldc|midp|mobile)/i";
 if(($ua == '' || preg_match($uachar, $ua))&& !strpos(strtolower($_SERVER['REQUEST_URI']),'wap'))
@@ -204,7 +210,7 @@ $(function(){
        <div class="qrcode"><img src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.C('mobile_app');?>" ></div>
         <div class="hint">
           <h4>扫描二维码</h4>
-          下载手机客户端</div>
+          下载科研助手</div>
         <div class="addurl">
             <?php if (C('mobile_apk')){?>
             <a href="<?php echo C('mobile_apk');?>" target="_blank"><i class="icon-android"></i>Android</a>

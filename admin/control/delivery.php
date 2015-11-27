@@ -1,6 +1,6 @@
 <?php
 /**
- * 物流自提服务站管理
+ * 科研购校园服务站管理
  *
  *
  *
@@ -12,7 +12,7 @@ class deliveryControl extends SystemControl{
         parent::__construct();
     }
     /**
-     * 物流自提服务站列表
+     * 科研购校园服务站列表
      */
     public function indexOp() {
         $model_dp = Model('delivery_point');
@@ -35,7 +35,7 @@ class deliveryControl extends SystemControl{
         Tpl::showpage('delivery.index');
     }
     /**
-     * 物流自提服务站设置
+     * 科研购校园服务站设置
      */
     public function settingOp() {
         $list_setting = Model('setting')->getListSetting();
@@ -59,15 +59,15 @@ class deliveryControl extends SystemControl{
                 // 删除相关联的收货地址
                 Model('address')->delAddress(array('dlyp_id' => array('neq', 0)));
             }
-            $this->log($log.'物流自提服务站功能', 1);
+            $this->log($log.'科研购校园服务站功能', 1);
             showMessage(L('nc_common_save_succ'));
         }else {
-            $this->log($log.'物流自提服务站功能', 0);
+            $this->log($log.'科研购校园服务站功能', 0);
             showMessage(L('nc_common_save_fail'));
         }
     }
     /**
-     * 编辑物流自提服务站信息
+     * 编辑科研购校园服务站信息
      */
     public function edit_deliveryOp() {
         $dlyp_id = intval($_GET['d_id']);
@@ -104,10 +104,10 @@ class deliveryControl extends SystemControl{
         if ($result) {
             // 删除相关联的收货地址
             Model('address')->delAddress(array('dlyp_id' => $dlyp_id));
-            $this->log('编辑物流自提服务站功能，ID：'.$dlyp_id, 1);
+            $this->log('编辑科研购校园服务站功能，ID：'.$dlyp_id, 1);
             showMessage(L('nc_common_op_succ'), urlAdmin('delivery', 'index'));
         } else {
-            $this->log('编辑物流自提服务站功能，ID：'.$dlyp_id, 0);
+            $this->log('编辑科研购校园服务站功能，ID：'.$dlyp_id, 0);
             showMessage(L('nc_common_op_fail'));
         }
     }

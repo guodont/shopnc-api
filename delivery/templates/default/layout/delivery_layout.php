@@ -25,7 +25,7 @@ var SITEURL = '<?php echo SHOP_SITE_URL;?>';
 <div id="ajaxwaitid"></div>
 <header class="ncd-header">
   <div class="wrapper">
-    <h1 class="ncd-logo"><i></i>物流自提服务站</h1>
+    <h1 class="ncd-logo"><i></i>校园服务站</h1>
     <form method="get" action="index.php">
     <input type="hidden" name="act" value="d_center">
     <?php if ($output['hidden_success'] == 1) {?>
@@ -42,9 +42,9 @@ var SITEURL = '<?php echo SHOP_SITE_URL;?>';
     <div class="ncd-user">
       <h3>Hi！<strong><?php echo $_SESSION['dlyp_name'];?></strong>，欢迎回到管理中心</h3>
       <ul>
-        <li><a href="javascript:void(0);" onclick="javascript:ajax_form('information', '详细资料', 'index.php?act=d_center&op=information');">详细资料</a></li>
-        <li><a href="javascript:void(0);" onclick="javascript:ajax_form('change_password', '修改密码', 'index.php?act=d_center&op=change_password')">修改密码</a></li>
-        <li><a href="javascript:void(0);" onclick="javascript:ajaxget('<?php echo DELIVERY_SITE_URL;?>/index.php?act=login&op=logout');">安全退出</a></li>
+        <li><a href="javascript:void(0);" onClick="javascript:ajax_form('information', '详细资料', 'index.php?act=d_center&op=information');">详细资料</a></li>
+        <li><a href="javascript:void(0);" onClick="javascript:ajax_form('change_password', '修改密码', 'index.php?act=d_center&op=change_password')">修改密码</a></li>
+        <li><a href="javascript:void(0);" onClick="javascript:ajaxget('<?php echo DELIVERY_SITE_URL;?>/index.php?act=login&op=logout');">安全退出</a></li>
       </ul>
     </div>
   </div>

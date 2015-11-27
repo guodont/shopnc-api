@@ -16,29 +16,16 @@
         <span class="arrow"></span> </div>
       <div class="sub-class" cat_menu_id="<?php echo $val['gc_id'];?>">
       <div class="sub-class-content">
-        <div class="recommend-class">
-          <?php if (!empty($val['class3']) && is_array($val['class3'])) { ?>
-          <?php foreach ($val['class3'] as $k => $v) { ?>
-          <span><a href="<?php echo urlShop('search','index',array('cate_id'=> $v['gc_id']));?>" title="<?php echo $v['gc_name']; ?>"><?php echo $v['gc_name'];?></a></span>
-          <?php } ?>
-          <?php } ?>
-        </div>
+	    <ul>
         <?php if (!empty($val['class2']) && is_array($val['class2'])) { ?>
         <?php foreach ($val['class2'] as $k => $v) { ?>
-        <dl>
-          <dt>
-            <h3><a href="<?php echo urlShop('search','index',array('cate_id'=> $v['gc_id']));?>"><?php echo $v['gc_name'];?></a></h3>
-          </dt>
-          <dd class="goods-class">
-            <?php if (!empty($v['class3']) && is_array($v['class3'])) { ?>
-            <?php foreach ($v['class3'] as $k3 => $v3) { ?>
-            <a href="<?php echo urlShop('search','index',array('cate_id'=> $v3['gc_id']));?>"><?php echo $v3['gc_name'];?></a>
-            <?php } ?>
-            <?php } ?>
-          </dd>
-        </dl>
+          <li class="twoclass">
+		     <ul><a href="<?php echo urlShop('search','index',array('cate_id'=> $v['gc_id']));?>"><img src="../data/upload/shop/common/category-pic-<?php echo $v['gc_id'];?>.jpg"></a></ul>		  
+             <ul class="twoclasstxt"><?php echo $v['gc_name'];?></ul>
+          </li>
         <?php } ?>
         <?php } ?>
+		</ul>
         </div>
         <div class="sub-class-right">
           <div class="brands-list">

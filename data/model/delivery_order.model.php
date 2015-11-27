@@ -50,7 +50,7 @@ class delivery_orderModel extends Model {
         return $this->where($condition)->update($data);
     }
     /**
-     * 更改信息(包裹到达物流自提服务站)
+     * 更改信息(包裹到达校园服务站)
      *
      * @param unknown_type $data
      * @param unknown_type $condition

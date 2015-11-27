@@ -1,6 +1,6 @@
 <?php
 /**
- * 物流自提服务站首页
+ * 科研购校园服务站首页
  *
  ***/
 
@@ -135,7 +135,7 @@ class d_centerControl extends BaseDeliveryCenterControl{
             if ($result) {
                 // 更新订单状态
                 $order_info = Model('order')->getOrderInfo(array('order_id' => $order_id));
-                Logic('order')->changeOrderStateReceive($order_info, 'buyer', '物流自提服务站', '物流自提服务站确认收货');
+                Logic('order')->changeOrderStateReceive($order_info, 'buyer', '校园服务站', '校园服务站确认收货');
                 showDialog('操作成功，订单完成', 'reload', 'succ', 'DialogManager.close("pickup_parcel")');
             } else {
                 showDialog('操作失败', '', 'error', 'DialogManager.close("pickup_parcel")');

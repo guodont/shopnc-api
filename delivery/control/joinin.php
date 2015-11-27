@@ -1,6 +1,6 @@
 <?php
 /**
- * 物流自提服务站首页
+ * 科研购校园服务站首页
  *
  ***/
 
@@ -10,7 +10,7 @@ class joininControl extends BaseAccountCenterControl{
     public function __construct(){
         parent::__construct();
         if (C('delivery_isuse') == 0) {
-            showMessage('物流自提服务站功能未开启', 'index.php?act=login', '', 'error');
+            showMessage('校园服务站功能未开启', 'index.php?act=login', '', 'error');
         }
         if ($_SESSION['delivery_login'] == 1) {
             @header('location: index.php?act=d_center');die;

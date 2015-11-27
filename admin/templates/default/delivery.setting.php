@@ -3,7 +3,7 @@
   <!-- 页面导航 -->
   <div class="fixed-bar">
     <div class="item-title">
-      <h3>物流自提服务站管理</h3>
+      <h3>校园服务站管理</h3>
       <ul class="tab-base">
         <li><a href="<?php echo urlAdmin('delivery', 'index');?>"><span><?php echo $lang['nc_manage'];?></span></a></li>
         <li><a href="<?php echo urlAdmin('delivery', 'index', array('sign' => 'verify'));?>"><span>等待审核</span></a></li>
@@ -17,7 +17,7 @@
     <table class="table tb-type2">
       <tbody>
         <tr class="noborder">
-          <td colspan="2" class="required"><label class="validation" for="promotion_booth_price">物流自提服务站是否开启<?php echo $lang['nc_colon'];?></label></td>
+          <td colspan="2" class="required"><label class="validation" for="promotion_booth_price">校园服务站是否开启<?php echo $lang['nc_colon'];?></label></td>
         </tr>
         <tr class="noborder">
         <td class="vatop rowform onoff"><label for="site_status1" class="cb-enable <?php if($output['list_setting']['delivery_isuse'] == '1'){ ?>selected<?php } ?>" ><span>开启</span></label>
@@ -27,7 +27,7 @@
           <td class="vatop tips"></td>
         </tr>
         <tr class="noborder">
-          <td colspan="2">现在去设置物流自提服务站使用的快递公司，<a onclick="window.parent.openItem('index,express,setting');" href="JavaScript:void(0);">快递公司</a></td>
+          <td colspan="2">现在去设置校园服务站使用的快递公司，<a onclick="window.parent.openItem('index,express,setting');" href="JavaScript:void(0);">快递公司</a></td>
         </tr>
       </tbody>
       <tfoot>

@@ -13,9 +13,9 @@ background: #637159 url(<?php echo DELIVERY_TEMPLATES_URL;
   <div class="marker d"><i></i></div>
 </div>
 <div class="ncd-login-title">
-  <h1>物流自提服务站</h1>
-  <h4>加盟商城物流服务站，搭建社区化电商服务平台，
-    携手拉近与身边消费者的距离，共赢未来。</h4>
+  <h1>科研校园服务站</h1>
+  <h4>加盟科研购校园服务站，搭建社区化科研电商服务平台，
+    携手拉近与科研工作者的距离，共赢未来。</h4>
 </div>
 <div class="ncd-login-form">
   <form id="delivery_login" method="post" action="<?php echo DELIVERY_SITE_URL;?>/index.php?act=login">
@@ -28,7 +28,7 @@ background: #637159 url(<?php echo DELIVERY_TEMPLATES_URL;
       <span></span></div>
     <input type="submit" class="submit" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录">
   </form>
-  <a href="index.php?act=joinin" class="register">加盟物流自提服务站</a> </div>
+  <a href="index.php?act=joinin" class="register">加盟科研购校园服务站</a> </div>
 <script type="text/javascript">
 $(function(){
     $("#delivery_login .input-txt").placeholder();

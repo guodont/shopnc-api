@@ -1,6 +1,6 @@
 <?php
 /**
- * 物流自提服务站父类
+ * 科研购校园服务站父类
  *
  ***/
 
@@ -32,7 +32,7 @@ class BaseDeliveryControl{
      * SEO
      */
     protected function SEO() {
-        Tpl::output('html_title','物流自提服务站      ' . C('site_name') . '');
+        Tpl::output('html_title','校园服务站      ' . C('site_name') . '');
         Tpl::output('seo_keywords','');
         Tpl::output('seo_description','');
     }

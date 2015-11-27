@@ -88,7 +88,7 @@ $_limit =  array(
 	    array('name'=>'虚拟订单结算', 'op'=>null, 'act'=>'vr_bill'),
 	    array('name'=>'平台客服', 'op'=>null, 'act'=>'mall_consult'),
         array('name'=>'平台充值卡', 'op'=>null, 'act'=>'rechargecard'),
-	    array('name'=>'物流自提服务站', 'op'=>null, 'act'=>'delivery')
+	    array('name'=>'校园服务站', 'op'=>null, 'act'=>'delivery')
 		)),
 	array('name'=>$lang['nc_stat'], 'child'=>array(
 	    array('name'=>$lang['nc_statgeneral'], 'op'=>null, 'act'=>'stat_general'),
