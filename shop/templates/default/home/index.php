@@ -93,9 +93,6 @@ else {document.cookie='uid='+uid[1];}
 </div>-->
 <!--link end-->
 <div class="footer-line"></div>
-<!--首页底部保障开始-->
-<?php require_once template('layout/index_ensure');?>
-<!--首页底部保障结束-->
 <!--StandardLayout Begin-->
 <div class="nav_Sidebar">
 <a class="nav_Sidebar_1" href="javascript:;" ></a>
