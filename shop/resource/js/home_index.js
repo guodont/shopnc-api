@@ -277,7 +277,7 @@ $(function(){
 	/*监听滚动条和左侧菜单点击事件 start b y 33 hao.com*/
             var _arr = [];
             window.onscroll = function(){
-                if(800 < $(document).scrollTop()){
+                if(550 < $(document).scrollTop()){
                     $('.nav_Sidebar').fadeIn('slow');
                 }else{
                     $('.nav_Sidebar').fadeOut('slow');
@@ -296,7 +296,7 @@ $(function(){
             }
             $('.nav_Sidebar a').each(function(index){
                 $(this).click(function(){
-                    $('html,body').animate({scrollTop: $('.home-standard-layout').eq(index).offset().top - 20 + 'px'}, 500);
+                    $('html,body').animate({scrollTop: $('.home-standard-layout').eq(index).offset().top - 10 + 'px'}, 500);
                 }).mouseover(function(){
                     if($(this).hasClass('current')){
                         return;
@@ -313,7 +313,7 @@ $(function(){
             });
            
             window.onload = window.onresize = function(){
-                if($(window).width() < 1300 || 800 > $(document).scrollTop()){
+                if($(window).width() < 1300 || 550 > $(document).scrollTop()){
                     $('.nav_Sidebar').fadeOut('slow');
                 }else{
                     $('.nav_Sidebar').fadeIn('slow');
@@ -322,6 +322,6 @@ $(function(){
             }
 			/*end*/
 				//$("#js_banner_top").show();
-				$("#js_banner_top").slideDown(800);
+				$("#js_banner_top").slideDown(550);
 });
 

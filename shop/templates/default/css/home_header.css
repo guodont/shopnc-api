@@ -131,8 +131,8 @@
 .public-nav-layout .category .class .arrow { background: url(../images/top_bg.png) no-repeat -150px -10px; width: 3px; height: 5px; float: right; margin: 5px 0 0;}
 .public-nav-layout .category .sub-class { background-color: #FAFAFA; display: none; width: 730px; height: 354px; padding: 15px 20px 10px 20px; border-style: solid; border-color: transparent #19b095 #19b095 transparent; border-width: 0 1px 1px 0; position: absolute; z-index: 1;top: -1px; left: 212px; }
 .public-nav-layout .category li.hover .sub-class { display: block;}
-.public-nav-layout .category .sub-class-content { display: block; width: 520px; float: left; text-align:center;}
-.public-nav-layout .category .sub-class-content .twoclass{ float:left; width:100px; height:118px; text-align:center; background-color:#FAFAFA;}
+.public-nav-layout .category .sub-class-content { display: block; width: 600px; float: left; text-align:center;}
+.public-nav-layout .category .sub-class-content .twoclass{ float:left; width:100px; height:118px; text-align:center; background-color:#FAFAFA; }
 .public-nav-layout .category .sub-class-content img {width:80px; height:80px; text-align:center;}
 .public-nav-layout .category .sub-class-content .twoclasstxt { height:38px; line-height:38px; font-size:13px;}
 .public-nav-layout .category .recommend-class { font-size: 0;  word-spacing:-1em; display: block; overflow: hidden;}
@@ -149,14 +149,14 @@
 .public-nav-layout .category .sub-class dl dd a:hover { color: #C81623;}
 .public-nav-layout .category .sub-class dl dd h5 { font-size: 12px; line-height: 20px; color: #333; margin: 4px 0 2px 0;}
 
-.public-nav-layout .category .sub-class-right { display: block; width: 194px; height: 440px; float: right;}
+.public-nav-layout .category .sub-class-right { display: block; width: 120px; height: 380px; float: right;}
 .public-nav-layout .category .brands-list {}
-.public-nav-layout .category .brands-list ul {font-size: 0;  word-spacing:-1em; height: 136px; overflow: hidden;}
-.public-nav-layout .category .brands-list li { font-size: 12px; background-color: transparent !important; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 94px; height: 31px; margin: 0 1px 3px 2px; *zoom: 1/*IE7*/;}
+.public-nav-layout .category .brands-list ul {font-size: 0;  word-spacing:-1em; height: 345px; overflow: hidden;}
+.public-nav-layout .category .brands-list li { font-size: 12px; background-color: transparent !important; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 120px; height: 40px; margin: 0 1px 10px 2px; *zoom: 1/*IE7*/;}
 .public-nav-layout .category .brands-list li a { display: block; position: relative; z-index: 1;} 
-.public-nav-layout .category .brands-list li a img { width: 94px; height: 31px; position: absolute; z-index: 2; top: 0; right: 0; bottom: 0; left: 0;}
-.public-nav-layout .category .brands-list li a span { color: #333; line-height: 25px; background-color: #FFF; white-space: nowrap; text-align: center; width: 86px; height: 25px; padding: 3px 4px; position: absolute; z-index: 1; top: 0; right: 0; overflow: hidden;}
-.public-nav-layout .category .brands-list li a:hover span { color: #FFF; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#F27C7171', endColorstr='#F27C7171');background:rgba(124,113,113,0.95); z-index: 3;}
+.public-nav-layout .category .brands-list li a img { width: 120px; height: 40px; position: absolute; z-index: 2; top: 0; right: 0; bottom: 0; left: 0;}
+.public-nav-layout .category .brands-list li a span { color: #333; line-height: 40px; background-color: #FFF; white-space: nowrap; text-align: center; width: 120px; height: 40px; position: absolute; z-index: 1; top: 0; right: 0; overflow: hidden;}
+.public-nav-layout .category .brands-list li a:hover span { color: #FFF; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#F27C7171', endColorstr='#F27C7171');background:rgba(76,175,157,0.9); z-index: 3;}
 .public-nav-layout .category .adv-promotions { display: block; width: 190px; margin: 0 2px;}
 .public-nav-layout .category .adv-promotions a { background: #FFF; display: block; width: 190px; height: 150px; margin-top: 10px; }
 .public-nav-layout .category .adv-promotions img { background: #D3D3D3; width: 190px; height: 150px;}
