@@ -262,8 +262,8 @@ class point_memberControl extends apiMemberControl
     public function cartOp() {
         $cart_goods = array();
         $model_pointcart = Model('pointcart');
-        $data = $model_pointcart->getPCartListAndAmount(array('pmember_id'=>$this->member_info['member_id']));
-        output_data(array('cart_list' => $data['data']));
+        $cart_goods = $model_pointcart->getPCartListAndAmount(array('pmember_id'=>$this->member_info['member_id']));
+        output_data(array('cart_list' => $cart_goods));
     }
 
     /**
@@ -313,7 +313,7 @@ class point_memberControl extends apiMemberControl
      *积分兑换商品
      *
      */
-    public function goodexchange()
+    public function goodexchangeOp()
     {
         $model_pointcart = Model('pointcart');
         //获取符合条件的兑换礼品和总积分
