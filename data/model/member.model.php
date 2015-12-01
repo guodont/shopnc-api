@@ -328,6 +328,8 @@ class memberModel extends Model
             $member_info['member_qqinfo'] = $param['member_qqinfo'];
             $member_info['member_sinaopenid'] = $param['member_sinaopenid'];
             $member_info['member_sinainfo'] = $param['member_sinainfo'];
+            $member_info['member_mobile_bind'] = $param['member_mobile_bind'];
+            $member_info['member_mobile'] = $param['member_mobile'];
             //添加邀请人(推荐人)会员积分 by abc.com
             $member_info['inviter_id'] = $param['inviter_id'];
             $insert_id = $this->table('member')->insert($member_info);
