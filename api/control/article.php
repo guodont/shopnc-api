@@ -12,7 +12,9 @@ class articleControl extends apiHomeControl
 
     public function __construct()
     {
+
         parent::__construct();
+
     }
 
     /**
@@ -24,7 +26,6 @@ class articleControl extends apiHomeControl
             $article_class_model = Model('article_class');
             $article_model = Model('article');
             $condition = array();
-
             $child_class_list = $article_class_model->getChildClass(intval($_GET['ac_id']));
             $ac_ids = array();
             if (!empty($child_class_list) && is_array($child_class_list)) {
@@ -76,4 +77,5 @@ class articleControl extends apiHomeControl
             output_error('缺少参数:文章编号');
         }
     }
+
 }

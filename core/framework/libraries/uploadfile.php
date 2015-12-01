@@ -22,7 +22,7 @@ class UploadFile{
 	 * 允许的最大文件大小，单位为KB
 	 */
 	
-	private $max_size = '1024';
+	private $max_size = '4096';
 	/**
 	 * 改变后的图片宽度
 	 */
