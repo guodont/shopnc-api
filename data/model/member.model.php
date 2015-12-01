@@ -239,8 +239,8 @@ class memberModel extends Model
             array("input" => $register_info["username"], "require" => "true", "message" => '用户名不能为空'),
             array("input" => $register_info["password"], "require" => "true", "message" => '密码不能为空'),
             array("input" => $register_info["password_confirm"], "require" => "true", "validator" => "Compare", "operator" => "==", "to" => $register_info["password"], "message" => '密码与确认密码不相同'),
-            array("input" => $register_info["phone"], 'validator' => 'mobile', "phone" => '手机号格式不正确'),
-            array("input" => $register_info["phone"], "require" => "true", "phone" => '手机号不能为空'),
+            array("input" => $register_info["mobile"], 'validator' => 'mobile', "phone" => '手机号格式不正确'),
+            array("input" => $register_info["mobile"], "require" => "true", "phone" => '手机号不能为空'),
         );
         $error = $obj_validate->validate();
         if ($error != '') {
