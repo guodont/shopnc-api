@@ -139,29 +139,160 @@ class memberModel extends Model
     {
         if (empty($param)) return false;
 
-        //得到条件语句
-        $condition_str = $this->getCondition($param);
-        $param = array();
-        $param['table'] = 'member';
-        $param['where'] = $condition_str;
-        $param['field'] = $field;
-        $param['limit'] = 1;
-        $member_list = Db::select($param);
-        $member_info = $member_list[0];
-        if (intval($member_info['store_id']) > 0) {
-            $param = array();
-            $param['table'] = 'store';
-            $param['field'] = 'store_id';
-            $param['value'] = $member_info['store_id'];
-            $field = 'store_id,store_name,grade_id';
-            $store_info = Db::getRow($param, $field);
-            if (!empty($store_info) && is_array($store_info)) {
-                $member_info['store_name'] = $store_info['store_name'];
-                $member_info['grade_id'] = $store_info['grade_id'];
-            }
-        }
-        return $member_info;
+		//得到条件语句
+		$condition_str	= $this->getCondition($param);
+		$param	= array();
+		$param['table']	= 'member';
+		$param['where']	= $condition_str;
+		$param['field']	= $field;
+		$param['limit'] = 1;
+		$member_list	= Db::select($param);
+		$member_info	= $member_list[0];
+		if (intval($member_info['store_id']) > 0){
+	      $param	= array();
+	      $param['table']	= 'store';
+	      $param['field']	= 'store_id';
+	      $param['value']	= $member_info['store_id'];
+	      $field	= 'store_id,store_name,grade_id';
+	      $store_info	= Db::getRow($param,$field);
+	      if (!empty($store_info) && is_array($store_info)){
+		      $member_info['store_name']	= $store_info['store_name'];
+		      $member_info['grade_id']	= $store_info['grade_id'];
+	      }
+		}
+		return $member_info;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	///////////////////////////////////////////////////
+	 public function register_bymobile($register_info) {
+		// 注册验证
+		$obj_validate = new Validate();
+		$obj_validate->validateparam = array(
+		array("input"=>$register_info["username"],		"require"=>"true",		"message"=>'用户名不能为空'),
+		array("input"=>$register_info["password"],		"require"=>"true",		"message"=>'密码不能为空'),
+		array("input"=>$register_info["password_confirm"],"require"=>"true",	"validator"=>"Compare","operator"=>"==","to"=>$register_info["password"],"message"=>'密码与确认密码不相同'),
+		array("input"=>$register_info["mobile"],		"require"=>"true",		"message"=>'手机号码不能为空'),
+		);
+		$error = $obj_validate->validate();
+		if ($error != ''){
+            return array('error' => $error);
+		}
+
+        // 验证用户名是否重复
+		$check_member_name	= $this->getMemberInfo(array('member_name'=>$register_info['username']));
+		if(is_array($check_member_name) and count($check_member_name) > 0) {
+            return array('error' => '用户名已存在');
+		}
+		//zmr>>>
+		// 验证手机号码是否重复
+		$check_member_mobile	= $this->getMemberInfo(array('member_mobile'=>$register_info['mobile']));
+		if(is_array($check_member_mobile) and count($check_member_mobile)>0) {
+            return array('error' => '手机号码已存在');
+		}
+		// 会员添加
+		$member_info	= array();
+		$member_info['member_name']		= $register_info['username'];
+		$member_info['member_passwd']	= $register_info['password'];
+		$member_info['member_email']		= '';
+		//zmr>>>
+		$member_info['member_mobile']		= $register_info['mobile'];
+		$member_info['member_mobile_bind']		= $register_info['member_mobile_bind'];
+		//zmr<<<
+		//添加邀请人(推荐人)会员积分 by abc.com
+		$member_info['inviter_id']		= $register_info['inviter_id'];
+		
+		$insert_id	= $this->addMember_bymobile($member_info);
+		if($insert_id) {
+		    //添加会员积分
+			if (C('points_isuse')){
+				Model('points')->savePointsLog('regist',array('pl_memberid'=>$insert_id,'pl_membername'=>$register_info['username']),false);
+				//添加邀请人(推荐人)会员积分 by abc.com
+				$inviter_name = Model('member')->table('member')->getfby_member_id($member_info['inviter_id'],'member_name');
+				Model('points')->savePointsLog('inviter',array('pl_memberid'=>$register_info['inviter_id'],'pl_membername'=>$inviter_name,'invited'=>$member_info['member_name']));
+			}
+
+            // 添加默认相册
+            $insert['ac_name']      = '买家秀';
+            $insert['member_id']    = $insert_id;
+            $insert['ac_des']       = '买家秀默认相册';
+            $insert['ac_sort']      = 1;
+            $insert['is_default']   = 1;
+            $insert['upload_time']  = TIMESTAMP;
+            $this->table('sns_albumclass')->insert($insert);
+
+            $member_info['member_id'] = $insert_id;
+            $member_info['is_buy'] = 1;
+
+            return $member_info;
+		} else {
+            return array('error' => '注册失败');
+		}
+
     }
+
+	/**
+	 * 注册商城会员
+	 *
+	 * @param	array $param 会员信息
+	 * @return	array 数组格式的返回结果
+	 */
+	public function addMember_bymobile($param) {
+		if(empty($param)) {
+			return false;
+		}
+		try {
+		    $this->beginTransaction();
+		    $member_info	= array();
+		    $member_info['member_id']			= $param['member_id'];
+		    $member_info['member_name']			= $param['member_name'];
+		    $member_info['member_passwd']		= md5(trim($param['member_passwd']));
+		    $member_info['member_email']		= $param['member_email'];
+			//zmr>>>
+			$member_info['member_mobile']		= $param['member_mobile'];
+			$member_info['member_mobile_bind']	= $param['member_mobile_bind'];
+			//zmr<<<
+		    $member_info['member_time']			= TIMESTAMP;
+		    $member_info['member_login_time'] 	= TIMESTAMP;
+		    $member_info['member_old_login_time'] = TIMESTAMP;
+		    $member_info['member_login_ip']		= getIp();
+		    $member_info['member_old_login_ip']	= $member_info['member_login_ip'];
+
+		    $member_info['member_truename']		= $param['member_truename'];
+		    $member_info['member_qq']			= $param['member_qq'];
+		    $member_info['member_sex']			= $param['member_sex'];
+		    $member_info['member_avatar']		= $param['member_avatar'];
+		    $member_info['member_qqopenid']		= $param['member_qqopenid'];
+		    $member_info['member_qqinfo']		= $param['member_qqinfo'];
+		    $member_info['member_sinaopenid']	= $param['member_sinaopenid'];
+		    $member_info['member_sinainfo']	= $param['member_sinainfo'];
+		    //添加邀请人(推荐人)会员积分 by abc.com
+		    $member_info['inviter_id']	        = $param['inviter_id'];
+		    $insert_id	= $this->table('member')->insert($member_info);
+		    if (!$insert_id) {
+		        throw new Exception();
+		    }
+		    $insert = $this->addMemberCommon(array('member_id'=>$insert_id));
+		    if (!$insert) {
+		        throw new Exception();
+		    }
+		    $this->commit();
+		    return $insert_id;
+		} catch (Exception $e) {
+		    $this->rollback();
+		    return false;
+		}
+	}
+	///////////////////////////////////////////////////////
 
     /**
      * 注册

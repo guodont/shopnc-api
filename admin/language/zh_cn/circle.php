@@ -138,11 +138,6 @@ $lang['circle_setting_exp_replied']		= '被回复主题可获经验';
 $lang['circle_setting_exp_replied_max']	= '每天被回复主题可获最高经验';
 $lang['circle_setting_exp_tips']		= '0表示不限制';
 
-$lang['taobao_api_isuse'] = '淘宝接口开关';
-$lang['taobao_api_isuse_explain'] = '开启并填写正确的接口参数后，发布、回复话题添加商品支持淘宝和天猫';
-$lang['taobao_app_key'] = '淘宝应用标识';
-$lang['taobao_app_key_explain'] = '立即在线申请';
-$lang['taobao_secret_key'] = '淘宝应用密钥';
 
 /**
  * circle_theme

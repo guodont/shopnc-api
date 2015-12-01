@@ -9,6 +9,9 @@
 .wrapper {
 	width: 1000px;
 }
+.phonecode{
+  width:108px; padding:2px;
+}
 #footer {
 	border-top: none!important;
 	padding-top: 30px;
@@ -20,15 +23,19 @@
       <h3><?php echo $lang['login_register_join_us'];?></h3>
     </div>
     <div class="nc-login-content">
-      <form id="register_form" method="post" action="<?php echo SHOP_SITE_URL;?>/index.php?act=login&op=usersave">
+      <form id="register_form" method="post" action="<?php echo SHOP_SITE_URL;?>/index.php?act=login&op=usersave" onsubmit="return register()">
       <?php Security::getToken();?>
-        <dl>
+       
+       
+       <dl>
           <dt><?php echo $lang['login_register_username'];?></dt>
           <dd style="min-height:54px;">
             <input type="text" id="user_name" name="user_name" class="text tip" title="<?php echo $lang['login_register_username_to_login'];?>" autofocus />
             <label></label>
           </dd>
         </dl>
+        
+        
         <dl>
           <dt><?php echo $lang['login_register_pwd'];?></dt>
           <dd style="min-height:54px;">
@@ -44,12 +51,24 @@
           </dd>
         </dl>
         <dl>
-          <dt><?php echo $lang['login_register_email'];?></dt>
+          <dt>手机号码</dt>
           <dd style="min-height:54px;">
-            <input type="text" id="email" name="email" class="text tip" title="<?php echo $lang['login_register_input_valid_email'];?>" />
+            <input type="text" id="mobile" name="mobile" class="text tip" title="请输入手机号码" autofocus />
             <label></label>
           </dd>
         </dl>
+        
+        
+        <dl>
+          <dt>短信验证码</dt>
+          <dd style="min-height:54px;">
+           <input type="text" autocomplete="off" name="mobile_code" placeholder="" title="短信校验码" id="mobile_code" class="valid text fl tip"  style="width:100px">&nbsp;&nbsp;
+                            <input type="button" value="获取短信校验码" onclick="get_mobile_code();" class="phonecode" id="btnGetCode">
+                    <label></label>
+          </dd>
+        </dl>
+        
+        
         <?php if(C('captcha_status_register') == '1') { ?>
         <dl>
           <dt><?php echo $lang['login_register_code'];?></dt>
@@ -72,7 +91,6 @@
         <input type="hidden" value="<?php echo $_GET['ref_url']?>" name="ref_url">
         <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
         <input type="hidden" name="form_submit" value="ok" />
-         <input type="hidden" value="<?php echo $_GET['zmr']?>" name="zmr">
       </form>
       <div class="clear"></div>
     </div>
@@ -150,19 +168,23 @@ $(function(){
                 required : true,
                 equalTo  : '#password'
             },
-            email : {
+            mobile : {
                 required : true,
-                email    : true,
+				minlength: 11,
+				maxlength: 11,
                 remote   : {
-                    url : 'index.php?act=login&op=check_email',
+                    url : 'index.php?act=login&op=check_mobile',
                     type: 'get',
                     data:{
-                        email : function(){
-                            return $('#email').val();
+                        mobile : function(){
+                            return $('#mobile').val();
                         }
                     }
                 }
             },
+			  mobile_code : {
+                required : true
+			  },
 			<?php if(C('captcha_status_register') == '1') { ?>
             captcha : {
                 required : true,
@@ -187,7 +209,7 @@ $(function(){
             }
         },
         messages : {
-            user_name : {
+             user_name : {
                 required : '<?php echo $lang['login_register_input_username'];?>',
                 lettersmin : '<?php echo $lang['login_register_username_range'];?>',
                 lettersmax : '<?php echo $lang['login_register_username_range'];?>',
@@ -203,11 +225,15 @@ $(function(){
                 required : '<?php echo $lang['login_register_input_password_again'];?>',
                 equalTo  : '<?php echo $lang['login_register_password_not_same'];?>'
             },
-            email : {
-                required : '<?php echo $lang['login_register_input_email'];?>',
-                email    : '<?php echo $lang['login_register_invalid_email'];?>',
-				remote	 : '<?php echo $lang['login_register_email_exists'];?>'
+            mobile : {
+                required : '手机号码不能为空',
+				minlength: '手机号码长度应是11个字符',
+				maxlength: '手机号码长度应是11个字符',
+				remote	 : '该手机号码已经存在'
             },
+			 mobile_code : {
+                required : '手机验证码不能为空'
+			 },
 			<?php if(C('captcha_status_register') == '1') { ?>
             captcha : {
                 required : '<?php echo $lang['login_register_input_text_in_image'];?>',
@@ -220,4 +246,104 @@ $(function(){
         }
     });
 });
+</script>
+
+
+<script language="javascript">
+	function get_mobile_code(){
+		    var ok=check_data(false);
+			if(ok==false)
+			{
+				return false;
+			}
+			$.getJSON('index.php?act=login&op=sendmbcode',{mobile:jQuery.trim($('#mobile').val())},function(data){
+			if (data.state == 'true') {
+				RemainTime();
+			}
+			else
+			{
+				alert(data.msg);
+			}
+        });
+	};
+	var iTime = 59;
+	var Account;
+	function RemainTime(){
+		document.getElementById('btnGetCode').disabled = true;
+		var iSecond,sSecond="",sTime="";
+		if (iTime >= 0){
+			iSecond = parseInt(iTime%60);
+			iMinute = parseInt(iTime/60)
+			if (iSecond >= 0){
+				if(iMinute>0){
+					sSecond = iMinute + "分" + iSecond + "秒";
+				}else{
+					sSecond = iSecond + "秒";
+				}
+			}
+			sTime=sSecond;
+			if(iTime==0){
+				clearTimeout(Account);
+				sTime='获取手机验证码';
+				iTime = 59;
+				document.getElementById('btnGetCode').disabled = false;
+			}else{
+				Account = setTimeout("RemainTime()",1000);
+				iTime=iTime-1;
+			}
+		}else{
+			sTime='没有倒计时';
+		}
+		document.getElementById('btnGetCode').value = sTime;
+	}	
+	
+//提交验证
+function register()
+{	
+    var ok=check_data(true);
+	if(ok==false)
+	{
+		return false;
+	}
+	ok=check_mobile_code();
+	return ok;
+}
+function check_data(is_submit)
+{
+	var mobile=$("#mobile");
+	var mobile_code=$("#mobile_code");
+	if (mobile.val() == "")
+	{
+	    alert("请输入手机号!");
+	    mobile.focus();
+	    return false;
+	}else if(mobile.val().length!=11){
+		alert("请输入正确的手机号!");
+	    mobile.focus();
+	    return false;
+	}
+	if(is_submit)
+	{
+	  if (mobile_code.val()== "")
+	  {
+		alert("请输入收到的验证码!");
+		mobile_code.focus();
+		return (false);
+	  }
+	}
+	return true;
+}
+function check_mobile_code()
+{
+  var mobile=$("#mobile").val();
+  var mobile_code=$("#mobile_code").val();
+  var myurl = "index.php?act=login&op=check_mobile_code&mobile=" + mobile+"&mobile_code="+mobile_code;
+  var htmlobj = $.ajax({ url: myurl, async: false, dataType: "text" });
+  var re = htmlobj.responseText;
+  if (re == "false") {
+	  alert("您输入的手机验证码不正确");
+	  return false;
+  }
+  return true;
+}
 </script>

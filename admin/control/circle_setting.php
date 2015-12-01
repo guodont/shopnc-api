@@ -27,9 +27,6 @@ class circle_settingControl extends SystemControl{
 			$update['circle_iscreate']	= intval($_POST['c_iscreate']);
 			$update['circle_istalk']	= intval($_POST['c_istalk']);
 			$update['circle_wordfilter']	= $_POST['c_wordfilter'];
-			$update['taobao_api_isuse']	= intval($_POST['taobao_api_isuse']);
-			$update['taobao_app_key']	= $_POST['taobao_app_key'];
-			$update['taobao_secret_key']= $_POST['taobao_secret_key'];
 			if (!empty($_FILES['c_logo']['name'])){
 				$upload = new UploadFile();
 				$upload->set('default_dir',ATTACH_CIRCLE);

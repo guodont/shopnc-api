@@ -125,33 +125,7 @@
             <textarea class="tarea" rows="6" name="c_wordfilter" id="c_wordfilter"><?php echo $output['list_setting']['circle_wordfilter'];?></textarea>
           </td>
           <td class="vatop tips"><?php echo $lang['circle_setting_wordfilter_tips'];?></td>
-        </tr>
-        <!-- 淘宝接口开关 -->
-        <tr>
-          <td colspan="2" class="required"><label><?php echo $lang['taobao_api_isuse'].$lang['nc_colon'];?></label></td>
-        </tr>
-        <tr class="noborder">
-          <td class="vatop rowform onoff">
-          	<label for="taobao_isuse_1" class="cb-enable <?php if($output['list_setting']['taobao_api_isuse'] == '1'){ ?>selected<?php } ?>" title="<?php echo $lang['nc_open'];?>"><span><?php echo $lang['nc_open'];?></span></label>
-            <label for="taobao_isuse_0" class="cb-disable <?php if($output['list_setting']['taobao_api_isuse'] == '0'){ ?>selected<?php } ?>" title="<?php echo $lang['nc_close'];?>"><span><?php echo $lang['nc_close'];?></span></label>
-            <input type="radio" id="taobao_isuse_1" name="taobao_api_isuse" value="1" <?php echo $output['list_setting']['taobao_api_isuse']==1?'checked=checked':''; ?>>
-            <input type="radio" id="taobao_isuse_0" name="taobao_api_isuse" value="0" <?php echo $output['list_setting']['taobao_api_isuse']==0?'checked=checked':''; ?>></td>
-          <td class="vatop tips"><?php echo $lang['taobao_api_isuse_explain'];?></td>
-        </tr>
-        <tr>
-          <td colspan="2" class="required"><label for="taobao_app_key"><?php echo $lang['taobao_app_key'].'(APP KEY)'.$lang['nc_colon'];?></label></td>
-        </tr>
-        <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="<?php echo $output['list_setting']['taobao_app_key'];?>" name="taobao_app_key" class="txt"></td>
-          <td class="vatop tips"><a style="color:#ffffff; font-weight:bold;" target="_blank" href="http://open.taobao.com"><?php echo $lang['taobao_app_key_explain'];?></a></td>
-        </tr>
-        <tr>
-          <td colspan="2" class="required"><label for="taobao_secret_key"><?php echo $lang['taobao_secret_key'].'(APP SECRET)'.$lang['nc_colon'];?></label></td>
-        </tr>
-        <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="<?php echo $output['list_setting']['taobao_secret_key'];?>" name="taobao_secret_key" class="txt"></td>
-          <td class="vatop tips"></td>
-        </tr>
+        </tr>    
       </tbody>
       <tfoot>
         <tr>
