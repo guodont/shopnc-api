@@ -19,9 +19,7 @@ class member_voucherControl extends apiMemberControl
         parent::__construct();
     }
 
-    /**
-     * 地址列表
-     */
+
     public function voucher_listOp()
     {
         $model_voucher = Model('voucher');

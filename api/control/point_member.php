@@ -31,7 +31,7 @@ class point_memberControl extends apiMemberControl
     {
 
         $model_pointprod = Model('pointprod');
-        
+
         //展示状态
         $pgoodsshowstate_arr = $model_pointprod->getPgoodsShowState();
         //开启状态
@@ -46,50 +46,50 @@ class point_memberControl extends apiMemberControl
         $where['pgoods_state'] = $pgoodsopenstate_arr['open'][0];
         //会员级别
         $level_filter = array();
-        if (isset($_GET['level'])){
+        if (isset($_GET['level'])) {
             $level_filter['search'] = intval($_GET['level']);
         }
-        if (intval($_GET['isable']) == 1){
+        if (intval($_GET['isable']) == 1) {
             $level_filter['isable'] = intval($this->member_info['level']);
         }
-        if (count($level_filter) > 0){
-            if (isset($level_filter['search']) && isset($level_filter['isable'])){
-                $where['pgoods_limitmgrade'] = array(array('eq',$level_filter['search']),array('elt',$level_filter['isable']),'and');
-            } elseif (isset($level_filter['search'])){
+        if (count($level_filter) > 0) {
+            if (isset($level_filter['search']) && isset($level_filter['isable'])) {
+                $where['pgoods_limitmgrade'] = array(array('eq', $level_filter['search']), array('elt', $level_filter['isable']), 'and');
+            } elseif (isset($level_filter['search'])) {
                 $where['pgoods_limitmgrade'] = $level_filter['search'];
-            } elseif (isset($level_filter['isable'])){
-                $where['pgoods_limitmgrade'] = array('elt',$level_filter['isable']);
-            } 
+            } elseif (isset($level_filter['isable'])) {
+                $where['pgoods_limitmgrade'] = array('elt', $level_filter['isable']);
+            }
         }
         //查询仅我能兑换和所需积分
         $points_filter = array();
-        if (intval($_GET['isable']) == 1){
+        if (intval($_GET['isable']) == 1) {
             $points_filter['isable'] = $this->member_info['member_points'];
         }
-        if (intval($_GET['points_min']) > 0){
+        if (intval($_GET['points_min']) > 0) {
             $points_filter['min'] = intval($_GET['points_min']);
         }
-        if (intval($_GET['points_max']) > 0){
+        if (intval($_GET['points_max']) > 0) {
             $points_filter['max'] = intval($_GET['points_max']);
         }
-        if (count($points_filter) > 0){
+        if (count($points_filter) > 0) {
             asort($points_filter);
-            if (count($points_filter) > 1){
+            if (count($points_filter) > 1) {
                 $points_filter = array_values($points_filter);
-                $where['pgoods_points'] = array('between',array($points_filter[0],$points_filter[1]));
+                $where['pgoods_points'] = array('between', array($points_filter[0], $points_filter[1]));
             } else {
-                if ($points_filter['min']){
-                    $where['pgoods_points'] = array('egt',$points_filter['min']);
+                if ($points_filter['min']) {
+                    $where['pgoods_points'] = array('egt', $points_filter['min']);
                 } elseif ($points_filter['max']) {
-                    $where['pgoods_points'] = array('elt',$points_filter['max']);
+                    $where['pgoods_points'] = array('elt', $points_filter['max']);
                 } elseif ($points_filter['isable']) {
-                    $where['pgoods_points'] = array('elt',$points_filter['isable']);
+                    $where['pgoods_points'] = array('elt', $points_filter['isable']);
                 }
             }
         }
 
         //排序
-        switch ($_GET['orderby']){
+        switch ($_GET['orderby']) {
             case 'stimedesc':
                 $orderby = 'pgoods_starttime desc,';
                 break;
@@ -105,7 +105,7 @@ class point_memberControl extends apiMemberControl
         }
         $orderby .= 'pgoods_sort asc,pgoods_id desc';
 
-        $pointprod_list = $model_pointprod->getPointProdList($where, '*', $orderby,'',$this->page);
+        $pointprod_list = $model_pointprod->getPointProdList($where, '*', $orderby, '', $this->page);
         $pageCount = $model_pointprod->gettotalpage();
         output_data(array('gifts' => $pointprod_list), mobile_page($pageCount));
     }
@@ -117,23 +117,23 @@ class point_memberControl extends apiMemberControl
     public function giftOp()
     {
         $pid = intval($_GET['id']);
-        if (!$pid){
+        if (!$pid) {
             output_error("缺少id参数");
             die;
         }
         $model_pointprod = Model('pointprod');
         //查询兑换礼品详细
-        $prodinfo = $model_pointprod->getOnlinePointProdInfo(array('pgoods_id'=>$pid));
-        if (empty($prodinfo)){
+        $prodinfo = $model_pointprod->getOnlinePointProdInfo(array('pgoods_id' => $pid));
+        if (empty($prodinfo)) {
             output_error("没有礼品详细信息");
             die;
         }
         //更新礼品浏览次数
         $tm_tm_visite_pgoods = cookie('tm_visite_pgoods');
-        $tm_tm_visite_pgoods = $tm_tm_visite_pgoods?explode(',', $tm_tm_visite_pgoods):array();
-        if (!in_array($pid, $tm_tm_visite_pgoods)){//如果已经浏览过该商品则不重复累计浏览次数 
+        $tm_tm_visite_pgoods = $tm_tm_visite_pgoods ? explode(',', $tm_tm_visite_pgoods) : array();
+        if (!in_array($pid, $tm_tm_visite_pgoods)) {//如果已经浏览过该商品则不重复累计浏览次数
             $result = $model_pointprod->editPointProdViewnum($pid);
-            if ($result['state'] == true){//累加成功则cookie中增加该商品ID
+            if ($result['state'] == true) {//累加成功则cookie中增加该商品ID
                 $tm_tm_visite_pgoods[] = $pid;
             }
         }
@@ -143,19 +143,20 @@ class point_memberControl extends apiMemberControl
     /**
      *  取消兑换
      */
-    public function cancel_orderOp(){
+    public function cancel_orderOp()
+    {
         $pid = intval($_GET['order_id']);
-        if (!$pid){
-            output_error("缺少订单id参数");
+        if (!$pid) {
+            echo 0;
             die;
         }
         $model_pointorder = Model('pointorder');
         //取消订单
-        $data = $model_pointorder->cancelPointOrder($pid,$this->member_info['member_id']);
-        if ($data['state']){
-            output_data("操作成功");
-        }else {
-            output_error("操作失败");
+        $data = $model_pointorder->cancelPointOrder($pid, $this->member_info['member_id']);
+        if ($data['state']) {
+            echo 1;
+        } else {
+            echo 0;
             die;
         }
     }
@@ -163,7 +164,8 @@ class point_memberControl extends apiMemberControl
     /**
      * 代金券列表
      */
-    public function vouchersOp(){
+    public function vouchersOp()
+    {
         $model_voucher = Model('voucher');
 
         //代金券模板状态
@@ -172,41 +174,41 @@ class point_memberControl extends apiMemberControl
         //查询代金券列表
         $where = array();
         $where['voucher_t_state'] = $templatestate_arr['usable'][0];
-        $where['voucher_t_end_date'] = array('gt',time());
-        if (intval($_GET['sc_id']) > 0){
+        $where['voucher_t_end_date'] = array('gt', time());
+        if (intval($_GET['sc_id']) > 0) {
             $where['voucher_t_sc_id'] = intval($_GET['sc_id']);
         }
-        if (intval($_GET['price']) > 0){
+        if (intval($_GET['price']) > 0) {
             $where['voucher_t_price'] = intval($_GET['price']);
         }
         //查询仅我能兑换和所需积分
         $points_filter = array();
-        if (intval($_GET['isable']) == 1){
+        if (intval($_GET['isable']) == 1) {
             $points_filter['isable'] = $this->member_info['member_points'];
         }
-        if (intval($_GET['points_min']) > 0){
+        if (intval($_GET['points_min']) > 0) {
             $points_filter['min'] = intval($_GET['points_min']);
         }
-        if (intval($_GET['points_max']) > 0){
+        if (intval($_GET['points_max']) > 0) {
             $points_filter['max'] = intval($_GET['points_max']);
         }
-        if (count($points_filter) > 0){
+        if (count($points_filter) > 0) {
             asort($points_filter);
-            if (count($points_filter) > 1){
+            if (count($points_filter) > 1) {
                 $points_filter = array_values($points_filter);
-                $where['voucher_t_points'] = array('between',array($points_filter[0],$points_filter[1]));
+                $where['voucher_t_points'] = array('between', array($points_filter[0], $points_filter[1]));
             } else {
-                if ($points_filter['min']){
-                    $where['voucher_t_points'] = array('egt',$points_filter['min']);
+                if ($points_filter['min']) {
+                    $where['voucher_t_points'] = array('egt', $points_filter['min']);
                 } elseif ($points_filter['max']) {
-                    $where['voucher_t_points'] = array('elt',$points_filter['max']);
+                    $where['voucher_t_points'] = array('elt', $points_filter['max']);
                 } elseif ($points_filter['isable']) {
-                    $where['voucher_t_points'] = array('elt',$points_filter['isable']);
+                    $where['voucher_t_points'] = array('elt', $points_filter['isable']);
                 }
             }
         }
         //排序
-        switch ($_GET['orderby']){
+        switch ($_GET['orderby']) {
             case 'exchangenumdesc':
                 $orderby = 'voucher_t_giveout desc,';
                 break;
@@ -232,26 +234,27 @@ class point_memberControl extends apiMemberControl
     /**
      * 兑换代金券
      */
-    public function voucherexchangeOp(){
+    public function voucherexchangeOp()
+    {
         $vid = intval($_POST['vid']);
 
-        if ($vid <= 0){
-            output_error("参数错误");
-             die;
+        if ($vid <= 0) {
+            output_error("代金券id错误");
+            die;
         }
         $model_voucher = Model('voucher');
         //验证是否可以兑换代金券
-        $data = $model_voucher->getCanChangeTemplateInfo($vid,intval($this->member_info['member_id']),intval($_POST['store_id']));
-        if ($data['state'] == false){
-            output_error("操作失败");
+        $data = $model_voucher->getCanChangeTemplateInfo($vid, intval($this->member_info['member_id']), intval($_POST['store_id']));
+        if ($data['state'] == false) {
+            output_error("不可以兑换");
             die;
         }
         //添加代金券信息
-        $data = $model_voucher->exchangeVoucher($data['info'],$this->member_info['member_id'],$this->member_info['member_name']);
-        if ($data['state'] == true){
-            output_data("操作成功");
+        $data = $model_voucher->exchangeVoucher($data['info'], $this->member_info['member_id'], $this->member_info['member_name']);
+        if ($data['state'] == true) {
+            output_data("兑换成功");
         } else {
-            output_error("操作失败");
+            output_error("兑换失败");
             die;
         }
     }
@@ -259,54 +262,62 @@ class point_memberControl extends apiMemberControl
     /**
      * 积分礼品购物车
      */
-    public function cartOp() {
+    public function cartOp()
+    {
         $cart_goods = array();
         $model_pointcart = Model('pointcart');
-        $cart_goods = $model_pointcart->getPCartListAndAmount(array('pmember_id'=>$this->member_info['member_id']));
+        $cart_goods = $model_pointcart->getPCartListAndAmount(array('pmember_id' => $this->member_info['member_id']));
         output_data(array('cart_list' => $cart_goods));
     }
 
     /**
      * 购物车添加礼品
      */
-    public function addOp() {
-        $pgid   = intval($_GET['pgid']);
-        $quantity   = intval($_GET['quantity']);
-        if($pgid <= 0 || $quantity <= 0) {
-            output_error("操作失败");
+    public function addOp()
+    {
+
+        $pgid = intval($_GET['pgid']);
+        $quantity = intval($_GET['quantity']);
+
+        if ($pgid <= 0 || $quantity <= 0) {
+            echo 0;
             die;
         }
+
         //验证积分礼品是否存在购物车中
         $model_pointcart = Model('pointcart');
-        $check_cart = $model_pointcart->getPointCartInfo(array('pgoods_id'=>$pgid,'pmember_id'=>$this->member_info['member_id']));
-        if(!empty($check_cart)) {
-            output_data("操作成功");
+        $check_cart = $model_pointcart->getPointCartInfo(array('pgoods_id' => $pgid, 'pmember_id' => $this->member_info['member_id']));
+        if (!empty($check_cart)) {
+            echo 2;
             die;
         }
+
         //验证是否能兑换
         $data = $model_pointcart->checkExchange($pgid, $quantity, $this->member_info['member_id']);
-        if (!$data['state']){
-            switch ($data['error']){
+
+        if (!$data['state']) {
+            switch ($data['error']) {
                 case 'ParameterError':
-                    output_error("操作失败");
+                    echo 0;
                     die;
                     break;
                 default:
-                    output_error("操作失败");
+                    echo 0;
                     die;
-                    break;              
+                    break;
             }
         }
         $prod_info = $data['data']['prod_info'];
-        
         $insert_arr = array();
-        $insert_arr['pmember_id']       = $this->member_info['member_id'];
-        $insert_arr['pgoods_id']        = $prod_info['pgoods_id'];
-        $insert_arr['pgoods_name']      = $prod_info['pgoods_name'];
-        $insert_arr['pgoods_points']    = $prod_info['pgoods_points'];
+        $insert_arr['pmember_id'] = $this->member_info['member_id'];
+        $insert_arr['pgoods_id'] = $prod_info['pgoods_id'];
+        $insert_arr['pgoods_name'] = $prod_info['pgoods_name'];
+        $insert_arr['pgoods_points'] = $prod_info['pgoods_points'];
         $insert_arr['pgoods_choosenum'] = $prod_info['quantity'];
-        $insert_arr['pgoods_image']     = $prod_info['pgoods_image_old'];
-        output_data("操作成功");
+        $insert_arr['pgoods_image'] = $prod_info['pgoods_image_old'];
+        if ($model_pointcart->addPointCart($insert_arr)) {
+            echo 1;
+        }
     }
 
     /**
@@ -318,30 +329,30 @@ class point_memberControl extends apiMemberControl
         $model_pointcart = Model('pointcart');
         //获取符合条件的兑换礼品和总积分
         $data = $model_pointcart->getCartGoodsList($this->member_info['member_id']);
-        if (!$data['state']){
+        if (!$data['state']) {
             output_error("操作失败");
             die;
         }
         $pointprod_arr = $data['data'];
         unset($data);
-        
+
         //验证积分数是否足够
         $data = $model_pointcart->checkPointEnough($pointprod_arr['pgoods_pointall'], $this->member_info['member_id']);
-        if (!$data['state']){
+        if (!$data['state']) {
             output_error("操作失败");
             die;
         }
         unset($data);
-        
+
         //创建兑换订单
-        $data = Model('pointorder')->createOrder($_POST, $pointprod_arr, array('member_id'=>$this->member_info['member_id'],'member_name'=>$this->member_info['member_name'],'member_email'=>$this->member_info['member_email']));
-        if (!$data['state']){
+        $data = Model('pointorder')->createOrder($_POST, $pointprod_arr, array('member_id' => $this->member_info['member_id'], 'member_name' => $this->member_info['member_name'], 'member_email' => $this->member_info['member_email']));
+        if (!$data['state']) {
             output_error("操作失败");
             die;
         }
         $order_id = $data['data']['order_id'];
 
-        if ($order_id <= 0){
+        if ($order_id <= 0) {
             output_error("操作失败");
             die;
         }
@@ -349,7 +360,7 @@ class point_memberControl extends apiMemberControl
         $where['point_orderid'] = $order_id;
         $where['point_buyerid'] = $this->member_info['member_id'];
         $order_info = Model('pointorder')->getPointOrderInfo($where);
-        if (!$order_info){
+        if (!$order_info) {
             output_error("操作失败");
             die;
         }
@@ -360,18 +371,19 @@ class point_memberControl extends apiMemberControl
     /**
      * 积分礼品购物车删除单个礼品
      */
-    public function dropOp() {
-        $pcart_id   = intval($_GET['pc_id']);
-        if($pcart_id <= 0) {
-            output_error("操作失败");
+    public function dropOp()
+    {
+        $pcart_id = intval($_GET['pc_id']);
+        if ($pcart_id <= 0) {
+            echo 0;
             die;
         }
         $model_pointcart = Model('pointcart');
-        $drop_state = $model_pointcart->delPointCartById($pcart_id,$this->member_info['member_id']);
-        if ($drop_state){
-            output_data("操作成功");
+        $drop_state = $model_pointcart->delPointCartById($pcart_id, $this->member_info['member_id']);
+        if ($drop_state) {
+            echo 1;
         } else {
-            output_error("操作失败");
+            echo 0;
             die;
         }
     }
