@@ -246,53 +246,7 @@ class groupControl extends BaseCircleThemeControl{
 		Tpl::output('member_info', $member_info);
 		Tpl::showpage('group.member_edit', 'null_layout');
 	}
-	/**
-	 * 圈子商品列表
-	 */
-	public function group_goodsOp(){
-		// 圈子信息
-		$this->circleInfo();
-
-		// 圈主和管理信息
-		$this->manageList();
-
-		// 会员信息
-		$this->memberInfo();
-
-		// sidebar相关
-		$this->sidebar();
-
-		// 成员商品列表
-		$model = Model();
-		$cmid_list	= $model->table('circle_member')->field('member_id')->where(array('circle_id'=>$this->c_id, 'cm_state'=>1))->select();
-		$cmid_list	= array_under_reset($cmid_list, 'member_id'); $cmid_array = array_keys($cmid_list);
-		$count		= $model->table('sns_sharegoods')->where(array('share_memberid'=>array('in', $cmid_array)))->count();
-		$goods_list = $model->table('sns_sharegoods,sns_goods')->join('left')->on('sns_sharegoods.share_goodsid=sns_goods.snsgoods_goodsid')
-						->where(array('sns_sharegoods.share_memberid'=>array('in', $cmid_array), 'share_isshare|share_islike'=>1))->order('share_id desc')->page(20, $count)->select();
-		if(!empty($goods_list)){
-			if($_SESSION['is_login'] == '1'){
-				foreach ($goods_list as $k=>$v){
-					if (!empty($v['snsgoods_likemember'])){
-						$v['snsgoods_likemember_arr'] = explode(',',$v['snsgoods_likemember']);
-						$v['snsgoods_havelike'] = in_array($_SESSION['member_id'],$v['snsgoods_likemember_arr'])?1:0;
-					}
-					$goods_list[$k] = $v;
-				}
-			}
-			$goods_list	= array_under_reset($goods_list, 'share_id'); $shareid_array = array_keys($goods_list);
-			Tpl::output('show_page', $model->showpage('2'));
-			Tpl::output('goods_list', $goods_list);
-			$pic_list	= $model->cls()->table('sns_albumpic')->where(array('item_id'=>array('in', $shareid_array)))->select();
-			$pic_list	= array_under_reset($pic_list, 'item_id', 2);
-			Tpl::output('pic_list', $pic_list);
-		}
-
-		$this->circleSEO(L('circle_member_like_and_show_goods').$this->circle_info['circle_name']);
-
-		// breadcrumb navigation
-		$this->breadcrumd(L('site_search_goods'));
-		Tpl::showpage('group.goods');
-	}
+	
 	/**
 	 * Applied to be an administrator
 	 */

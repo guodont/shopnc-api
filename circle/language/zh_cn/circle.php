@@ -10,30 +10,6 @@ $lang['circle_theme_cannot_be_published']	= '网站已经关闭发表话题功�
 $lang['circle_has_been_closed_reply']	= '网站已经关闭回复话题功能 。';
 $lang['circle_operation_too_frequent']	= '操作太频繁，请稍后再试。';
 
-/**
- * group_manage
- */
-$lang['circle_tclass_max_10']		= '已经创建10个话题分类，不能在继续创建。';
-$lang['circle_tclass_name_not_null']= '请填写分类名称';
-$lang['circle_sort_error']			= '排序不能为空且只能填写数字';
-$lang['fcircle_please_choose']		= '请选择想要添加的圈子';
-
-
-// 话题分类
-$lang['circle_tclass_add']			= '添加分类';
-$lang['circle_tclass_edit']			= '编辑分类';
-$lang['circle_tclass_add_max_10']	= '只能创建10个分类';
-
-
-$lang['circle_tclass_name']			= '分类名称';
-$lang['circle_tclass_sort']			= '分类排序';
-$lang['circle_tclass_status']		= '显示状态';
-$lang['circle_tclass_man_maxlength']= '分类名称不能超过4个字符';
-$lang['circle_tclass_sort_not_null']= '请填写分类排序';
-$lang['circle_tclass_sort_is_digits']	= '请填写数字';
-$lang['circle_tclass_sort_max']		= '数值不能超过255';
-$lang['nc_sort']					= '排序';
-
 
 // 编辑器
 $lang['nc_title']					= '标题';
@@ -355,20 +331,12 @@ $lang['circle_selected']			= '已选择';
 $lang['circle_bought_goods_null']	= '您还没有购买过商品。';
 $lang['circle_favorite_goods_null']	= '您还没有收藏过商品。';
 $lang['circle_selected_goods']		= '已选商品';
-$lang['circle_insert_theme']		= '插入到话题';
+$lang['circle_insert_theme']		= '插入到帖子';
 $lang['circle_network_image']		= '网络图片';
-$lang['circle_album_image']			= '相册图片';
 $lang['circle_insert_image_url']	= '输入图片地址';
 $lang['circle_select_image_from_album']	= '从我的相册中选择图片';
 $lang['circle_upload_image_null']	= '您还没有上传过图片';
 $lang['circle_select_image']		= '选择图片';
-
-$lang['circle_goods_link']			= '商品链接';
-$lang['circle_goods_link_tips1']	= '可添加本商城';
-$lang['circle_goods_link_tips2']	= '、淘宝或者天猫';
-$lang['circle_goods_link_tips3']	= '的商品链接';
-$lang['circle_goods_error1']		= '对多只能选自10个商品！';
-$lang['circle_goods_error2']		= '你添加的链接不正确';
 $lang['circle_Insufficient_permissions']	= '权限不足，不能查看话题';
 // 详细页
 $lang['circle_landlord']			= '楼主';

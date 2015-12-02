@@ -61,11 +61,8 @@ $lang['nc_default']					= '默认';
 // manage top
 $lang['circle_basic_setting']		= '设置';
 $lang['circle_member_manage']		= '成员';
-$lang['circle_member_level']		= '头衔';
 $lang['circle_wait_apply']			= '审核';
-$lang['circle_tclass']				= '分类';
 $lang['circle_inform']				= '举报';
-$lang['fcircle']					= '友情圈子';
 $lang['circle_mapply']				= '申请管理';
 $lang['circle_reply_not_exists']	= '回复不存在';
 $lang['circle_manager_shutup_error']= '圈主或管理不能被禁言';

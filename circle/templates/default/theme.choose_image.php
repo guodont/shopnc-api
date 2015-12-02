@@ -2,37 +2,11 @@
 <div class="choose-image">
   <ul class="tabs-nav">
     <li <?php if($_GET['curpage'] == ''){?>class="tabs-selected"<?php }?>><a href="javascript:void(0)"><?php echo $lang['circle_network_image'];?></a></li>
-    <?php if($_GET['type'] != 'm'){?><li <?php if($_GET['curpage'] != ''){?>class="tabs-selected"<?php }?>><a href="javascript:void(0)"><?php echo $lang['circle_album_image'];?></a></li><?php }?>
   </ul>
   <div class="url-image tabs-panel <?php if($_GET['curpage'] != ''){?>tabs-hide<?php }?>">
     <label><i></i><?php echo $lang['circle_insert_image_url'];?></label>
     <input name="" type="text" class="text w400" nctype="imageurl" />
     <div class="handle-bar" style="padding-left:0px;"><a href="Javascript: void(0)" class="button" nctype="imageurl"><?php echo $lang['circle_insert_theme'];?></a></div>
-  </div>
-  <div class="goods-gallery tabs-panel <?php if($_GET['curpage'] == ''){?>tabs-hide<?php }?>">
-    <div class="nav"><i></i><?php echo $lang['circle_select_image_from_album'];?>
-      <select name="jumpMenu" id="jumpMenu" style="width:100px;">
-        <option value="0" style="width:80px;"><?php echo $lang['nc_common_pselect'];?></option>
-        <?php if(!empty($output['class_list'])){?>
-        <?php foreach($output['class_list'] as $val) { ?>
-        <option style="width:80px;" value="<?php echo $val['ac_id']; ?>" <?php if($val['ac_id']==$_GET['class_id']){echo 'selected="selected"';}?>><?php echo $val['ac_name']; ?></option>
-        <?php } ?>
-        <?php }?>
-      </select>
-    </div>
-    <ul class="list">
-      <?php if(!empty($output['pic_list'])){?>
-      <?php foreach ($output['pic_list'] as $v){?>
-      <li><a href="javascript:void(0);" nctype="chooseimage" data-param="{'img':'<?php echo UPLOAD_SITE_URL.DS.ATTACH_MALBUM.DS.$_SESSION['member_id'].DS.$v['ap_cover'];?>'}"><img src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_MALBUM.DS.$_SESSION['member_id'].DS.str_ireplace('.', '_240.', $v['ap_cover']);?>" title='<?php echo $v['ap_name']?>'/>
-      <p class="extra"><?php echo $lang['circle_selected'];?></p>
-      </a></li>
-      <?php }?>
-      <?php }else{?>
-      <span><?php echo $lang['circle_upload_image_null'];?></span>
-      <?php }?>
-    </ul>
-    <div class="ubb-pagination"><?php echo $output['show_page']; ?></div>
-    <div class="handle-bar" style="padding-left:0px;"><a href="Javascript: void(0)" class="button" nctype="imagealbum"><?php echo $lang['circle_insert_theme'];?></a></div>
   </div>
 </div>
 <script>

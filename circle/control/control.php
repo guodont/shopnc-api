@@ -116,13 +116,10 @@ class BaseCircleControl{
     		// 最新加入
     		$data['newest_member'] = Model()->table('circle_member')->where(array('cm_state'=>1, 'circle_id'=>$this->c_id))->order('cm_jointime desc')->limit(5)->select();
 
-    		// 友情圈子
-    		$data['friendship_list'] = Model()->table('circle_fs')->where(array('circle_id'=>$this->c_id, 'friendship_status'=>1))->order('friendship_sort asc')->select();
 	    }
 		Tpl::output('class_info', $data['class_info']);
 		Tpl::output('star_member', $data['star_member']);
 		Tpl::output('newest_member', $data['newest_member']);
-		Tpl::output('friendship_list', $data['friendship_list']);
 	}
 	/**
 	 * 最新话题/热门话题/人气回复
@@ -375,15 +372,13 @@ class BaseCircleManageControl extends BaseCircleControl{
 		Tpl::output('circle_array', $circle_array);
 	}
 	/**
-	 * Top Navigation
+	 * 顶端菜单
 	 */
 	protected  function sidebar_menu($sign, $child_sign=''){
 		$menu = array(
 					'index'=>array('menu_name'=>L('circle_basic_setting'), 'menu_url'=>'index.php?act=manage&c_id='.$this->c_id),
 					'member'=>array('menu_name'=>L('circle_member_manage'), 'menu_url'=>'index.php?act=manage&op=member_manage&c_id='.$this->c_id),
 					'applying'=>array('menu_name'=>L('circle_wait_apply'), 'menu_url'=>'index.php?act=manage&op=applying&c_id='.$this->c_id),
-					'level'=>array('menu_name'=>L('circle_member_level'), 'menu_url'=>'index.php?act=manage_level&op=level&c_id='.$this->c_id),
-					'class'=>array('menu_name'=>L('circle_tclass'), 'menu_url'=>'index.php?act=manage&op=class&c_id='.$this->c_id),
 					'inform'=>array(
 								'menu_name'=>L('circle_inform'),
 								'menu_url'=>'index.php?act=manage_inform&op=inform&c_id='.$this->c_id,
@@ -393,7 +388,6 @@ class BaseCircleManageControl extends BaseCircleControl{
 										),
 							),
 					'managerapply'=>array('menu_name'=>L('circle_mapply'), 'menu_url'=>'index.php?act=manage_mapply&c_id='.$this->c_id),
-					'friendship'=>array('menu_name'=>L('fcircle'), 'menu_url'=>'index.php?act=manage&op=friendship&c_id='.$this->c_id)
 				);
 		if($this->identity == 2){
 			unset($menu['index']);unset($menu['member']);unset($menu['level']);unset($menu['class']);unset($menu['friendship']);

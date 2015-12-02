@@ -32,10 +32,9 @@
       <dl>
         <dt><?php echo $lang['circle_apply_verify'].$lang['nc_colon'];?></dt>
         <dd>
-          <input type="radio" name="c_joinaudit" value="1" <?php if($output['circle_info']['circle_joinaudit'] == 1){?>checked="checked"<?php }?> />
+          <input type="radio" name="c_joinaudit" value="1" checked="checked" <?php if($output['circle_info']['circle_joinaudit'] == 1){?>checked="checked"<?php }?> />
           <h5 class="mr20"><?php echo $lang['nc_yes'];?></h5>
-          <input type="radio" name="c_joinaudit" value="0" <?php if($output['circle_info']['circle_joinaudit'] == 0){?>checked="checked"<?php }?> />
-          <h5><?php echo $lang['nc_no'];?></h5> </dd>
+          <h5>为了保证圈子的良性发展，加入圈子的成员都必须审核</h5> </dd>
       </dl>
       <dl style="border-bottom: none;">
         <dt><?php echo $lang['circle_mapply'].$lang['nc_colon'];?></dt>
