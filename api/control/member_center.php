@@ -94,10 +94,10 @@ class member_centerControl extends apiMemberControl
         }
         //取消关注
         $friend_model = Model('sns_friend');
-        $result = $friend_model->delFriend(array('friend_frommid' => "", 'friend_tomid' => "$mid"));
+        $result = $friend_model->delFriend(array('friend_frommid' => $this->member_id, 'friend_tomid' => $mid));
         if ($result) {
             //更新对方的关注状态
-            $friend_model->editFriend(array('friend_followstate' => '1'), array('friend_frommid' => "$mid", 'friend_tomid' => "$this->member_id"));
+            $friend_model->editFriend(array('friend_followstate' => 1), array('friend_frommid' => $mid, 'friend_tomid' => $this->member_id));
             output_data(array('success' => "取消关注成功"));
         } else {
             output_error("取消关注失败");

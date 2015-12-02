@@ -267,7 +267,7 @@ class point_memberControl extends apiMemberControl
         $cart_goods = array();
         $model_pointcart = Model('pointcart');
         $cart_goods = $model_pointcart->getPCartListAndAmount(array('pmember_id' => $this->member_info['member_id']));
-        output_data(array('cart_list' => $cart_goods));
+        output_data(array('gifts' => $cart_goods));
     }
 
     /**
