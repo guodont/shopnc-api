@@ -218,15 +218,16 @@ class loginControl extends apiHomeControl
         $message	= ncReplaceText($tpl_info['content'],$param);
         $sms = new Sms();
         $result = $sms->send($_GET["mobile"],$message);
-        //echo $message;
         if ($result) {
             $_SESSION['mobile_auth_code']=$verify_code;
             $_SESSION['reg_mobile_code']=$member_mobile;
-            exit(json_encode(array('state'=>'true','msg'=>'发送成功')));
+            echo 1;
+//            exit(json_encode(array('state'=>'true','msg'=>'发送成功')));
         } else {
             $_SESSION['mobile_auth_code']='';
             $_SESSION['reg_mobile_code']='';
-            exit(json_encode(array('state'=>'false','msg'=>'发送失败')));
+            echo 0;
+//            exit(json_encode(array('state'=>'false','msg'=>'发送失败')));
         }
     }
 
@@ -236,21 +237,21 @@ class loginControl extends apiHomeControl
         if($_SESSION['reg_mobile_code']!=trim($_GET['mobile']))
         {
             //手机号码已变动过，请重新填写。
-            echo 'false';
+            echo 0;
             return;
         }
         if($mobile_code=='')
         {
-            echo 'false';
+            echo 0;
             return;
         }
         if($new_code!=$mobile_code)
         {
-            echo 'false';
+            echo 0;
             return;
         } else
         {
-            echo 'true';
+            echo 1;
             return;
         }
     }
