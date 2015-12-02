@@ -193,4 +193,68 @@ class loginControl extends apiHomeControl
             echo '0';
         }
     }
+
+
+    //zmr>>>
+    //发送手机验证码
+    public function sendmbcodeOp(){
+        if(empty($_GET['mobile'])){
+            exit(json_encode(array('state'=>'false','msg'=>'请输入手机号码')));
+        }
+        $member_mobile=trim($_GET['mobile']);
+        $member_model	= Model('member');
+
+        $member	= $member_model->getMemberInfo(array('member_mobile'=>$member_mobile));
+        if(!empty($member)&&$member["member_id"]>0){
+            exit(json_encode(array('state'=>'false','msg'=>'该手机号已被使用，请更换其它手机号')));
+        }
+        $verify_code = rand(1,9).rand(100,999);
+        $model_tpl = Model('mail_templates');
+        $tpl_info = $model_tpl->getTplInfo(array('code'=>'authenticate'));
+        $param = array();
+        $param['site_name']	= C('site_name');
+        $param['send_time'] = date('Y-m-d H:i',TIMESTAMP);
+        $param['verify_code'] = $verify_code;
+        $message	= ncReplaceText($tpl_info['content'],$param);
+        $sms = new Sms();
+        $result = $sms->send($_GET["mobile"],$message);
+        //echo $message;
+        if ($result) {
+            $_SESSION['mobile_auth_code']=$verify_code;
+            $_SESSION['reg_mobile_code']=$member_mobile;
+            exit(json_encode(array('state'=>'true','msg'=>'发送成功')));
+        } else {
+            $_SESSION['mobile_auth_code']='';
+            $_SESSION['reg_mobile_code']='';
+            exit(json_encode(array('state'=>'false','msg'=>'发送失败')));
+        }
+    }
+
+    public function check_mobile_codeOp() {
+        $new_code=$_SESSION['mobile_auth_code'];
+        $mobile_code=$_GET['mobile_code'];
+        if($_SESSION['reg_mobile_code']!=trim($_GET['mobile']))
+        {
+            //手机号码已变动过，请重新填写。
+            echo 'false';
+            return;
+        }
+        if($mobile_code=='')
+        {
+            echo 'false';
+            return;
+        }
+        if($new_code!=$mobile_code)
+        {
+            echo 'false';
+            return;
+        } else
+        {
+            echo 'true';
+            return;
+        }
+    }
+    //zmr<<<
+
+
 }
