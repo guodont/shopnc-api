@@ -103,6 +103,10 @@ class question_answerControl extends apiMemberControl
             $insert['theme_name'] = circleCenterCensor($_POST['name']);
             //  悬赏
             $insert['theme_reward'] = trim($_POST['reward']);
+            //  判断积分
+            if (trim($_POST['reward']) > $this->member_info['member_points']) {
+                output_error("积分超限");
+            }
             $insert['theme_content'] = circleCenterCensor($_POST['content']);
             $insert['circle_id'] = $this->c_id;
             $circle_name = empty($this->circle_info) ? "首页问答" : $this->circle_info['circle_name'];
@@ -151,6 +155,7 @@ class question_answerControl extends apiMemberControl
                     $insert_arr['pl_memberid'] = $this->member_info['member_id'];
                     $insert_arr['pl_membername'] = $this->member_info['member_name'];
                     $insert_arr['pl_points'] = -trim($_POST['reward']);
+                    $insert_arr['pl_stage'] = "问答";
                     $insert_arr['pl_desc'] = L('in') . $circle_name . L('create_question');
                     Model('points')->savePointsLog('adopt', $insert_arr, true);
                 }
@@ -197,9 +202,10 @@ class question_answerControl extends apiMemberControl
 
         //  给被采纳用户金币并记录日志
         $insert_arr = array();
-        $insert_arr['pl_memberid'] = $answer['member_id'];
-        $insert_arr['pl_membername'] = $answer['member_name'];
+        $insert_arr['pl_memberid'] = $this->member_info['member_id'];
+        $insert_arr['pl_membername'] = $this->member_info['member_name'];
         $insert_arr['pl_points'] = $reward_count;
+        $insert_arr['pl_stage'] = "问答";
         $insert_arr['pl_desc'] = $question['member_name'] . " " . L('adopt_my_answer');
         Model('points')->savePointsLog('adopt', $insert_arr, true);
         //  标记被采纳字段 更新问题状态
