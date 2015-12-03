@@ -11,6 +11,7 @@
 use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
+
 //Base::autoload('vendor/autoload');
 class loginControl extends apiHomeControl
 {
@@ -47,7 +48,7 @@ class loginControl extends apiHomeControl
         if (!empty($member_info)) {
             $token = $this->_get_token($member_info['member_id'], $member_info['member_name'], $_POST['client']);
 
-            $imToken = $this->getImToken($member_info['member_id'],$member_info['member_name']);
+            $imToken = $this->getImToken($member_info['member_id'], $member_info['member_name']);
 
             if ($token) {
                 if ($this->isQQLogin()) {
@@ -72,10 +73,10 @@ class loginControl extends apiHomeControl
     }
 
 
-    private function getImToken($uid,$uname)
+    private function getImToken($uid, $uname)
     {
-        $p = new ServerApi('0vnjpoadnw2uz','hg0BUlbxV8a1');
-        $r = $p->getToken($uid,$uname,getMemberAvatarForID($uid));
+        $p = new ServerApi('0vnjpoadnw2uz', 'hg0BUlbxV8a1');
+        $r = $p->getToken($uid, $uname, getMemberAvatarForID($uid));
         //  处理返回的json数据
         $obj = json_decode($r);
         $imToken = $obj->token;
@@ -184,12 +185,9 @@ class loginControl extends apiHomeControl
     {
         $member_model = Model('member');
         $check_member_mobile = $member_model->getMemberInfo(array('member_mobile' => $_GET['mobile']));
-        if (is_array($check_member_mobile) and count($check_member_mobile) > 0)
-        {
+        if (is_array($check_member_mobile) and count($check_member_mobile) > 0) {
             echo '1';
-        }
-        else
-        {
+        } else {
             echo '0';
         }
     }
@@ -197,60 +195,58 @@ class loginControl extends apiHomeControl
 
     //zmr>>>
     //发送手机验证码
-    public function sendmbcodeOp(){
-        if(empty($_GET['mobile'])){
-            exit(json_encode(array('state'=>'false','msg'=>'请输入手机号码')));
+    public function sendmbcodeOp()
+    {
+        if (empty($_GET['mobile'])) {
+            exit(json_encode(array('state' => 'false', 'msg' => '请输入手机号码')));
         }
-        $member_mobile=trim($_GET['mobile']);
-        $member_model	= Model('member');
+        $member_mobile = trim($_GET['mobile']);
+        $member_model = Model('member');
 
-        $member	= $member_model->getMemberInfo(array('member_mobile'=>$member_mobile));
-        if(!empty($member)&&$member["member_id"]>0){
-            exit(json_encode(array('state'=>'false','msg'=>'该手机号已被使用，请更换其它手机号')));
+        $member = $member_model->getMemberInfo(array('member_mobile' => $member_mobile));
+        if (!empty($member) && $member["member_id"] > 0) {
+            exit(json_encode(array('state' => 'false', 'msg' => '该手机号已被使用，请更换其它手机号')));
         }
-        $verify_code = rand(1,9).rand(100,999);
+        $verify_code = rand(1, 9) . rand(100, 999);
         $model_tpl = Model('mail_templates');
-        $tpl_info = $model_tpl->getTplInfo(array('code'=>'authenticate'));
+        $tpl_info = $model_tpl->getTplInfo(array('code' => 'authenticate'));
         $param = array();
-        $param['site_name']	= C('site_name');
-        $param['send_time'] = date('Y-m-d H:i',TIMESTAMP);
+        $param['site_name'] = C('site_name');
+        $param['send_time'] = date('Y-m-d H:i', TIMESTAMP);
         $param['verify_code'] = $verify_code;
-        $message	= ncReplaceText($tpl_info['content'],$param);
+        $message = ncReplaceText($tpl_info['content'], $param);
         $sms = new Sms();
-        $result = $sms->send($_GET["mobile"],$message);
+        $result = $sms->send($_GET["mobile"], $message);
         if ($result) {
-            $_SESSION['mobile_auth_code']=$verify_code;
-            $_SESSION['reg_mobile_code']=$member_mobile;
+            $_SESSION['mobile_auth_code'] = $verify_code;
+            $_SESSION['reg_mobile_code'] = $member_mobile;
             echo 1;
 //            exit(json_encode(array('state'=>'true','msg'=>'发送成功')));
         } else {
-            $_SESSION['mobile_auth_code']='';
-            $_SESSION['reg_mobile_code']='';
+            $_SESSION['mobile_auth_code'] = '';
+            $_SESSION['reg_mobile_code'] = '';
             echo 0;
 //            exit(json_encode(array('state'=>'false','msg'=>'发送失败')));
         }
     }
 
-    public function check_mobile_codeOp() {
-        $new_code=$_SESSION['mobile_auth_code'];
-        $mobile_code=trim($_GET['mobile_code']);
-        if($_SESSION['reg_mobile_code']!=trim($_GET['mobile']))
-        {
+    public function check_mobile_codeOp()
+    {
+        $new_code = $_SESSION['mobile_auth_code'];
+        $mobile_code = trim($_GET['mobile_code']);
+        if ($_SESSION['reg_mobile_code'] != trim($_GET['mobile'])) {
             //手机号码已变动过，请重新填写。
             echo 0;
             return;
         }
-        if($mobile_code=='')
-        {
+        if ($mobile_code == '') {
             echo 0;
             return;
         }
-        if($new_code!=$mobile_code)
-        {
+        if ($new_code != $mobile_code) {
             echo 0;
             return;
-        } else
-        {
+        } else {
             echo 1;
             return;
         }

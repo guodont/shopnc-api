@@ -101,6 +101,8 @@ class question_answerControl extends apiMemberControl
             }
             $insert = array();
             $insert['theme_name'] = circleCenterCensor($_POST['name']);
+            //  悬赏
+            $insert['theme_reward'] = trim($_POST['reward']);
             $insert['theme_content'] = circleCenterCensor($_POST['content']);
             $insert['circle_id'] = $this->c_id;
             $insert['circle_name'] = empty($this->circle_info) ? "首页问答" : $this->circle_info['circle_name'];
@@ -143,11 +145,63 @@ class question_answerControl extends apiMemberControl
                 Model('circle_exp')->saveExp($param);
                 $data['id'] = $questionid;
                 output_data(array('ok' => $data));
+
             } else {
                 output_error("创建失败");
             }
         }
         output_error('request error');
+    }
+
+    /**
+     * POST 采纳回答
+     */
+    public function adoptAnswerOp()
+    {
+        //  获取问题id 回答id
+
+        $question_id = trim($_POST['qid']);
+
+        $reply_id = trim($_POST['rid']);
+
+        if (empty($question_id) || $reply_id) {
+            echo 0;
+            die;
+        }
+
+        $model = Model();
+
+        //  获取问题数据
+        $question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->find();
+
+        //  验证是否本人提问
+        if ($question['member_id'] != $this->member_info['member_id']) {
+            echo 0;
+            die;
+        }
+        //  获取回复数据
+        $answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id))->find();
+
+        //  获取悬赏金币
+        $reward_count = trim($question['theme_reward']);
+
+        //  给被采纳用户金币并记录日志
+        $insert_arr = array();
+        $insert_arr['pl_memberid'] = $answer['member_id'];
+        $insert_arr['pl_membername'] = $answer['member_name'];
+        $insert_arr['pl_points'] = $reward_count;
+        $insert_arr['pl_desc'] = $question['member_name'] . " " . L('adopt_my_answer');
+        Model('points')->savePointsLog('adopt', $insert_arr, true);
+        //  标记被采纳字段
+        $update = array('adopt_state' => 1);
+
+        if ($model->table('circle_threply')->c->where(array('reply_id' => $reply_id))->update($update)) {
+            //  echo 1
+            echo 1;
+            die;
+        }
+
+        echo 0;
     }
 
 

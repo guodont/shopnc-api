@@ -8,3 +8,10 @@ $lang['order_state_send'] = '待收货';
 $lang['order_state_success'] = '交易完成';
 $lang['order_state_eval'] = '已评价';
 
+$lang['adopt'] = '采纳';
+$lang['adopt_my_answer'] = '采纳了回答';
+
+$lang['be'] = '被';
+
+$lang['answer'] = '回答';
+$lang['question'] = '问题';

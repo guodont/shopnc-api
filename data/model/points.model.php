@@ -5,7 +5,6 @@
  *
  *
  *
- 
  */
 defined('InShopNC') or exit('Access Invalid!');
 
@@ -83,6 +82,11 @@ class pointsModel {
 					$insertarr['pl_desc'] = '被邀请人['.$_SESSION['member_name'].']消费';
 				}
 				$insertarr['pl_points'] = $insertarr['rebate_amount'];
+				break;
+			case 'adopt':
+				if (!$insertarr['pl_desc']){
+					$insertarr['pl_desc'] = '回答被采纳';
+				}
 				break;
 			case 'other':
 				break;

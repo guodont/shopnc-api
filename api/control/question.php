@@ -51,7 +51,7 @@ class questionControl extends apiHomeControl
         $c_id = intval($_GET['c_id']);
         if ($type > 0) {
             $where = array();
-            if ($c_id >= 0) {
+            if ($c_id > 0) {
                 $where['circle_id'] = $c_id;
             }
             $where['thclass_id'] = $type;
