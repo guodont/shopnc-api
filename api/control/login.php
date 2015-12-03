@@ -233,7 +233,7 @@ class loginControl extends apiHomeControl
 
     public function check_mobile_codeOp() {
         $new_code=$_SESSION['mobile_auth_code'];
-        $mobile_code=$_GET['mobile_code'];
+        $mobile_code=trim($_GET['mobile_code']);
         if($_SESSION['reg_mobile_code']!=trim($_GET['mobile']))
         {
             //手机号码已变动过，请重新填写。
