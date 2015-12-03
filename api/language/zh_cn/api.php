@@ -12,6 +12,8 @@ $lang['adopt'] = '采纳';
 $lang['adopt_my_answer'] = '采纳了回答';
 
 $lang['be'] = '被';
+$lang['in'] = '在';
+$lang['create_question'] = '发布了问题';
 
 $lang['answer'] = '回答';
 $lang['question'] = '问题';

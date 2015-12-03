@@ -105,7 +105,8 @@ class question_answerControl extends apiMemberControl
             $insert['theme_reward'] = trim($_POST['reward']);
             $insert['theme_content'] = circleCenterCensor($_POST['content']);
             $insert['circle_id'] = $this->c_id;
-            $insert['circle_name'] = empty($this->circle_info) ? "首页问答" : $this->circle_info['circle_name'];
+            $circle_name = empty($this->circle_info) ? "首页问答" : $this->circle_info['circle_name'];
+            $insert['circle_name'] = $thclass_name;
             $insert['thclass_id'] = $thclass_id;
             $insert['thclass_name'] = $thclass_name;
             $insert['member_id'] = $this->member_info['member_id'];
@@ -143,9 +144,18 @@ class question_answerControl extends apiMemberControl
                 $param['type'] = 'release';
                 $param['itemid'] = $questionid;
                 Model('circle_exp')->saveExp($param);
+
+                // Score
+                if (trim($_POST['reward']) > 0) {
+                    $insert_arr = array();
+                    $insert_arr['pl_memberid'] = $this->member_info['member_id'];
+                    $insert_arr['pl_membername'] = $this->member_info['member_name'];
+                    $insert_arr['pl_points'] = -trim($_POST['reward']);
+                    $insert_arr['pl_desc'] = L('in') . $circle_name . L('create_question');
+                    Model('points')->savePointsLog('adopt', $insert_arr, true);
+                }
                 $data['id'] = $questionid;
                 output_data(array('ok' => $data));
-
             } else {
                 output_error("创建失败");
             }
@@ -192,15 +202,16 @@ class question_answerControl extends apiMemberControl
         $insert_arr['pl_points'] = $reward_count;
         $insert_arr['pl_desc'] = $question['member_name'] . " " . L('adopt_my_answer');
         Model('points')->savePointsLog('adopt', $insert_arr, true);
-        //  标记被采纳字段
-        $update = array('adopt_state' => 1);
-
-        if ($model->table('circle_threply')->c->where(array('reply_id' => $reply_id))->update($update)) {
+        //  标记被采纳字段 更新问题状态
+        $update1 = array('adopt_state' => 1);
+        $update2 = array('theme_state' => 1);
+        $update_question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->update($update2);
+        $update_answer = $model->table('circle_threply')->c->where(array('reply_id' => $reply_id))->update($update1);
+        if ($update_answer && $update_question) {
             //  echo 1
             echo 1;
             die;
         }
-
         echo 0;
     }
 
