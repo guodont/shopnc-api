@@ -225,13 +225,12 @@ class question_answerControl extends apiMemberControl
         $update1 = array('adopt_state' => 1);
         $update2 = array('theme_state' => 1);
         $update_question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->update($update2);
-        $update_answer = $model->table('circle_threply')->c->where(array('reply_id' => $reply_id))->update($update1);
+        $update_answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id))->update($update1);
         if ($update_answer && $update_question) {
             //  echo 1
             echo 1;
             die;
         }
-        echo 0;
     }
 
 
