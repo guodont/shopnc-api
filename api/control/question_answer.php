@@ -110,7 +110,7 @@ class question_answerControl extends apiMemberControl
             $insert['theme_content'] = circleCenterCensor($_POST['content']);
             $insert['circle_id'] = $this->c_id;
             $circle_name = empty($this->circle_info) ? "首页问答" : $this->circle_info['circle_name'];
-            $insert['circle_name'] = $thclass_name;
+            $insert['circle_name'] = $circle_name;
             $insert['thclass_id'] = $thclass_id;
             $insert['thclass_name'] = $thclass_name;
             $insert['member_id'] = $this->member_info['member_id'];
@@ -189,8 +189,8 @@ class question_answerControl extends apiMemberControl
         //  获取问题数据
         $question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->find();
 
-        //  验证是否本人提问
-        if ($question['member_id'] != $this->member_info['member_id']) {
+        //  验证是否本人提问 且问题状态为未完成
+        if ($question['member_id'] != $this->member_info['member_id'] && $question['theme_state'] == 0) {
             echo 0;
             die;
         }

@@ -52,9 +52,12 @@ class questionControl extends apiHomeControl
         if ($type > 0) {
             $where = array();
             if ($c_id > 0) {
+                //  圈子问答
                 $where['circle_id'] = $c_id;
+            } else {
+                //  首页问达人、问专家
+                $where['thclass_id'] = $type;
             }
-            $where['thclass_id'] = $type;
             $model = Model();
             if (intval($_GET['cream']) == 1) {
                 $where['is_digest'] = 1;
@@ -68,9 +71,6 @@ class questionControl extends apiHomeControl
                 }
             }
             output_data(array('questions' => $question_list), mobile_page($pageCount));
-        } else {
-            output_error("问题类型id错误");
-            die;
         }
     }
 
@@ -174,7 +174,7 @@ class questionControl extends apiHomeControl
         if ($u_id >= 0) {
             $where['member_id'] = $u_id;
         }
-        $where['thclass_id'] = array('in',$types);
+        $where['thclass_id'] = array('in', $types);
         $model = Model();
         if (intval($_GET['cream']) == 1) {
             $where['is_digest'] = 1;
@@ -202,7 +202,7 @@ class questionControl extends apiHomeControl
         $model = new Model();
         $m_reply = $model->table('circle_threply');
         $where['circle_threply.member_id'] = $_GET['u_id'];
-        $where['circle_theme.thclass_id'] = array('in',$types);
+        $where['circle_theme.thclass_id'] = array('in', $types);
         $reply_info = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
         $pageCount = $m_reply->gettotalpage();
         if (!empty($reply_info)) {
