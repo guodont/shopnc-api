@@ -179,7 +179,7 @@ class question_answerControl extends apiMemberControl
 
         $reply_id = trim($_POST['rid']);
 
-        if (empty($question_id) || $reply_id) {
+        if (empty($question_id) || empty($reply_id)) {
             echo 0;
             die;
         }
@@ -190,7 +190,7 @@ class question_answerControl extends apiMemberControl
         $question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->find();
 
         //  验证是否本人提问
-        if ($question['member_id'] != $this->member_info['member_id']) {
+        if ($question['member_id'] == $this->member_info['member_id']) {
             echo 0;
             die;
         }
