@@ -109,7 +109,7 @@ class question_answerControl extends apiMemberControl
             }
             $insert['theme_content'] = circleCenterCensor($_POST['content']);
             $insert['circle_id'] = $this->c_id;
-            $circle_name = empty($this->circle_info) ? "首页问答" : $this->circle_info['circle_name'];
+            $circle_name = empty($this->circle_info) ? "科研问答" : $this->circle_info['circle_name'];
             $insert['circle_name'] = $circle_name;
             $insert['thclass_id'] = $thclass_id;
             $insert['thclass_name'] = $thclass_name;
@@ -177,25 +177,29 @@ class question_answerControl extends apiMemberControl
         $question_id = trim($_POST['qid']);
         $reply_id = trim($_POST['rid']);
         if (empty($question_id) || empty($reply_id)) {
-            echo 0;die;
+            echo 0;
+            die;
         }
         $model = Model();
         //  获取问题数据
         $question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->find();
         //  验证是否本人提问
         if ($question['member_id'] != $this->member_info['member_id']) {
-            echo 0;die;
+            echo 0;
+            die;
         }
         //  问题状态为未完成
         if ($question['theme_state'] == 1) {
-            echo 0;die;
+            echo 0;
+            die;
         }
         //  获取回复数据
-        $answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id))->find();
+        $answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id, 'theme_id' => $question['theme_id']))->find();
 
         //  验证非本人回答的
         if ($answer['member_id'] == $this->member_info['member_id']) {
-            echo 0;die;
+            echo 0;
+            die;
         }
         //  获取悬赏金币
         $reward_count = trim($question['theme_reward']);
@@ -204,16 +208,17 @@ class question_answerControl extends apiMemberControl
         $insert_arr['pl_memberid'] = $answer['member_id'];
         $insert_arr['pl_membername'] = $answer['member_name'];
         $insert_arr['pl_points'] = $reward_count;
-        $insert_arr['pl_stage'] = "问答";
+        $insert_arr['pl_stage'] = "科研问答";
         $insert_arr['pl_desc'] = $question['member_name'] . " " . L('adopt_my_answer');
         Model('points')->savePointsLog('adopt', $insert_arr, true);
         //  标记被采纳字段 更新问题状态
         $update1 = array('adopt_state' => 1);
         $update2 = array('theme_state' => 1);
         $update_question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->update($update2);
-        $update_answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id))->update($update1);
+        $update_answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id, 'theme_id' => $question_id))->update($update1);
         if ($update_answer && $update_question) {
-            echo 1;die;
+            echo 1;
+            die;
         }
     }
 
