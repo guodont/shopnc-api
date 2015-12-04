@@ -217,6 +217,11 @@ class question_answerControl extends apiMemberControl
         $update_question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->update($update2);
         $update_answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id, 'theme_id' => $question_id))->update($update1);
         if ($update_answer && $update_question) {
+            $jpush = new JPush();
+            $extras = array();
+            $extras['push_type'] = "hasAnswer";
+            $extras['id'] = $question_id;
+            $jpush->pushMessageByAlias($this->member_info['member_name'] . "采纳了你的回答,获得" + $reward_count + "金币", "回答被采纳", $extras, array($answer['member_id']));
             echo 1;
             die;
         }
