@@ -189,11 +189,18 @@ class question_answerControl extends apiMemberControl
         //  获取问题数据
         $question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->find();
 
-        //  验证是否本人提问 且问题状态为未完成
-        if ($question['member_id'] != $this->member_info['member_id'] && $question['theme_state'] == 0) {
+        //  验证是否本人提问
+        if ($question['member_id'] != $this->member_info['member_id']) {
             echo 0;
             die;
         }
+
+        //  问题状态为未完成
+        if ($question['theme_state'] == 1) {
+            echo 0;
+            die;
+        }
+
         //  获取回复数据
         $answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id))->find();
 
