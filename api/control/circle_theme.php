@@ -8,6 +8,7 @@
  */
 
 defined('InShopNC') or exit('Access Invalid!');
+
 class circle_themeControl extends apiBaseCircleThemeControl
 {
 
@@ -136,7 +137,7 @@ class circle_themeControl extends apiBaseCircleThemeControl
         }
         $m_reply = $model->table('circle_threply');
 
-        $reply_info = $m_reply->where($where)->page($this->page)->order('reply_id asc')->select();
+        $reply_info = $m_reply->where($where)->page($this->page)->order('reply_id asc,adopt_state desc')->select();
         $pageCount = $m_reply->gettotalpage();
         $replyid_array = array();
         $memberid_array = array();
