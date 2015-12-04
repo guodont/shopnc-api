@@ -54,7 +54,7 @@ class questionControl extends apiHomeControl
             if ($c_id > 0) {
                 //  圈子问答
                 $where['circle_id'] = $c_id;
-                $where['thclass_id'] = array('in' => array(5, 6));
+                $where['thclass_id'] = array('in', array(5, 6));
             } else {
                 //  首页问达人、问专家
                 $where['thclass_id'] = $type;
