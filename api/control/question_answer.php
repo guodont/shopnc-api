@@ -215,8 +215,8 @@ class question_answerControl extends apiMemberControl
 
         //  给被采纳用户金币并记录日志
         $insert_arr = array();
-        $insert_arr['pl_memberid'] = $this->member_info['member_id'];
-        $insert_arr['pl_membername'] = $this->member_info['member_name'];
+        $insert_arr['pl_memberid'] = $answer['member_id'];
+        $insert_arr['pl_membername'] = $answer['member_name'];
         $insert_arr['pl_points'] = $reward_count;
         $insert_arr['pl_stage'] = "问答";
         $insert_arr['pl_desc'] = $question['member_name'] . " " . L('adopt_my_answer');
