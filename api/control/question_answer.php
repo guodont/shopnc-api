@@ -197,6 +197,12 @@ class question_answerControl extends apiMemberControl
         //  获取回复数据
         $answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id))->find();
 
+        //  验证非本人回答的
+        if ($answer['member_id'] == $this->member_info['member_id']) {
+            echo 0;
+            die;
+        }
+
         //  获取悬赏金币
         $reward_count = trim($question['theme_reward']);
 
