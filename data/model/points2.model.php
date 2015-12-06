@@ -13,7 +13,7 @@ class points2Model extends Model
 
     public function __construct()
     {
-        parent::__construct('points2');
+        parent::__construct('points');
     }
 
     /**
@@ -24,9 +24,9 @@ class points2Model extends Model
      * @param array $field 查询字段
      * @param array $page 分页
      */
-    public function getPointsLogList($condition, $page = 0, $field = '*', $order = 'points_log.pl_id desc', $limit = '')
+    public function getPointsLogList($condition, $page = 0, $field = '*')
     {
-        return $this->table('points_log')->where($condition)->fields($field)->page($page)->order($order)->limit($limit)->select();
+        return $this->table('points_log')->where($condition)->field($field)->page($page)->order('pl_id desc')->select();
     }
 
     /**

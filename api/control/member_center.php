@@ -345,7 +345,9 @@ class member_centerControl extends apiMemberControl
         }
         $favorites_id = rtrim($favorites_id, ',');
 
+
         $model_trade = Model('utrade');
+
         $field = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
         flea_quality,commentnum,goods_price,goods_store_price,goods_click,
         flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
@@ -458,29 +460,11 @@ class member_centerControl extends apiMemberControl
     {
         $condition_arr = array();
         $condition_arr['pl_memberid'] = $this->member_id;
-
-        if ($_GET['stage']) {
-            $condition_arr['pl_stage'] = $_GET['stage'];
-        }
-        $condition_arr['saddtime'] = strtotime($_GET['stime']);
-        $condition_arr['eaddtime'] = strtotime($_GET['etime']);
-        if ($condition_arr['eaddtime'] > 0) {
-            $condition_arr['eaddtime'] += 86400;
-        }
-        $condition_arr['pl_desc_like'] = $_GET['description'];
-
-//        $page	= new Page();
-//        $page->setEachNum(10);
-//        $page->setStyle('admin');
         //查询积分日志列表
-        $points_model = Model();
-//        $list_log = $points_model->getPointsLogList($condition_arr,$page,'*','');
-
-//        $list_log = $points_model->getPointsLogList($condition_arr, $this->page, '*');
-        $list_log = $points_model->table('points_log')->where($condition_arr)->order('pl_id desc')->select();
+        $points_model = Model('points2');
+        $list_log = $points_model->getPointsLogList($condition_arr, $this->page);
         $pageCount = $points_model->gettotalpage();
-
         //信息输出
-        output_data(array('points_log' => $list_log));
+        output_data(array('points_log' => $list_log),mobile_page($pageCount));
     }
 }
