@@ -201,21 +201,34 @@ class question_answerControl extends apiMemberControl
             echo 0;
             die;
         }
+
+
         //  获取悬赏金币
         $reward_count = trim($question['theme_reward']);
+
         //  给被采纳用户金币并记录日志
+
         $insert_arr = array();
+
         $insert_arr['pl_memberid'] = $answer['member_id'];
+
         $insert_arr['pl_membername'] = $answer['member_name'];
+
         $insert_arr['pl_points'] = $reward_count;
+
         $insert_arr['pl_stage'] = "科研问答";
+
         $insert_arr['pl_desc'] = $question['member_name'] . " " . L('adopt_my_answer');
+
         Model('points')->savePointsLog('adopt', $insert_arr, true);
+
         //  标记被采纳字段 更新问题状态
         $update1 = array('adopt_state' => 1);
-        $update2 = array('theme_state' => 1);
+        $update2 = array('theme_state' => 1,'theme_adopt_id'=>$reply_id);
+
         $update_question = $model->table('circle_theme')->where(array('theme_id' => $question_id))->update($update2);
         $update_answer = $model->table('circle_threply')->where(array('reply_id' => $reply_id, 'theme_id' => $question_id))->update($update1);
+
         if ($update_answer && $update_question) {
             $jpush = new JPush();
             $extras = array();
@@ -225,6 +238,7 @@ class question_answerControl extends apiMemberControl
             echo 1;
             die;
         }
+
     }
 
 

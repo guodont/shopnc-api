@@ -441,12 +441,46 @@ class member_centerControl extends apiMemberControl
     public function user_circlesOp()
     {
         $model = Model();
-        $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id, 'cm_state' => array('not in',array(0,2))))->order('cm_jointime desc')->select();
+        $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id, 'cm_state' => array('not in', array(0, 2))))->order('cm_jointime desc')->select();
         if (!empty($cm_list)) {
             $cm_list = array_under_reset($cm_list, 'circle_id');
             $circleid_array = array_keys($cm_list);
             $circle_list = $model->table('circle')->where(array('circle_id' => array('in', $circleid_array)))->select();
         }
         output_data(array('circles' => $circle_list));
+    }
+
+
+    /**
+     * 积分日志列表
+     */
+    public function points_logOp()
+    {
+        $condition_arr = array();
+        $condition_arr['pl_memberid'] = $this->member_id;
+
+        if ($_GET['stage']) {
+            $condition_arr['pl_stage'] = $_GET['stage'];
+        }
+        $condition_arr['saddtime'] = strtotime($_GET['stime']);
+        $condition_arr['eaddtime'] = strtotime($_GET['etime']);
+        if ($condition_arr['eaddtime'] > 0) {
+            $condition_arr['eaddtime'] += 86400;
+        }
+        $condition_arr['pl_desc_like'] = $_GET['description'];
+
+//        $page	= new Page();
+//        $page->setEachNum(10);
+//        $page->setStyle('admin');
+        //查询积分日志列表
+        $points_model = Model();
+//        $list_log = $points_model->getPointsLogList($condition_arr,$page,'*','');
+
+//        $list_log = $points_model->getPointsLogList($condition_arr, $this->page, '*');
+        $list_log = $points_model->table('points_log')->where($condition_arr)->order('pl_id desc')->select();
+        $pageCount = $points_model->gettotalpage();
+
+        //信息输出
+        output_data(array('points_log' => $list_log));
     }
 }

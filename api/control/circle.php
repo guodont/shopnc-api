@@ -266,7 +266,7 @@ class circleControl extends apiHomeControl
         }
         $m_reply = $model->table('circle_threply');
 
-        $reply_info = $m_reply->where($where)->page($this->page)->order('reply_id asc')->select();
+        $reply_info = $m_reply->where($where)->page($this->page)->order('adopt_state desc,reply_id asc')->select();
         $pageCount = $m_reply->gettotalpage();
         $replyid_array = array();
         $memberid_array = array();
