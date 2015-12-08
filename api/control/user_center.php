@@ -258,7 +258,6 @@ class user_centerControl extends apiHomeControl
                 }
             }
         }
-
         return $result;
     }
     function treeArray2($data)

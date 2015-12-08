@@ -18,7 +18,7 @@ class departModel extends Model {
      * @return mixed
      */
     public function getDepartList($condition = array(), $fields = '*',$group = '') {
-        return $this->where($condition)->field($fields)->limit(false)->group($group)->select();
+        return $this->where($condition)->field($fields)->order("depart_deep asc")->limit(false)->group($group)->select();
     }
 
     /**
