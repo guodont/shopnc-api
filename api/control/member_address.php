@@ -157,33 +157,51 @@ class member_addressControl extends apiMemberControl
 
     public function area_list2Op()
     {
-        $area_id = intval($_POST['area_id']);
 
         $model_area = Model('area');
 
         $condition = array();
 
-        if ($area_id > 0) {
-            $condition['area_parent_id'] = $area_id;
-        } else {
-            $condition['area_deep'] = 1;
-        }
+        $counties = $model_area->getAreaList($condition, 'area_id,area_name,area_parent_id,area_deep');
 
-        $areas = array();
+        $aress = $this->treeArray($counties);
 
-        $provinces = $model_area->getAreaList(array('area_deep' => 1), 'area_id,area_name');
+        echo json_encode($aress);
+    }
 
-        $cities = $model_area->getAreaList(array('area_deep' => 2), 'area_id,area_name');
 
-        $counties = $model_area->getAreaList(array('area_deep' => 2), 'area_id,area_name');
+    /**
+     * 生成树数组
+     * @param  $data 从数据库出来select出来的数数组
+     * @return  [{"id":1,"name":"Folder1", "children":[{"id":1,"name":"File1"}] }]
+     * */
+    function treeArray($data)
+    {
+        $result = array();
+        //定义索引数组，用于记录节点在目标数组的位置，类似指针
+        $p = array();
 
-        foreach ($provinces as $key => $val) {
-            foreach ($cities as $key1=>$val1 ) {
-                $areas[$key] =
+        foreach($data as $val)
+        {
+            if($val['area_parent_id'] == 0)
+            {
+                $i = count($result);
+                $result[$i] = isset($p[$val['area_id']])? array_merge($val,$p[$val['area_id']]) : $val;
+                $p[$val['area_id']] = & $result[$i];
+            } else {
+                if($val['area_deep'] == 2) {
+                    $i = count($p[$val['area_parent_id']]['cities']);
+                    $p[$val['area_parent_id']]['cities'][$i] = $val;
+                    $p[$val['area_id']] = & $p[$val['area_parent_id']]['cities'][$i];
+                } elseif ($val['area_deep'] == 3) {
+                    $i = count($p[$val['area_parent_id']]['counties']);
+                    $p[$val['area_parent_id']]['counties'][$i] = $val;
+                    $p[$val['area_id']] = & $p[$val['area_parent_id']]['counties'][$i];
+                }
             }
         }
 
-        output_data(array('area_list' => $provinces));
+        return $result;
     }
 
 }

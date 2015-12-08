@@ -192,4 +192,103 @@ class user_centerControl extends apiHomeControl
         output_data(array('answers' => $reply_info), mobile_page($pageCount));
 
     }
+
+    /**
+     * 获取所有工作单位
+     */
+    public function departsOp()
+    {
+
+        $model_depart = Model('depart');
+
+        $condition = array();
+
+        $counties = $model_depart->getDepartList($condition, 'depart_id,depart_name,depart_parent_id,depart_deep');
+
+        $departs = $this->treeArray1($counties);
+
+        echo json_encode($departs);
+    }
+
+    /**
+     * 获取所有学科类型
+     */
+    public function disciplinesOp()
+    {
+
+        $model_depart = Model('discipline');
+
+        $condition = array();
+
+        $counties = $model_depart->getDepartList($condition, 'discipline_id,discipline_name,discipline_parent_id,discipline_deep');
+
+        $departs = $this->treeArray2($counties);
+
+        echo json_encode($departs);
+    }
+
+
+    /**
+     * 生成树数组
+     * @param  $data 从数据库出来select出来的数数组
+     * @return  [{"id":1,"name":"Folder1", "children":[{"id":1,"name":"File1"}] }]
+     * */
+    function treeArray1($data)
+    {
+        $result = array();
+        //定义索引数组，用于记录节点在目标数组的位置，类似指针
+        $p = array();
+
+        foreach($data as $val)
+        {
+            if($val['depart_parent_id'] == 0)
+            {
+                $i = count($result);
+                $result[$i] = isset($p[$val['depart_id']])? array_merge($val,$p[$val['depart_id']]) : $val;
+                $p[$val['depart_id']] = & $result[$i];
+            } else {
+                if($val['depart_deep'] == 2) {
+                    $i = count($p[$val['depart_parent_id']]['cities']);
+                    $p[$val['depart_parent_id']]['cities'][$i] = $val;
+                    $p[$val['depart_id']] = & $p[$val['depart_parent_id']]['cities'][$i];
+                } elseif ($val['depart_deep'] == 3) {
+                    $i = count($p[$val['depart_parent_id']]['counties']);
+                    $p[$val['depart_parent_id']]['counties'][$i] = $val;
+                    $p[$val['depart_id']] = & $p[$val['depart_parent_id']]['counties'][$i];
+                }
+            }
+        }
+
+        return $result;
+    }
+    function treeArray2($data)
+    {
+        $result = array();
+        //定义索引数组，用于记录节点在目标数组的位置，类似指针
+        $p = array();
+
+        foreach($data as $val)
+        {
+            if($val['discipline_parent_id'] == 0)
+            {
+                $i = count($result);
+                $result[$i] = isset($p[$val['discipline_id']])? array_merge($val,$p[$val['discipline_id']]) : $val;
+                $p[$val['discipline_id']] = & $result[$i];
+            } else {
+                if($val['discipline_deep'] == 2) {
+                    $i = count($p[$val['discipline_parent_id']]['cities']);
+                    $p[$val['discipline_parent_id']]['cities'][$i] = $val;
+                    $p[$val['discipline_id']] = & $p[$val['discipline_parent_id']]['cities'][$i];
+                } elseif ($val['discipline_deep'] == 3) {
+                    $i = count($p[$val['discipline_parent_id']]['counties']);
+                    $p[$val['discipline_parent_id']]['counties'][$i] = $val;
+                    $p[$val['discipline_id']] = & $p[$val['discipline_parent_id']]['counties'][$i];
+                }
+            }
+        }
+
+        return $result;
+    }
+
+
 }

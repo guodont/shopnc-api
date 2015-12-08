@@ -84,4 +84,7 @@ class goods_classControl extends apiHomeControl
             output_data(array('class_list' => $class_list));
         }
     }
+
+
+
 }

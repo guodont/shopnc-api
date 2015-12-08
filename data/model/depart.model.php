@@ -1,15 +1,15 @@
 <?php
 /**
- * 地区模型
+ * 工作单位模型
  *
  
  */
 defined('InShopNC') or exit('Access Invalid!');
 
-class areaModel extends Model {
+class departModel extends Model {
 
     public function __construct() {
-        parent::__construct('area');
+        parent::__construct('member_depart');
     }
 
     /**
@@ -17,7 +17,7 @@ class areaModel extends Model {
      *
      * @return mixed
      */
-    public function getAreaList($condition = array(), $fields = '*',$group = '') {
+    public function getDepartList($condition = array(), $fields = '*',$group = '') {
         return $this->where($condition)->field($fields)->limit(false)->group($group)->select();
     }
 
