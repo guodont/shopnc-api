@@ -50,6 +50,24 @@ class advControl extends apiControl
         output_data(array('advs'=>$advs));
     }
 
-
+    /**
+     * GET 获取广告
+     */
+    public function getAdvOp()
+    {
+        $m_adv = Model('new_adv');
+        $where = array();
+        $where['ap_id'] = trim($_GET['ap_id']);
+        $advs = $m_adv->getList($where, '', '*');
+        foreach ($advs as $key => $val) {
+            $val = $advs[$key]['adv_content'];
+            $pic_content[$key] = $this->mb_unserialize($val);
+            $pic = $pic_content[$key]['adv_pic'];
+            $url = $pic_content[$key]['adv_pic_url'];
+            $advs[$key]['img_url'] = UPLOAD_SITE_URL."/".ATTACH_ADV."/".$pic;
+            $advs[$key]['adv_url'] = $url;
+        }
+        output_data(array('advs'=>$advs));
+    }
 
 }
