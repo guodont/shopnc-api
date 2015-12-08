@@ -207,7 +207,7 @@ class user_centerControl extends apiHomeControl
 
         $departs = $this->treeArray1($counties);
 
-        echo json_encode($departs);
+        echo "\"" + json_encode($departs) + "\"";
     }
 
     /**
