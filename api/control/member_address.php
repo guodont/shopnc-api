@@ -151,7 +151,39 @@ class member_addressControl extends apiMemberControl
             $condition['area_deep'] = 1;
         }
         $area_list = $model_area->getAreaList($condition, 'area_id,area_name');
+
         output_data(array('area_list' => $area_list));
+    }
+
+    public function area_list2Op()
+    {
+        $area_id = intval($_POST['area_id']);
+
+        $model_area = Model('area');
+
+        $condition = array();
+
+        if ($area_id > 0) {
+            $condition['area_parent_id'] = $area_id;
+        } else {
+            $condition['area_deep'] = 1;
+        }
+
+        $areas = array();
+
+        $provinces = $model_area->getAreaList(array('area_deep' => 1), 'area_id,area_name');
+
+        $cities = $model_area->getAreaList(array('area_deep' => 2), 'area_id,area_name');
+
+        $counties = $model_area->getAreaList(array('area_deep' => 2), 'area_id,area_name');
+
+        foreach ($provinces as $key => $val) {
+            foreach ($cities as $key1=>$val1 ) {
+                $areas[$key] =
+            }
+        }
+
+        output_data(array('area_list' => $provinces));
     }
 
 }

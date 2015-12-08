@@ -22,19 +22,19 @@ class fleaModel {
 		$goods_array['member_id']	= $_SESSION['member_id'];
 		$goods_array['member_name'] = $_SESSION['member_name'];
 		$goods_array['goods_image']	= $param['goods_image'];
-		$goods_array['flea_quality']= $param['flea_quality'];
+		$goods_array['flea_Technical_types']= $param['flea_Technical_types'];
 		$goods_array['flea_area_id']= $param['flea_area_id'];
 		$goods_array['flea_area_name']= $param['flea_area_name'];
 		$goods_array['flea_pname']	= $param['flea_pname'];
 		$goods_array['flea_pphone']	= $param['flea_pphone'];
-		$goods_array['goods_tag']	= $param['goods_tag'];
-		$goods_array['goods_price']	= $param['goods_price'];
+		$goods_array['flea_trade_way']	= $param['flea_trade_way'];
+		$goods_array['flea_maturity']	= $param['flea_maturity'];
 		$goods_array['goods_store_price']= $param['goods_store_price'];
 		$goods_array['goods_show']	= $param['goods_show'];
 		$goods_array['goods_commend']= $param['goods_commend'];
+		$goods_array['goods_status']= $param['goods_status'];
 		$goods_array['goods_add_time']= time();
 		$goods_array['goods_body']	= $param['goods_body'];
-		$goods_array['goods_keywords'] = $param['goods_keywords'];
 		$goods_array['goods_description'] = $param['goods_description'];
 		$goods_array['goods_leixing'] = $param['goods_leixing'];
 	

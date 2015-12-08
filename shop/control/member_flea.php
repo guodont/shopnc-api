@@ -132,19 +132,18 @@ class member_fleaControl extends BaseMemberControl{
 			$goods_array['goods_leixing']	= $_POST['goods_leixing'];
 			$goods_array['gc_id']			= $_POST['cate_id'];
 			$goods_array['gc_name']			= $_POST['cate_name'];
-			$goods_array['flea_quality']	= $_POST['sh_quality'];
+			$goods_array['flea_Technical_types']	= $_POST['flea_Technical_types'];
+			$goods_array['flea_trade_way']	= $_POST['flea_trade_way'];
+			$goods_array['flea_maturity']	= $_POST['flea_maturity'];
 			$goods_array['flea_pname']		= $_POST['flea_pname'];
 			$goods_array['flea_area_id']	= $_POST['area_id'];
 			$goods_array['flea_area_name']	= $_POST['area_info'];
 			$goods_array['flea_pphone']		= $_POST['flea_pphone'];
-			$goods_array['goods_tag']		= $_POST['goods_tag'];
-			$goods_array['goods_price']		= $_POST['goods_price'];
 			$goods_array['goods_store_price']= $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
-			$goods_array['goods_show']		= '1';
+			$goods_array['goods_show']		= '0';
 			$goods_array['goods_commend']	= '0';
             $goods_array['goods_body']		= $_POST['g_body'];
-			$goods_array['goods_keywords']		= $_POST['seo_keywords'];
-			$goods_array['goods_description']   = $_POST['seo_description'];
+			$goods_array['goods_description']   = $_POST['goods_description'];
 			$state = $model_store_goods->saveGoods($goods_array);
 			if($state) {
 				/**
@@ -310,19 +309,19 @@ class member_fleaControl extends BaseMemberControl{
 				$goods_array['gc_id']			= $_POST['cate_id'];
 				$goods_array['gc_name']			= $_POST['cate_name'];
 			}
-			$goods_array['flea_quality']	= $_POST['sh_quality'];
+			$goods_array['flea_Technical_types']	= $_POST['flea_Technical_types'];
+			$goods_array['flea_trade_way']	= $_POST['flea_trade_way'];
+			$goods_array['flea_maturity']	= $_POST['flea_maturity'];
 			$goods_array['flea_pname']		= $_POST['flea_pname'];
 			$goods_array['flea_pphone']		= $_POST['flea_pphone'];
 			$goods_array['flea_area_id']	= $_POST['area_id'];
 			$goods_array['flea_area_name']	= $_POST['area_info'];
 			$goods_array['goods_tag']		= $_POST['goods_tag'];
-			$goods_array['goods_price']		= $_POST['goods_price'];
 			$goods_array['goods_store_price']= $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
 			$goods_array['goods_show']		= '1';
 			$goods_array['goods_commend']	= '0';
 			$goods_array['goods_body']		= $_POST['g_body'];
-			$goods_array['goods_keywords']		= $_POST['seo_keywords'];
-			$goods_array['goods_description']   = $_POST['seo_description'];
+			$goods_array['goods_description']   = $_POST['goods_description'];
 			$state = $model_store_goods->updateGoods($goods_array,$goods_id);
 			if($state) {
 				/**

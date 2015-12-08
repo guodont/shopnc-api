@@ -81,15 +81,6 @@ add_spec h2 {padding-left: 10px;}
         </dd>
       </dl>
       <dl>
-        <dt><?php echo $lang['store_goods_index_flea_goods_tag'].$lang['nc_colon'];?></dt>
-        <dd>
-          <p>
-            <input type="text" class="text w400" name="goods_tag" value="<?php echo $output['goods']['goods_tag']; ?>"/>
-          </p>
-          <p class="hint"><?php echo $lang['store_goods_index_flea_multiple_tag'];?></p>
-        </dd>
-      </dl>
-      <dl>
         <dt><?php echo $lang['store_goods_album_flea_goods_pic'].$lang['nc_colon'];?></dt>
         <dd>
           <div class="flea_pic_list">
@@ -142,18 +133,45 @@ add_spec h2 {padding-left: 10px;}
         </dd>
       </dl>
       <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['flea_old_deep'];?>:</dt>
+        <dt class="required"><em class="pngFix"></em><?php echo $lang['flea_jishu_leixing'];?>：</dt>
         <dd>
-          <select name="sh_quality" class="w100">
-            <option value="0"<?php if($output['goods']['flea_quality']=='0'){echo ' selected="selected"';}?>><?php echo $lang['nc_please_choose'];?></option>
-            <option value="1"<?php if($output['goods']['flea_quality']=='1'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_myself'];?></option>
-            <option value="2"<?php if($output['goods']['flea_quality']=='2'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_together'];?></option>
-            <option value="3"<?php if($output['goods']['flea_quality']=='3'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_herself'];?></option>
+          <select name="flea_Technical_types" class="w100">
+            <option value="0"<?php if($output['goods']['flea_Technical_types']=='0'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_unlimit'];?></option>
+            <option value="1"<?php if($output['goods']['flea_Technical_types']=='1'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_faming'];?></option>
+            <option value="2"<?php if($output['goods']['flea_Technical_types']=='2'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_xinxing'];?></option>
+            <option value="3"<?php if($output['goods']['flea_Technical_types']=='3'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_waiguan'];?></option>
+            <option value="4"<?php if($output['goods']['flea_Technical_types']=='4'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_zhuzuoquan'];?></option>
+            <option value="5"<?php if($output['goods']['flea_Technical_types']=='5'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_feizhuanli'];?></option>		
           </select>
         </dd>
       </dl>
       <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['flea_current_area'];?>:</dt>
+        <dt class="required"><em class="pngFix"></em>交易方式：</dt>
+        <dd>
+          <select name="flea_trade_way" class="w100">
+            <option value="0"<?php if($output['goods']['flea_trade_way']=='0'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_unlimit'];?></option>
+            <option value="1"<?php if($output['goods']['flea_trade_way']=='1'){echo ' selected="selected"';}?>>完全转让</option>
+            <option value="2"<?php if($output['goods']['flea_trade_way']=='2'){echo ' selected="selected"';}?>>许可转让</option>
+            <option value="3"<?php if($output['goods']['flea_trade_way']=='3'){echo ' selected="selected"';}?>>技术入股</option>
+            <option value="4"<?php if($output['goods']['flea_trade_way']=='4'){echo ' selected="selected"';}?>>5年独占许可</option>
+          </select>
+        </dd>
+      </dl>
+      <dl>
+        <dt class="required"><em class="pngFix"></em>成熟度：</dt>
+        <dd>
+          <select name="flea_maturity" class="w100">
+            <option value="0"<?php if($output['goods']['flea_maturity']=='0'){echo ' selected="selected"';}?>><?php echo $lang['flea_index_unlimit'];?></option>
+            <option value="1"<?php if($output['goods']['flea_maturity']=='1'){echo ' selected="selected"';}?>>正在研发</option>
+            <option value="2"<?php if($output['goods']['flea_maturity']=='2'){echo ' selected="selected"';}?>>已有样品</option>
+            <option value="3"<?php if($output['goods']['flea_maturity']=='3'){echo ' selected="selected"';}?>>通过小试</option>
+            <option value="4"<?php if($output['goods']['flea_maturity']=='4'){echo ' selected="selected"';}?>>通过中试</option>
+            <option value="5"<?php if($output['goods']['flea_maturity']=='5'){echo ' selected="selected"';}?>>可以量产</option>		
+          </select>
+        </dd>
+      </dl>	  	  
+      <dl>
+        <dt class="required"><em class="pngFix"></em><?php echo $lang['flea_current_area'];?>：</dt>
         <dd>
           <div class="select_add" id="region" style="width:500px;border:1px solide red;">
             <?php if(!empty($output['goods']['flea_area_id'])){?>
@@ -201,21 +219,11 @@ add_spec h2 {padding-left: 10px;}
         </dd>
       </dl>
       <dl>
-        <dt><?php echo $lang['store_goods_index_flea_goods_seo_keywords'].$lang['nc_colon'];?></dt>
-        <dd >
-          <p>
-            <input type="text" class="text w400" name="seo_keywords" value="<?php echo $output['goods']['goods_keywords']; ?>" />
-          </p>
-          <p class="hint"> <?php echo $lang['store_goods_index_goods_seo_keywords_help']; ?></p>
-        </dd>
-      </dl>
-      <dl>
-        <dt><?php echo $lang['store_goods_index_goods_seo_description'].$lang['nc_colon'];?></dt>
+        <dt>简单介绍：</dt>
         <dd>
           <p>
-            <textarea  class="w800" name="seo_description" rows="3" id="remark_input" ><?php echo $output['goods']['goods_description']; ?></textarea>
+            <textarea  class="w800" name="goods_description" rows="3" id="remark_input" ><?php echo $output['goods']['goods_description']; ?></textarea>
           </p>
-          <p class="hint"> <?php echo $lang['store_goods_index_goods_seo_description_help']; ?></p>
         </dd>
       </dl>
       <dl>
@@ -470,11 +478,6 @@ area_id: {
                 minlength  : 5,
                 maxlength  : 30
             },
-            sh_quality : {
-                number   : true,
-                min		 : 1,
-                max		 : 3
-            },
             goods_price    : {
 				required   : true,
                 number     : true
@@ -511,11 +514,6 @@ area_id: {
                 required   : '<?php echo $lang['store_goods_index_flea_goods_name_null'];?>',
                 minlength  : '<?php echo $lang['store_goods_index_flea_title_limit'];?>',
                 maxlength  : '<?php echo $lang['store_goods_index_flea_title_limit'];?>'
-            },
-            sh_quality  : {
-            	number   : '<?php echo $lang['store_goods_index_flea_choose_oldnew'];?>',
-            	min      : '<?php echo $lang['store_goods_index_flea_choose_oldnew'];?>',
-            	max      : '<?php echo $lang['store_goods_index_flea_choose_oldnew'];?>'
             },
             goods_store_price : {
 				required: '<?php echo $lang['store_goods_index_flea_store_price_null'];?>',
