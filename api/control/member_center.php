@@ -469,32 +469,15 @@ class member_centerControl extends apiMemberControl
         output_data(array('points_log' => $list_log), mobile_page($pageCount));
     }
 
-    public function pointshopMInfo($is_return = false)
+    public function pointshopMInfoOp()
     {
-        $model_member = Model('member');
-
         $member_infotmp['member_exppoints'] = intval($this->member_info['member_exppoints']);
-
-        //当前登录会员等级信息
-        $membergrade_info = $model_member->getOneMemberGrade($this->member_info['member_exppoints'], true);
-        $member_info = array_merge($member_infotmp, $membergrade_info);
-        Tpl::output('member_info', $member_info);
-
         //查询已兑换并可以使用的代金券数量
         $model_voucher = Model('voucher');
-        $vouchercount = $model_voucher->getCurrentAvailableVoucherCount($this->member_info['member_id']);
-        Tpl::output('vouchercount', $vouchercount);
-
-        //购物车兑换商品数
-        $pointcart_count = Model('pointcart')->countPointCart($this->member_info['member_id']);
-        Tpl::output('pointcart_count', $pointcart_count);
-
+        $member_infotmp['vouchercount'] = $model_voucher->getCurrentAvailableVoucherCount($this->member_info['member_id']);
         //查询已兑换商品数(未取消订单)
-        $pointordercount = Model('pointorder')->getMemberPointsOrderGoodsCount($this->member_info['member_id']);
-        Tpl::output('pointordercount', $pointordercount);
-        if ($is_return) {
-            return array('member_info' => $member_info, 'vouchercount' => $vouchercount, 'pointcart_count' => $pointcart_count, 'pointordercount' => $pointordercount);
-        }
+        $member_infotmp['pointordercount'] = Model('pointorder')->getMemberPointsOrderGoodsCount($this->member_info['member_id']);
+        output_data(array("scoreMemberInfo" => $member_infotmp));
     }
 
 }
