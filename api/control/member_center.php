@@ -183,7 +183,7 @@ class member_centerControl extends apiMemberControl
         $upload->set('thumb_height', 499);
         $ext = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
         $upload->set('file_name', "avatar_$member_id.$ext");
-        $upload->set('thumb_ext', '_new');
+//        $upload->set('thumb_ext', '_new');
         $upload->set('ifremove', true);
         $upload->set('default_dir', ATTACH_AVATAR);
         if (!empty($_FILES['file']['tmp_name'])) {
@@ -196,10 +196,13 @@ class member_centerControl extends apiMemberControl
             output_error('上传失败，请尝试更换图片格式或小图片');
             die;
         }
+
         $thumb_img = array('newfile' => $upload->thumb_image,
             'height' => get_height(BASE_UPLOAD_PATH . '/' . ATTACH_AVATAR . '/' . $upload->thumb_image),
             'width' => get_width(BASE_UPLOAD_PATH . '/' . ATTACH_AVATAR . '/' . $upload->thumb_image));
 
+//        $avatarfile = BASE_UPLOAD_PATH . DS . ATTACH_AVATAR . DS . "avatar_{$_SESSION['member_id']}.jpg";
+        Model('member')->editMember(array('member_id' => $this->member_id), array('member_avatar' => 'avatar_' . $this->member_id . '.png'));
         output_data(array('avatar' => $upload->thumb_image));
     }
 
