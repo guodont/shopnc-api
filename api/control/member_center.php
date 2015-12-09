@@ -184,13 +184,15 @@ class member_centerControl extends apiMemberControl
         $ext = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
         $upload->set('file_name', "avatar_$member_id.$ext");
         $upload->set('thumb_ext', '');
-        $upload->set('ifremove', true);
+        $upload->set('ifremove', false);
         $upload->set('default_dir', ATTACH_AVATAR);
         if (!empty($_FILES['file']['tmp_name'])) {
             $result = $upload->upfile('file');
             if (!$result) {
                 output_error("上传失败");
                 die;
+            } else {
+                Model('member')->editMember(array('member_id' => $this->member_id), array('member_avatar' => 'avatar_' . $this->member_id . '.png'));
             }
         } else {
             output_error('上传失败，请尝试更换图片格式或小图片');
@@ -202,7 +204,6 @@ class member_centerControl extends apiMemberControl
             'width' => get_width(BASE_UPLOAD_PATH . '/' . ATTACH_AVATAR . '/' . $upload->thumb_image));
 
 //        $avatarfile = BASE_UPLOAD_PATH . DS . ATTACH_AVATAR . DS . "avatar_{$_SESSION['member_id']}.jpg";
-        Model('member')->editMember(array('member_id' => $this->member_id), array('member_avatar' => 'avatar_' . $this->member_id . '.png'));
         output_data(array('avatar' => $upload->thumb_image));
     }
 
