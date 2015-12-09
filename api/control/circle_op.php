@@ -68,7 +68,7 @@ class circle_opControl extends apiBaseCircleControl
             $obj_validate = new Validate();
             $obj_validate->validateparam = array(
                 array("input" => $_POST["name"], "require" => "true", "message" => '话题名称不能为空'),
-                array("input" => $_POST["name"], "validator" => 'Length', "min" => 4, "max" => 30, "message" => '名称长度不符合要求'),
+                array("input" => $_POST["name"], "validator" => 'Length', "min" => 4, "max" => 45, "message" => '名称长度不符合要求'),
                 array("input" => $_POST["themecontent"], "require" => "true", "message" => '话题内容不能为空'),
                 array("input" => $_POST["themecontent"], "validator" => 'Length', "min" => 4, "max" => 2500, "message" => '内容长度不符合要求'),
             );

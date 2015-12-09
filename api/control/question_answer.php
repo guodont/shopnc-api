@@ -90,7 +90,7 @@ class question_answerControl extends apiMemberControl
             $obj_validate = new Validate();
             $obj_validate->validateparam = array(
                 array("input" => $_POST["name"], "require" => "true", "message" => '问题名称不能为空'),
-                array("input" => $_POST["name"], "validator" => 'Length', "min" => 4, "max" => 30, "message" => '名称长度不符合要求'),
+                array("input" => $_POST["name"], "validator" => 'Length', "min" => 4, "max" => 45, "message" => '名称长度不符合要求'),
                 array("input" => $_POST["content"], "require" => "true", "message" => '问题描述不能为空'),
                 array("input" => $_POST["content"], "validator" => 'Length', "min" => 4, "max" => 2500, "message" => '问题描述长度不符合要求'),
             );
