@@ -199,7 +199,8 @@ class member_centerControl extends apiMemberControl
         $thumb_img = array('newfile' => $upload->thumb_image,
             'height' => get_height(BASE_UPLOAD_PATH . '/' . ATTACH_AVATAR . '/' . $upload->thumb_image),
             'width' => get_width(BASE_UPLOAD_PATH . '/' . ATTACH_AVATAR . '/' . $upload->thumb_image));
-        output_data(array('thumb_img' => $thumb_img));
+
+        output_data(array('avatar' => $upload->thumb_image));
     }
 
 

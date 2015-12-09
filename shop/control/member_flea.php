@@ -140,7 +140,7 @@ class member_fleaControl extends BaseMemberControl{
 			$goods_array['flea_area_name']	= $_POST['area_info'];
 			$goods_array['flea_pphone']		= $_POST['flea_pphone'];
 			$goods_array['goods_store_price']= $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
-			$goods_array['goods_show']		= '0';
+			$goods_array['goods_show']		= '1';
 			$goods_array['goods_commend']	= '0';
             $goods_array['goods_body']		= $_POST['g_body'];
 			$goods_array['goods_description']   = $_POST['goods_description'];

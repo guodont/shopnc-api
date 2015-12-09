@@ -140,26 +140,6 @@ class point_memberControl extends apiMemberControl
         output_data(array('gift' => $prodinfo));
     }
 
-    /**
-     *  取消兑换
-     */
-    public function cancel_orderOp()
-    {
-        $pid = intval($_GET['order_id']);
-        if (!$pid) {
-            echo 0;
-            die;
-        }
-        $model_pointorder = Model('pointorder');
-        //取消订单
-        $data = $model_pointorder->cancelPointOrder($pid, $this->member_info['member_id']);
-        if ($data['state']) {
-            echo 1;
-        } else {
-            echo 0;
-            die;
-        }
-    }
 
     /**
      * 代金券列表
@@ -386,6 +366,119 @@ class point_memberControl extends apiMemberControl
             echo 0;
             die;
         }
+    }
+
+
+    /**
+     * 兑换信息列表
+     */
+    public function scoreOrdersOp() {
+        //兑换信息列表
+        $where = array();
+        $where['point_buyerid'] = $this->member_info['member_id'];
+        $model_pointorder = Model('pointorder');
+        $order_list = $model_pointorder->getPointOrderList($where, '*', 10, 0, 'point_orderid desc');
+        $pageCount = $model_pointorder->gettotalpage();
+        $order_idarr = array();
+        $order_listnew = array();
+        if (is_array($order_list) && count($order_list)>0){
+            foreach ($order_list as $k => $v){
+                $order_listnew[$v['point_orderid']] = $v;
+                $order_idarr[] = $v['point_orderid'];
+            }
+        }
+
+        //查询兑换商品
+        if (is_array($order_idarr) && count($order_idarr)>0){
+            $prod_list = $model_pointorder->getPointOrderGoodsList(array('point_orderid'=>array('in',$order_idarr)));
+            if (is_array($prod_list) && count($prod_list)>0){
+                foreach ($prod_list as $v){
+                    if (isset($order_listnew[$v['point_orderid']])){
+                        $order_listnew[$v['point_orderid']]['prodlist'][] = $v;
+                    }
+                }
+            }
+        }
+        output_data(array("score_orders"=>$order_listnew),mobile_page($pageCount));
+    }
+
+
+
+
+    /**
+     *  取消兑换
+     */
+    public function cancel_orderOp()
+    {
+        $pid = intval($_GET['order_id']);
+        if (!$pid) {
+            echo 0;
+            die;
+        }
+        $model_pointorder = Model('pointorder');
+        //取消订单
+        $data = $model_pointorder->cancelPointOrder($pid, $this->member_info['member_id']);
+        if ($data['state']) {
+            echo 1;
+        } else {
+            echo 0;
+            die;
+        }
+    }
+
+    /**
+     * 确认收货
+     */
+    public function receiving_orderOp(){
+        $data = Model('pointorder')->receivingPointOrder($_GET['order_id']);
+        if ($data['state']){
+            echo 1;
+        }else {
+            echo 0;
+        }
+    }
+
+    /**
+     * 兑换信息详细
+     */
+    public function order_infoOp(){
+        $order_id = intval($_GET['order_id']);
+        if ($order_id <= 0){
+            echo 0;
+        }
+        $model_pointorder = Model('pointorder');
+        //查询兑换订单信息
+        $where = array();
+        $where['point_orderid'] = $order_id;
+        $where['point_buyerid'] = $_SESSION['member_id'];
+        $order_info = $model_pointorder->getPointOrderInfo($where);
+        if (!$order_info){
+            showDialog(L('member_pointorder_record_error'),'index.php?act=member_pointorder','error');
+        }
+        //获取订单状态
+        $pointorderstate_arr = $model_pointorder->getPointOrderStateBySign();
+        Tpl::output('pointorderstate_arr',$pointorderstate_arr);
+
+        //查询兑换订单收货人地址
+        $orderaddress_info = $model_pointorder->getPointOrderAddressInfo(array('point_orderid'=>$order_id));
+        Tpl::output('orderaddress_info',$orderaddress_info);
+
+        //兑换商品信息
+        $prod_list = $model_pointorder->getPointOrderGoodsList(array('point_orderid'=>$order_id));
+        Tpl::output('prod_list',$prod_list);
+
+        //物流公司信息
+        if ($order_info['point_shipping_ecode'] != ''){
+            $data = Model('express')->getExpressInfoByECode($order_info['point_shipping_ecode']);
+            if ($data['state']){
+                $express_info = $data['data']['express_info'];
+            }
+            Tpl::output('express_info',$express_info);
+        }
+
+        Tpl::output('order_info',$order_info);
+        Tpl::output('left_show','order_view');
+        Tpl::showpage('member_pointorder_info');
     }
 
 }
