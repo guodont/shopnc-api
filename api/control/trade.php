@@ -14,8 +14,13 @@ class tradeControl extends apiHomeControl
 
     private $where;
 
-    private $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
-        flea_quality,commentnum,goods_price,goods_store_price,
+//    private $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
+//        flea_quality,commentnum,goods_price,goods_store_price,
+//        goods_click,flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
+//        flea_pname,flea_pphone,goods_status,goods_leixing";
+//
+    private $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,flea_maturity,
+        flea_Technical_types,commentnum,flea_trade_way,goods_store_price,
         goods_click,flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
         flea_pname,flea_pphone,goods_status,goods_leixing";
 

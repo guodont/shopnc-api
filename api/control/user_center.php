@@ -207,7 +207,21 @@ class user_centerControl extends apiHomeControl
 
         $departs = $this->treeArray1($counties);
 
-        echo "\"" + json_encode($departs) + "\"";
+        echo json_encode($departs);
+
+//        header("Content-Type: application/octet-stream");
+//
+//        $filename = "address.txt";
+//        $encoded_filename = urlencode($filename);
+//        $encoded_filename = str_replace("+", "%20", $encoded_filename);
+//
+//        if (preg_match("/MSIE/", $_SERVER['HTTP_USER_AGENT']) ) {
+//            header('Content-Disposition:  attachment; filename="' . $encoded_filename . '"');
+//        } elseif (preg_match("/Firefox/", $_SERVER['HTTP_USER_AGENT'])) {
+//            header('Content-Disposition: attachment; filename*="' .  $filename . '"');
+//        } else {
+//            header('Content-Disposition: attachment; filename="' .  $filename . '"');
+//        }
     }
 
     /**
@@ -225,6 +239,8 @@ class user_centerControl extends apiHomeControl
         $departs = $this->treeArray2($counties);
 
         echo json_encode($departs);
+
+
     }
 
 
