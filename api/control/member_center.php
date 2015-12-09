@@ -183,7 +183,7 @@ class member_centerControl extends apiMemberControl
         $upload->set('thumb_height', 499);
         $ext = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
         $upload->set('file_name', "avatar_$member_id.$ext");
-//        $upload->set('thumb_ext', '_new');
+        $upload->set('thumb_ext', '');
         $upload->set('ifremove', true);
         $upload->set('default_dir', ATTACH_AVATAR);
         if (!empty($_FILES['file']['tmp_name'])) {
