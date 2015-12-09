@@ -123,6 +123,14 @@ class member_disciplineControl extends SystemControl{
 				$insert_array['discipline_sort'] = $_POST['discipline_sort'];
 				$insert_array['discipline_show'] = $_POST['discipline_show'];
 				
+				if ($_POST['discipline_parent_id'] == 0){
+                $insert_array['discipline_deep'] = 1;
+				}
+				else{
+	        	$result_deep = $model_discipline->getOnedisciplineClass($_POST['discipline_parent_id']);
+				$insert_array['discipline_deep'] = $result_deep['discipline_deep']+1;
+				}				
+				
 				$result = $model_discipline->add($insert_array);
 				if ($result){
 					$url = array(
@@ -183,6 +191,14 @@ class member_disciplineControl extends SystemControl{
 				$update_array['discipline_parent_id'] = $_POST['discipline_parent_id'];
 				$update_array['discipline_sort'] = $_POST['discipline_sort'];
 				$update_array['discipline_show'] = $_POST['discipline_show'];
+
+				if ($_POST['discipline_parent_id'] == 0){
+                $update_array['discipline_deep'] = 1;
+				}
+				else{
+	        	$result_deep = $model_discipline->getOnedisciplineClass($_POST['discipline_parent_id']);
+				$update_array['discipline_deep'] = $result_deep['discipline_deep']+1;
+				}	
 				
 				$result = $model_discipline->update($update_array);
 				if ($result){

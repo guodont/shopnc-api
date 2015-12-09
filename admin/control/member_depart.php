@@ -166,6 +166,14 @@ class member_departControl extends SystemControl{
 				$insert_array['depart_show'] = $_POST['depart_show'];
 				$insert_array['depart_manage'] = $_POST['depart_manage'];
 				
+				if ($_POST['depart_parent_id'] == 0){
+                $insert_array['depart_deep'] = 1;
+				}
+				else{
+	        	$result_deep = $model_class->getOneGoodsClass($_POST['depart_parent_id']);
+				$insert_array['depart_deep'] = $result_deep['depart_deep']+1;
+				}
+				
 				$result = $model_class->add($insert_array);
 				if ($result){
 					$url = array(
@@ -227,6 +235,14 @@ class member_departControl extends SystemControl{
 				$update_array['depart_sort'] = $_POST['depart_sort'];
 				$update_array['depart_show'] = $_POST['depart_show'];
 				$update_array['depart_manage'] = $_POST['depart_manage'];
+				
+				if ($_POST['depart_parent_id'] == 0){
+                $update_array['depart_deep'] = 1;
+				}
+				else{
+	        	$result_deep = $model_class->getOneGoodsClass($_POST['depart_parent_id']);
+				$update_array['depart_deep'] = $result_deep['depart_deep']+1;
+				}				
 				
 				$result = $model_class->update($update_array);
 				if ($result){
