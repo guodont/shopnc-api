@@ -219,22 +219,22 @@ class point_memberControl extends apiMemberControl
         $vid = intval($_POST['vid']);
 
         if ($vid <= 0) {
-            output_error("代金券id错误");
+            echo 0;
             die;
         }
         $model_voucher = Model('voucher');
         //验证是否可以兑换代金券
         $data = $model_voucher->getCanChangeTemplateInfo($vid, intval($this->member_info['member_id']), intval($_POST['store_id']));
         if ($data['state'] == false) {
-            output_error("不可以兑换");
+            echo 0;
             die;
         }
         //添加代金券信息
         $data = $model_voucher->exchangeVoucher($data['info'], $this->member_info['member_id'], $this->member_info['member_name']);
         if ($data['state'] == true) {
-            output_data("兑换成功");
+            echo 1;
         } else {
-            output_error("兑换失败");
+            echo 0;
             die;
         }
     }
