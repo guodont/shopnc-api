@@ -42,20 +42,7 @@
     <input type="hidden" name="yuyue_id" value="<?php echo $output['service_yuyue_array']['yuyue_id'];?>" />
     <input type="hidden" name="ref_url" value="<?php echo getReferer();?>" />
     <table class="table tb-type2">
-      <tbody>
-        <tr>
-          <td colspan="2" class="required"><label class="validation" for="yuyue_company_id">服务单位:</label></td>
-        </tr>
-        <tr class="noborder">
-          <td class="vatop rowform"><select name="yuyue_company_id" id="yuyue_company_id">
-              <?php if(!empty($output['company_list']) && is_array($output['company_list'])){ ?>
-              <?php foreach($output['company_list'] as $k => $v){ ?>
-              <option <?php if($output['company_array']['company_id'] == $v['yuyue_company_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['company_id'];?>"><?php echo $v['company_title'];?></option>
-              <?php } ?>
-              <?php } ?>
-            </select></td>
-          <td class="vatop tips"></td>
-        </tr>		
+      <tbody>	
 		<?php if($output['service_yuyue_array']['yuyue_pay_status']==0){ ?>					
         <tr>
           <td colspan="2" class="required"><label for="serviceform">合同单号</label></td>

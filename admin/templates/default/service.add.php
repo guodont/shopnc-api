@@ -104,7 +104,7 @@
           <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_abstract'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td colspan="2"><textarea name="service_abstract" cols="110" rows="5" id="service_abstract"></textarea></td>
+          <td colspan="2"><textarea name="service_abstract" style="height:200px; width:690px;"cols="110" rows="50" id="service_abstract"></textarea></td>
         </tr>		
         <tr>
           <td colspan="2" class="required"><label class="validation"><?php echo $lang['service_content'];?>:</label></td>

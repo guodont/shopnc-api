@@ -740,7 +740,7 @@ class serviceControl extends SystemControl{
 			}else {
 
 				$update_array = array();
-				$update_array['yuyue_company_id'] = intval($_POST['yuyue_company_id']);
+				$update_array['yuyue_id'] = intval($_POST['yuyue_id']);				
 				$update_array['yuyue_status'] = intval($_POST['yuyue_status']);			
 				$update_array['yuyue_order_number'] = trim($_POST['yuyue_order_number']);
 				$update_array['yuyue_pay_status'] = 1;
@@ -757,9 +757,9 @@ class serviceControl extends SystemControl{
 						),
 					);
 					$this->log(L('service_edit_succ').'['.$_POST['yuyue_title'].']',null);
-					showMessage($lang['service_edit_succ'],$url);
+					showMessage($lang['service_yuyue_edit_success'],$url);
 				}else {
-					showMessage($lang['service_edit_succ']);
+					showMessage($lang['service_yuyue_edit_fail']);
 				}
 			}
 		}
@@ -769,21 +769,9 @@ class serviceControl extends SystemControl{
 			showMessage($lang['param_error']);
 		}
 		
-		/**
-		 * 取服务单位
-		*/
-		$model_company = Model('company');
-		$company_list = $model_company->getcompanyList($condition);
-		$tmp_company_name = array();
-		if (is_array($company_list)){
-			foreach ($company_list as $k => $v){
-		    $tmp_company_name[$v['company_id']] = $v['company_title'];
-			}
-		}
 
 		Tpl::output('PHPSESSID',session_id());
 		Tpl::output('service_yuyue_array',$service_yuyue_array);
-		Tpl::output('company_list',$company_list);		
 		Tpl::showpage('service_yuyue.edit');
 	}	
 
