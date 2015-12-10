@@ -394,8 +394,8 @@ class point_memberControl extends apiMemberControl
             if (is_array($prod_list) && count($prod_list)>0){
                 foreach ($prod_list as $v){
                     if (isset($order_listnew[$v['point_orderid']])){
-//                        $order_listnew['point_orderid']['prodlist'][] = $v;
-                        $order_listnew['prodlist'][] = $v;
+                        $order_listnew[]['prodlist'][] = $v;
+//                        $order_listnew['prodlist'][] = $v;
                     }
                 }
             }
