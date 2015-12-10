@@ -475,7 +475,7 @@ class member_centerControl extends apiMemberControl
 
     public function pointshopMInfoOp()
     {
-        $member_infotmp['member_exppoints'] = intval($this->member_info['member_exppoints']);
+        $member_infotmp['member_exppoints'] = intval($this->member_info['member_points']);
         //查询已兑换并可以使用的代金券数量
         $model_voucher = Model('voucher');
         $member_infotmp['vouchercount'] = $model_voucher->getCurrentAvailableVoucherCount($this->member_info['member_id']);
