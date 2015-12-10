@@ -36,6 +36,20 @@
           <td class="vatop tips"></td>
         </tr>
         <tr>
+          <td colspan="2" class="required"><label class="validation" for="cate_id">服务单位:</label></td>
+        </tr>		
+        <tr class="noborder">
+          <td class="vatop rowform"><select name="depart_id" id="depart_id">
+              <option value=""><?php echo $lang['nc_please_choose'];?>...</option>
+              <?php if(!empty($output['depart_list']) && is_array($output['depart_list'])){ ?>
+              <?php foreach($output['depart_list'] as $k => $v){ ?>
+              <option <?php if($output['depart_id'] == $v['depart_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['depart_id'];?>"><?php echo $v['depart_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select></td>
+          <td class="vatop tips"></td>
+        </tr>		
+        <tr>
           <td colspan="2" class="required"><label for="serviceform"><?php echo $lang['service_price'];?>:</label></td>
         </tr>
         <tr class="noborder">
