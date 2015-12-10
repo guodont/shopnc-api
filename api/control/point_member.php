@@ -383,7 +383,7 @@ class point_memberControl extends apiMemberControl
         $order_listnew = array();
         if (is_array($order_list) && count($order_list)>0){
             foreach ($order_list as $k => $v){
-                $order_listnew[$v['point_orderid']] = $v;
+                $order_listnew[] = $v;
                 $order_idarr[] = $v['point_orderid'];
             }
         }
