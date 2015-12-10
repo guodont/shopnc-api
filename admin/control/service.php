@@ -354,6 +354,17 @@ class serviceControl extends SystemControl{
 			}
 		}
 		/**
+		 * 单位列表
+		 */
+		$model_depart = Model('member_depart');
+		$depart_list = $model_depart->getTreedepartList(2);
+		if (is_array($depart_list)){
+			$unset_sign = false;
+			foreach ($depart_list as $k => $v){
+				$depart_list[$k]['depart_name'] = str_repeat("&nbsp;",$v['deep']*2).$v['depart_name'];
+			}
+		}		
+		/**
 		 * 保存
 		 */
 		if (chksubmit()){
@@ -379,6 +390,7 @@ class serviceControl extends SystemControl{
 				$insert_array = array();
 				$insert_array['service_name'] = trim($_POST['service_name']);
 				$insert_array['gc_id'] = intval($_POST['gc_id']);
+				$insert_array['depart_id'] = intval($_POST['depart_id']);
 				$insert_array['service_price'] = trim($_POST['service_price']);
 				$insert_array['service_now_price'] = trim($_POST['service_now_price']);
 				$insert_array['service_show'] = trim($_POST['service_show']);
@@ -441,6 +453,7 @@ class serviceControl extends SystemControl{
 		Tpl::output('PHPSESSID',session_id());
 		Tpl::output('gc_id',intval($_GET['gc_id']));
 		Tpl::output('class_list',$class_list);
+		Tpl::output('depart_list',$depart_list);
 		Tpl::output('file_upload',$file_upload);		
         Tpl::showpage('service.add');
     }
@@ -451,6 +464,29 @@ class serviceControl extends SystemControl{
 	public function service_editOp(){
 		$lang	 = Language::getLangContent();
 		$model_service = Model('service');
+
+		/**
+		 * 取单位分类
+		*/
+		$model_class = Model('company_class');
+		$class_list = $model_class->getClassList($condition);
+		$tmp_class_name = array();
+		if (is_array($class_list)){
+			foreach ($class_list as $k => $v){
+		    $tmp_class_name[$v['class_id']] = $v['class_name'];
+			}
+		}
+		/**
+		 * 单位列表
+		 */
+		$model_depart = Model('member_depart');
+		$depart_list = $model_depart->getTreedepartList(2);
+		if (is_array($depart_list)){
+			$unset_sign = false;
+			foreach ($depart_list as $k => $v){
+				$depart_list[$k]['depart_name'] = str_repeat("&nbsp;",$v['deep']*2).$v['depart_name'];
+			}
+		}		
 
 		if (chksubmit()){
 			/**
@@ -471,8 +507,10 @@ class serviceControl extends SystemControl{
 			}else {
 
 				$update_array = array();
+				$update_array['service_id'] = intval($_POST['service_id']);				
 				$update_array['service_name'] = trim($_POST['service_name']);
 				$update_array['gc_id'] = intval($_POST['gc_id']);
+				$update_array['depart_id'] = intval($_POST['depart_id']);				
 				$update_array['service_price'] = trim($_POST['service_price']);
 				$update_array['service_now_price'] = trim($_POST['service_now_price']);
 				$update_array['service_show'] = trim($_POST['service_show']);
@@ -514,7 +552,7 @@ class serviceControl extends SystemControl{
 					$this->log(L('service_edit_succ').'['.$_POST['service_name'].']',null);
 					showMessage($lang['service_edit_succ'],$url);
 				}else {
-					showMessage($lang['service_edit_succ']);
+					showMessage($lang['service_edit_fail']);
 				}
 			}
 		}
@@ -523,17 +561,7 @@ class serviceControl extends SystemControl{
 		if (empty($service_array)){
 			showMessage($lang['param_error']);
 		}
-		/**
-		 * 取单位分类
-		*/
-		$model_class = Model('company_class');
-		$class_list = $model_class->getClassList($condition);
-		$tmp_class_name = array();
-		if (is_array($class_list)){
-			foreach ($class_list as $k => $v){
-		    $tmp_class_name[$v['class_id']] = $v['class_name'];
-			}
-		}
+	
 		/**
 		 * 模型实例化
 		 */
@@ -550,6 +578,7 @@ class serviceControl extends SystemControl{
 		Tpl::output('PHPSESSID',session_id());
 		Tpl::output('file_upload',$file_upload);
 		Tpl::output('class_list',$class_list);
+		Tpl::output('depart_list',$depart_list);		
 		Tpl::output('service_array',$service_array);
 		Tpl::showpage('service.edit');
 	}

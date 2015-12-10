@@ -66,15 +66,12 @@ $lang['service_add_shangpin_null']	= '支付链接不能为空';
 /**
  * 单位编辑
  */
-$lang['service_edit_back_to_list']	= '返回单位列表';
-$lang['service_edit_edit_again']	= '重新编辑该单位';
-$lang['service_edit_succ']			= '编辑单位成功';
-$lang['service_edit_succ']			= '编辑单位失败';
+$lang['service_edit_back_to_list']	= '返回服务列表';
+$lang['service_edit_edit_again']	= '重新编辑该服务';
+$lang['service_edit_succ']			= '编辑服务成功';
+$lang['service_edit_fail']			= '编辑服务失败';
 
 /**
  * 服务预约
  */
 $lang['yuyue_status']	= '预约服务状态不能为空';
-$lang['service_edit_edit_again']	= '重新编辑该单位';
-$lang['service_edit_succ']			= '编辑单位成功';
-$lang['service_edit_succ']			= '编辑单位失败';

@@ -310,7 +310,7 @@ class point_memberControl extends apiMemberControl
         //获取符合条件的兑换礼品和总积分
         $data = $model_pointcart->getCartGoodsList($this->member_info['member_id']);
         if (!$data['state']) {
-            output_error("操作失败");
+            echo 0;
             die;
         }
         $pointprod_arr = $data['data'];
@@ -319,7 +319,7 @@ class point_memberControl extends apiMemberControl
         //验证积分数是否足够
         $data = $model_pointcart->checkPointEnough($pointprod_arr['pgoods_pointall'], $this->member_info['member_id']);
         if (!$data['state']) {
-            output_error("操作失败");
+            echo 0;
             die;
         }
         unset($data);
@@ -327,13 +327,15 @@ class point_memberControl extends apiMemberControl
         //创建兑换订单
         $data = Model('pointorder')->createOrder($_POST, $pointprod_arr, array('member_id' => $this->member_info['member_id'], 'member_name' => $this->member_info['member_name'], 'member_email' => $this->member_info['member_email']));
         if (!$data['state']) {
-            output_error("操作失败");
+            echo 0;
+
             die;
         }
         $order_id = $data['data']['order_id'];
 
         if ($order_id <= 0) {
-            output_error("操作失败");
+            echo 0;
+
             die;
         }
         $where = array();
@@ -341,7 +343,7 @@ class point_memberControl extends apiMemberControl
         $where['point_buyerid'] = $this->member_info['member_id'];
         $order_info = Model('pointorder')->getPointOrderInfo($where);
         if (!$order_info) {
-            output_error("操作失败");
+            echo 0;
             die;
         }
         output_data(array('exchange_order' => $order_info));

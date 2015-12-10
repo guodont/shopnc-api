@@ -5,8 +5,8 @@
     <div class="item-title">
       <h3>服务管理</h3>
       <ul class="tab-base">
-        <li><a href="../../control/index.php?act=service&op=service"><span><?php echo $lang['nc_manage'];?></span></a></li>
-        <li><a href="../../control/index.php?act=service&op=service_add"><span><?php echo $lang['nc_new'];?></span></a></li>
+        <li><a href="index.php?act=service&op=service"><span><?php echo $lang['nc_manage'];?></span></a></li>
+        <li><a href="index.php?act=service&op=service_add"><span><?php echo $lang['nc_new'];?></span></a></li>
         <li><a href="JavaScript:void(0);" class="current"><span><?php echo $lang['nc_edit'];?></span></a></li>
       </ul>
     </div>
@@ -19,10 +19,10 @@
     <table class="table tb-type2">
       <tbody>
         <tr class="noborder">
-          <td colspan="2" class="required"><label class="validation" for="service_title"><?php echo $lang['service_name'];?>:</label></td>
+          <td colspan="2" class="required"><label class="validation" for="service_name"><?php echo $lang['service_name'];?>:</label></td>
         </tr>
         <tr class="noborder">
-          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_name'];?>" name="service_title" id="service_title" class="txt"></td>
+          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_name'];?>" name="service_name" id="service_name" class="txt"></td>
           <td class="vatop tips"></td>
         </tr>
         <tr>
@@ -39,6 +39,20 @@
             </select></td>
           <td class="vatop tips"></td>
         </tr>
+        <tr>
+          <td colspan="2" class="required"><label class="validation" for="cate_id">服务单位:</label></td>
+        </tr>		
+        <tr class="noborder">
+          <td class="vatop rowform"><select name="depart_id" id="depart_id">
+              <option value=""><?php echo $lang['nc_please_choose'];?>...</option>
+              <?php if(!empty($output['depart_list']) && is_array($output['depart_list'])){ ?>
+              <?php foreach($output['depart_list'] as $k => $v){ ?>
+              <option <?php if($output['service_array']['depart_id'] == $v['depart_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['depart_id'];?>"><?php echo $v['depart_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select></td>
+          <td class="vatop tips"></td>
+        </tr>			
         <tr>
           <td colspan="2" class="required"><label for="serviceform"><?php echo $lang['service_price'];?>:</label></td>
         </tr>
@@ -165,7 +179,7 @@ $(document).ready(function(){
 			error.appendTo(element.parent().parent().prev().find('td:first'));
         },
         rules : {
-            service_title : {
+            service_name : {
                 required   : true
             },
 			gc_id : {
@@ -194,7 +208,7 @@ $(document).ready(function(){
             }		
         },
         messages : {
-            service_title : {
+            service_name : {
                 required   : '<?php echo $lang['service_name_null'];?>'
             },
 			gc_id : {
