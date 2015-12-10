@@ -21,6 +21,12 @@ class exppointsControl extends SystemControl{
 		    $exp_arr['exp_comments'] = intval($_POST['exp_comments'])?$_POST['exp_comments']:0;
 		    $exp_arr['exp_orderrate'] = intval($_POST['exp_orderrate'])?$_POST['exp_orderrate']:0;
 		    $exp_arr['exp_ordermax'] = intval($_POST['exp_ordermax'])?$_POST['exp_ordermax']:0;
+		    $exp_arr['circle_exprelease'] = intval($_POST['c_exprelease'])?$_POST['c_exprelease']:0;
+		    $exp_arr['circle_expreply'] = intval($_POST['c_expreply'])?$_POST['c_expreply']:0;
+		    $exp_arr['circle_expreleasemax'] = intval($_POST['c_expreleasemax'])?$_POST['c_expreleasemax']:0;
+		    $exp_arr['circle_expreplied'] = intval($_POST['c_expreplied'])?$_POST['c_expreplied']:0;
+		    $exp_arr['circle_exprepliedmax'] = intval($_POST['c_exprepliedmax'])?$_POST['c_exprepliedmax']:0;
+			
 			$result = $model_setting->updateSetting(array('exppoints_rule'=>serialize($exp_arr)));
 			if ($result === true){
 				$this->log(L('nc_edit,nc_exppoints_manage,nc_exppoints_setting'),1);

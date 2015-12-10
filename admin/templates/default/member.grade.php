@@ -26,7 +26,7 @@
   </table>
   <form method="post" id="mg_form" name="mg_form" enctype="multipart/form-data">
     <input type="hidden" name="form_submit" value="ok" />          
-    <table class="table tb-type2">
+    <table class="table tb-type2 ">
         <thead>
           <tr class="thead">
             <th colspan="5">会员级别设置：</th>
@@ -36,26 +36,50 @@
           </tr>
           <tr class="thead">
             <th class="align-center">级别</th>
-            <th class="align-left">经验值</th>
+            <th class="align-center">经验值</th>
           </tr>
         </thead>
         <tbody id="mg_tbody">
             <tr id="row_0">
         		<td class="w108 align-center">V0</td>
-        		<td class="align-left"><input type="text" name="mg[0][exppoints]" value="<?php echo $output['list_setting']['member_grade'][0]['exppoints'];?>" class="w60" readonly/></td>
+        		<td class="align-center"><input type="text" name="mg[0][exppoints]" value="<?php echo $output['list_setting']['member_grade'][0]['exppoints'];?>" readonly/></td>
         	</tr>
         	<tr id="row_1">
         		<td class="w108 align-center">V1</td>
-        		<td class="align-left"><input type="text" name="mg[1][exppoints]" value="<?php echo $output['list_setting']['member_grade'][1]['exppoints'];?>" class="w60" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        		<td class="align-center"><input type="text" name="mg[1][exppoints]" value="<?php echo $output['list_setting']['member_grade'][1]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
         	</tr>
         	<tr id="row_2">
         		<td class="w108 align-center">V2</td>
-        		<td class="align-left"><input type="text" name="mg[2][exppoints]" value="<?php echo $output['list_setting']['member_grade'][2]['exppoints'];?>" class="w60" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        		<td class="align-center"><input type="text" name="mg[2][exppoints]" value="<?php echo $output['list_setting']['member_grade'][2]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
         	</tr>
         	<tr id="row_3">
         		<td class="w108 align-center">V3</td>
-        		<td class="align-left"><input type="text" name="mg[3][exppoints]" value="<?php echo $output['list_setting']['member_grade'][3]['exppoints'];?>" class="w60" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        		<td class="align-center"><input type="text" name="mg[3][exppoints]" value="<?php echo $output['list_setting']['member_grade'][3]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
         	</tr>
+        	<tr id="row_4">
+        		<td class="w108 align-center">V4</td>
+        		<td class="align-center"><input type="text" name="mg[4][exppoints]" value="<?php echo $output['list_setting']['member_grade'][4]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        	</tr>
+        	<tr id="row_5">
+        		<td class="w108 align-center">V5</td>
+        		<td class="align-center"><input type="text" name="mg[5][exppoints]" value="<?php echo $output['list_setting']['member_grade'][5]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        	</tr>
+        	<tr id="row_6">
+        		<td class="w108 align-center">V6</td>
+        		<td class="align-center"><input type="text" name="mg[6][exppoints]" value="<?php echo $output['list_setting']['member_grade'][6]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        	</tr>
+        	<tr id="row_7">
+        		<td class="w108 align-center">V7</td>
+        		<td class="align-center"><input type="text" name="mg[7][exppoints]" value="<?php echo $output['list_setting']['member_grade'][7]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        	</tr>
+        	<tr id="row_8">
+        		<td class="w108 align-center">V8</td>
+        		<td class="align-center"><input type="text" name="mg[8][exppoints]" value="<?php echo $output['list_setting']['member_grade'][8]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        	</tr>
+        	<tr id="row_9">
+        		<td class="w108 align-center">V9</td>
+        		<td class="align-center"><input type="text" name="mg[9][exppoints]" value="<?php echo $output['list_setting']['member_grade'][9]['exppoints'];?>" nc_type="verify" data-param='{"name":"经验值","type":"int"}'/></td>
+        	</tr>						
         </tbody>
         <tfoot>
         	<tr>

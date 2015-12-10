@@ -46,7 +46,6 @@ class member_orderControl extends apiMemberControl
             $value['if_lock'] = $model_order->getOrderOperateState('lock', $value);
             //显示物流跟踪
             $value['if_deliver'] = $model_order->getOrderOperateState('deliver', $value);
-
             //商品图
             foreach ($value['extend_order_goods'] as $k => $goods_info) {
                 $value['extend_order_goods'][$k]['goods_image_url'] = cthumb($goods_info['goods_image'], 240, $value['store_id']);
