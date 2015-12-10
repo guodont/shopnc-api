@@ -396,7 +396,8 @@ class point_memberControl extends apiMemberControl
             $prod_list = $model_pointorder->getPointOrderGoodsList(array('point_orderid' => array('in', $order_idarr)));
             if (is_array($prod_list) && count($prod_list) > 0) {
                 foreach ($prod_list as $k => $v) {
-                    $order_listnew[$k]['prodlist'] = $v;
+                    if ($order_listnew[$k]['point_orderid'] == $v['point_orderid'])
+                        $order_listnew[$k]['prodlist'] = $v;
 //                    if (isset($order_listnew[$v['point_orderid']])){
 //                        $order_listnew[]['prodlist'][] = $v;
 ////                        $order_listnew['prodlist'][] = $v;
