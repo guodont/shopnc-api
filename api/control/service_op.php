@@ -111,7 +111,7 @@ class service_opControl extends apiMemberControl
     {
         if (intval($_GET['fav_id']) > 0) {
             $favorites_class = Model('favorites');
-            if (!$favorites_class->delFavorites2(intval($_GET['fav_id']), 'service',$this->member_id)) {
+            if (!$favorites_class->delFavorites2(intval($_GET['fav_id']), 'service')) {
                 output_error("操作失败");
                 die;
             }
