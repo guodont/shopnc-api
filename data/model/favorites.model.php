@@ -187,6 +187,22 @@ class favoritesModel extends Model
     }
 
     /**
+     * 删除
+     *
+     * @param int $id 记录ID
+     * @return array $rs_row 返回数组形式的查询结果
+     */
+    public function delFavorites2($id,$type,$member_id){
+        if (intval($id) > 0 && !empty($type) && self::checkFavorites($id,$type,$member_id)){
+            $where = ' `fav_id` = '. intval($id) ." and `fav_type` = '{$type}'";
+            $result = Db::delete('favorites',$where);
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
+    /**
      * 构造检索条件
      *
      * @param array $condition 检索条件
