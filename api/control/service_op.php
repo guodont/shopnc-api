@@ -129,9 +129,9 @@ class service_opControl extends apiMemberControl
             $mTrade = Model('favorites');
             $status = $mTrade->checkFavorites($_GET['fav_id'],'service',$this->member_id);
             if($status) {
-                echo 1;
-            }else {
                 echo 0;
+            }else {
+                echo 1;
             }
         }
     }

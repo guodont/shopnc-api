@@ -25,7 +25,6 @@ class serviceControl extends apiHomeControl
         $model_service = Model('serviceapi');
 
         $model_upload = Model('upload');
-        $model = new Model();
 //        //  排序
         $condition = array();
         $condition['gc_id'] = intval($_GET['cate_id']);
