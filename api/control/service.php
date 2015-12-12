@@ -37,11 +37,6 @@ class serviceControl extends apiHomeControl
             $service_list[$key]['service_image'] = $imgs[0]['file_name'];
         }
 
-//        $where['upload.upload_type'] = 8;
-//        $where['service.service_show'] = 1;
-//        $where['service.gc_id'] = intval($_GET['cate_id']);
-//        $service_list = $model->table('service,upload')->join('right join')->on('service.service_id=upload.item_id')->where($where)->page($this->page)->order('service_sort asc')->select();
-
         $pageCount = $model_service->gettotalpage();
 
         output_data(array('services' => $service_list), mobile_page($pageCount));

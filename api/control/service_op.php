@@ -82,7 +82,26 @@ class service_opControl extends apiMemberControl
      */
     public function favServiceOp()
     {
-
+        /**
+         * 读取语言包
+         */
+        if (intval($_GET['fav_id']) > 0) {
+            /**
+             * 实例化模型
+             */
+            $favorites_class = Model('favorites');
+            //闲置物品收藏次数增加1
+            $check_rss = $favorites_class->checkFavorites(intval($_GET['fav_id']), 'service', $this->member_id);
+            if (!$check_rss) {
+                $add_rs = $favorites_class->addFavorites(array('member_id' => $this->member_id, 'fav_id' => intval($_GET['fav_id']), 'fav_type' => 'service', 'fav_time' => time()));
+                if (!$add_rs) {
+                    output_error("收藏失败");
+                }
+            }
+            output_data(array("ok" => "收藏成功"));
+        } else {
+            output_error("收藏失败");
+        }
     }
 
     /**
@@ -90,7 +109,14 @@ class service_opControl extends apiMemberControl
      */
     public function cancelFavTradeOp()
     {
-
+        if (intval($_GET['fav_id']) > 0) {
+            $favorites_class = Model('favorites');
+            if (!$favorites_class->delFavorites(intval($_GET['fav_id']), 'service')) {
+                output_error("操作失败");
+                die;
+            }
+        }
+        output_data("操作成功");
     }
 
     /**
@@ -99,7 +125,15 @@ class service_opControl extends apiMemberControl
      */
     public function isFavOp()
     {
-
+        if (intval($_GET['fav_id']) > 0) {
+            $mTrade = Model('favorites');
+            $status = $mTrade->checkFavorites($_GET['fav_id'],'service',$this->member_id);
+            if($status) {
+                echo 1;
+            }else {
+                echo 0;
+            }
+        }
     }
 
     public function myOrdersOp()

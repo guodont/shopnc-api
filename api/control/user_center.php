@@ -79,6 +79,7 @@ class user_centerControl extends apiHomeControl
             $member['member_yjfx'] = $member_info['member_yjfx'];
             $member['member_zhuanye'] = $member_info['member_zhuanye'];
             $member['member_xueke'] = $member_info['member_xueke'];
+            $member['member_xueke_info'] = $member_info['member_xueke_info'];
             $member['member_areainfo'] = $member_info['member_areainfo'];
             $member['following_count'] = $following_count;
             $member['follower_count'] = $follower_count;
@@ -208,20 +209,6 @@ class user_centerControl extends apiHomeControl
         $departs = $this->treeArray1($counties);
 
         echo json_encode($departs);
-
-//        header("Content-Type: application/octet-stream");
-//
-//        $filename = "address.txt";
-//        $encoded_filename = urlencode($filename);
-//        $encoded_filename = str_replace("+", "%20", $encoded_filename);
-//
-//        if (preg_match("/MSIE/", $_SERVER['HTTP_USER_AGENT']) ) {
-//            header('Content-Disposition:  attachment; filename="' . $encoded_filename . '"');
-//        } elseif (preg_match("/Firefox/", $_SERVER['HTTP_USER_AGENT'])) {
-//            header('Content-Disposition: attachment; filename*="' .  $filename . '"');
-//        } else {
-//            header('Content-Disposition: attachment; filename="' .  $filename . '"');
-//        }
     }
 
     /**

@@ -150,7 +150,7 @@ class member_centerControl extends apiMemberControl
             $member_array['member_yjfx'] = $_POST['member_yjfx'];
             $member_array['member_zhuanye'] = $_POST['member_zhuanye'];
             $member_array['member_xueke'] = $_POST['member_xueke'];
-
+            $member_array['member_xueke_info'] = $_POST['member_xueke_info'];
 //
 //            if (strlen($_POST['birthday']) == 10) {
 //                $member_array['member_birthday'] = $_POST['birthday'];
@@ -368,6 +368,36 @@ class member_centerControl extends apiMemberControl
             }
         }
         output_data(array('trade_list' => $trade_list), mobile_page($page_count));
+    }
+
+
+    /**
+     * GET 服务收藏列表
+     */
+    public function service_fav_listOp()
+    {
+        $model_favorites = Model('favorites');
+
+        $favorites_list = $model_favorites->getServiceFavoritesList(array('member_id' => $this->member_id), '*', $this->page);
+        $page_count = $model_favorites->gettotalpage();
+        $favorites_id = '';
+        foreach ($favorites_list as $value) {
+            $favorites_id .= $value['fav_id'] . ',';
+        }
+        $favorites_id = rtrim($favorites_id, ',');
+
+        $model_goods = Model('serviceapi');
+
+        $model_upload = Model('upload');
+
+
+        $service_list = $model_goods->geServiceList(array('goods_id' => array('in', $favorites_id)), '*', 'service_sort asc', $this->page);
+
+        foreach ($service_list as $key => $val) {
+            $imgs = $model_upload->getUploadList(array('item_id'=>$val['service_id']));
+            $service_list[$key]['service_image'] = $imgs[0]['file_name'];
+        }
+        output_data(array('services' => $service_list), mobile_page($page_count));
     }
 
     private function getMyThemeIds()

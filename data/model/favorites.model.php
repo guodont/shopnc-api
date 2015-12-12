@@ -38,6 +38,11 @@ class favoritesModel extends Model{
         $condition['fav_type'] = 'goods';
         return $this->getFavoritesList($condition, $field, $page, $order);
     }
+
+	public function getServiceFavoritesList($condition, $field = '*', $page = 0, $order = 'fav_time desc') {
+        $condition['fav_type'] = 'service';
+        return $this->getFavoritesList($condition, $field, $page, $order);
+    }
     
     /**
      * 收藏店铺列表
