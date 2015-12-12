@@ -25,11 +25,15 @@ class serviceControl extends apiHomeControl
         $model_service = Model('serviceapi');
 
         $model_upload = Model('upload');
+        $model = new Model();
 //        //  排序
         $condition = array();
-        $condition['gc_id'] = intval($_GET['cate_id']);
-        $condition['service_show'] = 1;
-        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
+        $condition['service.gc_id'] = intval($_GET['cate_id']);
+        $condition['service.service_show'] = 1;
+
+        $service_list = $model->table('service,company')->join('right join')->on('service.depart_id=company.company_id')->where($condition)->page($this->page)->order('service_sort desc')->select();
+
+//        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
 
         foreach ($service_list as $key => $val) {
             $imgs = $model_upload->getUploadList(array('item_id'=>$val['service_id']));
