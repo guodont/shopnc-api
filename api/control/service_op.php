@@ -109,9 +109,21 @@ class service_opControl extends apiMemberControl
      */
     public function cancelFavTradeOp()
     {
+//        if (intval($_GET['fav_id']) > 0) {
+//            $favorites_class = Model('flea_favorites');
+//            if (!$favorites_class->delFavorites(intval($_GET['fav_id']), 'flea')) {
+//                output_error("操作失败");
+//                die;
+//            }
+//        }
+//        output_data("操作成功");
+
         if (intval($_GET['fav_id']) > 0) {
             $favorites_class = Model('favorites');
-            if (!$favorites_class->delFavorites2(intval($_GET['fav_id']), 'service')) {
+            $condition['fav_id'] = intval($_GET['fav_id']);
+            $condition['member_id'] = $this->member_id;
+            $condition['fav_type'] = 'service';
+            if (!$favorites_class->delFavorites($condition)) {
                 output_error("操作失败");
                 die;
             }
