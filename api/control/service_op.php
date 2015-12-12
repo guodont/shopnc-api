@@ -111,7 +111,10 @@ class service_opControl extends apiMemberControl
     {
         if (intval($_GET['fav_id']) > 0) {
             $favorites_class = Model('favorites');
-            if (!$favorites_class->delFavorites(intval($_GET['fav_id']), 'service')) {
+            $condition['fav_id'] = intval($_GET['fav_id']);
+            $condition['member_id'] = $this->member_id;
+            $condition['fav_type'] = 'service';
+            if (!$favorites_class->delFavorites($condition)) {
                 output_error("操作失败");
                 die;
             }
@@ -127,10 +130,10 @@ class service_opControl extends apiMemberControl
     {
         if (intval($_GET['fav_id']) > 0) {
             $mTrade = Model('favorites');
-            $status = $mTrade->checkFavorites($_GET['fav_id'],'service',$this->member_id);
-            if($status) {
+            $status = $mTrade->checkFavorites(intval($_GET['fav_id']), 'service', $this->member_id);
+            if ($status) {
                 echo 1;
-            }else {
+            } else {
                 echo 0;
             }
         }
