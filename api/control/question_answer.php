@@ -141,13 +141,18 @@ class question_answerControl extends apiMemberControl
                 }
 
                 // Experience
+//                $param = array();
+//                $param['member_id'] = $this->member_info['member_id'];
+//                $param['member_name'] = $this->member_info['member_name'];
+//                $param['circle_id'] = $this->c_id;
+//                $param['type'] = 'release';
+//                $param['itemid'] = $questionid;
+//                Model('circle_exp')->saveExp($param);
+
                 $param = array();
-                $param['member_id'] = $this->member_info['member_id'];
-                $param['member_name'] = $this->member_info['member_name'];
-                $param['circle_id'] = $this->c_id;
-                $param['type'] = 'release';
-                $param['itemid'] = $questionid;
-                Model('circle_exp')->saveExp($param);
+                $param['exp_memberid'] = $this->member_info['member_id'];
+                $param['exp_membername'] = $this->member_info['member_name'];
+                Model('exppoints')->saveExppointsLog('release', $param, true);
 
                 // Score
                 if (trim($_POST['reward']) > 0) {
@@ -312,23 +317,33 @@ class question_answerControl extends apiMemberControl
 
                     if ($this->question_info['member_id'] != $this->member_info['member_id']) {
                         // Experience for replyer
+//                        $param = array();
+//                        $param['member_id'] = $this->member_info['member_id'];
+//                        $param['member_name'] = $this->member_info['member_name'];
+//                        $param['circle_id'] = $this->c_id;
+//                        $param['theme_id'] = $this->q_id;
+//                        $param['type'] = 'reply';
+//                        $param['itemid'] = $this->q_id . ',' . $reply_id;
+//                        Model('circle_exp')->saveExp($param);
                         $param = array();
-                        $param['member_id'] = $this->member_info['member_id'];
-                        $param['member_name'] = $this->member_info['member_name'];
-                        $param['circle_id'] = $this->c_id;
-                        $param['theme_id'] = $this->q_id;
-                        $param['type'] = 'reply';
-                        $param['itemid'] = $this->q_id . ',' . $reply_id;
-                        Model('circle_exp')->saveExp($param);
+                        $param['exp_memberid'] = $this->member_info['member_id'];
+                        $param['exp_membername'] = $this->member_info['member_name'];
+                        Model('exppoints')->saveExppointsLog('reply', $param, true);
+
                         // Experience for releaser
+//                        $param = array();
+//                        $param['member_id'] = $this->question_info['member_id'];
+//                        $param['member_name'] = $this->question_info['member_name'];
+//                        $param['theme_id'] = $this->q_id;
+//                        $param['circle_id'] = $this->c_id;
+//                        $param['type'] = 'replied';
+//                        $param['itemid'] = $this->q_id;
+//                        Model('circle_exp')->saveExp($param);
+
                         $param = array();
-                        $param['member_id'] = $this->question_info['member_id'];
-                        $param['member_name'] = $this->question_info['member_name'];
-                        $param['theme_id'] = $this->q_id;
-                        $param['circle_id'] = $this->c_id;
-                        $param['type'] = 'replied';
-                        $param['itemid'] = $this->q_id;
-                        Model('circle_exp')->saveExp($param);
+                        $param['exp_memberid'] = $this->question_info['member_id'];
+                        $param['exp_membername'] = $this->question_info['member_name'];
+                        Model('exppoints')->saveExppointsLog('replied', $param, true);
                     }
 
                     $jpush = new JPush();

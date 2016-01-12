@@ -192,7 +192,7 @@ class member_centerControl extends apiMemberControl
                 output_error("上传失败");
                 die;
             } else {
-                Model('member')->editMember(array('member_id' => $this->member_id), array('member_avatar' => 'avatar_' . $this->member_id . '.png'));
+                Model('member')->editMember(array('member_id' => $this->member_id), array('member_avatar' => 'avatar_' . $this->member_id . '.jpg'));
             }
         } else {
             output_error('上传失败，请尝试更换图片格式或小图片');
@@ -353,9 +353,9 @@ class member_centerControl extends apiMemberControl
 
         $model_trade = Model('utrade');
 
-        $field = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
-        flea_quality,commentnum,goods_price,goods_store_price,goods_click,
-        flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
+        $field = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,flea_maturity,
+        flea_Technical_types,commentnum,flea_trade_way,goods_store_price,
+        goods_click,flea_collect_num,goods_add_time,goods_body,salenum,flea_depart_id,flea_depart_name,
         flea_pname,flea_pphone,goods_status,goods_leixing";
 
         $trade_list = $model_trade->getGoodsList(array('goods_id' => array('in', $favorites_id)), $field);
@@ -391,10 +391,10 @@ class member_centerControl extends apiMemberControl
         $model_upload = Model('upload');
 
 
-        $service_list = $model_goods->geServiceList(array('goods_id' => array('in', $favorites_id)), '*', 'service_sort asc', $this->page);
+        $service_list = $model_goods->geServiceList(array('service_id' => array('in', $favorites_id)), '*', 'service_sort asc', $this->page);
 
         foreach ($service_list as $key => $val) {
-            $imgs = $model_upload->getUploadList(array('item_id'=>$val['service_id']));
+            $imgs = $model_upload->getUploadList(array('item_id' => $val['service_id']));
             $service_list[$key]['service_image'] = $imgs[0]['file_name'];
         }
         output_data(array('services' => $service_list), mobile_page($page_count));
@@ -479,11 +479,9 @@ class member_centerControl extends apiMemberControl
     {
         $model = Model();
         $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id, 'cm_state' => array('not in', array(0, 2))))->order('cm_jointime desc')->select();
-        if (!empty($cm_list)) {
-            $cm_list = array_under_reset($cm_list, 'circle_id');
-            $circleid_array = array_keys($cm_list);
-            $circle_list = $model->table('circle')->where(array('circle_id' => array('in', $circleid_array)))->select();
-        }
+        $cm_list = array_under_reset($cm_list, 'circle_id');
+        $circleid_array = array_keys($cm_list);
+        $circle_list = $model->table('circle')->where(array('circle_id' => array('in', $circleid_array)))->select();
         output_data(array('circles' => $circle_list));
     }
 

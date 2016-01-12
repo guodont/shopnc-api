@@ -14,14 +14,9 @@ class tradeControl extends apiHomeControl
 
     private $where;
 
-//    private $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,goods_tag,
-//        flea_quality,commentnum,goods_price,goods_store_price,
-//        goods_click,flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
-//        flea_pname,flea_pphone,goods_status,goods_leixing";
-//
     private $fields = "member_id,member_name,goods_id,goods_name,gc_name,goods_image,flea_maturity,
         flea_Technical_types,commentnum,flea_trade_way,goods_store_price,
-        goods_click,flea_collect_num,goods_add_time,goods_body,salenum,flea_area_name,
+        goods_click,flea_collect_num,goods_add_time,goods_body,salenum,flea_depart_id,flea_depart_name,
         flea_pname,flea_pphone,goods_status,goods_leixing";
 
     public function __construct()
@@ -72,12 +67,41 @@ class tradeControl extends apiHomeControl
      */
     public function class_trade_listOp()
     {
-
         if ($_GET['cid'] != "") {
             $class_id = $_GET['cid'];
             $where2 = $this->where + array('gc_id' => $class_id);
         } else {
             $where2 = $this->where;
+        }
+
+        $m_trade = Model('utrade');
+        $trade_list = $m_trade->field($this->fields)->where($where2)->order('goods_id desc,goods_commend desc')->page($this->page)->select();
+        $pageCount = $m_trade->gettotalpage();
+
+        $mTrade = Model('flea_favorites');
+
+        if (is_array($trade_list) and !empty($trade_list)) {
+            foreach ($trade_list as $key => $val) {
+
+                // 获取收藏状态
+                if (isset($_GET['uid'])) {
+                    $trade_list[$key]['fav_status'] = $mTrade->checkFavorites($trade_list[$key]['goods_id'], 'flea', $_GET['uid']) ? 1 : 0;
+                }
+                $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
+                $trade_list[$key]['goods_image'] = $trade_list[$key]['goods_image'] == '' ? '' : UPLOAD_SITE_URL . '/' . ATTACH_MALBUM . '/' . $trade_list[$key]['member_id'] . '/' . str_replace('_1024', '_240', $val['goods_image']);
+            }
+        }
+        output_data(array('trade_list' => $trade_list), mobile_page($pageCount));
+    }
+
+    /**
+     * 搜索交易
+     */
+    public function search_trade(){
+
+        $where2 = $this->where;
+        if ($_GET['keyword'] != '') {
+            $where2['goods_name|goods_body'] = array('like', '%' . $_GET['keyword'] . '%');
         }
 
         $m_trade = Model('utrade');

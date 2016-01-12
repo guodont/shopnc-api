@@ -188,6 +188,10 @@ class store_goods_addControl extends BaseSellerControl {
             $common_array['goods_costprice']    = floatval($_POST['g_costprice']);
             $common_array['goods_discount']     = floatval($_POST['g_discount']);
             $common_array['goods_serial']       = $_POST['g_serial'];
+            $common_array['goods_cas']          = $_POST['g_cas'];
+            $common_array['goods_enname']       = $_POST['g_enname'];
+            $common_array['goods_barcode']      = $_POST['g_barcode'];
+            $common_array['goods_origin']       = $_POST['g_origin'];
             $common_array['goods_storage_alarm']= intval($_POST['g_alarm']);
             $common_array['goods_attr']         = serialize($_POST['attr']);
             $common_array['goods_body']         = $_POST['g_body'];
@@ -289,6 +293,10 @@ class store_goods_addControl extends BaseSellerControl {
                         $goods['goods_image']       = $common_array['goods_image'];
                         $goods['goods_state']       = $common_array['goods_state'];
                         $goods['goods_verify']      = $common_array['goods_verify'];
+                        $goods['goods_barcode']     = $common_array['goods_barcode'];
+                        $goods['goods_origin']      = $common_array['goods_origin'];	
+                        $goods['goods_cas']         = $common_array['goods_cas'];
+                        $goods['goods_enname']      = $common_array['goods_enname'];												
                         $goods['goods_addtime']     = TIMESTAMP;
                         $goods['goods_edittime']    = TIMESTAMP;
                         $goods['areaid_1']          = $common_array['areaid_1'];
@@ -332,6 +340,10 @@ class store_goods_addControl extends BaseSellerControl {
                     $goods['goods_promotion_price']=$common_array['goods_price'];
                     $goods['goods_marketprice'] = $common_array['goods_marketprice'];
                     $goods['goods_serial']      = $common_array['goods_serial'];
+                    $goods['goods_barcode']     = $common_array['goods_barcode'];
+                    $goods['goods_origin']      = $common_array['goods_origin'];
+                    $goods['goods_cas']         = $common_array['goods_cas'];
+                    $goods['goods_enname']      = $common_array['goods_enname'];										
                     $goods['goods_storage_alarm']= $common_array['goods_storage_alarm'];
                     $goods['goods_spec']        = serialize(null);
                     $goods['goods_storage']     = intval($_POST['g_storage']);

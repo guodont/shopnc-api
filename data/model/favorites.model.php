@@ -149,7 +149,7 @@ class favoritesModel extends Model
     public function checkFavorites($fav_id, $fav_type, $member_id)
     {
         if (intval($fav_id) == 0 || empty($fav_type) || intval($member_id) == 0) {
-            return true;
+            return false;
         }
         $result = self::getOneFavorites2($fav_id, $fav_type, $member_id);
         if ($result['member_id'] == $member_id) {
@@ -192,8 +192,8 @@ class favoritesModel extends Model
      * @param int $id 记录ID
      * @return array $rs_row 返回数组形式的查询结果
      */
-    public function delFavorites2($id,$type){
-        if (intval($id) > 0 && !empty($type) && self::checkFavorites($id,$type,$_SESSION['member_id'])){
+    public function delFavorites2($id,$type,$member_id){
+        if (intval($id) > 0 && !empty($type) && self::checkFavorites($id,$type,$member_id)){
             $where = ' `fav_id` = '. intval($id) ." and `fav_type` = '{$type}'";
             $result = Db::delete('favorites',$where);
             return $result;

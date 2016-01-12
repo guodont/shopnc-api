@@ -83,6 +83,7 @@ class settingControl extends SystemControl{
 			$update_array = array();
 			$update_array['time_zone'] = $this->setTimeZone($_POST['time_zone']);
 			$update_array['site_name'] = $_POST['site_name'];
+			$update_array['vkeyan_site_name'] = $_POST['vkeyan_site_name'];
 			$update_array['site_phone'] = $_POST['site_phone'];
 			$update_array['site_bank_account'] = $_POST['site_bank_account'];
 			$update_array['site_email'] = $_POST['site_email'];
@@ -104,6 +105,7 @@ class settingControl extends SystemControl{
 				$update_array['seller_center_logo'] = $_POST['seller_center_logo'];
 			}
 			$update_array['icp_number'] = $_POST['icp_number'];
+			$update_array['vkeyan_icp_number'] = $_POST['vkeyan_icp_number'];
 			//设置表 400电话 by abc.com
 			$update_array['site_tel400'] = $_POST['site_tel400'];
 			$update_array['site_status'] = $_POST['site_status'];

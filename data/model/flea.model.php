@@ -23,8 +23,8 @@ class fleaModel {
 		$goods_array['member_name'] = $_SESSION['member_name'];
 		$goods_array['goods_image']	= $param['goods_image'];
 		$goods_array['flea_Technical_types']= $param['flea_Technical_types'];
-		$goods_array['flea_area_id']= $param['flea_area_id'];
-		$goods_array['flea_area_name']= $param['flea_area_name'];
+		$goods_array['flea_depart_id']= $param['flea_depart_id'];
+		$goods_array['flea_depart_name']= $param['flea_depart_name'];
 		$goods_array['flea_pname']	= $param['flea_pname'];
 		$goods_array['flea_pphone']	= $param['flea_pphone'];
 		$goods_array['flea_trade_way']	= $param['flea_trade_way'];

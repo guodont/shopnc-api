@@ -114,12 +114,10 @@ class circle_opControl extends apiBaseCircleControl
 
                 // Experience
                 $param = array();
-                $param['member_id'] = $this->member_info['member_id'];
-                $param['member_name'] = $this->member_info['member_name'];
-                $param['circle_id'] = $this->c_id;
-                $param['type'] = 'release';
-                $param['itemid'] = $themeid;
-                Model('circle_exp')->saveExp($param);
+                $param['exp_memberid'] = $this->member_info['member_id'];
+                $param['exp_membername'] = $this->member_info['member_name'];
+                Model('exppoints')->saveExppointsLog('release', $param, true);
+
                 $data['id'] = $themeid;
                 $data['url'] = $theme_url = CIRCLE_SITE_URL . '/index.php?act=theme&op=theme_detail&c_id=' . $this->c_id . '&t_id=' . $themeid;
                 output_data(array('ok' => $data));

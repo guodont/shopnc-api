@@ -21,11 +21,11 @@ class exppointsControl extends SystemControl{
 		    $exp_arr['exp_comments'] = intval($_POST['exp_comments'])?$_POST['exp_comments']:0;
 		    $exp_arr['exp_orderrate'] = intval($_POST['exp_orderrate'])?$_POST['exp_orderrate']:0;
 		    $exp_arr['exp_ordermax'] = intval($_POST['exp_ordermax'])?$_POST['exp_ordermax']:0;
-		    $exp_arr['circle_exprelease'] = intval($_POST['c_exprelease'])?$_POST['c_exprelease']:0;
-		    $exp_arr['circle_expreply'] = intval($_POST['c_expreply'])?$_POST['c_expreply']:0;
-		    $exp_arr['circle_expreleasemax'] = intval($_POST['c_expreleasemax'])?$_POST['c_expreleasemax']:0;
-		    $exp_arr['circle_expreplied'] = intval($_POST['c_expreplied'])?$_POST['c_expreplied']:0;
-		    $exp_arr['circle_exprepliedmax'] = intval($_POST['c_exprepliedmax'])?$_POST['c_exprepliedmax']:0;
+		    $exp_arr['exp_release'] = intval($_POST['exp_release'])?$_POST['exp_release']:0;
+		    $exp_arr['exp_reply'] = intval($_POST['exp_reply'])?$_POST['exp_reply']:0;
+		    $exp_arr['exp_releasemax'] = intval($_POST['exp_releasemax'])?$_POST['exp_releasemax']:0;
+		    $exp_arr['exp_replied'] = intval($_POST['exp_replied'])?$_POST['exp_replied']:0;
+		    $exp_arr['exp_repliedmax'] = intval($_POST['exp_repliedmax'])?$_POST['exp_repliedmax']:0;
 			
 			$result = $model_setting->updateSetting(array('exppoints_rule'=>serialize($exp_arr)));
 			if ($result === true){

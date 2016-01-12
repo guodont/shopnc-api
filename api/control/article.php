@@ -45,6 +45,27 @@ class articleControl extends apiHomeControl
     }
 
     /**
+     * GET 文章列表
+     */
+    public function articlesOp()
+    {
+        if (!empty($_GET['ac_id']) && intval($_GET['ac_id']) > 0) {
+            $article_class_model = Model('article_class');
+            $article_model = Model('article_api');
+            $condition = array();
+            $fields = 'article_id,article_url,article_pic,article_title,article_abstract,article_time';
+            $condition['ac_id'] = intval($_GET['ac_id']);
+            $condition['article_show'] = '1';
+            $article_list = $article_model->listArticle($condition,$this->page,'article_time desc, article_sort asc',$fields);
+            $pageCount = $article_model->gettotalpage();
+            output_data(array('articles' => $article_list), mobile_page($pageCount));
+        } else {
+            output_error('缺少参数:文章类别编号');
+        }
+    }
+
+
+    /**
      * 根据类别编号获取文章类别信息
      */
     private function article_type_name()

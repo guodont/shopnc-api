@@ -70,6 +70,12 @@
           <td colspan="2" class="vatop rowform"><?php showEditor('article_content',$output['article_array']['article_content']);?></td>
         </tr>
         <tr>
+          <td colspan="2" class="required"><label class="validation">首页图片:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td colspan="2" class="vatop rowform"><input type="text" name="article_pic" id="article_pic" class="txt" value="<?php echo $output['article_array']['article_pic'];?>"></td>
+        </tr>		
+        <tr>
           <td colspan="2" class="required"><?php echo $lang['article_add_upload'];?>:</td>
         </tr>
         <tr class="noborder">

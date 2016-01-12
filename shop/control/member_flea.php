@@ -74,10 +74,18 @@ class member_fleaControl extends BaseMemberControl{
 		$model_class		= Model('flea_class');
 		$goods_class		= $model_class->getTreeClassList(1);
 		Tpl::output('goods_class',$goods_class);
+
 		/**
-		 * 地区 
+		 * 单位列表
 		 */
-		$this->area_show();
+		$model_depart = Model('member_depart');
+		$depart_list = $model_depart->getTreedepartList(2);
+		if (is_array($depart_list)){
+			$unset_sign = false;
+			foreach ($depart_list as $k => $v){
+				$depart_list[$k]['depart_name'] = str_repeat("&nbsp;",$v['deep']*2).$v['depart_name'];
+			}
+		}
 	
 		$goods_image_path	= UPLOAD_SITE_URL.DS.ATTACH_MALBUM.'/'.$_SESSION['member_id'].'/';	//店铺商品图片目录地址
 		Tpl::output('goods_image_path',$goods_image_path);
@@ -88,6 +96,7 @@ class member_fleaControl extends BaseMemberControl{
 		Tpl::output('menu_sign','flea');
 		Tpl::output('menu_sign_url','index.php?act=member_flea');
 		Tpl::output('menu_sign1','add_flea_goods');
+		Tpl::output('depart_list',$depart_list);		
 		Tpl::showpage('store_flea_goods_add');
 	}
 	/**
@@ -132,12 +141,16 @@ class member_fleaControl extends BaseMemberControl{
 			$goods_array['goods_leixing']	= $_POST['goods_leixing'];
 			$goods_array['gc_id']			= $_POST['cate_id'];
 			$goods_array['gc_name']			= $_POST['cate_name'];
+			if (intval($_POST['flea_depart_id']) != 0) {
+		    	$goods_array['flea_depart_id']	= $_POST['flea_depart_id'];	
+		        $model_depart = Model('member_depart');
+	        	$flea_depart_name = $model_depart->getOneGoodsClass($_POST['flea_depart_id']);
+				$goods_array['flea_depart_name']= $flea_depart_name['depart_name'];
+			}				
 			$goods_array['flea_Technical_types']	= $_POST['flea_Technical_types'];
 			$goods_array['flea_trade_way']	= $_POST['flea_trade_way'];
 			$goods_array['flea_maturity']	= $_POST['flea_maturity'];
 			$goods_array['flea_pname']		= $_POST['flea_pname'];
-			$goods_array['flea_area_id']	= $_POST['area_id'];
-			$goods_array['flea_area_name']	= $_POST['area_info'];
 			$goods_array['flea_pphone']		= $_POST['flea_pphone'];
 			$goods_array['goods_store_price']= $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
 			$goods_array['goods_show']		= '1';
@@ -266,16 +279,24 @@ class member_fleaControl extends BaseMemberControl{
 		$goods_class		= $model_class->getTreeClassList(1);
 		Tpl::output('goods_class',$goods_class);
 		Tpl::output('item_id',$goods_array[0]['goods_id']);
+		/**
+		 * 单位列表
+		 */
+		$model_depart = Model('member_depart');
+		$depart_list = $model_depart->getTreedepartList(2);
+		if (is_array($depart_list)){
+			$unset_sign = false;
+			foreach ($depart_list as $k => $v){
+				$depart_list[$k]['depart_name'] = str_repeat("&nbsp;",$v['deep']*2).$v['depart_name'];
+			}
+		}			
 		//查询会员信息
 		$this->member_info = $this->getMemberAndGradeInfo(true);
 		self::profile_menu('add_goods','goods_edit',array('menu_key'=>'goods_edit','menu_name'=>$lang['store_goods_index_edit_flea'],'menu_url'=>'#'));
 		Tpl::output('menu_sign','flea');
 		Tpl::output('menu_sign_url','index.php?act=member_flea');
 		Tpl::output('menu_sign1','edit_flea');
-		/**
-		 * 地区 
-		 */
-		$this->area_show();
+		Tpl::output('depart_list',$depart_list);		
 		Tpl::showpage('store_flea_goods_add');
 	}
 	/**
@@ -308,14 +329,18 @@ class member_fleaControl extends BaseMemberControl{
 			if (intval($_POST['cate_id']) != 0) {
 				$goods_array['gc_id']			= $_POST['cate_id'];
 				$goods_array['gc_name']			= $_POST['cate_name'];
-			}
+			}		
+			if (intval($_POST['flea_depart_id']) != 0) {
+		    	$goods_array['flea_depart_id']	= $_POST['flea_depart_id'];	
+		        $model_depart = Model('member_depart');
+	        	$flea_depart_name = $model_depart->getOneGoodsClass($_POST['flea_depart_id']);
+				$goods_array['flea_depart_name']= $flea_depart_name['depart_name'];
+			}					
 			$goods_array['flea_Technical_types']	= $_POST['flea_Technical_types'];
 			$goods_array['flea_trade_way']	= $_POST['flea_trade_way'];
 			$goods_array['flea_maturity']	= $_POST['flea_maturity'];
 			$goods_array['flea_pname']		= $_POST['flea_pname'];
 			$goods_array['flea_pphone']		= $_POST['flea_pphone'];
-			$goods_array['flea_area_id']	= $_POST['area_id'];
-			$goods_array['flea_area_name']	= $_POST['area_info'];
 			$goods_array['goods_tag']		= $_POST['goods_tag'];
 			$goods_array['goods_store_price']= $_POST['price'][0] != '' ? $_POST['price'][0] : $_POST['goods_store_price'];
 			$goods_array['goods_show']		= '1';
@@ -602,17 +627,5 @@ class member_fleaControl extends BaseMemberControl{
 		}
 		Tpl::output('member_menu',$menu_array);
 		Tpl::output('menu_key',$menu_key);
-	}
-
-
-	private function area_show(){
-		/**
-		 * 加载模型
-		 */
-		$area_model=Model('flea_area');
-		$condition['flea_area_parent_id']='0';
-		$condition['field']='flea_area_id,flea_area_name';
-		$area_one_level=$area_model->getListArea($condition);
-		Tpl::output('area_one_level',$area_one_level);
 	}
 }

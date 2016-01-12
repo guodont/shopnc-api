@@ -19,9 +19,13 @@
           <td class="vatop rowform"><input id="site_name" name="site_name" value="<?php echo $output['list_setting']['site_name'];?>" class="txt" type="text" /></td>
           <td class="vatop tips"><span class="vatop rowform"><?php echo $lang['web_name_notice'];?></span></td>
         </tr>
-     
-         
-
+        <tr class="noborder">
+          <td colspan="2" class="required"><label for="site_name">微科研网站名称:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input id="vkeyan_site_name" name="vkeyan_site_name" value="<?php echo $output['list_setting']['vkeyan_site_name'];?>" class="txt" type="text" /></td>
+          <td class="vatop tips"><span class="vatop rowform">微科研网站名称，将显示在顶部欢迎信息等位置</span></td>
+        </tr>
 		
 		
         <tr>
@@ -38,7 +42,7 @@
         
         <!--//zmr>v30-->
          <tr>
-          <td colspan="2" class="required"><label for="site_mobile_logo">手机网站LOGO:</label></td>
+          <td colspan="2" class="required"><label for="site_mobile_logo">微科研LOGO:</label></td>
         </tr>
         <tr class="noborder">
           <td class="vatop rowform"><span class="type-file-show"><img class="show_image" src="<?php echo ADMIN_TEMPLATES_URL;?>/images/preview.png">
@@ -94,6 +98,13 @@
           <td class="vatop rowform"><input id="icp_number" name="icp_number" value="<?php echo $output['list_setting']['icp_number'];?>" class="txt" type="text" /></td>
           <td class="vatop tips"><span class="vatop rowform"><?php echo $lang['icp_number_notice'];?></span></td>
         </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="icp_number">微科研ICP证书号:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input id="vkeyan_icp_number" name="vkeyan_icp_number" value="<?php echo $output['list_setting']['vkeyan_icp_number'];?>" class="txt" type="text" /></td>
+          <td class="vatop tips"><span class="vatop rowform"><?php echo $lang['icp_number_notice'];?></span></td>
+        </tr>		
         <tr>
           <td colspan="2" class="required"><label for="site_phone"><?php echo $lang['site_phone'];?>:</label></td>
         </tr>

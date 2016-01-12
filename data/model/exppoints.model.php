@@ -54,6 +54,33 @@ class exppointsModel extends Model{
 					}
 				}
 				break;
+			case 'release':
+				if (!$insertarr['exp_desc']){
+					$insertarr['exp_desc'] = '会员发表主题';
+				}
+				$insertarr['exp_points'] = 0;
+				if (intval($exppoints_rule['exp_release']) > 0){
+				    $insertarr['exp_points'] = intval($exppoints_rule['exp_release']);
+				}				
+				break;
+			case 'reply':
+				if (!$insertarr['exp_desc']){
+					$insertarr['exp_desc'] = '会员回复主题';
+				}
+				$insertarr['exp_points'] = 0;
+				if (intval($exppoints_rule['exp_reply']) > 0){
+				    $insertarr['exp_points'] = intval($exppoints_rule['exp_reply']);
+				}				
+				break;	
+			case 'replied':
+				if (!$insertarr['exp_desc']){
+					$insertarr['exp_desc'] = '会员被回复';
+				}
+				$insertarr['exp_points'] = 0;
+				if (intval($exppoints_rule['exp_replied']) > 0){
+				    $insertarr['exp_points'] = intval($exppoints_rule['exp_replied']);
+				}				
+				break;																	
 		}
 		//新增日志
 		$value_array = array();

@@ -307,6 +307,10 @@ class store_goods_onlineControl extends BaseSellerControl {
         $update_common['goods_costprice']    = floatval($_POST['g_costprice']);
         $update_common['goods_discount']     = floatval($_POST['g_discount']);
         $update_common['goods_serial']       = $_POST['g_serial'];
+        $update_common['goods_origin']       = $_POST['g_origin'];
+        $update_common['goods_barcode']      = $_POST['g_barcode'];
+        $update_common['goods_cas']          = $_POST['g_cas'];
+        $update_common['goods_enname']       = $_POST['g_enname'];		
         $update_common['goods_storage_alarm']= intval($_POST['g_alarm']);
         $update_common['goods_attr']         = serialize($_POST['attr']);
         $update_common['goods_body']         = $_POST['g_body'];
@@ -419,6 +423,10 @@ class store_goods_onlineControl extends BaseSellerControl {
                     $update['goods_freight']     = $update_common['goods_freight'];
                     $update['goods_vat']         = $update_common['goods_vat'];
                     $update['goods_commend']     = $update_common['goods_commend'];
+                    $update['goods_origin']      = $update_common['goods_origin'];
+                    $update['goods_barcode']     = $update_common['goods_barcode'];
+                    $update['goods_cas']         = $update_common['goods_cas'];
+                    $update['goods_enname']      = $update_common['goods_enname'];					
                     $update['goods_stcids']      = $update_common['goods_stcids'];
                     $update['is_virtual']        = $update_common['is_virtual'];
                     $update['virtual_indate']    = $update_common['virtual_indate'];
@@ -460,6 +468,10 @@ class store_goods_onlineControl extends BaseSellerControl {
                     $insert['goods_image']       = $update_common['goods_image'];
                     $insert['goods_state']       = $update_common['goods_state'];
                     $insert['goods_verify']      = $update_common['goods_verify'];
+                    $insert['goods_origin']      = $update_common['goods_origin'];
+                    $insert['goods_barcode']     = $update_common['goods_barcode'];
+                    $insert['goods_cas']         = $update_common['goods_cas'];
+                    $insert['goods_enname']      = $update_common['goods_enname'];					
                     $insert['goods_addtime']     = TIMESTAMP;
                     $insert['goods_edittime']    = TIMESTAMP;
                     $insert['areaid_1']          = $update_common['areaid_1'];
@@ -506,6 +518,10 @@ class store_goods_onlineControl extends BaseSellerControl {
                 $update['goods_price']       = $update_common['goods_price'];
                 $update['goods_marketprice'] = $update_common['goods_marketprice'];
                 $update['goods_serial']      = $update_common['goods_serial'];
+                $update['goods_origin']      = $update_common['goods_origin'];
+                $update['goods_barcode']     = $update_common['goods_barcode'];	
+                $update['goods_cas']         = $update_common['goods_cas'];
+                $update['goods_enname']      = $update_common['goods_enname'];							
                 $update['goods_storage_alarm']= $update_common['goods_storage_alarm'];
                 $update['goods_spec']        = serialize(null);
                 $update['goods_storage']     = intval($_POST['g_storage']);
@@ -554,6 +570,10 @@ class store_goods_onlineControl extends BaseSellerControl {
                 $insert['goods_promotion_price']=$update_common['goods_price'];
                 $insert['goods_marketprice'] = $update_common['goods_marketprice'];
                 $insert['goods_serial']      = $update_common['goods_serial'];
+                $insert['goods_origin']      = $update_common['goods_origin'];
+                $insert['goods_barcode']     = $update_common['goods_barcode'];		
+                $insert['goods_cas']         = $update_common['goods_cas'];
+                $insert['goods_enname']      = $update_common['goods_enname'];							
                 $insert['goods_storage_alarm']= $update_common['goods_storage_alarm'];
                 $insert['goods_spec']        = serialize(null);
                 $insert['goods_storage']     = intval($_POST['g_storage']);

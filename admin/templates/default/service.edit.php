@@ -5,7 +5,7 @@
     <div class="item-title">
       <h3>服务管理</h3>
       <ul class="tab-base">
-        <li><a href="index.php?act=service&op=service"><span><?php echo $lang['nc_manage'];?></span></a></li>
+        <li><a href="index.php?act=service&op=service_manage"><span><?php echo $lang['nc_manage'];?></span></a></li>
         <li><a href="index.php?act=service&op=service_add"><span><?php echo $lang['nc_new'];?></span></a></li>
         <li><a href="JavaScript:void(0);" class="current"><span><?php echo $lang['nc_edit'];?></span></a></li>
       </ul>
@@ -66,7 +66,21 @@
         <tr class="noborder">
           <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_now_price'];?>" name="service_now_price" id="service_now_price" class="txt"></td>
           <td class="vatop tips"><?php echo $lang['service_now_price_null'];?></td>
-        </tr>			
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="serviceform">单位:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_unit'];?>" name="service_unit" id="service_unit" class="txt"></td>
+          <td class="vatop tips">单位不能为空</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="serviceform">标签:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<?php echo $output['service_array']['service_tag'];?>" name="service_tag" id="service_tag" class="txt"></td>
+          <td class="vatop tips">标签不能为空</td>
+        </tr>						
         <tr>
           <td colspan="2" class="required"><label><?php echo $lang['service_show'];?>:</label></td>
         </tr>

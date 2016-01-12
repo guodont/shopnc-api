@@ -73,6 +73,33 @@
         </dd>
       </dl>
       <dl>
+        <dt nc_type="no_spec"><i class="required">*</i><?php echo $lang['store_goods_index_goods_no'].$lang['nc_colon'];?></dt>
+        <dd nc_type="no_spec">
+          <p>
+            <input name="g_serial" value="<?php echo $output['goods']['goods_serial']; ?>" type="text"  class="text"  />
+          </p>
+          <p class="hint"><?php echo $lang['store_goods_index_goods_no_help'];?></p>
+        </dd>
+      </dl>	 
+      <dl>
+        <dt nc_type="no_spec">条形码编号：</dt>
+        <dd nc_type="no_spec">
+          <p>
+            <input name="g_barcode" value="<?php echo $output['goods']['goods_barcode']; ?>" type="text"  class="text"  />
+          </p>
+          <p class="hint">条形码编号是商品所带条形码编号，此项为选填项</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt nc_type="no_spec">CAS编号：</dt>
+        <dd nc_type="no_spec">
+          <p>
+            <input name="g_cas" value="<?php echo $output['goods']['goods_cas']; ?>" type="text"  class="text"  />
+          </p>
+          <p class="hint">CAS编号是试剂专有编号，此项为试剂必填项</p>
+        </dd>
+      </dl>		  	 	   
+      <dl>
         <dt><i class="required">*</i><?php echo $lang['store_goods_index_goods_name'].$lang['nc_colon'];?></dt>
         <dd>
           <input name="g_name" type="text" class="text w400" value="<?php echo $output['goods']['goods_name']; ?>" />
@@ -81,11 +108,20 @@
         </dd>
       </dl>
       <dl>
-        <dt>商品卖点<?php echo $lang['nc_colon'];?></dt>
+        <dt nc_type="no_spec">英文名称：</dt>
+        <dd nc_type="no_spec">
+          <p>
+            <input name="g_enname" value="<?php echo $output['goods']['goods_enname']; ?>" type="text"  class="text w400"  />
+          </p>
+          <p class="hint">英文名称是选填项，有则填</p>
+        </dd>
+      </dl>			  
+      <dl>
+        <dt>商品说明<?php echo $lang['nc_colon'];?></dt>
         <dd>
           <textarea name="g_jingle" class="textarea h60 w400"><?php echo $output['goods']['goods_jingle']; ?></textarea>
           <span></span>
-          <p class="hint">商品卖点最长不能超过140个汉字</p>
+          <p class="hint">商品说明最长不能超过140个汉字</p>
         </dd>
       </dl>
       <dl>
@@ -216,14 +252,13 @@
         </dd>
       </dl>
       <dl>
-        <dt nc_type="no_spec"><?php echo $lang['store_goods_index_goods_no'].$lang['nc_colon'];?></dt>
+        <dt nc_type="no_spec">原产地：</dt>
         <dd nc_type="no_spec">
           <p>
-            <input name="g_serial" value="<?php echo $output['goods']['goods_serial']; ?>" type="text"  class="text"  />
+            <input name="g_origin" value="<?php echo $output['goods']['goods_origin']; ?>" type="text"  class="text"  />
           </p>
-          <p class="hint"><?php echo $lang['store_goods_index_goods_no_help'];?></p>
         </dd>
-      </dl>
+      </dl>	 	  
       <dl>
         <dt><i class="required">*</i><?php echo $lang['store_goods_album_goods_pic'].$lang['nc_colon'];?></dt>
         <dd>
@@ -851,7 +886,7 @@ $(function(){
                 maxlength   : '<i class="icon-exclamation-sign"></i><?php echo $lang['store_goods_index_goods_name_help'];?>'
             },
             g_jingle : {
-                maxlength   : '<i class="icon-exclamation-sign"></i>商品卖点不能超过140个字符'
+                maxlength   : '<i class="icon-exclamation-sign"></i>商品说明不能超过140个字符'
             },
             g_price : {
                 required    : '<i class="icon-exclamation-sign"></i><?php echo $lang['store_goods_index_store_price_null'];?>',

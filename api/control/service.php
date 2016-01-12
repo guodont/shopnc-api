@@ -23,25 +23,60 @@ class serviceControl extends apiHomeControl
     {
 
         $model_service = Model('serviceapi');
-
         $model_upload = Model('upload');
         $model = new Model();
-//        //  排序
+
         $condition = array();
-        $condition['service.gc_id'] = intval($_GET['cate_id']);
-        $condition['service.service_show'] = 1;
+        $condition['gc_id'] = intval($_GET['cate_id']);
+        $condition['service_show'] = 1;
 
-        $service_list = $model->table('service,company')->join('right join')->on('service.depart_id=company.company_id')->where($condition)->page($this->page)->order('service_sort desc')->select();
-
-//        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
+        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
+        $m_fav = Model('favorites');
 
         foreach ($service_list as $key => $val) {
-            $imgs = $model_upload->getUploadList(array('item_id'=>$val['service_id']));
+            // 获取收藏状态
+            if (isset($_GET['uid'])) {
+                $service_list[$key]['fav_status'] = $m_fav->checkFavorites($service_list[$key]['service_id'], 'service', $_GET['uid']) ? 1 : 0;
+            }
+            $imgs = $model_upload->getUploadList(array('item_id' => $val['service_id']));
             $service_list[$key]['service_image'] = $imgs[0]['file_name'];
         }
 
         $pageCount = $model_service->gettotalpage();
+        output_data(array('services' => $service_list), mobile_page($pageCount));
 
+    }
+
+    /**
+     * GET 搜索服务
+     */
+    public function search_serviceOp()
+    {
+
+        $model_service = Model('serviceapi');
+        $model_upload = Model('upload');
+        $model = new Model();
+
+        $condition = array();
+
+        if ($_GET['keyword'] != '') {
+            $condition['service_name|service_tag'] = array('like', '%' . $_GET['keyword'] . '%');
+        }
+
+        $condition['service_show'] = 1;
+        $service_list = $model_service->geServiceList($condition, '*', 'service_sort asc', $this->page);
+        $m_fav = Model('favorites');
+
+        foreach ($service_list as $key => $val) {
+            // 获取收藏状态
+            if (isset($_GET['uid'])) {
+                $service_list[$key]['fav_status'] = $m_fav->checkFavorites($service_list[$key]['service_id'], 'service', $_GET['uid']) ? 1 : 0;
+            }
+            $imgs = $model_upload->getUploadList(array('item_id' => $val['service_id']));
+            $service_list[$key]['service_image'] = $imgs[0]['file_name'];
+        }
+
+        $pageCount = $model_service->gettotalpage();
         output_data(array('services' => $service_list), mobile_page($pageCount));
 
     }
@@ -60,14 +95,6 @@ class serviceControl extends apiHomeControl
 
         $where = array('service_id' => $service_id);
         $service_info = $m_service->where($where)->order('service_id desc')->select();
-
-        // TODO 服务收藏
-//        if (intval($_GET['fav_id']) > 0) {
-//            $favorites_class = Model('flea_favorites');
-//            if (!$favorites_class->checkFavorites(intval($_GET['fav_id']), 'flea', intval($_GET['user_id']))) {
-//                $service_info[0][is_favorite] = false;
-//            }
-//        }
 
         $goods_image_path = UPLOAD_SITE_URL . DS . ATTACH_SERVICE . '/';    //店铺商品图片目录地址
 

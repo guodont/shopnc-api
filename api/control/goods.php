@@ -79,7 +79,7 @@ class goodsControl extends apiHomeControl
         if (!empty($_GET['gc_id']) && intval($_GET['gc_id']) > 0) {
             $condition['gc_id'] = $_GET['gc_id'];
         } elseif (!empty($_GET['keyword'])) {
-            $condition['goods_name|goods_jingle'] = array('like', '%' . $_GET['keyword'] . '%');
+            $condition['goods_name|goods_cas|goods_jingle'] = array('like', '%' . $_GET['keyword'] . '%');
         } elseif (!empty($_GET['code'])) {
             $condition['goods_serial|goods_jingle'] = array('like', '%' . $_GET['code'] . '%');
         }

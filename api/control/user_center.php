@@ -90,40 +90,32 @@ class user_centerControl extends apiHomeControl
     }
 
     /**
+     * 获取用户基本信息
+     */
+    public function getUserBaseInfoOp()
+    {
+        $member_info = array();
+        $model_member = Model('member');
+        $member_info = $model_member->getMemberInfoByID($this->member_id);
+        if ($member_info) {
+            $member['member_id'] = $member_info['member_id'];
+            $member['member_name'] = $member_info['member_name'];
+            $member['member_avatar'] = getMemberAvatar($member_info['member_avatar']);
+        } else {
+            output_error("用户不存在");
+        }
+        output_data(array('user_base_info' => $member));
+    }
+
+    /**
      * GET 用户所有粉丝
      */
     public function followersOp()
     {
-        $friend_model = Model('sns_friend');
+        $friend_model = Model('sns_friend_api');
         //粉丝列表
-        //设置每页数量和总数！！！
-        $page = new Page();
-        pagecmd('setEachNum', $this->page);
-//        pagecmd('setTotalNum',$friend_model->count());
         $field = 'member_id,member_name,member_avatar,member_sex,friend_followstate';
-        $fan_list = $friend_model->listFriend(array('friend_tomid' => $this->member_id), $field, $page, 'fromdetail');
-        if (!empty($fan_list)) {
-            foreach ($fan_list as $k => $v) {
-                $v['member_avatar'] = getMemberAvatar($v['member_avatar']);
-                $v['member_sex'] = $this->m_sex($v['member_sex']);
-                $fan_list[$k] = $v;
-            }
-        }
-        $pageCount = pagecmd('gettotalpage', $this->page);
-        output_data(array('followers' => $fan_list), mobile_page($pageCount));
-    }
-
-    /**
-     * GET 用户所有关注人
-     */
-    public function followingOp()
-    {
-        $friend_model = Model('sns_friend');
-        //关注列表
-        $page = new Page();
-        pagecmd('setEachNum', $this->page);
-        $field = 'member_id,member_name,member_avatar,member_sex,friend_followstate';
-        $follow_list = $friend_model->listFriend(array('friend_frommid' => $this->member_id), $field, $page, 'detail');
+        $follow_list = $friend_model->listFollowers($this->member_id, $field, $this->page);
         if (!empty($follow_list)) {
             foreach ($follow_list as $k => $v) {
                 $v['member_avatar'] = getMemberAvatar($v['member_avatar']);
@@ -131,8 +123,28 @@ class user_centerControl extends apiHomeControl
                 $follow_list[$k] = $v;
             }
         }
-        $pageCount = pagecmd('gettotalpage', $this->page);
-        output_data(array('followings' => $follow_list), mobile_page($pageCount));
+        $pageCount = $friend_model->gettotalpage();
+        output_data(array('follows' => $follow_list), mobile_page($pageCount));
+    }
+
+    /**
+     * GET 用户所有关注人
+     */
+    public function followingOp()
+    {
+        $friend_model = Model('sns_friend_api');
+        //关注列表
+        $field = 'member_id,member_name,member_avatar,member_sex,friend_followstate';
+        $follow_list = $friend_model->listFollowings($this->member_id, $field, $this->page);
+        if (!empty($follow_list)) {
+            foreach ($follow_list as $k => $v) {
+                $v['member_avatar'] = getMemberAvatar($v['member_avatar']);
+                $v['sex_class'] = $this->m_sex($v['member_sex']);
+                $follow_list[$k] = $v;
+            }
+        }
+        $pageCount = $friend_model->gettotalpage();
+        output_data(array('follows' => $follow_list), mobile_page($pageCount));
     }
 
 
@@ -142,7 +154,7 @@ class user_centerControl extends apiHomeControl
     public function user_circlesOp()
     {
         $model = Model();
-        $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id, 'cm_state' => array('not in',array(0,2))))->order('cm_jointime desc')->select();
+        $cm_list = $model->table('circle_member')->where(array('member_id' => $this->member_id, 'cm_state' => array('not in', array(0, 2))))->order('cm_jointime desc')->select();
         if (!empty($cm_list)) {
             $cm_list = array_under_reset($cm_list, 'circle_id');
             $circleid_array = array_keys($cm_list);
@@ -159,7 +171,7 @@ class user_centerControl extends apiHomeControl
         $model = Model();
         $m_theme = $model->table('circle_theme');
         $types = array(5, 6);
-        $where['thclass_id'] = array('not in',$types);
+        $where['thclass_id'] = array('not in', $types);
         $where['member_id'] = $this->member_id;
         $theme_list = $m_theme->where($where)->page($this->page)->order('theme_addtime desc')->select();
         $pageCount = $m_theme->gettotalpage();
@@ -182,7 +194,7 @@ class user_centerControl extends apiHomeControl
         $model = new Model();
         $m_reply = $model->table('circle_threply');
         $where['circle_threply.member_id'] = $this->member_id;
-        $where['circle_theme.thclass_id'] = array('not in',$types);
+        $where['circle_theme.thclass_id'] = array('not in', $types);
         $reply_info = $model->table('circle_threply,circle_theme')->join('right join')->on('circle_threply.theme_id=circle_theme.theme_id')->where($where)->page($this->page)->order('reply_addtime desc')->select();
         $pageCount = $m_reply->gettotalpage();
         if (!empty($reply_info)) {
@@ -242,49 +254,46 @@ class user_centerControl extends apiHomeControl
         //定义索引数组，用于记录节点在目标数组的位置，类似指针
         $p = array();
 
-        foreach($data as $val)
-        {
-            if($val['depart_parent_id'] == 0)
-            {
+        foreach ($data as $val) {
+            if ($val['depart_parent_id'] == 0) {
                 $i = count($result);
-                $result[$i] = isset($p[$val['depart_id']])? array_merge($val,$p[$val['depart_id']]) : $val;
-                $p[$val['depart_id']] = & $result[$i];
+                $result[$i] = isset($p[$val['depart_id']]) ? array_merge($val, $p[$val['depart_id']]) : $val;
+                $p[$val['depart_id']] = &$result[$i];
             } else {
-                if($val['depart_deep'] == 2) {
+                if ($val['depart_deep'] == 2) {
                     $i = count($p[$val['depart_parent_id']]['cities']);
                     $p[$val['depart_parent_id']]['cities'][$i] = $val;
-                    $p[$val['depart_id']] = & $p[$val['depart_parent_id']]['cities'][$i];
+                    $p[$val['depart_id']] = &$p[$val['depart_parent_id']]['cities'][$i];
                 } elseif ($val['depart_deep'] == 3) {
                     $i = count($p[$val['depart_parent_id']]['counties']);
                     $p[$val['depart_parent_id']]['counties'][$i] = $val;
-                    $p[$val['depart_id']] = & $p[$val['depart_parent_id']]['counties'][$i];
+                    $p[$val['depart_id']] = &$p[$val['depart_parent_id']]['counties'][$i];
                 }
             }
         }
         return $result;
     }
+
     function treeArray2($data)
     {
         $result = array();
         //定义索引数组，用于记录节点在目标数组的位置，类似指针
         $p = array();
 
-        foreach($data as $val)
-        {
-            if($val['discipline_parent_id'] == 0)
-            {
+        foreach ($data as $val) {
+            if ($val['discipline_parent_id'] == 0) {
                 $i = count($result);
-                $result[$i] = isset($p[$val['discipline_id']])? array_merge($val,$p[$val['discipline_id']]) : $val;
-                $p[$val['discipline_id']] = & $result[$i];
+                $result[$i] = isset($p[$val['discipline_id']]) ? array_merge($val, $p[$val['discipline_id']]) : $val;
+                $p[$val['discipline_id']] = &$result[$i];
             } else {
-                if($val['discipline_deep'] == 2) {
+                if ($val['discipline_deep'] == 2) {
                     $i = count($p[$val['discipline_parent_id']]['cities']);
                     $p[$val['discipline_parent_id']]['cities'][$i] = $val;
-                    $p[$val['discipline_id']] = & $p[$val['discipline_parent_id']]['cities'][$i];
+                    $p[$val['discipline_id']] = &$p[$val['discipline_parent_id']]['cities'][$i];
                 } elseif ($val['discipline_deep'] == 3) {
                     $i = count($p[$val['discipline_parent_id']]['counties']);
                     $p[$val['discipline_parent_id']]['counties'][$i] = $val;
-                    $p[$val['discipline_id']] = & $p[$val['discipline_parent_id']]['counties'][$i];
+                    $p[$val['discipline_id']] = &$p[$val['discipline_parent_id']]['counties'][$i];
                 }
             }
         }
@@ -292,5 +301,16 @@ class user_centerControl extends apiHomeControl
         return $result;
     }
 
+
+    /**
+     * 用户等级设定规则
+     */
+    public function gradeSettingOp()
+    {
+        $model_setting = Model('setting');
+        $list_setting = $model_setting->getListSetting();
+        $list_setting['member_grade'] = $list_setting['member_grade'] ? unserialize($list_setting['member_grade']) : array();
+        output_data(array("gradeSetting" => $list_setting['member_grade']));
+    }
 
 }

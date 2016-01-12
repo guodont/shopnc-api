@@ -14,7 +14,6 @@ use JPush\Exception\APIConnectionException;
 use JPush\Exception\APIRequestException;
 
 class articleControl extends SystemControl{
-
 	public function __construct(){
 		parent::__construct();
 		Language::read('article');
@@ -189,6 +188,7 @@ class articleControl extends SystemControl{
 				$insert_array['article_sort'] = trim($_POST['article_sort']);
 				$insert_array['article_abstract'] = trim($_POST['article_abstract']);				
 				$insert_array['article_content'] = trim($_POST['article_content']);
+				$insert_array['article_pic'] = trim($_POST['article_pic']);
 				$insert_array['article_time'] = time();
 				$result = $model_article->add($insert_array);
 				if ($result){
@@ -297,7 +297,7 @@ class articleControl extends SystemControl{
 				$update_array['article_show'] = trim($_POST['article_show']);
 				$update_array['article_sort'] = trim($_POST['article_sort']);
 				$update_array['article_content'] = trim($_POST['article_content']);
-
+				$update_array['article_pic'] = trim($_POST['article_pic']);
 				$result = $model_article->update($update_array);
 				if ($result){
 					/**

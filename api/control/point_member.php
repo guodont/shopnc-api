@@ -44,6 +44,7 @@ class point_memberControl extends apiMemberControl
         $where = array();
         $where['pgoods_show'] = $pgoodsshowstate_arr['show'][0];
         $where['pgoods_state'] = $pgoodsopenstate_arr['open'][0];
+        $where['pgoods_storage'] = array('gt', 0);
         //会员级别
         $level_filter = array();
         if (isset($_GET['level'])) {
@@ -224,9 +225,9 @@ class point_memberControl extends apiMemberControl
         }
         $model_voucher = Model('voucher');
         //验证是否可以兑换代金券
-        $data = $model_voucher->getCanChangeTemplateInfo($vid, intval($this->member_info['member_id']), intval($_POST['store_id']));
+        $data = $model_voucher->getCanChangeTemplateInfo($vid, intval($this->member_info['member_id']), intval($_SESSION['store_id']));
         if ($data['state'] == false) {
-            echo 0;
+            echo 2;
             die;
         }
         //添加代金券信息
@@ -377,59 +378,35 @@ class point_memberControl extends apiMemberControl
     public function scoreOrdersOp()
     {
 
-
-//        $model_pointorder = Model('pointorder');
-//        $order_list = $model_pointorder->getPointOrderList($where, '*', 10, 0, 'point_orderid desc');
-//        $order_idarr = array();
-//        $order_listnew = array();
-//        if (is_array($order_list) && count($order_list)>0){
-//            foreach ($order_list as $k => $v){
-//                $order_listnew[$v['point_orderid']] = $v;
-//                $order_idarr[] = $v['point_orderid'];
-//            }
-//        }
-//
-//        //查询兑换商品
-//        if (is_array($order_idarr) && count($order_idarr)>0){
-//            $prod_list = $model_pointorder->getPointOrderGoodsList(array('point_orderid'=>array('in',$order_idarr)));
-//            if (is_array($prod_list) && count($prod_list)>0){
-//                foreach ($prod_list as $v){
-//                    if (isset($order_listnew[$v['point_orderid']])){
-//                        $order_listnew[$v['point_orderid']]['prodlist'][] = $v;
-//                    }
-//                }
-//            }
-//        }
-        //兑换信息列表
         $where = array();
         $where['point_buyerid'] = $this->member_info['member_id'];
         $model_pointorder = Model('pointorder');
-        $order_list = $model_pointorder->getPointOrderList($where, '*', 10, 0, 'point_orderid desc');
-        $pageCount = $model_pointorder->gettotalpage();
+        $order_list = $model_pointorder->getPointOrderList($where, '*', $this->page, 0, 'point_orderid desc');
         $order_idarr = array();
         $order_listnew = array();
         if (is_array($order_list) && count($order_list) > 0) {
             foreach ($order_list as $k => $v) {
-                $order_listnew[] = $v;
+                $order_listnew[$v['point_orderid']] = $v;
                 $order_idarr[] = $v['point_orderid'];
             }
         }
-
         //查询兑换商品
         if (is_array($order_idarr) && count($order_idarr) > 0) {
             $prod_list = $model_pointorder->getPointOrderGoodsList(array('point_orderid' => array('in', $order_idarr)));
             if (is_array($prod_list) && count($prod_list) > 0) {
-                foreach ($prod_list as $k => $v) {
-//                    if ($order_listnew[$k]['point_orderid'] == $v['point_orderid'])
-                    $order_listnew[]['prodlist'] = $v;
-//                    if (isset($order_listnew[$v['point_orderid']])){
-//                        $order_listnew[]['prodlist'][] = $v;
-////                        $order_listnew['prodlist'][] = $v;
-//                    }
+                foreach ($prod_list as $v) {
+                    if (isset($order_listnew[$v['point_orderid']])) {
+                        $order_listnew[$v['point_orderid']]['prodlist'][] = $v;
+                    }
                 }
             }
         }
-        output_data(array("score_orders" => $order_listnew), mobile_page($pageCount));
+        $pageCount = $model_pointorder->gettotalpage();
+        $new_order_group_list = array();
+        foreach ($order_listnew as $key => $value) {
+            $new_order_group_list[] = $value;
+        }
+        output_data(array("score_orders" => $new_order_group_list), mobile_page($pageCount));
     }
 
 
@@ -459,7 +436,7 @@ class point_memberControl extends apiMemberControl
      */
     public function receiving_orderOp()
     {
-        $data = Model('pointorder')->receivingPointOrder($_GET['order_id']);
+        $data = Model('pointorder')->receivingPointOrder($_GET['order_id'], $this->member_info['member_id']);
         if ($data['state']) {
             echo 1;
         } else {

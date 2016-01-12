@@ -24,21 +24,25 @@ class service_opControl extends apiMemberControl
     {
         $mod_order = Model('service_yuyue_api');
         $data = array();
+        $service_id = intval($_POST['service_id']);
         $data['yuyue_member_id'] = $this->member_id;
-        $data['yuyue_service_id'] = trim($_POST['service_id']);
+        $data['yuyue_service_id'] = $service_id;
         $data['yuyue_company_id'] = trim($_POST['company_id']);
         $data['yuyue_company'] = $_POST['company'];
         $data['yuyue_member_name'] = $this->member_info['member_name'];
         $data['yuyue_content'] = $_POST['remark'];
         $data['yuyue_status'] = 0;
-        $data['yuyue_pay_way'] = trim($_POST['pay_way']);
+        $data['yuyue_pay_way'] = intval($_POST['pay_way']);
         $data['yuyue_start_time'] = trim($_POST['start_time']);
         $data['yuyue_end_time'] = trim($_POST['end_time']);
         $data['yuyue_time'] = time();
         //  生成订单号
         $data['yuyue_pay_number'] = $this->makePaySn($this->member_id);
-
         if ($mod_order->save($data)) {
+            //更新服务预约数
+            $mod_service = Model('service');
+            $service_info = $mod_service->getOneservice($service_id);
+            $mod_service->updateGoods(array('salenum' => ($service_info['salenum'] + 1)), $service_id);
             echo 1;
         } else {
             echo 0;
@@ -109,21 +113,9 @@ class service_opControl extends apiMemberControl
      */
     public function cancelFavTradeOp()
     {
-//        if (intval($_GET['fav_id']) > 0) {
-//            $favorites_class = Model('flea_favorites');
-//            if (!$favorites_class->delFavorites(intval($_GET['fav_id']), 'flea')) {
-//                output_error("操作失败");
-//                die;
-//            }
-//        }
-//        output_data("操作成功");
-
         if (intval($_GET['fav_id']) > 0) {
             $favorites_class = Model('favorites');
-            $condition['fav_id'] = intval($_GET['fav_id']);
-            $condition['member_id'] = $this->member_id;
-            $condition['fav_type'] = 'service';
-            if (!$favorites_class->delFavorites($condition)) {
+            if (!$favorites_class->delFavorites2(intval($_GET['fav_id']), 'service',$this->member_id)) {
                 output_error("操作失败");
                 die;
             }
@@ -151,10 +143,17 @@ class service_opControl extends apiMemberControl
     public function myOrdersOp()
     {
         $model = new Model();
+        $model_upload = Model('upload');
+
         $mod_order = $model->table('service_yuyue');
         $where = array();
         $where['service_yuyue.yuyue_member_id'] = $this->member_id;
         $orders = $model->table('service_yuyue,service')->join('right join')->on('service_yuyue.yuyue_service_id=service.service_id')->where($where)->page($this->page)->order('yuyue_time desc')->select();
+
+        foreach ($orders as $key => $val) {
+            $imgs = $model_upload->getUploadList(array('item_id' => $val['service_id']));
+            $orders[$key]['service_image'] = $imgs[0]['file_name'];
+        }
         $pageCount = $mod_order->gettotalpage();
         output_data(array('yuyues' => $orders), mobile_page($pageCount));
     }
@@ -173,7 +172,7 @@ class service_opControl extends apiMemberControl
         $mod_order = Model('service_yuyue_api');
         $mod_service = Model('service');
         //获取appId
-        $appId = $_POST['appId'];
+        $appId = $_GET['appId'];
         $yuyueId = $_GET['yuyue_id'];
         //根据服务预约id找出记录
         $where['yuyue_id'] = $yuyueId;
@@ -191,7 +190,7 @@ class service_opControl extends apiMemberControl
         //获取请求ip
         $clientIp = "";
         //获取支付方式
-        $channel = $_POST['channel'];
+        $channel = $_GET['channel'];
 //        'app_u1yjzHbvvLeLybbT'
         $extra = array();
         try {

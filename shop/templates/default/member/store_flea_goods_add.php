@@ -171,40 +171,23 @@ add_spec h2 {padding-left: 10px;}
         </dd>
       </dl>	  	  
       <dl>
-        <dt class="required"><em class="pngFix"></em><?php echo $lang['flea_current_area'];?>：</dt>
+        <dt class="required"><em class="pngFix"></em>所在单位：</dt>
         <dd>
-          <div class="select_add" id="region" style="width:500px;border:1px solide red;">
-            <?php if(!empty($output['goods']['flea_area_id'])){?>
-            <span><?php echo $output['goods']['flea_area_name'];?></span>
-            <input type="button" value="<?php echo $lang['nc_edit'];?>" class="edit_region" />
-            <select style="display:none;">
-              <option><?php echo $lang['nc_please_choose'];?></option>
-              <?php if(!empty($output['area_one_level']) && is_array($output['area_one_level'])){ ?>
-              <?php foreach($output['area_one_level'] as $k => $v){ ?>
-              <option value="<?php echo $v['flea_area_id'];?>"><?php echo $v['flea_area_name'];?></option>
+        <select name="flea_depart_id" id="flea_depart_id">
+              <option value=""><?php echo $lang['nc_please_choose'];?></option>
+              <?php if(!empty($output['depart_list']) && is_array($output['depart_list'])){ ?>
+              <?php foreach($output['depart_list'] as $k => $v){ ?>
+              <option <?php if($output['goods']['flea_depart_id'] == $v['depart_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['depart_id'];?>"><?php echo $v['depart_name'];?></option>
               <?php } ?>
               <?php } ?>
-            </select>
-            <?php }else{?>
-            <select>
-              <option><?php echo $lang['nc_please_choose'];?></option>
-              <?php if(!empty($output['area_one_level']) && is_array($output['area_one_level'])){ ?>
-              <?php foreach($output['area_one_level'] as $k => $v){ ?>
-              <option value="<?php echo $v['flea_area_id'];?>"><?php echo $v['flea_area_name'];?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-            <?php }?>
-            <input type="hidden" name="member_area_id" id="member_area_name" value="<?php echo $output['goods']['flea_area_id']?$output['goods']['flea_area_id']:'';?>" class="area_ids" />
-            <input type="hidden" name="member_area_name" id="member_area_name" value="<?php echo $output['goods']['flea_area_name'];?>" class="area_names" />
-          </div>
+        </select>
         </dd>
       </dl>
       <dl>
         <dt nc_type="no_spec" class="required"><em></em><?php echo $lang['store_goods_index_store_flea_price'].$lang['nc_colon'];?></dt>
         <dd nc_type="no_spec">
           <input name="goods_store_price" class="text" value="<?php echo $output['goods']['goods_store_price']; ?>" type="text" />
-        </dd>
+        &nbsp;&nbsp;&nbsp;交易价格为面议，请填写“0”        </dd>
       </dl>
       <dl>
         <dt class="required"><em class="pngFix"></em><?php echo $lang['flea_contact_person'].$lang['nc_colon'];?></dt>
@@ -254,12 +237,6 @@ $(document).ready(function(){
 			target:'#demo'
 		});
 		regionInit("region");
-		$('input[class="edit_region"]').click(function(){
-			$(this).css('display','none');
-			$('#area_id').val('');
-			$(this).parent().children('select').css('display','');
-			$(this).parent().children('span').css('display','none');
-		});
 		$('.des_demo').ajaxContent({
 			event:'click', //mouseover
 			loaderType:"img",
@@ -459,20 +436,6 @@ $(function(){
                 }
             },
 <?php } ?>
-<?php if ($output['goods']['goods_id']=='') { ?>            
-area_id: {
-	required: true,
-	remote   : {
-        url  : 'index.php?act=index&op=flea_area&check=1',
-        type : 'get',
-        data : {
-            region_id : function(){
-                return $('#area_id').val();
-            }
-        }
-    }
-},
-<?php }?>	
             goods_name : {
                 required   : true,
                 minlength  : 5,
@@ -504,12 +467,6 @@ area_id: {
                 remote  : '<?php echo $lang['store_goods_index_goods_class_error'];?>'
             },
 <?php } ?>
-<?php if ($output['goods']['goods_id']=='') { ?>            
-area_id: {
-	required: '<?php echo $lang['store_goods_index_flea_area'];?>',
-	remote: '<?php echo $lang['store_goods_index_flea_next_area'];?>'
-},
-<?php }?>
             goods_name  : {
                 required   : '<?php echo $lang['store_goods_index_flea_goods_name_null'];?>',
                 minlength  : '<?php echo $lang['store_goods_index_flea_title_limit'];?>',

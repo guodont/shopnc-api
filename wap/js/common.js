@@ -35,7 +35,8 @@ function delCookie(name){//删除cookie
 
 function checklogin(state){
 	if(state == 0){
-		location.href = WapSiteUrl+'/tmpl/member/login.html';
+		window.demo.clickOnAndroid();
+		//location.href = WapSiteUrl+'/tmpl/member/login.html';
 		return false;
 	}else {
 		return true;

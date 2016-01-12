@@ -62,23 +62,23 @@
       <tbody>
                 <tr class="hover">
                   <td class="w200">发表主题可获经验</td>
-                  <td><input id="c_exprelease" name="c_exprelease" value="<?php echo $output['list_setting']['exppoints_rule']['circle_exprelease'];?>" class="txt" type="text" style="width:60px;"></td>
+                  <td><input id="exp_release" name="exp_release" value="<?php echo $output['list_setting']['exppoints_rule']['exp_release'];?>" class="txt" type="text" style="width:60px;"></td>
                 </tr>
                 <tr class="hover">
                   <td>回复主题可获经验</td>
-                  <td><input id="c_expreply" name="c_expreply" value="<?php echo $output['list_setting']['exppoints_rule']['circle_expreply'];?>" class="txt" type="text" style="width:60px;"></td>
+                  <td><input id="exp_reply" name="exp_reply" value="<?php echo $output['list_setting']['exppoints_rule']['exp_reply'];?>" class="txt" type="text" style="width:60px;"></td>
                 </tr>
                 <tr class="hover">
                   <td>每天发表、回复主题可获最高经验</td>
-                  <td><input id="c_expreleasemax" name="c_expreleasemax" value="<?php echo $output['list_setting']['exppoints_rule']['circle_expreleasemax'];?>" class="txt" type="text" style="width:60px;"></td>
+                  <td><input id="exp_releasemax" name="exp_releasemax" value="<?php echo $output['list_setting']['exppoints_rule']['exp_releasemax'];?>" class="txt" type="text" style="width:60px;"></td>
                 </tr>
                 <tr class="hover">
                   <td>被回复主题可获经验</td>
-                  <td><input id="c_expreplied" name="c_expreplied" value="<?php echo $output['list_setting']['exppoints_rule']['circle_expreplied'];?>" class="txt" type="text" style="width:60px;"></td>
+                  <td><input id="exp_replied" name="exp_replied" value="<?php echo $output['list_setting']['exppoints_rule']['exp_replied'];?>" class="txt" type="text" style="width:60px;"></td>
                 </tr>			
                 <tr class="hover">
                   <td>每天被回复主题可获最高经验</td>
-                  <td><input id="c_exprepliedmax" name="c_exprepliedmax" value="<?php echo $output['list_setting']['exppoints_rule']['circle_exprepliedmax'];?>" class="txt" type="text" style="width:60px;"></td>
+                  <td><input id="exp_repliedmax" name="exp_repliedmax" value="<?php echo $output['list_setting']['exppoints_rule']['exp_repliedmax'];?>" class="txt" type="text" style="width:60px;"></td>
                 </tr>	
       </tbody>	  	  
       <tfoot>

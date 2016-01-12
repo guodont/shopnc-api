@@ -40,7 +40,7 @@
         </tr>		
         <tr class="noborder">
           <td class="vatop rowform"><select name="depart_id" id="depart_id">
-              <option value=""><?php echo $lang['nc_please_choose'];?>...</option>
+              <option value=""><?php echo $lang['nc_please_choose'];?></option>
               <?php if(!empty($output['depart_list']) && is_array($output['depart_list'])){ ?>
               <?php foreach($output['depart_list'] as $k => $v){ ?>
               <option <?php if($output['depart_id'] == $v['depart_id']){ ?>selected='selected'<?php } ?> value="<?php echo $v['depart_id'];?>"><?php echo $v['depart_name'];?></option>
@@ -62,7 +62,21 @@
         <tr class="noborder">
           <td class="vatop rowform"><input type="text" value="" name="service_now_price" id="service_now_price" class="txt"></td>
           <td class="vatop tips"><?php echo $lang['service_now_price_null'];?></td>
-        </tr>		
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="serviceform">单位:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="service_unit" id="service_unit" class="txt"></td>
+          <td class="vatop tips">单位不能为空</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="required"><label for="serviceform">标签:</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="service_tag" id="service_tag" class="txt"></td>
+          <td class="vatop tips">标签不能为空</td>
+        </tr>						
         <tr>
           <td colspan="2" class="required"><label><?php echo $lang['service_show'];?>:</label></td>
         </tr>

@@ -301,23 +301,34 @@ class circle_themeControl extends apiBaseCircleThemeControl
 
                     if ($this->theme_info['member_id'] != $this->member_info['member_id']) {
                         // Experience for replyer
+//                        $param = array();
+//                        $param['member_id'] = $this->member_info['member_id'];
+//                        $param['member_name'] = $this->member_info['member_name'];
+//                        $param['circle_id'] = $this->c_id;
+//                        $param['theme_id'] = $this->t_id;
+//                        $param['type'] = 'reply';
+//                        $param['itemid'] = $this->t_id . ',' . $reply_id;
+//                        Model('circle_exp')->saveExp($param);
+
                         $param = array();
-                        $param['member_id'] = $this->member_info['member_id'];
-                        $param['member_name'] = $this->member_info['member_name'];
-                        $param['circle_id'] = $this->c_id;
-                        $param['theme_id'] = $this->t_id;
-                        $param['type'] = 'reply';
-                        $param['itemid'] = $this->t_id . ',' . $reply_id;
-                        Model('circle_exp')->saveExp($param);
+                        $param['exp_memberid'] = $this->member_info['member_id'];
+                        $param['exp_membername'] = $this->member_info['member_name'];
+                        Model('exppoints')->saveExppointsLog('reply', $param, true);
+
                         // Experience for releaser
+//                        $param = array();
+//                        $param['member_id'] = $this->theme_info['member_id'];
+//                        $param['member_name'] = $this->theme_info['member_name'];
+//                        $param['theme_id'] = $this->t_id;
+//                        $param['circle_id'] = $this->c_id;
+//                        $param['type'] = 'replied';
+//                        $param['itemid'] = $this->t_id;
+//                        Model('circle_exp')->saveExp($param);
                         $param = array();
-                        $param['member_id'] = $this->theme_info['member_id'];
-                        $param['member_name'] = $this->theme_info['member_name'];
-                        $param['theme_id'] = $this->t_id;
-                        $param['circle_id'] = $this->c_id;
-                        $param['type'] = 'replied';
-                        $param['itemid'] = $this->t_id;
-                        Model('circle_exp')->saveExp($param);
+                        $param['exp_memberid'] = $this->theme_info['member_id'];
+                        $param['exp_membername'] = $this->theme_info['member_name'];
+                        Model('exppoints')->saveExppointsLog('replied', $param, true);
+
                     }
 
                     $jpush = new JPush();

@@ -35,6 +35,7 @@ class member_orderControl extends apiMemberControl
 
         $order_list_array = $model_order->getNormalOrderList($condition, $this->page, '*', 'order_id desc', '', array('order_goods'));
 
+//        var_dump($order_list_array);
         $order_group_list = array();
         $order_pay_sn_array = array();
         foreach ($order_list_array as $value) {

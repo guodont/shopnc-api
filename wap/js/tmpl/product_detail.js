@@ -146,8 +146,7 @@ $(function (){
             $(".pd-collect").click(function (){
                 var key = getcookie('key');//登录标记
                 if(key==''){
-                  window.location.href = WapSiteUrl+'/tmpl/member/login.html';
-                    //window.demo.clickOnAndroid();
+                  window.demo.clickOnAndroid();
                 }else {
                   $.ajax({
                     url:ApiUrl+"/index.php?act=member_favorites&op=favorites_add",
@@ -180,8 +179,7 @@ $(function (){
             $(".add-to-cart").click(function (){
               var key = getcookie('key');//登录标记
                if(key==''){
-                   //window.demo.clickOnAndroid();
-                   window.location.href = WapSiteUrl+'/tmpl/member/login.html';
+                   window.demo.clickOnAndroid();
                }else{
                   var quantity = parseInt($(".buy-num").val());
                   $.ajax({
@@ -222,7 +220,7 @@ $(function (){
                 $(".buy-now").click(function() {
                     var key = getcookie('key');//登录标记
                     if (key == '') {
-                        window.location.href = WapSiteUrl+'/tmpl/member/login.html';
+                        window.demo.clickOnAndroid();
                         return false;
                     }
 
