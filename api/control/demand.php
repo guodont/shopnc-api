@@ -14,7 +14,7 @@ class demandControl extends apiHomeControl
 
     private $where;
 
-    private $fields = "member_id,member_name,demand_id,demand_name,demand_content,demand_budget,demand_click,demand_collect_num,demand_depart_name,demand_add_time,gc_name,gc_id,
+    private $fields = "member_id,member_name,demand_id,demand_name,demand_content,demand_budget,demand_click,demand_collect_num,demand_depart_name,demand_add_time,demand_end_time,gc_name,gc_id,
         demand_pname,demand_pphone,demand_status,demand_type";
 
     public function __construct()

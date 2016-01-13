@@ -370,6 +370,40 @@ class member_centerControl extends apiMemberControl
         output_data(array('trade_list' => $trade_list), mobile_page($page_count));
     }
 
+    /**
+     * GET 需求收藏列表
+     */
+    public function demand_fav_listOp()
+    {
+        $model_favorites = Model('trade_favorites');
+
+        $favorites_list = $model_favorites->getFavoritesList(array('member_id' => $this->member_id, 'fav_type' => 'demand'), '*', $this->page);
+        $page_count = $model_favorites->gettotalpage();
+
+        $favorites_id = '';
+        foreach ($favorites_list as $value) {
+            $favorites_id .= $value['fav_id'] . ',';
+        }
+        $favorites_id = rtrim($favorites_id, ',');
+
+
+        $model_demand = Model('demand');
+
+        $field = "member_id,member_name,demand_id,demand_name,demand_content,demand_budget,demand_click,demand_collect_num,demand_depart_name,demand_add_time,demand_end_time,gc_name,gc_id,
+        demand_pname,demand_pphone,demand_status,demand_type";
+
+        $trade_list = $model_demand->getGoodsList(array('demand_id' => array('in', $favorites_id)), $field);
+
+        if (is_array($trade_list) and !empty($trade_list)) {
+            foreach ($trade_list as $key => $val) {
+                $trade_list[$key]['fav_status'] = 1;
+                $trade_list[$key]['member_avatar'] = getMemberAvatarForID($trade_list[$key]['member_id']);
+            }
+        }
+
+        output_data(array('demands' => $trade_list), mobile_page($page_count));
+    }
+
 
     /**
      * GET 服务收藏列表
