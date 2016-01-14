@@ -2,13 +2,15 @@
 /**
  * 工作单位模型
  *
- 
+
  */
 defined('InShopNC') or exit('Access Invalid!');
 
-class departModel extends Model {
+class departModel extends Model
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct('member_depart');
     }
 
@@ -17,8 +19,9 @@ class departModel extends Model {
      *
      * @return mixed
      */
-    public function getDepartList($condition = array(), $fields = '*',$group = '') {
-        return $this->where($condition)->field($fields)->order("depart_deep asc")->limit(false)->group($group)->select();
+    public function getDepartList($condition = array(), $fields = '*', $order = 'depart_deep asc', $group = '')
+    {
+        return $this->where($condition)->field($fields)->order($order)->limit(false)->group($group)->select();
     }
 
     /**
@@ -26,7 +29,8 @@ class departModel extends Model {
      *
      * @return mixed
      */
-    public function getAreaInfo($condition = array(), $fileds = '*') {
+    public function getAreaInfo($condition = array(), $fileds = '*')
+    {
         return $this->where($condition)->field($fileds)->find();
     }
 
@@ -35,7 +39,8 @@ class departModel extends Model {
      *
      * @return array 键为id 值为名称字符串
      */
-    public function getTopLevelAreas() {
+    public function getTopLevelAreas()
+    {
         $data = $this->getCache();
 
         $arr = array();
@@ -51,7 +56,8 @@ class departModel extends Model {
      *
      * @return array 键为市级id 值为省级id
      */
-    public function getCityProvince() {
+    public function getCityProvince()
+    {
         $data = $this->getCache();
 
         $arr = array();
@@ -69,7 +75,8 @@ class departModel extends Model {
      *
      * @return array
      */
-    public function getAreas() {
+    public function getAreas()
+    {
         return $this->getCache();
     }
 
@@ -78,7 +85,8 @@ class departModel extends Model {
      *
      * @return array 键为id 值为名称字符串
      */
-    public function getAreaNames() {
+    public function getAreaNames()
+    {
         $data = $this->getCache();
 
         return $data['name'];
@@ -89,7 +97,8 @@ class departModel extends Model {
      *
      * @return array
      */
-    public function getAreaArrayForJson() {
+    public function getAreaArrayForJson()
+    {
         $data = $this->getCache();
 
         $arr = array();
@@ -133,7 +142,8 @@ class departModel extends Model {
      *
      * @return array
      */
-    protected function getCache() {
+    protected function getCache()
+    {
         // 对象属性中有数据则返回
         if ($this->cachedData !== null)
             return $this->cachedData;
@@ -147,7 +157,7 @@ class departModel extends Model {
         // 查库
         $data = array();
         $area_all_array = $this->limit(false)->select();
-        foreach ((array) $area_all_array as $a) {
+        foreach ((array)$area_all_array as $a) {
             $data['name'][$a['area_id']] = $a['area_name'];
             $data['parent'][$a['area_id']] = $a['area_parent_id'];
             $data['children'][$a['area_parent_id']][] = $a['area_id'];

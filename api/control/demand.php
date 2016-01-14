@@ -30,7 +30,7 @@ class demandControl extends apiHomeControl
             $this->where = array('demand_status' => 1, 'demand_type' => 1);
         } else {
             //  默认获取全部
-            $this->where = array('demand_status' => 1);
+            $this->where = array('demand_status' => 1, 'demand_end_time' => array('gt', TIMESTAMP));
         }
     }
 
@@ -103,25 +103,23 @@ class demandControl extends apiHomeControl
             output_error("缺少id参数");
             die;
         }
-        $demand_id = $_GET['tid'];
+        $demand_id = intval($_GET['tid']);
         $where = array('demand_id' => $demand_id);
+
         $m_demand = Model('demand');
 
-        $demand_info = $m_demand->where($where)->order('demand_id desc')->select();
+        $demand_info = $m_demand->field($this->fields)->where($where)->order('demand_id desc')->select();
 
-        if (intval($_GET['fav_id']) > 0) {
-            $favorites_class = Model('flea_favorites');
-            if (!$favorites_class->checkFavorites(intval($_GET['fav_id']), 'demand', intval($_GET['user_id']))) {
-                $demand_info[0][is_favorite] = false;
-            }
-        }
-        $demand_info[0]['member_avatar'] = getMemberAvatarForID($demand_info['member_id']);
+        $demand_info[0]['member_avatar'] = getMemberAvatarForID($demand_info[0]['member_id']);
         /**
          * 浏览次数更新
          */
-        $m_demand->updateDemand(array('demand_click' => ($demand_info[0]['demand_click'] + 1)), $demand_id);
+        $result = $m_demand->updateDemand(array('demand_click' => ($demand_info[0]['demand_click'] + 1)), $demand_id);
 
-        output_data(array('demand_info' => $demand_info));
+        if ($result)
+            echo 1;
+        else
+            echo 0;
     }
 
     /**
